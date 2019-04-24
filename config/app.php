@@ -183,7 +183,7 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Yajra\DataTables\DataTablesServiceProvider::class,
         Yajra\DataTables\ButtonsServiceProvider::class,
-
+        Lunaweb\EmailVerification\Providers\EmailVerificationServiceProvider::class,
     ],
 
     /*
