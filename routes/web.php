@@ -23,7 +23,8 @@ Route::resource('users', 'usersController');
 Route::get('register/verify', 'Auth\RegisterController@verify')->name('verifyEmailLink');
 Route::get('register/verify/resend', 'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
 Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail');
-Route::group(['middleware' => ['web', 'auth', 'isEmailVerified']], function () 
+Route::group(['middleware' => ['web', 'auth', 'isEmailVerified']], function ()
 {
-    Route::get('/home', 'HomeController@index');
+
 });
+Route::get('/home', 'HomeController@index');
