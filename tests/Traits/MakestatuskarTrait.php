@@ -42,7 +42,10 @@ trait MakestatuskarTrait
         $fake = Faker::create();
 
         return array_merge([
-            'nama_stat' => $fake->word
+            'nama_stat' => $fake->word,
+            'deleted_at' => $fake->date('Y-m-d H:i:s'),
+            'created_at' => $fake->date('Y-m-d H:i:s'),
+            'updated_at' => $fake->date('Y-m-d H:i:s')
         ], $statuskarFields);
     }
 }

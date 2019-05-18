@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\os_doc;
+use App\Models\osdoc;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class os_docRepository
+ * Class osdocRepository
  * @package App\Repositories
- * @version May 18, 2019, 4:20 am UTC
+ * @version May 18, 2019, 4:35 pm UTC
  *
- * @method os_doc findWithoutFail($id, $columns = ['*'])
- * @method os_doc find($id, $columns = ['*'])
- * @method os_doc first($columns = ['*'])
+ * @method osdoc findWithoutFail($id, $columns = ['*'])
+ * @method osdoc find($id, $columns = ['*'])
+ * @method osdoc first($columns = ['*'])
 */
-class os_docRepository extends BaseRepository
+class osdocRepository extends BaseRepository
 {
     /**
      * @var array
@@ -35,6 +35,6 @@ class os_docRepository extends BaseRepository
      **/
     public function model()
     {
-        return os_doc::class;
+        return osdoc::class;
     }
 }

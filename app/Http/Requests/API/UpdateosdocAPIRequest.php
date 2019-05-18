@@ -2,10 +2,10 @@
 
 namespace App\Http\Requests\API;
 
-use App\Models\os_doc;
+use App\Models\osdoc;
 use InfyOm\Generator\Request\APIRequest;
 
-class Createos_docAPIRequest extends APIRequest
+class UpdateosdocAPIRequest extends APIRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,6 +24,6 @@ class Createos_docAPIRequest extends APIRequest
      */
     public function rules()
     {
-        return os_doc::$rules;
+        return osdoc::$rules;
     }
 }

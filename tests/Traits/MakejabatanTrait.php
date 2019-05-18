@@ -45,7 +45,10 @@ trait MakejabatanTrait
             'nama_jabatan' => $fake->word,
             'syarat_didik' => $fake->text,
             'syarat_latih' => $fake->text,
-            'syarat_pengalaman' => $fake->text
+            'syarat_pengalaman' => $fake->text,
+            'deleted_at' => $fake->date('Y-m-d H:i:s'),
+            'created_at' => $fake->date('Y-m-d H:i:s'),
+            'updated_at' => $fake->date('Y-m-d H:i:s')
         ], $jabatanFields);
     }
 }

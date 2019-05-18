@@ -37,9 +37,15 @@ Route::resource('karyawans', 'karyawanController');
 
 Route::resource('klsjabatans', 'klsjabatanController');
 
-Route::resource('osDocs', 'os_docController');
+Route::resource('osdocs', 'osdocController');
 
 Route::resource('statuskars', 'statuskarController');
+
+
+
+
+
+
 
 Route::resource('tipekars', 'tipekarController');
 

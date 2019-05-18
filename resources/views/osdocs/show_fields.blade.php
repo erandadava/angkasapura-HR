@@ -1,48 +1,66 @@
 <!-- Id Field -->
 <div class="form-group">
     {!! Form::label('ID', 'Id:') !!}
-    <p>{!! $osDoc->ID !!}</p>
+    <p>{!! $osdoc->ID !!}</p>
 </div>
 
 <!-- Id Kar Field -->
 <div class="form-group">
     {!! Form::label('ID_kar', 'Id Kar:') !!}
-    <p>{!! $osDoc->ID_kar !!}</p>
+    <p>{!! $osdoc->ID_kar !!}</p>
 </div>
 
 <!-- Doc Bpsj Field -->
 <div class="form-group">
     {!! Form::label('doc_bpsj', 'Doc Bpsj:') !!}
-    <p>{!! $osDoc->doc_bpsj !!}</p>
+    <p>{!! $osdoc->doc_bpsj !!}</p>
 </div>
 
 <!-- Doc Bpjsk Field -->
 <div class="form-group">
     {!! Form::label('doc_bpjsk', 'Doc Bpjsk:') !!}
-    <p>{!! $osDoc->doc_bpjsk !!}</p>
+    <p>{!! $osdoc->doc_bpjsk !!}</p>
 </div>
 
 <!-- Doc Lisensi Field -->
 <div class="form-group">
     {!! Form::label('doc_lisensi', 'Doc Lisensi:') !!}
-    <p>{!! $osDoc->doc_lisensi !!}</p>
+    <p>{!! $osdoc->doc_lisensi !!}</p>
 </div>
 
 <!-- Doc Nomlisensi Field -->
 <div class="form-group">
     {!! Form::label('doc_nomlisensi', 'Doc Nomlisensi:') !!}
-    <p>{!! $osDoc->doc_nomlisensi !!}</p>
+    <p>{!! $osdoc->doc_nomlisensi !!}</p>
 </div>
 
 <!-- Jangkawaktu Field -->
 <div class="form-group">
     {!! Form::label('jangkawaktu', 'Jangkawaktu:') !!}
-    <p>{!! $osDoc->jangkawaktu !!}</p>
+    <p>{!! $osdoc->jangkawaktu !!}</p>
 </div>
 
 <!-- Kontrakkerja Field -->
 <div class="form-group">
     {!! Form::label('kontrakkerja', 'Kontrakkerja:') !!}
-    <p>{!! $osDoc->kontrakkerja !!}</p>
+    <p>{!! $osdoc->kontrakkerja !!}</p>
+</div>
+
+<!-- Deleted At Field -->
+<div class="form-group">
+    {!! Form::label('deleted_at', 'Deleted At:') !!}
+    <p>{!! $osdoc->deleted_at !!}</p>
+</div>
+
+<!-- Created At Field -->
+<div class="form-group">
+    {!! Form::label('created_at', 'Created At:') !!}
+    <p>{!! $osdoc->created_at !!}</p>
+</div>
+
+<!-- Updated At Field -->
+<div class="form-group">
+    {!! Form::label('updated_at', 'Updated At:') !!}
+    <p>{!! $osdoc->updated_at !!}</p>
 </div>
 

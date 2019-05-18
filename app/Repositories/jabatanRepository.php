@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class jabatanRepository
  * @package App\Repositories
- * @version May 18, 2019, 4:14 am UTC
+ * @version May 18, 2019, 4:34 pm UTC
  *
  * @method jabatan findWithoutFail($id, $columns = ['*'])
  * @method jabatan find($id, $columns = ['*'])

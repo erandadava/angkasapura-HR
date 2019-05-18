@@ -28,3 +28,21 @@
     <p>{!! $jabatan->syarat_pengalaman !!}</p>
 </div>
 
+<!-- Deleted At Field -->
+<div class="form-group">
+    {!! Form::label('deleted_at', 'Deleted At:') !!}
+    <p>{!! $jabatan->deleted_at !!}</p>
+</div>
+
+<!-- Created At Field -->
+<div class="form-group">
+    {!! Form::label('created_at', 'Created At:') !!}
+    <p>{!! $jabatan->created_at !!}</p>
+</div>
+
+<!-- Updated At Field -->
+<div class="form-group">
+    {!! Form::label('updated_at', 'Updated At:') !!}
+    <p>{!! $jabatan->updated_at !!}</p>
+</div>
+

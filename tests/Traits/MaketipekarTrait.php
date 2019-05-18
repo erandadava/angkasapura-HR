@@ -42,7 +42,10 @@ trait MaketipekarTrait
         $fake = Faker::create();
 
         return array_merge([
-            'nama_tipekar' => $fake->word
+            'nama_tipekar' => $fake->word,
+            'deleted_at' => $fake->date('Y-m-d H:i:s'),
+            'created_at' => $fake->date('Y-m-d H:i:s'),
+            'updated_at' => $fake->date('Y-m-d H:i:s')
         ], $tipekarFields);
     }
 }

@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class statuskarRepository
  * @package App\Repositories
- * @version May 18, 2019, 4:21 am UTC
+ * @version May 18, 2019, 4:37 pm UTC
  *
  * @method statuskar findWithoutFail($id, $columns = ['*'])
  * @method statuskar find($id, $columns = ['*'])

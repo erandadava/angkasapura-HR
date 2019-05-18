@@ -6,9 +6,9 @@ use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * Class os_doc
+ * Class osdoc
  * @package App\Models
- * @version May 18, 2019, 4:20 am UTC
+ * @version May 18, 2019, 4:35 pm UTC
  *
  * @property integer ID
  * @property integer ID_kar
@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @property string jangkawaktu
  * @property string kontrakkerja
  */
-class os_doc extends Model
+class osdoc extends Model
 {
     use SoftDeletes;
 

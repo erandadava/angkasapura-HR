@@ -43,7 +43,10 @@ trait MakeklsjabatanTrait
 
         return array_merge([
             'nama_kj' => $fake->word,
-            'jml_butuh' => $fake->randomDigitNotNull
+            'jml_butuh' => $fake->randomDigitNotNull,
+            'deleted_at' => $fake->date('Y-m-d H:i:s'),
+            'created_at' => $fake->date('Y-m-d H:i:s'),
+            'updated_at' => $fake->date('Y-m-d H:i:s')
         ], $klsjabatanFields);
     }
 }

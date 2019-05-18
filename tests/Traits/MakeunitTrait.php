@@ -42,7 +42,10 @@ trait MakeunitTrait
         $fake = Faker::create();
 
         return array_merge([
-            'nama_unit' => $fake->word
+            'nama_unit' => $fake->word,
+            'deleted_at' => $fake->date('Y-m-d H:i:s'),
+            'created_at' => $fake->date('Y-m-d H:i:s'),
+            'updated_at' => $fake->date('Y-m-d H:i:s')
         ], $unitFields);
     }
 }

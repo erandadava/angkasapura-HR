@@ -56,7 +56,8 @@ trait MakekaryawanTrait
             'id_org' => $fake->randomDigitNotNull,
             'id_posisi' => $fake->randomDigitNotNull,
             'id_tipe_kar' => $fake->randomDigitNotNull,
-            'entry_date' => $fake->date('Y-m-d H:i:s')
+            'entry_date' => $fake->date('Y-m-d H:i:s'),
+            'deleted_at' => $fake->date('Y-m-d H:i:s')
         ], $karyawanFields);
     }
 }

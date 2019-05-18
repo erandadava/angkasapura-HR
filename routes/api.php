@@ -36,6 +36,24 @@ Route::resource('users', 'usersAPIController');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Route::resource('fungsis', 'fungsiAPIController');
 
 Route::resource('jabatans', 'jabatanAPIController');
@@ -44,9 +62,15 @@ Route::resource('karyawans', 'karyawanAPIController');
 
 Route::resource('klsjabatans', 'klsjabatanAPIController');
 
-Route::resource('os_docs', 'os_docAPIController');
+Route::resource('osdocs', 'osdocAPIController');
 
 Route::resource('statuskars', 'statuskarAPIController');
+
+
+
+
+
+
 
 Route::resource('tipekars', 'tipekarAPIController');
 

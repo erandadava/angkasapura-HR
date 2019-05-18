@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\os_doc;
+use App\Models\osdoc;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class os_docDataTable extends DataTable
+class osdocDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,16 +18,16 @@ class os_docDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'os_docs.datatables_actions');
+        return $dataTable->addColumn('action', 'osdocs.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\os_doc $model
+     * @param \App\Models\osdoc $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(os_doc $model)
+    public function query(osdoc $model)
     {
         return $model->newQuery();
     }
@@ -82,6 +82,6 @@ class os_docDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'os_docsdatatable_' . time();
+        return 'osdocsdatatable_' . time();
     }
 }

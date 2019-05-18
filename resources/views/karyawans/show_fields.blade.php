@@ -94,3 +94,9 @@
     <p>{!! $karyawan->entry_date !!}</p>
 </div>
 
+<!-- Deleted At Field -->
+<div class="form-group">
+    {!! Form::label('deleted_at', 'Deleted At:') !!}
+    <p>{!! $karyawan->deleted_at !!}</p>
+</div>
+

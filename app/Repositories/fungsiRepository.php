@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class fungsiRepository
  * @package App\Repositories
- * @version May 18, 2019, 4:11 am UTC
+ * @version May 18, 2019, 4:31 pm UTC
  *
  * @method fungsi findWithoutFail($id, $columns = ['*'])
  * @method fungsi find($id, $columns = ['*'])

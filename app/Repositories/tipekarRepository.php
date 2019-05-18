@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class tipekarRepository
  * @package App\Repositories
- * @version May 18, 2019, 4:21 am UTC
+ * @version May 18, 2019, 5:02 pm UTC
  *
  * @method tipekar findWithoutFail($id, $columns = ['*'])
  * @method tipekar find($id, $columns = ['*'])

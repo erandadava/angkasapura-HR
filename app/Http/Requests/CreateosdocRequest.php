@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\os_doc;
+use App\Models\osdoc;
 
-class Updateos_docRequest extends FormRequest
+class CreateosdocRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class Updateos_docRequest extends FormRequest
      */
     public function rules()
     {
-        return os_doc::$rules;
+        return osdoc::$rules;
     }
 }

@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Os Doc
+            Osdoc
         </h1>
     </section>
     <div class="content">
@@ -12,9 +12,9 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'osDocs.store']) !!}
+                    {!! Form::open(['route' => 'osdocs.store']) !!}
 
-                        @include('os_docs.fields')
+                        @include('osdocs.fields')
 
                     {!! Form::close() !!}
                 </div>

@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class klsjabatanRepository
  * @package App\Repositories
- * @version May 18, 2019, 4:20 am UTC
+ * @version May 18, 2019, 4:35 pm UTC
  *
  * @method klsjabatan findWithoutFail($id, $columns = ['*'])
  * @method klsjabatan find($id, $columns = ['*'])

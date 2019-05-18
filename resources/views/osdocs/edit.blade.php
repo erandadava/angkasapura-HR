@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Os Doc
+            Osdoc
         </h1>
    </section>
    <div class="content">
@@ -11,9 +11,9 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($osDoc, ['route' => ['osDocs.update', $osDoc->id], 'method' => 'patch']) !!}
+                   {!! Form::model($osdoc, ['route' => ['osdocs.update', $osdoc->id], 'method' => 'patch']) !!}
 
-                        @include('os_docs.fields')
+                        @include('osdocs.fields')
 
                    {!! Form::close() !!}
                </div>

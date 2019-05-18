@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Requests\API;
+namespace App\Http\Requests;
 
-use App\Models\os_doc;
-use InfyOm\Generator\Request\APIRequest;
+use Illuminate\Foundation\Http\FormRequest;
+use App\Models\osdoc;
 
-class Updateos_docAPIRequest extends APIRequest
+class UpdateosdocRequest extends FormRequest
 {
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,6 +25,6 @@ class Updateos_docAPIRequest extends APIRequest
      */
     public function rules()
     {
-        return os_doc::$rules;
+        return osdoc::$rules;
     }
 }

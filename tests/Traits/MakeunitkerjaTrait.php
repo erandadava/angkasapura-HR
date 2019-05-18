@@ -44,7 +44,10 @@ trait MakeunitkerjaTrait
         return array_merge([
             'nama_uk' => $fake->word,
             'jml_formasi' => $fake->randomDigitNotNull,
-            'jml_existing' => $fake->randomDigitNotNull
+            'jml_existing' => $fake->randomDigitNotNull,
+            'deleted_at' => $fake->date('Y-m-d H:i:s'),
+            'created_at' => $fake->date('Y-m-d H:i:s'),
+            'updated_at' => $fake->date('Y-m-d H:i:s')
         ], $unitkerjaFields);
     }
 }

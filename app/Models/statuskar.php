@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class statuskar
  * @package App\Models
- * @version May 18, 2019, 4:21 am UTC
+ * @version May 18, 2019, 4:37 pm UTC
  *
  * @property string nama_stat
  */
