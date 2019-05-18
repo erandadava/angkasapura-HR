@@ -28,3 +28,21 @@ Route::group(['middleware' => ['web', 'auth', 'isEmailVerified']], function ()
 
 });
 Route::get('/home', 'HomeController@index');
+
+Route::resource('fungsis', 'fungsiController');
+
+Route::resource('jabatans', 'jabatanController');
+
+Route::resource('karyawans', 'karyawanController');
+
+Route::resource('klsjabatans', 'klsjabatanController');
+
+Route::resource('osDocs', 'os_docController');
+
+Route::resource('statuskars', 'statuskarController');
+
+Route::resource('tipekars', 'tipekarController');
+
+Route::resource('units', 'unitController');
+
+Route::resource('unitkerjas', 'unitkerjaController');

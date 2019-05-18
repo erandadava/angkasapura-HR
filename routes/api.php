@@ -19,3 +19,37 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::resource('users', 'usersAPIController');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::resource('fungsis', 'fungsiAPIController');
+
+Route::resource('jabatans', 'jabatanAPIController');
+
+Route::resource('karyawans', 'karyawanAPIController');
+
+Route::resource('klsjabatans', 'klsjabatanAPIController');
+
+Route::resource('os_docs', 'os_docAPIController');
+
+Route::resource('statuskars', 'statuskarAPIController');
+
+Route::resource('tipekars', 'tipekarAPIController');
+
+Route::resource('units', 'unitAPIController');
+
+Route::resource('unitkerjas', 'unitkerjaAPIController');
