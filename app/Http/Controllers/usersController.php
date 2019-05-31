@@ -9,6 +9,8 @@ use App\Http\Requests\UpdateusersRequest;
 use App\Repositories\usersRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Traits\HasRole;
 use Response;
 
 class usersController extends AppBaseController
@@ -19,6 +21,7 @@ class usersController extends AppBaseController
     public function __construct(usersRepository $usersRepo)
     {
         $this->usersRepository = $usersRepo;
+        $this->data['role'] = \App\Models\roles::pluck('name','id')->all();
     }
 
     /**
@@ -39,7 +42,7 @@ class usersController extends AppBaseController
      */
     public function create()
     {
-        return view('users.create');
+        return view('users.create')->with($this->data);
     }
 
     /**
@@ -52,8 +55,13 @@ class usersController extends AppBaseController
     public function store(CreateusersRequest $request)
     {
         $input = $request->all();
-
+        $input['verified'] = 1;
+        $input['password'] = bcrypt($input['password']);
         $users = $this->usersRepository->create($input);
+
+        $akun = \App\User::find($users->id);
+
+        $akun->assignRole($input['roles']);
 
         Flash::success('Users saved successfully.');
 
@@ -89,15 +97,15 @@ class usersController extends AppBaseController
      */
     public function edit($id)
     {
-        $users = $this->usersRepository->findWithoutFail($id);
+        $this->data['users'] = $this->usersRepository->findWithoutFail($id);
 
-        if (empty($users)) {
+        if (empty($this->data['users'])) {
             Flash::error('Users not found');
 
             return redirect(route('users.index'));
         }
 
-        return view('users.edit')->with('users', $users);
+        return view('users.edit')->with($this->data);
     }
 
     /**
@@ -117,8 +125,11 @@ class usersController extends AppBaseController
 
             return redirect(route('users.index'));
         }
-
-        $users = $this->usersRepository->update($request->all(), $id);
+        $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
+        $users = $this->usersRepository->update($input, $id);
+        $akun = \App\User::find($users->id);
+        $akun->assignRole($input['roles']);
 
         Flash::success('Users updated successfully.');
 

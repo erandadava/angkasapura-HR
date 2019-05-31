@@ -7,6 +7,7 @@
     "require": {
         "php": ">=7.0.0",
         "appointer/swaggervel": "dev-master",
+        "aschmelyun/larametrics": "^1.1",
         "doctrine/dbal": "~2.3",
         "fideloper/proxy": "~3.3",
         "infyomlabs/adminlte-templates": "5.5.x-dev",
@@ -16,6 +17,8 @@
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.5.0",
+        "orangehill/iseed": "^2.6",
+        "spatie/laravel-permission": "^2.37",
         "yajra/laravel-datatables": "1.0",
         "yajra/laravel-datatables-buttons": "3.0",
         "yajra/laravel-datatables-oracle": "8.0"

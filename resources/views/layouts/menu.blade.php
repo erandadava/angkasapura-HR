@@ -44,7 +44,7 @@
 <li class="{{ Request::is('users*') ? '' : '' }}">
     <a href="#"><i class="fa fa-edit"></i><span>Komposisi Karyawan</span></a>
 </li>
-
+<!-- 
 <li class="{{ Request::is('users*') ? '' : '' }}">
     <a href="#"><i class="fa fa-edit"></i><span>Formasi vs Eksisting</span></a>
 </li>
@@ -62,4 +62,8 @@
 </li>
 <li class="{{ Request::is('users*') ? '' : '' }}">
     <a href="#"><i class="fa fa-edit"></i><span>Performance OS</span></a>
+</li> -->
+<li class="{{ Request::is('roles*') ? 'active' : '' }}">
+    <a href="{!! route('roles.index') !!}"><i class="fa fa-edit"></i><span>Roles</span></a>
 </li>
+

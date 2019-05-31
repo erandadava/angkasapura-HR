@@ -36,6 +36,7 @@ return array(
     'Symfony\\Component\\Console\\' => array($vendorDir . '/symfony/console'),
     'Swagger\\' => array($vendorDir . '/zircote/swagger-php/src'),
     'SuperClosure\\' => array($vendorDir . '/jeremeamia/SuperClosure/src'),
+    'Spatie\\Permission\\' => array($vendorDir . '/spatie/laravel-permission/src'),
     'Ramsey\\Uuid\\' => array($vendorDir . '/ramsey/uuid/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src'),
     'Psr\\SimpleCache\\' => array($vendorDir . '/psr/simple-cache/src'),
@@ -67,6 +68,7 @@ return array(
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
     'Cron\\' => array($vendorDir . '/mtdowling/cron-expression/src/Cron'),
     'Collective\\Html\\' => array($vendorDir . '/laravelcollective/html/src'),
+    'Aschmelyun\\Larametrics\\' => array($vendorDir . '/aschmelyun/larametrics/src'),
     'App\\' => array($baseDir . '/app'),
     '' => array($vendorDir . '/nesbot/carbon/src'),
 );

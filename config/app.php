@@ -184,6 +184,9 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Yajra\DataTables\ButtonsServiceProvider::class,
         Lunaweb\EmailVerification\Providers\EmailVerificationServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
+        Orangehill\Iseed\IseedServiceProvider::class,
+        Aschmelyun\Larametrics\LarametricsServiceProvider::class,
     ],
 
     /*

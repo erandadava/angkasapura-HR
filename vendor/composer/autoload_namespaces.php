@@ -6,9 +6,12 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'Xethron\\MigrationsGenerator' => array($vendorDir . '/xethron/migrations-generator/src'),
+    'Way\\Generators' => array($vendorDir . '/xethron/laravel-4-generators/src'),
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
     'PHPExcel' => array($vendorDir . '/phpoffice/phpexcel/Classes'),
+    'Orangehill\\Iseed' => array($vendorDir . '/orangehill/iseed/src'),
     'Mockery' => array($vendorDir . '/mockery/mockery/library'),
     'Maatwebsite\\Excel\\' => array($vendorDir . '/maatwebsite/excel/src'),
     'Laracasts\\Flash' => array($vendorDir . '/laracasts/flash/src'),

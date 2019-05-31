@@ -14,7 +14,7 @@ class CreateTblunitTable extends Migration {
 	{
 		Schema::create('tblunit', function(Blueprint $table)
 		{
-			$table->integer('ID', true);
+			$table->increments('ID');
 			$table->string('nama_unit', 50);
 			$table->softDeletes();
             $table->timestamps();

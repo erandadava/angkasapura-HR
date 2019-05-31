@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
 
 
 Auth::routes();
@@ -52,3 +53,9 @@ Route::resource('tipekars', 'tipekarController');
 Route::resource('units', 'unitController');
 
 Route::resource('unitkerjas', 'unitkerjaController');
+
+Route::resource('roles', 'rolesController');
+
+Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
+    \Aschmelyun\Larametrics\Larametrics::routes();
+});

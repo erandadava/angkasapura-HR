@@ -14,7 +14,7 @@ class CreateTblfungsiTable extends Migration {
 	{
 		Schema::create('tblfungsi', function(Blueprint $table)
 		{
-			$table->integer('ID', true);
+			$table->increments('ID');
 			$table->string('nama_fungsi', 50);
 			$table->integer('jml_butuh');
             $table->softDeletes();

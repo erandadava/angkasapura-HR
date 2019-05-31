@@ -14,7 +14,7 @@ class CreateTblstatuskarTable extends Migration {
 	{
 		Schema::create('tblstatuskar', function(Blueprint $table)
 		{
-			$table->integer('ID', true);
+			$table->increments('ID');
 			$table->string('nama_stat', 50);
 			$table->softDeletes();
             $table->timestamps();

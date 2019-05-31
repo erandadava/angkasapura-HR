@@ -77,3 +77,5 @@ Route::resource('tipekars', 'tipekarAPIController');
 Route::resource('units', 'unitAPIController');
 
 Route::resource('unitkerjas', 'unitkerjaAPIController');
+
+Route::resource('roles', 'rolesAPIController');

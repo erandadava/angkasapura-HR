@@ -14,7 +14,7 @@ class CreateTblosdocTable extends Migration {
 	{
 		Schema::create('tblosdoc', function(Blueprint $table)
 		{
-			$table->integer('ID');
+			$table->increments('ID');
 			$table->integer('ID_kar');
 			$table->text('doc_bpsj');
 			$table->text('doc_bpjsk');

@@ -14,7 +14,7 @@ class CreateTblunitkerjaTable extends Migration {
 	{
 		Schema::create('tblunitkerja', function(Blueprint $table)
 		{
-			$table->integer('ID', true);
+			$table->increments('ID');
 			$table->string('nama_uk', 50);
 			$table->integer('jml_formasi');
 			$table->integer('jml_existing');

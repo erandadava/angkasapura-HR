@@ -14,7 +14,7 @@ class CreateTblkaryawanTable extends Migration {
 	{
 		Schema::create('tblkaryawan', function(Blueprint $table)
 		{
-			$table->integer('ID', true);
+			$table->increments('ID');
 			$table->string('nama', 100);
 			$table->string('gender', 10);
 			$table->dateTime('tgl_lahir');
