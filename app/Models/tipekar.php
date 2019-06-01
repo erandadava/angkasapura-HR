@@ -45,7 +45,6 @@ class tipekar extends Model
      * @var array
      */
     public static $rules = [
-        'ID' => 'required',
         'nama_tipekar' => 'required'
     ];
 

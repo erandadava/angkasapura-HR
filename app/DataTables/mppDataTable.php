@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\jabatan;
+use App\Models\karyawan;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class jabatanDataTable extends DataTable
+class mppDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,16 +18,16 @@ class jabatanDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'jabatans.datatables_actions');
+        return $dataTable->addColumn('action', 'karyawans.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\jabatan $model
+     * @param \App\Models\karyawan $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(jabatan $model)
+    public function query(karyawan $model)
     {
         return $model->newQuery();
     }
@@ -64,11 +64,21 @@ class jabatanDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'ID', 'visible'=> false],
-            'nama_jabatan',
-            'syarat_didik',
-            'syarat_latih',
-            'syarat_pengalaman'
+            'nama',
+            'gender',
+            'tgl_lahir',
+            'id_kj',
+            'id_jabatan',
+            'id_status1',
+            'id_status2',
+            'id_unitkerja',
+            'rencana_mpp',
+            'rencana_pensiun',
+            'pend_diakui',
+            'id_org',
+            'id_posisi',
+            'id_tipe_kar',
+            'entry_date'
         ];
     }
 
@@ -79,6 +89,6 @@ class jabatanDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'jabatansdatatable_' . time();
+        return 'karyawansdatatable_' . time();
     }
 }

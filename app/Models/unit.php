@@ -45,7 +45,6 @@ class unit extends Model
      * @var array
      */
     public static $rules = [
-        'ID' => 'required',
         'nama_unit' => 'required'
     ];
 

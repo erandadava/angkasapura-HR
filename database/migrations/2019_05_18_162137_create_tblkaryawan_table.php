@@ -17,19 +17,20 @@ class CreateTblkaryawanTable extends Migration {
 			$table->increments('ID');
 			$table->string('nama', 100);
 			$table->string('gender', 10);
-			$table->dateTime('tgl_lahir');
+			$table->date('tgl_lahir');
 			$table->integer('id_kj');
 			$table->integer('id_jabatan');
 			$table->integer('id_status1');
 			$table->integer('id_status2');
 			$table->integer('id_unitkerja');
-			$table->dateTime('rencana_mpp');
-			$table->dateTime('rencana_pensiun');
+			$table->date('rencana_mpp');
+			$table->date('rencana_pensiun');
 			$table->string('pend_diakui', 50);
 			$table->integer('id_org');
 			$table->integer('id_posisi');
 			$table->integer('id_tipe_kar');
 			$table->timestamp('entry_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+			$table->timestamps();
 			$table->softDeletes();
 		});
 	}

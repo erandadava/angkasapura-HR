@@ -29,6 +29,8 @@ class jabatanController extends AppBaseController
      */
     public function index(jabatanDataTable $jabatanDataTable)
     {
+        // echo "<pre>";
+        // print_r(\App\Models\jabatan::get());
         return $jabatanDataTable->render('jabatans.index');
     }
 

@@ -10,6 +10,13 @@ use App\Repositories\karyawanRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use App\Models\jabatan;
+use App\Models\klsjabatan;
+use App\Models\statuskar;
+use App\Models\tipekar;
+use App\Models\unit;
+use App\Models\unitkerja;
+
 
 class karyawanController extends AppBaseController
 {
@@ -19,6 +26,12 @@ class karyawanController extends AppBaseController
     public function __construct(karyawanRepository $karyawanRepo)
     {
         $this->karyawanRepository = $karyawanRepo;
+        $this->data['jabatan'] = jabatan::pluck('nama_jabatan','id');
+        $this->data['klsjabatan'] = klsjabatan::pluck('nama_kj','id');
+        $this->data['statuskar'] = statuskar::pluck('nama_stat','id');
+        $this->data['tipekar'] = tipekar::pluck('nama_tipekar','id');
+        $this->data['unit'] = unit::pluck('nama_unit','id');
+        $this->data['unitkerja'] = unitkerja::pluck('nama_uk','id');
     }
 
     /**
@@ -39,7 +52,7 @@ class karyawanController extends AppBaseController
      */
     public function create()
     {
-        return view('karyawans.create');
+        return view('karyawans.create')->with($this->data);
     }
 
     /**
@@ -52,7 +65,11 @@ class karyawanController extends AppBaseController
     public function store(CreatekaryawanRequest $request)
     {
         $input = $request->all();
-
+        print($input['entry_date']);
+        $input['tgl_lahir'] = \Carbon\Carbon::createFromFormat('d-m-Y', $input['tgl_lahir']);
+        $input['rencana_mpp'] = \Carbon\Carbon::createFromFormat('d-m-Y', $input['rencana_mpp']);
+        $input['rencana_pensiun'] = \Carbon\Carbon::createFromFormat('d-m-Y', $input['rencana_pensiun']);
+        $input['entry_date'] = \Carbon\Carbon::createFromFormat('d-m-Y H:i:s', $input['entry_date']);
         $karyawan = $this->karyawanRepository->create($input);
 
         Flash::success('Karyawan saved successfully.');
@@ -89,15 +106,15 @@ class karyawanController extends AppBaseController
      */
     public function edit($id)
     {
-        $karyawan = $this->karyawanRepository->findWithoutFail($id);
+        $this->data['karyawan'] = $this->karyawanRepository->findWithoutFail($id);
 
-        if (empty($karyawan)) {
+        if (empty($this->data['karyawan'])) {
             Flash::error('Karyawan not found');
 
             return redirect(route('karyawans.index'));
         }
 
-        return view('karyawans.edit')->with('karyawan', $karyawan);
+        return view('karyawans.edit')->with($this->data);
     }
 
     /**

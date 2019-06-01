@@ -56,6 +56,8 @@ Route::resource('unitkerjas', 'unitkerjaController');
 
 Route::resource('roles', 'rolesController');
 
+Route::resource('mpp', 'mppController');
+
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     \Aschmelyun\Larametrics\Larametrics::routes();
 });

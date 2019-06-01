@@ -1,9 +1,9 @@
-{!! Form::open(['route' => ['tipekars.destroy', $id], 'method' => 'delete']) !!}
+{!! Form::open(['route' => ['tipekars.destroy', $ID], 'method' => 'delete']) !!}
 <div class='btn-group'>
-    <a href="{{ route('tipekars.show', $id) }}" class='btn btn-default btn-xs'>
+    <a href="{{ route('tipekars.show', $ID) }}" class='btn btn-default btn-xs'>
         <i class="glyphicon glyphicon-eye-open"></i>
     </a>
-    <a href="{{ route('tipekars.edit', $id) }}" class='btn btn-default btn-xs'>
+    <a href="{{ route('tipekars.edit', $ID) }}" class='btn btn-default btn-xs'>
         <i class="glyphicon glyphicon-edit"></i>
     </a>
     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', [

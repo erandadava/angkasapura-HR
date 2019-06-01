@@ -54,7 +54,6 @@ class jabatan extends Model
      * @var array
      */
     public static $rules = [
-        'ID' => 'required',
         'nama_jabatan' => 'required',
         'syarat_didik' => 'required',
         'syarat_latih' => 'required',

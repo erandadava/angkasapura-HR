@@ -66,19 +66,19 @@ class karyawan extends Model
         'ID' => 'integer',
         'nama' => 'string',
         'gender' => 'string',
-        'tgl_lahir' => 'datetime',
+        'tgl_lahir' => 'date',
         'id_kj' => 'integer',
         'id_jabatan' => 'integer',
         'id_status1' => 'integer',
         'id_status2' => 'integer',
         'id_unitkerja' => 'integer',
-        'rencana_mpp' => 'datetime',
-        'rencana_pensiun' => 'datetime',
+        'rencana_mpp' => 'date',
+        'rencana_pensiun' => 'date',
         'pend_diakui' => 'string',
         'id_org' => 'integer',
         'id_posisi' => 'integer',
         'id_tipe_kar' => 'integer',
-        'entry_date' => 'datetime'
+        'entry_date' => 'date'
     ];
 
     /**
@@ -87,7 +87,6 @@ class karyawan extends Model
      * @var array
      */
     public static $rules = [
-        'ID' => 'required',
         'nama' => 'required',
         'gender' => 'required',
         'tgl_lahir' => 'required',

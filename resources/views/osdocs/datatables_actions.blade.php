@@ -1,9 +1,9 @@
-{!! Form::open(['route' => ['osdocs.destroy', $id], 'method' => 'delete']) !!}
+{!! Form::open(['route' => ['osdocs.destroy', $ID], 'method' => 'delete']) !!}
 <div class='btn-group'>
-    <a href="{{ route('osdocs.show', $id) }}" class='btn btn-default btn-xs'>
+    <a href="{{ route('osdocs.show', $ID) }}" class='btn btn-default btn-xs'>
         <i class="glyphicon glyphicon-eye-open"></i>
     </a>
-    <a href="{{ route('osdocs.edit', $id) }}" class='btn btn-default btn-xs'>
+    <a href="{{ route('osdocs.edit', $ID) }}" class='btn btn-default btn-xs'>
         <i class="glyphicon glyphicon-edit"></i>
     </a>
     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', [

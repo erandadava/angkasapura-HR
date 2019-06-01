@@ -51,7 +51,6 @@ class unitkerja extends Model
      * @var array
      */
     public static $rules = [
-        'ID' => 'required',
         'nama_uk' => 'required',
         'jml_formasi' => 'required',
         'jml_existing' => 'required'

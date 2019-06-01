@@ -48,7 +48,6 @@ class fungsi extends Model
      * @var array
      */
     public static $rules = [
-        'ID' => 'required',
         'nama_fungsi' => 'required',
         'jml_butuh' => 'required'
     ];

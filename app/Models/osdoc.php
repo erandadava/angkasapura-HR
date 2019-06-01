@@ -65,7 +65,6 @@ class osdoc extends Model
      * @var array
      */
     public static $rules = [
-        'ID' => 'required',
         'ID_kar' => 'required',
         'doc_bpsj' => 'required',
         'doc_bpjsk' => 'required',

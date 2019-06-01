@@ -1,9 +1,9 @@
-{!! Form::open(['route' => ['statuskars.destroy', $id], 'method' => 'delete']) !!}
+{!! Form::open(['route' => ['statuskars.destroy', $ID], 'method' => 'delete']) !!}
 <div class='btn-group'>
-    <a href="{{ route('statuskars.show', $id) }}" class='btn btn-default btn-xs'>
+    <a href="{{ route('statuskars.show', $ID) }}" class='btn btn-default btn-xs'>
         <i class="glyphicon glyphicon-eye-open"></i>
     </a>
-    <a href="{{ route('statuskars.edit', $id) }}" class='btn btn-default btn-xs'>
+    <a href="{{ route('statuskars.edit', $ID) }}" class='btn btn-default btn-xs'>
         <i class="glyphicon glyphicon-edit"></i>
     </a>
     {!! Form::button('<i class="glyphicon glyphicon-trash"></i>', [
