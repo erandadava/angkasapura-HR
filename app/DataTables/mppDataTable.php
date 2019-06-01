@@ -18,7 +18,12 @@ class mppDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'karyawans.datatables_actions');
+        return $dataTable->addColumn('action', 'mpp.datatables_actions')->editColumn('Age', function ($inquiry) {
+            if ($inquiry->Age == 0) return "<span class='label label-default'>Belum Masa MPP</span>";
+            if ($inquiry->Age == 1) return "<span class='label label-warning'>Masa MPP Akan Datang</span>";
+            if ($inquiry->Age == 2) return "<span class='label label-danger'>Sudah Masa MPP</span>";
+        })
+        ->rawColumns(['Age','action']);
     }
 
     /**
@@ -29,7 +34,11 @@ class mppDataTable extends DataTable
      */
     public function query(karyawan $model)
     {
-        return $model->newQuery();
+        $dt = $model->with(['jabatan','unit','fungsi','klsjabatan'])->newQuery();
+        // foreach ($dt as $key => $value) {
+        //     $dt['status_mpp'] = $value->age;
+        // }
+        return $dt;
     }
 
     /**
@@ -64,21 +73,14 @@ class mppDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'nama',
-            'gender',
-            'tgl_lahir',
-            'id_kj',
-            'id_jabatan',
-            'id_status1',
-            'id_status2',
-            'id_unitkerja',
-            'rencana_mpp',
-            'rencana_pensiun',
-            'pend_diakui',
-            'id_org',
-            'id_posisi',
-            'id_tipe_kar',
-            'entry_date'
+            ['data' => 'unit.nama_unit', 'title' => 'Unit'],
+            ['data' => 'jabatan.nama_jabatan', 'title' => 'Jabatan'],
+            ['data' => 'fungsi.nama_fungsi', 'title' => 'Fungsi'],
+            ['data' => 'klsjabatan.nama_kj', 'title' => 'Kelas Jabatan'],
+            ['data' => 'nama', 'title' => 'Nama'],
+            ['data' => 'nik', 'title' => 'NIK'],
+            ['data' => 'rencana_mpp', 'title' => 'Rencana MPP'],
+            ['data' => 'Age', 'title' => 'Status MPP']
         ];
     }
 

@@ -29,6 +29,7 @@ class mppController extends AppBaseController
      */
     public function index(mppDataTable $mppDataTable)
     {
+        // print(\App\Models\karyawan::find(1)->Age);
         return $mppDataTable->render('mpp.index');
     }
 

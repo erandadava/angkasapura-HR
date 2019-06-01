@@ -29,6 +29,10 @@ class CreateTblkaryawanTable extends Migration {
 			$table->integer('id_org');
 			$table->integer('id_posisi');
 			$table->integer('id_tipe_kar');
+			$table->integer('id_fungsi');
+			$table->string('nik');
+			$table->integer('id_klsjabatan');
+			$table->integer('id_unit');
 			$table->timestamp('entry_date')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->timestamps();
 			$table->softDeletes();

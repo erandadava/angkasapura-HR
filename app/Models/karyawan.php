@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Eloquent as Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Carbon\Carbon;
 
 /**
  * Class karyawan
@@ -37,7 +38,7 @@ class karyawan extends Model
 
 
     protected $dates = ['deleted_at'];
-
+    protected $appends = ['Age'];
 
     public $fillable = [
         'nama',
@@ -54,7 +55,11 @@ class karyawan extends Model
         'id_org',
         'id_posisi',
         'id_tipe_kar',
-        'entry_date'
+        'entry_date',
+        'id_fungsi',
+        'nik',
+        'id_klsjabatan',
+        'id_unit'
     ];
 
     /**
@@ -104,5 +109,43 @@ class karyawan extends Model
         'entry_date' => 'required'
     ];
 
-    
+    public function fungsi(){
+        return $this->hasOne('App\Models\fungsi', 'ID', 'id_fungsi');
+    }
+
+    public function jabatan(){
+        return $this->hasOne('App\Models\jabatan', 'ID', 'id_jabatan');
+    }
+
+    public function unitkerja(){
+        return $this->hasOne('App\Models\unitkerja', 'ID', 'id_unitkerja');
+    }
+
+    public function tipekar(){
+        return $this->hasOne('App\Models\tipekar', 'ID', 'id_tipe_kar');
+    }
+
+    public function unit(){
+        return $this->hasOne('App\Models\unit', 'ID', 'id_unit');
+    }
+
+    public function klsjabatan(){
+        return $this->hasOne('App\Models\klsjabatan', 'ID', 'id_klsjabatan');
+    }
+
+    public function getAgeAttribute()
+    {
+        $to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Carbon::now());
+        $m = date('-m-d', strtotime($this->attributes['tgl_lahir']));
+        $from = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Carbon::now()->year.$m.' 9:30:34');
+        $sisa = $to->diffInDays($from);
+        $umur =  \Carbon\Carbon::parse($this->attributes['tgl_lahir'])->age;
+        if($umur == 55 && $sisa < 60 && $sisa > 0){
+            return 1;
+        }elseif($umur < 55 || $sisa > 60){
+            return 0;
+        }else{
+            return 2;
+        }
+    }
 }
