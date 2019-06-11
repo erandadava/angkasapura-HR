@@ -1,7 +1,7 @@
-<!-- Id Field -->
+<!-- id Field -->
 <div class="form-group">
-    {!! Form::label('ID', 'Id:') !!}
-    <p>{!! $karyawan->ID !!}</p>
+    {!! Form::label('id', 'id:') !!}
+    <p>{!! $karyawan->id !!}</p>
 </div>
 
 <!-- Nama Field -->
@@ -22,33 +22,33 @@
     <p>{!! $karyawan->tgl_lahir !!}</p>
 </div>
 
-<!-- Id Kj Field -->
+<!-- id Kj Field -->
 <div class="form-group">
-    {!! Form::label('id_kj', 'Id Kj:') !!}
+    {!! Form::label('id_kj', 'id Kj:') !!}
     <p>{!! $karyawan->id_kj !!}</p>
 </div>
 
-<!-- Id Jabatan Field -->
+<!-- id Jabatan Field -->
 <div class="form-group">
-    {!! Form::label('id_jabatan', 'Id Jabatan:') !!}
+    {!! Form::label('id_jabatan', 'id Jabatan:') !!}
     <p>{!! $karyawan->id_jabatan !!}</p>
 </div>
 
-<!-- Id Status1 Field -->
+<!-- id Status1 Field -->
 <div class="form-group">
-    {!! Form::label('id_status1', 'Id Status1:') !!}
+    {!! Form::label('id_status1', 'id Status1:') !!}
     <p>{!! $karyawan->id_status1 !!}</p>
 </div>
 
-<!-- Id Status2 Field -->
+<!-- id Status2 Field -->
 <div class="form-group">
-    {!! Form::label('id_status2', 'Id Status2:') !!}
+    {!! Form::label('id_status2', 'id Status2:') !!}
     <p>{!! $karyawan->id_status2 !!}</p>
 </div>
 
-<!-- Id Unitkerja Field -->
+<!-- id Unitkerja Field -->
 <div class="form-group">
-    {!! Form::label('id_unitkerja', 'Id Unitkerja:') !!}
+    {!! Form::label('id_unitkerja', 'id Unitkerja:') !!}
     <p>{!! $karyawan->id_unitkerja !!}</p>
 </div>
 
@@ -70,21 +70,21 @@
     <p>{!! $karyawan->pend_diakui !!}</p>
 </div>
 
-<!-- Id Org Field -->
+<!-- id Org Field -->
 <div class="form-group">
-    {!! Form::label('id_org', 'Id Org:') !!}
+    {!! Form::label('id_org', 'id Org:') !!}
     <p>{!! $karyawan->id_org !!}</p>
 </div>
 
-<!-- Id Posisi Field -->
+<!-- id Posisi Field -->
 <div class="form-group">
-    {!! Form::label('id_posisi', 'Id Posisi:') !!}
+    {!! Form::label('id_posisi', 'id Posisi:') !!}
     <p>{!! $karyawan->id_posisi !!}</p>
 </div>
 
-<!-- Id Tipe Kar Field -->
+<!-- id Tipe Kar Field -->
 <div class="form-group">
-    {!! Form::label('id_tipe_kar', 'Id Tipe Kar:') !!}
+    {!! Form::label('id_tipe_kar', 'id Tipe Kar:') !!}
     <p>{!! $karyawan->id_tipe_kar !!}</p>
 </div>
 

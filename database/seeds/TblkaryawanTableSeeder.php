@@ -19,11 +19,10 @@ class TblkaryawanTableSeeder extends Seeder
         \DB::table('tblkaryawan')->insert(array (
             0 => 
             array (
-                'ID' => 1,
+                'id' => 1,
                 'nama' => 'adi',
                 'gender' => 'Laki-laki',
                 'tgl_lahir' => '1964-04-10',
-                'id_kj' => 1,
                 'id_jabatan' => 1,
                 'id_klsjabatan' => 1,
                 'id_status1' => 1,

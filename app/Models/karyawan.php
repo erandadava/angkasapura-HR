@@ -44,7 +44,6 @@ class karyawan extends Model
         'nama',
         'gender',
         'tgl_lahir',
-        'id_kj',
         'id_jabatan',
         'id_status1',
         'id_status2',
@@ -68,11 +67,10 @@ class karyawan extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'nama' => 'string',
         'gender' => 'string',
         'tgl_lahir' => 'date',
-        'id_kj' => 'integer',
         'id_jabatan' => 'integer',
         'id_status1' => 'integer',
         'id_status2' => 'integer',
@@ -95,7 +93,6 @@ class karyawan extends Model
         'nama' => 'required',
         'gender' => 'required',
         'tgl_lahir' => 'required',
-        'id_kj' => 'required',
         'id_jabatan' => 'required',
         'id_status1' => 'required',
         'id_status2' => 'required',
@@ -110,27 +107,27 @@ class karyawan extends Model
     ];
 
     public function fungsi(){
-        return $this->hasOne('App\Models\fungsi', 'ID', 'id_fungsi');
+        return $this->hasOne('App\Models\fungsi', 'id', 'id_fungsi');
     }
 
     public function jabatan(){
-        return $this->hasOne('App\Models\jabatan', 'ID', 'id_jabatan');
+        return $this->hasOne('App\Models\jabatan', 'id', 'id_jabatan');
     }
 
     public function unitkerja(){
-        return $this->hasOne('App\Models\unitkerja', 'ID', 'id_unitkerja');
+        return $this->hasOne('App\Models\unitkerja', 'id', 'id_unitkerja');
     }
 
     public function tipekar(){
-        return $this->hasOne('App\Models\tipekar', 'ID', 'id_tipe_kar');
+        return $this->hasOne('App\Models\tipekar', 'id', 'id_tipe_kar');
     }
 
     public function unit(){
-        return $this->hasOne('App\Models\unit', 'ID', 'id_unit');
+        return $this->hasOne('App\Models\unit', 'id', 'id_unit');
     }
 
     public function klsjabatan(){
-        return $this->hasOne('App\Models\klsjabatan', 'ID', 'id_klsjabatan');
+        return $this->hasOne('App\Models\klsjabatan', 'id', 'id_klsjabatan');
     }
 
     public function getAgeAttribute()

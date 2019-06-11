@@ -37,7 +37,7 @@ class klsjabatan extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'nama_kj' => 'string',
         'jml_butuh' => 'integer'
     ];

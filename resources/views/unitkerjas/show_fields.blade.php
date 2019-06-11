@@ -1,7 +1,7 @@
-<!-- Id Field -->
+<!-- id Field -->
 <div class="form-group">
-    {!! Form::label('ID', 'Id:') !!}
-    <p>{!! $unitkerja->ID !!}</p>
+    {!! Form::label('id', 'id:') !!}
+    <p>{!! $unitkerja->id !!}</p>
 </div>
 
 <!-- Nama Uk Field -->

@@ -1,6 +1,6 @@
-<!-- Id Field -->
+<!-- id Field -->
 <div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
+    {!! Form::label('id', 'id:') !!}
     <p>{!! $roles->id !!}</p>
 </div>
 

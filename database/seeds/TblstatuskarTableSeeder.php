@@ -19,7 +19,7 @@ class TblstatuskarTableSeeder extends Seeder
         \DB::table('tblstatuskar')->insert(array (
             0 => 
             array (
-                'ID' => 1,
+                'id' => 1,
                 'nama_stat' => 'Status Karyawan A',
                 'deleted_at' => NULL,
                 'created_at' => '2019-06-01 05:20:31',

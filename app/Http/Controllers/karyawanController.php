@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Requests\CreatekaryawanRequest;
 use App\Http\Requests\UpdatekaryawanRequest;
 use App\Repositories\karyawanRepository;
+use App\Repositories\unitkerjaRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -16,6 +17,7 @@ use App\Models\statuskar;
 use App\Models\tipekar;
 use App\Models\unit;
 use App\Models\unitkerja;
+use App\Models\fungsi;
 
 
 class karyawanController extends AppBaseController
@@ -23,16 +25,19 @@ class karyawanController extends AppBaseController
     /** @var  karyawanRepository */
     private $karyawanRepository;
 
-    public function __construct(karyawanRepository $karyawanRepo)
+    public function __construct(karyawanRepository $karyawanRepo, unitkerjaRepository $unitkerjaRepo)
     {
         $this->karyawanRepository = $karyawanRepo;
+        $this->unitkerjaRepository = $unitkerjaRepo;
         $this->data['jabatan'] = jabatan::pluck('nama_jabatan','id');
         $this->data['klsjabatan'] = klsjabatan::pluck('nama_kj','id');
         $this->data['statuskar'] = statuskar::pluck('nama_stat','id');
         $this->data['tipekar'] = tipekar::pluck('nama_tipekar','id');
         $this->data['unit'] = unit::pluck('nama_unit','id');
         $this->data['unitkerja'] = unitkerja::pluck('nama_uk','id');
-    }
+        $this->data['fungsi'] = fungsi::pluck('nama_fungsi','id');
+        $this->data['dtunitkerja'] = json_encode(unitkerja::get());
+    }   
 
     /**
      * Display a listing of the karyawan.
@@ -71,6 +76,7 @@ class karyawanController extends AppBaseController
         $input['rencana_pensiun'] = \Carbon\Carbon::createFromFormat('d-m-Y', $input['rencana_pensiun']);
         $input['entry_date'] = \Carbon\Carbon::createFromFormat('d-m-Y H:i:s', $input['entry_date']);
         $karyawan = $this->karyawanRepository->create($input);
+        return $this->update_unitkerja($input['id_unitkerja'],1);
 
         Flash::success('Karyawan saved successfully.');
 
@@ -164,5 +170,11 @@ class karyawanController extends AppBaseController
         Flash::success('Karyawan deleted successfully.');
 
         return redirect(route('karyawans.index'));
+    }
+
+    public function update_unitkerja($id, $jml){
+        $uk = unitkerja::find($id);
+        $input['jml_existing'] = (int) $uk->jml_existing + $jml;
+        return $this->unitkerjaRepository->update($input, $id);
     }
 }

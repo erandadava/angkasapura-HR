@@ -19,7 +19,7 @@ class TbljabatanTableSeeder extends Seeder
         \DB::table('tbljabatan')->insert(array (
             0 => 
             array (
-                'ID' => 1,
+                'id' => 1,
                 'nama_jabatan' => 'Jabatan A',
                 'syarat_didik' => 'A',
                 'syarat_latih' => 'A',

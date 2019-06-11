@@ -41,7 +41,7 @@ class jabatan extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'nama_jabatan' => 'string',
         'syarat_didik' => 'string',
         'syarat_latih' => 'string',

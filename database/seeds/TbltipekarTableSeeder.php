@@ -19,7 +19,7 @@ class TbltipekarTableSeeder extends Seeder
         \DB::table('tbltipekar')->insert(array (
             0 => 
             array (
-                'ID' => 1,
+                'id' => 1,
                 'nama_tipekar' => 'Tipe Karyawan A',
                 'deleted_at' => NULL,
                 'created_at' => '2019-06-01 05:20:46',

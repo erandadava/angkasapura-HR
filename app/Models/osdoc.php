@@ -10,8 +10,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  * @package App\Models
  * @version May 18, 2019, 4:35 pm UTC
  *
- * @property integer ID
- * @property integer ID_kar
+ * @property integer id
+ * @property integer id_kar
  * @property string doc_bpsj
  * @property string doc_bpjsk
  * @property string doc_lisensi
@@ -33,8 +33,8 @@ class osdoc extends Model
 
 
     public $fillable = [
-        'ID',
-        'ID_kar',
+        'id',
+        'id_kar',
         'doc_bpsj',
         'doc_bpjsk',
         'doc_lisensi',
@@ -49,8 +49,8 @@ class osdoc extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
-        'ID_kar' => 'integer',
+        'id' => 'integer',
+        'id_kar' => 'integer',
         'doc_bpsj' => 'string',
         'doc_bpjsk' => 'string',
         'doc_lisensi' => 'string',
@@ -65,7 +65,7 @@ class osdoc extends Model
      * @var array
      */
     public static $rules = [
-        'ID_kar' => 'required',
+        'id_kar' => 'required',
         'doc_bpsj' => 'required',
         'doc_bpjsk' => 'required',
         'doc_lisensi' => 'required',

@@ -1,7 +1,7 @@
-<!-- Id Field -->
+<!-- id Field -->
 <div class="form-group">
-    {!! Form::label('ID', 'Id:') !!}
-    <p>{!! $tipekar->ID !!}</p>
+    {!! Form::label('id', 'id:') !!}
+    <p>{!! $tipekar->id !!}</p>
 </div>
 
 <!-- Nama Tipekar Field -->

@@ -1,13 +1,13 @@
-<!-- Id Field -->
+<!-- id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ID', 'Id:') !!}
-    {!! Form::number('ID', null, ['class' => 'form-control']) !!}
+    {!! Form::label('id', 'id:') !!}
+    {!! Form::number('id', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Kar Field -->
+<!-- id Kar Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('ID_kar', 'Id Kar:') !!}
-    {!! Form::number('ID_kar', null, ['class' => 'form-control']) !!}
+    {!! Form::label('id_kar', 'id Kar:') !!}
+    {!! Form::number('id_kar', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Doc Bpsj Field -->

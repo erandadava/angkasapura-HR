@@ -1,7 +1,7 @@
-<!-- Id Field -->
+<!-- id Field -->
 <div class="form-group">
-    {!! Form::label('ID', 'Id:') !!}
-    <p>{!! $statuskar->ID !!}</p>
+    {!! Form::label('id', 'id:') !!}
+    <p>{!! $statuskar->id !!}</p>
 </div>
 
 <!-- Nama Stat Field -->

@@ -1,13 +1,13 @@
-<!-- Id Field -->
+<!-- id Field -->
 <div class="form-group">
-    {!! Form::label('ID', 'Id:') !!}
-    <p>{!! $osdoc->ID !!}</p>
+    {!! Form::label('id', 'id:') !!}
+    <p>{!! $osdoc->id !!}</p>
 </div>
 
-<!-- Id Kar Field -->
+<!-- id Kar Field -->
 <div class="form-group">
-    {!! Form::label('ID_kar', 'Id Kar:') !!}
-    <p>{!! $osdoc->ID_kar !!}</p>
+    {!! Form::label('id_kar', 'id Kar:') !!}
+    <p>{!! $osdoc->id_kar !!}</p>
 </div>
 
 <!-- Doc Bpsj Field -->

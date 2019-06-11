@@ -1,3 +1,7 @@
+<div class="form-group col-sm-6">
+    {!! Form::label('nik', 'NIK:') !!}
+    {!! Form::text('nik', null, ['class' => 'form-control']) !!}
+</div>
 <!-- Nama Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('nama', 'Nama:') !!}
@@ -16,34 +20,39 @@
     {!! Form::text('tgl_lahir', null, ['class' => 'form-control','id'=>'tgl_lahir']) !!}
 </div>
 
-<!-- Id Kj Field -->
+<!-- id Kj Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_kj', 'Kelas Jabatan:') !!}
-    {!! Form::select('id_kj', $klsjabatan, null, ['class' => 'form-control']) !!}
+    {!! Form::label('id_klsjabatan', 'Kelas Jabatan:') !!}
+    {!! Form::select('id_klsjabatan', $klsjabatan, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Jabatan Field -->
+<!-- id Jabatan Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_jabatan', 'Jabatan:') !!}
     {!! Form::select('id_jabatan', $jabatan, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Status1 Field -->
+<!-- id Status1 Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_status1', 'Status 1:') !!}
     {!! Form::select('id_status1', $statuskar, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Status2 Field -->
+<!-- id Status2 Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_status2', 'Status 2:') !!}
     {!! Form::select('id_status2', $statuskar, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Unitkerja Field -->
+<!-- id Unitkerja Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_unitkerja', 'Unit Kerja:') !!}
-    {!! Form::select('id_unitkerja',$unitkerja, null, ['class' => 'form-control']) !!}
+    {!! Form::select('id_unitkerja',$unitkerja, null, ['class' => 'form-control', 'id' => 'unitkerja']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('id_unit', 'Unit:') !!}
+    {!! Form::select('id_unit',$unit, null, ['class' => 'form-control', 'id' => 'unitkerja']) !!}
 </div>
 
 <!-- Rencana Mpp Field -->
@@ -64,22 +73,26 @@
     {!! Form::text('pend_diakui', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Org Field -->
+<!-- id Org Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_org', 'Id Org:') !!}
+    {!! Form::label('id_org', 'id Org:') !!}
     {!! Form::number('id_org', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Posisi Field -->
+<!-- id Posisi Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_posisi', 'Id Posisi:') !!}
+    {!! Form::label('id_posisi', 'id Posisi:') !!}
     {!! Form::number('id_posisi', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Tipe Kar Field -->
+<!-- id Tipe Kar Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('id_tipe_kar', 'Tipe Karyawan:') !!}
     {!! Form::select('id_tipe_kar', $tipekar, null, ['class' => 'form-control']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('id_fungsi', 'Fungsi :') !!}
+    {!! Form::select('id_fungsi',$fungsi, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Entry Date Field -->
@@ -96,6 +109,23 @@
 
 @section('scripts')
     <script type="text/javascript">
+   function validateForm() {
+       var idunitkerja = $("#unitkerja option:selected").val();
+       var uk = {!!$dtunitkerja!!};
+       var status = 0;
+       $.each(uk, function(i, v) {
+            if (v.id == idunitkerja ) { 
+                if(v.Lowongan == 0){
+                    alert("Lowongan Telah Habis Pada Unit Kerja "+v.nama_uk);
+                    status=1;
+                }
+            }
+        });   
+        if(status==1){
+            return false;
+        }
+    }
+    
         $('#tgl_lahir').datetimepicker({
             format: 'DD-mm-Y',
             useCurrent: false

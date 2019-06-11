@@ -35,7 +35,7 @@ class unit extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'nama_unit' => 'string'
     ];
 

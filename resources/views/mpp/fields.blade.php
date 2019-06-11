@@ -25,33 +25,33 @@
     </script>
 @endsection
 
-<!-- Id Kj Field -->
+<!-- id Kj Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_kj', 'Id Kj:') !!}
+    {!! Form::label('id_kj', 'id Kj:') !!}
     {!! Form::number('id_kj', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Jabatan Field -->
+<!-- id Jabatan Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_jabatan', 'Id Jabatan:') !!}
+    {!! Form::label('id_jabatan', 'id Jabatan:') !!}
     {!! Form::number('id_jabatan', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Status1 Field -->
+<!-- id Status1 Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_status1', 'Id Status1:') !!}
+    {!! Form::label('id_status1', 'id Status1:') !!}
     {!! Form::number('id_status1', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Status2 Field -->
+<!-- id Status2 Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_status2', 'Id Status2:') !!}
+    {!! Form::label('id_status2', 'id Status2:') !!}
     {!! Form::number('id_status2', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Unitkerja Field -->
+<!-- id Unitkerja Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_unitkerja', 'Id Unitkerja:') !!}
+    {!! Form::label('id_unitkerja', 'id Unitkerja:') !!}
     {!! Form::number('id_unitkerja', null, ['class' => 'form-control']) !!}
 </div>
 
@@ -91,21 +91,21 @@
     {!! Form::text('pend_diakui', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Org Field -->
+<!-- id Org Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_org', 'Id Org:') !!}
+    {!! Form::label('id_org', 'id Org:') !!}
     {!! Form::number('id_org', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Posisi Field -->
+<!-- id Posisi Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_posisi', 'Id Posisi:') !!}
+    {!! Form::label('id_posisi', 'id Posisi:') !!}
     {!! Form::number('id_posisi', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Id Tipe Kar Field -->
+<!-- id Tipe Kar Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_tipe_kar', 'Id Tipe Kar:') !!}
+    {!! Form::label('id_tipe_kar', 'id Tipe Kar:') !!}
     {!! Form::number('id_tipe_kar', null, ['class' => 'form-control']) !!}
 </div>
 

@@ -1,7 +1,7 @@
-<!-- Id Field -->
+<!-- id Field -->
 <div class="form-group">
-    {!! Form::label('ID', 'Id:') !!}
-    <p>{!! $fungsi->ID !!}</p>
+    {!! Form::label('id', 'id:') !!}
+    <p>{!! $fungsi->id !!}</p>
 </div>
 
 <!-- Nama Fungsi Field -->

@@ -19,7 +19,7 @@ class TblklsjabatanTableSeeder extends Seeder
         \DB::table('tblklsjabatan')->insert(array (
             0 => 
             array (
-                'ID' => 1,
+                'id' => 1,
                 'nama_kj' => 'Kelas Jabatan A',
                 'jml_butuh' => 1,
                 'deleted_at' => NULL,

@@ -14,11 +14,10 @@ class CreateTblkaryawanTable extends Migration {
 	{
 		Schema::create('tblkaryawan', function(Blueprint $table)
 		{
-			$table->increments('ID');
+			$table->increments('id');
 			$table->string('nama', 100);
 			$table->string('gender', 10);
 			$table->date('tgl_lahir');
-			$table->integer('id_kj');
 			$table->integer('id_jabatan');
 			$table->integer('id_status1');
 			$table->integer('id_status2');

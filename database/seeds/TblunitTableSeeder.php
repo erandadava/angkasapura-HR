@@ -19,7 +19,7 @@ class TblunitTableSeeder extends Seeder
         \DB::table('tblunit')->insert(array (
             0 => 
             array (
-                'ID' => 1,
+                'id' => 1,
                 'nama_unit' => 'Unit A',
                 'deleted_at' => NULL,
                 'created_at' => '2019-06-01 05:21:03',
@@ -27,7 +27,7 @@ class TblunitTableSeeder extends Seeder
             ),
             1 => 
             array (
-                'ID' => 2,
+                'id' => 2,
                 'nama_unit' => 'Unit A',
                 'deleted_at' => NULL,
                 'created_at' => '2019-06-01 05:21:03',

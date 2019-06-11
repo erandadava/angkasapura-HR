@@ -12,7 +12,7 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'karyawans.store']) !!}
+                    {!! Form::open(['route' => 'karyawans.store','onsubmit' => 'return validateForm()']) !!}
 
                         @include('karyawans.fields')
 

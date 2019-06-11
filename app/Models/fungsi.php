@@ -37,7 +37,7 @@ class fungsi extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'nama_fungsi' => 'string',
         'jml_butuh' => 'integer'
     ];

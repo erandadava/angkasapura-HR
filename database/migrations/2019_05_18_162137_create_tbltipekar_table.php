@@ -14,7 +14,7 @@ class CreateTbltipekarTable extends Migration {
 	{
 		Schema::create('tbltipekar', function(Blueprint $table)
 		{
-			$table->increments('ID');
+			$table->increments('id');
 			$table->string('nama_tipekar', 50);
 			$table->softDeletes();
             $table->timestamps();

@@ -14,7 +14,7 @@ class CreateTblklsjabatanTable extends Migration {
 	{
 		Schema::create('tblklsjabatan', function(Blueprint $table)
 		{
-			$table->increments('ID');
+			$table->increments('id');
 			$table->string('nama_kj', 50);
 			$table->integer('jml_butuh');
 			$table->softDeletes();

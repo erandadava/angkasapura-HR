@@ -19,7 +19,7 @@ class TblunitkerjaTableSeeder extends Seeder
         \DB::table('tblunitkerja')->insert(array (
             0 => 
             array (
-                'ID' => 1,
+                'id' => 1,
                 'nama_uk' => 'Unit Kerja A',
                 'jml_formasi' => 1,
                 'jml_existing' => 1,

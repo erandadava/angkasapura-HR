@@ -25,6 +25,7 @@ class unitkerja extends Model
 
 
     protected $dates = ['deleted_at'];
+    protected $appends = ['Lowongan'];
 
 
     public $fillable = [
@@ -39,7 +40,7 @@ class unitkerja extends Model
      * @var array
      */
     protected $casts = [
-        'ID' => 'integer',
+        'id' => 'integer',
         'nama_uk' => 'string',
         'jml_formasi' => 'integer',
         'jml_existing' => 'integer'
@@ -56,5 +57,8 @@ class unitkerja extends Model
         'jml_existing' => 'required'
     ];
 
-    
+    public function getLowonganAttribute()
+    {
+        return (int) $this->jml_formasi - (int) $this->jml_existing;
+    }
 }
