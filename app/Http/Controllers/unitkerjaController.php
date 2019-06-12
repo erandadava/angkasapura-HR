@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\unitkerjaDataTable;
+use App\DataTables\formasiExistingDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateunitkerjaRequest;
 use App\Http\Requests\UpdateunitkerjaRequest;
@@ -30,6 +31,11 @@ class unitkerjaController extends AppBaseController
     public function index(unitkerjaDataTable $unitkerjaDataTable)
     {
         return $unitkerjaDataTable->render('unitkerjas.index');
+    }
+
+    public function formasiExisting(formasiExistingDataTable $formasiExistingDataTable)
+    {
+        return $formasiExistingDataTable->render('unitkerjas.formasi');
     }
 
     /**

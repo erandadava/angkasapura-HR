@@ -25,7 +25,7 @@ class unitkerja extends Model
 
 
     protected $dates = ['deleted_at'];
-    protected $appends = ['Lowongan'];
+    protected $appends = ['Lowongan','Kekuatansdm'];
 
 
     public $fillable = [
@@ -60,5 +60,10 @@ class unitkerja extends Model
     public function getLowonganAttribute()
     {
         return (int) $this->jml_formasi - (int) $this->jml_existing;
+    }
+
+    public function getKekuatansdmAttribute()
+    {
+        return ((int) $this->jml_existing / (int) $this->jml_formasi)*100 ."%";
     }
 }

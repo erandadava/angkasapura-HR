@@ -30,6 +30,8 @@ Route::group(['middleware' => ['web', 'auth', 'isEmailVerified']], function ()
 });
 Route::get('/home', 'HomeController@index');
 
+Route::get('/formasiexisting', 'unitkerjaController@formasiExisting');
+
 Route::resource('fungsis', 'fungsiController');
 
 Route::resource('jabatans', 'jabatanController');

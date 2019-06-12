@@ -44,10 +44,11 @@
 <li class="{{ Request::is('users*') ? '' : '' }}">
     <a href="#"><i class="fa fa-edit"></i><span>Komposisi Karyawan</span></a>
 </li>
-<!-- 
-<li class="{{ Request::is('users*') ? '' : '' }}">
-    <a href="#"><i class="fa fa-edit"></i><span>Formasi vs Eksisting</span></a>
+
+<li class="{{ Request::is('unitkerjas.formasiexisting') ? '' : '' }}">
+    <a href="/formasiexisting"><i class="fa fa-edit"></i><span>Formasi vs Eksisting</span></a>
 </li>
+<!-- 
 <li class="{{ Request::is('users*') ? '' : '' }}">
     <a href="#"><i class="fa fa-edit"></i><span>Jabatan Lowong Manajerial</span></a>
 </li>
