@@ -70,13 +70,8 @@ class karyawanController extends AppBaseController
     public function store(CreatekaryawanRequest $request)
     {
         $input = $request->all();
-        print($input['entry_date']);
-        $input['tgl_lahir'] = \Carbon\Carbon::createFromFormat('d-m-Y', $input['tgl_lahir']);
-        $input['rencana_mpp'] = \Carbon\Carbon::createFromFormat('d-m-Y', $input['rencana_mpp']);
-        $input['rencana_pensiun'] = \Carbon\Carbon::createFromFormat('d-m-Y', $input['rencana_pensiun']);
-        $input['entry_date'] = \Carbon\Carbon::createFromFormat('d-m-Y H:i:s', $input['entry_date']);
         $karyawan = $this->karyawanRepository->create($input);
-        return $this->update_unitkerja($input['id_unitkerja'],1);
+        $this->update_unitkerja($input['id_unitkerja'],1);
 
         Flash::success('Karyawan saved successfully.');
 
@@ -112,8 +107,8 @@ class karyawanController extends AppBaseController
      */
     public function edit($id)
     {
-        $this->data['karyawan'] = $this->karyawanRepository->findWithoutFail($id);
-
+        $hasil = $this->karyawanRepository->findWithoutFail($id);
+        $this->data['karyawan'] = $hasil;
         if (empty($this->data['karyawan'])) {
             Flash::error('Karyawan not found');
 
@@ -141,8 +136,14 @@ class karyawanController extends AppBaseController
             return redirect(route('karyawans.index'));
         }
 
-        $karyawan = $this->karyawanRepository->update($request->all(), $id);
+        $input = $request->all();
 
+        if($karyawan->id_unitkerja != $input['id_unitkerja']){
+            $this->update_unitkerja($input['id_unitkerja'],1);
+            $this->update_unitkerja($karyawan->id_unitkerja,-1);
+        }
+        $karyawan = $this->karyawanRepository->update($input, $id);
+        
         Flash::success('Karyawan updated successfully.');
 
         return redirect(route('karyawans.index'));
@@ -174,7 +175,7 @@ class karyawanController extends AppBaseController
 
     public function update_unitkerja($id, $jml){
         $uk = unitkerja::find($id);
-        $input['jml_existing'] = (int) $uk->jml_existing + $jml;
+        $input['jml_existing'] = (int) $uk->jml_existing + (int) $jml;
         return $this->unitkerjaRepository->update($input, $id);
     }
 }

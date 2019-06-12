@@ -37,9 +37,8 @@ class karyawan extends Model
     const UPDATED_AT = 'updated_at';
 
 
-    protected $dates = ['deleted_at'];
+    protected $dates = ['deleted_at','entry_date'];
     protected $appends = ['Age'];
-
     public $fillable = [
         'nama',
         'gender',

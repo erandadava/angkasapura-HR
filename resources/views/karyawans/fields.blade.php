@@ -127,22 +127,22 @@
     }
     
         $('#tgl_lahir').datetimepicker({
-            format: 'DD-mm-Y',
+            format: 'Y-MM-DD',
             useCurrent: false
         });
  
         $('#rencana_mpp').datetimepicker({
-            format: 'DD-mm-Y',
+            format: 'Y-MM-DD',
             useCurrent: false
         });
 
         $('#rencana_pensiun').datetimepicker({
-            format: 'DD-mm-Y',
+            format: 'Y-MM-DD',
             useCurrent: false
         });
 
         $('#entry_date').datetimepicker({
-            format: 'DD-mm-Y hh:mm:ss',
+            format: 'Y-MM-DD hh:mm:ss',
             useCurrent: false
         });
 

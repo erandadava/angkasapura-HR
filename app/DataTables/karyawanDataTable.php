@@ -29,7 +29,7 @@ class karyawanDataTable extends DataTable
      */
     public function query(karyawan $model)
     {
-        return $model->newQuery();
+        return $model->with(['klsjabatan','jabatan','unitkerja'])->newQuery();
     }
 
     /**
@@ -64,21 +64,13 @@ class karyawanDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'nama',
-            'gender',
-            'tgl_lahir',
-            'id_kj',
-            'id_jabatan',
-            'id_status1',
-            'id_status2',
-            'id_unitkerja',
-            'rencana_mpp',
-            'rencana_pensiun',
-            'pend_diakui',
-            'id_org',
-            'id_posisi',
-            'id_tipe_kar',
-            'entry_date'
+            ['data'=>'nik','title'=>'NIK'],
+            ['data'=>'nama','title'=>'Nama'],
+            ['data'=>'gender','title'=>'Gender'],
+            ['data'=>'tgl_lahir','title'=>'Tanggal Lahir'],
+            ['data'=>'jabatan.nama_jabatan','title'=>'Jabatan'],
+            ['data'=>'klsjabatan.nama_kj','title'=>'Kelas Jabatan'],
+            ['data'=>'unitkerja.nama_uk','title'=>'Unit Kerja'],
         ];
     }
 
