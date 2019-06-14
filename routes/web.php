@@ -63,3 +63,5 @@ Route::resource('mpp', 'mppController');
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     \Aschmelyun\Larametrics\Larametrics::routes();
 });
+
+Route::resource('karyawanOs', 'karyawan_osController');

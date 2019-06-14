@@ -70,4 +70,7 @@
 
 <li class="{{ Request::is('mpp*') ? 'active' : '' }}">
     <a href="{!! route('mpp.index') !!}"><i class="fa fa-edit"></i><span>MPP</span></a>
+</li><li class="{{ Request::is('karyawanOs*') ? 'active' : '' }}">
+    <a href="{!! route('karyawanOs.index') !!}"><i class="fa fa-edit"></i><span>Karyawan Os</span></a>
 </li>
+
