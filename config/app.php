@@ -186,7 +186,7 @@ return [
         Lunaweb\EmailVerification\Providers\EmailVerificationServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
-        Aschmelyun\Larametrics\LarametricsServiceProvider::class
+        Aschmelyun\Larametrics\LarametricsServiceProvider::class,
     ],
 
     /*

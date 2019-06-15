@@ -41,7 +41,7 @@ class karyawan_os extends Model
 
 
     protected $dates = ['deleted_at'];
-    protected $appends = ['Docbpjstk'];
+    protected $appends = ['Docbpjstk','Docnobpjskesehatan','Doclisensi','Docnolisensi','Docjangkawaktu','Docnokontrakkerja'];
 
 
     public $fillable = [
@@ -108,6 +108,50 @@ class karyawan_os extends Model
 
     public function getDocbpjstkAttribute()
     {
-        return unserialize($this->doc_no_bpjs_tk);
+        if(isset($this->attributes['doc_no_bpjs_tk'])){
+            return unserialize($this->attributes['doc_no_bpjs_tk']);
+        }
+        return null;
+    }
+    public function getDocnobpjskesehatanAttribute()
+    {
+        if(isset($this->attributes['doc_no_bpjs_kesehatan'])){
+            return unserialize($this->attributes['doc_no_bpjs_kesehatan']);
+        }
+        return null;
+    }
+    public function getDoclisensiAttribute()
+    {
+        if(isset($this->attributes['doc_lisensi'])){
+            return unserialize($this->attributes['doc_lisensi']);
+        }
+        return null;
+    }
+    public function getDocnolisensiAttribute()
+    {
+        if(isset($this->attributes['doc_no_lisensi'])){
+            return unserialize($this->attributes['doc_no_lisensi']);
+        }
+        return null;
+    }
+    public function getDocjangkawaktuAttribute()
+    {
+        if(isset($this->attributes['doc_jangka_waktu'])){
+            return unserialize($this->attributes['doc_jangka_waktu']);
+        }
+        return null;
+    }
+    public function getDocnokontrakkerjaAttribute()
+    {
+        if(isset($this->attributes['doc_no_kontrak_kerja'])){
+            return unserialize($this->attributes['doc_no_kontrak_kerja']);
+        }
+        return null;
+    }
+    public function fungsi(){
+        return $this->hasOne('App\Models\fungsi', 'id', 'id_fungsi');
+    }
+    public function unitkerja(){
+        return $this->hasOne('App\Models\unitkerja', 'id', 'id_unitkerja');
     }
 }

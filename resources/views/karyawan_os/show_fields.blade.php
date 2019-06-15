@@ -1,9 +1,3 @@
-<!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $karyawanOs->id !!}</p>
-</div>
-
 <!-- Nama Field -->
 <div class="form-group">
     {!! Form::label('nama', 'Nama:') !!}
@@ -12,19 +6,19 @@
 
 <!-- Id Fungsi Field -->
 <div class="form-group">
-    {!! Form::label('id_fungsi', 'Id Fungsi:') !!}
-    <p>{!! $karyawanOs->id_fungsi !!}</p>
+    {!! Form::label('id_fungsi', 'Fungsi:') !!}
+    <p>{!! $karyawanOs->fungsi->nama_fungsi !!}</p>
 </div>
 
 <!-- Id Unitkerja Field -->
 <div class="form-group">
-    {!! Form::label('id_unitkerja', 'Id Unitkerja:') !!}
-    <p>{!! $karyawanOs->id_unitkerja !!}</p>
+    {!! Form::label('id_unitkerja', 'Unit Kerja:') !!}
+    <p>{!! $karyawanOs->unitkerja->nama_uk !!}</p>
 </div>
 
 <!-- Tgl Lahir Field -->
 <div class="form-group">
-    {!! Form::label('tgl_lahir', 'Tgl Lahir:') !!}
+    {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
     <p>{!! $karyawanOs->tgl_lahir !!}</p>
 </div>
 
@@ -36,7 +30,7 @@
 
 <!-- Gender Field -->
 <div class="form-group">
-    {!! Form::label('gender', 'Gender:') !!}
+    {!! Form::label('gender', 'Jenis Kelamin:') !!}
     <p>{!! $karyawanOs->gender !!}</p>
 </div>
 
@@ -48,8 +42,28 @@
 
 <!-- Doc No Bpjs Tk Field -->
 <div class="form-group">
-    {!! Form::label('doc_no_bpjs_tk', 'Doc No Bpjs Tk:') !!}
-    <p>{!! $karyawanOs->doc_no_bpjs_tk !!}</p>
+    {!! Form::label('doc_no_bpjs_tk', 'Dokumen No Bpjs Tk:') !!}
+    </br>
+    <div class="row">
+        @if(isset($karyawanOs['Docbpjstk']))
+            @foreach($karyawanOs['Docbpjstk'] as $key => $dt)
+            @php
+                $ext = pathinfo(storage_path().asset('/storage/'.$dt), PATHINFO_EXTENSION);
+            @endphp
+                @if($ext == 'pdf' || $ext == 'PDF')
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}">
+                            <button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></br>PDF {{$key}}</button>
+                        </a>
+                    </div>
+                @else
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}"><img src="{{asset('/storage/'.$dt)}}" width="100%" alt="" srcset=""></a>
+                    </div>
+                @endif
+            @endforeach
+        @endif
+    </div>
 </div>
 
 <!-- No Bpjs Kesehatan Field -->
@@ -60,8 +74,28 @@
 
 <!-- Doc No Bpjs Kesehatan Field -->
 <div class="form-group">
-    {!! Form::label('doc_no_bpjs_kesehatan', 'Doc No Bpjs Kesehatan:') !!}
-    <p>{!! $karyawanOs->doc_no_bpjs_kesehatan !!}</p>
+    {!! Form::label('doc_no_bpjs_kesehatan', 'Dokumen No Bpjs Kesehatan:') !!}
+    </br>
+    <div class="row">
+        @if(isset($karyawanOs['Docnobpjskesehatan']))
+            @foreach($karyawanOs['Docnobpjskesehatan'] as $key => $dt)
+            @php
+                $ext = pathinfo(storage_path().asset('/storage/'.$dt), PATHINFO_EXTENSION);
+            @endphp
+                @if($ext == 'pdf' || $ext == 'PDF')
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}">
+                            <button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></br>PDF {{$key}}</button>
+                        </a>
+                    </div>
+                @else
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}"><img src="{{asset('/storage/'.$dt)}}" width="100%" alt="" srcset=""></a>
+                    </div>
+                @endif
+            @endforeach
+        @endif
+    </div>
 </div>
 
 <!-- Lisensi Field -->
@@ -72,8 +106,28 @@
 
 <!-- Doc Lisensi Field -->
 <div class="form-group">
-    {!! Form::label('doc_lisensi', 'Doc Lisensi:') !!}
-    <p>{!! $karyawanOs->doc_lisensi !!}</p>
+    {!! Form::label('doc_lisensi', 'Dokumen Lisensi:') !!}
+    </br>
+    <div class="row">
+        @if(isset($karyawanOs['Doclisensi']))
+            @foreach($karyawanOs['Doclisensi'] as $key => $dt)
+            @php
+                $ext = pathinfo(storage_path().asset('/storage/'.$dt), PATHINFO_EXTENSION);
+            @endphp
+                @if($ext == 'pdf' || $ext == 'PDF')
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}">
+                            <button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></br>PDF {{$key}}</button>
+                        </a>
+                    </div>
+                @else
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}"><img src="{{asset('/storage/'.$dt)}}" width="100%" alt="" srcset=""></a>
+                    </div>
+                @endif
+            @endforeach
+        @endif
+    </div>
 </div>
 
 <!-- No Lisensi Field -->
@@ -84,8 +138,28 @@
 
 <!-- Doc No Lisensi Field -->
 <div class="form-group">
-    {!! Form::label('doc_no_lisensi', 'Doc No Lisensi:') !!}
-    <p>{!! $karyawanOs->doc_no_lisensi !!}</p>
+    {!! Form::label('doc_no_lisensi', 'Dokumen No Lisensi:') !!}
+    </br>
+    <div class="row">
+        @if(isset($karyawanOs['Docnolisensi']))
+            @foreach($karyawanOs['Docnolisensi'] as $key => $dt)
+            @php
+                $ext = pathinfo(storage_path().asset('/storage/'.$dt), PATHINFO_EXTENSION);
+            @endphp
+                @if($ext == 'pdf' || $ext == 'PDF')
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}">
+                            <button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></br>PDF {{$key}}</button>
+                        </a>
+                    </div>
+                @else
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}"><img src="{{asset('/storage/'.$dt)}}" width="100%" alt="" srcset=""></a>
+                    </div>
+                @endif
+            @endforeach
+        @endif
+    </div>
 </div>
 
 <!-- Jangka Waktu Field -->
@@ -96,8 +170,28 @@
 
 <!-- Doc Jangka Waktu Field -->
 <div class="form-group">
-    {!! Form::label('doc_jangka_waktu', 'Doc Jangka Waktu:') !!}
-    <p>{!! $karyawanOs->doc_jangka_waktu !!}</p>
+    {!! Form::label('doc_jangka_waktu', 'Dokumen Jangka Waktu:') !!}
+    </br>
+    <div class="row">
+        @if(isset($karyawanOs['Docjangkawaktu']))
+            @foreach($karyawanOs['Docjangkawaktu'] as $key => $dt)
+            @php
+                $ext = pathinfo(storage_path().asset('/storage/'.$dt), PATHINFO_EXTENSION);
+            @endphp
+                @if($ext == 'pdf' || $ext == 'PDF')
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}">
+                            <button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></br>PDF {{$key}}</button>
+                        </a>
+                    </div>
+                @else
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}"><img src="{{asset('/storage/'.$dt)}}" width="100%" alt="" srcset=""></a>
+                    </div>
+                @endif
+            @endforeach
+        @endif
+    </div>
 </div>
 
 <!-- No Kontrak Kerja Field -->
@@ -108,25 +202,45 @@
 
 <!-- Doc No Kontrak Kerja Field -->
 <div class="form-group">
-    {!! Form::label('doc_no_kontrak_kerja', 'Doc No Kontrak Kerja:') !!}
-    <p>{!! $karyawanOs->doc_no_kontrak_kerja !!}</p>
+    {!! Form::label('doc_no_kontrak_kerja', 'Dokumen No Kontrak Kerja:') !!}
+    </br>
+    <div class="row">
+        @if(isset($karyawanOs['Docnokontrakkerja']))
+            @foreach($karyawanOs['Docnokontrakkerja'] as $key => $dt)
+            @php
+                $ext = pathinfo(storage_path().asset('/storage/'.$dt), PATHINFO_EXTENSION);
+            @endphp
+                @if($ext == 'pdf' || $ext == 'PDF')
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}">
+                            <button type="button" class="btn btn-default btn-lg btn-block"><span class="glyphicon glyphicon-file" aria-hidden="true"></span></br>PDF {{$key}}</button>
+                        </a>
+                    </div>
+                @else
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}"><img src="{{asset('/storage/'.$dt)}}" width="100%" alt="" srcset=""></a>
+                    </div>
+                @endif
+            @endforeach
+        @endif
+    </div>
 </div>
 
 <!-- Deleted At Field -->
 <div class="form-group">
-    {!! Form::label('deleted_at', 'Deleted At:') !!}
+    {!! Form::label('deleted_at', 'Dihapus Pada:') !!}
     <p>{!! $karyawanOs->deleted_at !!}</p>
 </div>
 
 <!-- Created At Field -->
 <div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
+    {!! Form::label('created_at', 'Dibuat Pada:') !!}
     <p>{!! $karyawanOs->created_at !!}</p>
 </div>
 
 <!-- Updated At Field -->
 <div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
+    {!! Form::label('updated_at', 'Diubah Pada:') !!}
     <p>{!! $karyawanOs->updated_at !!}</p>
 </div>
 

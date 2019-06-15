@@ -129,7 +129,7 @@ class karyawan_osController extends AppBaseController
      */
     public function show($id)
     {
-        $karyawanOs = $this->karyawanOsRepository->findWithoutFail($id);
+        $karyawanOs = $this->karyawanOsRepository->with(['fungsi','unitkerja'])->findWithoutFail($id);
 
         if (empty($karyawanOs)) {
             Flash::error('Karyawan Os not found');
@@ -151,20 +151,6 @@ class karyawan_osController extends AppBaseController
     {
         $this->data['karyawanOs'] = $this->karyawanOsRepository->findWithoutFail($id);
 
-        // $doc_no_bpjs_tk = unserialize($this->data['karyawanOs']['doc_no_bpjs_tk']);
-        // $doc_no_bpjs_kesehatan = unserialize($this->data['karyawanOs']['doc_no_bpjs_kesehatan']);
-        // $doc_lisensi = unserialize($this->data['karyawanOs']['doc_lisensi']);
-        // $doc_no_lisensi= unserialize($this->data['karyawanOs']['doc_no_lisensi']);
-        // $doc_jangka_waktu = unserialize($this->data['karyawanOs']['doc_jangka_waktu']);
-        // $doc_no_kontrak_kerja = unserialize($this->data['karyawanOs']['doc_no_kontrak_kerja']);
-
-        // $this->data['karyawanOs']['doc_no_bpjs_tk'] = $doc_no_bpjs_tk;
-        // $this->data['karyawanOs']['doc_no_bpjs_kesehatan'] = $doc_no_bpjs_kesehatan;
-        // $this->data['karyawanOs']['doc_lisensi'] = $doc_lisensi;
-        // $this->data['karyawanOs']['doc_no_lisensi'] = $doc_no_lisensi;
-        // $this->data['karyawanOs']['doc_jangka_waktu'] = $doc_jangka_waktu;
-        // $this->data['karyawanOs']['doc_no_kontrak_kerja'] = $doc_no_kontrak_kerja;
-
         if (empty($this->data['karyawanOs'])) {
             Flash::error('Karyawan Os not found');
 
@@ -172,7 +158,7 @@ class karyawan_osController extends AppBaseController
         }
         
         // echo "<pre>";
-        // print_r($this->data['karyawanOs']['Docbpjstk']);
+        // print_r($this->data['karyawanOs']['Docnobpjskesehatan']);
         return view('karyawan_os.edit')->with($this->data);
     }
 
@@ -193,8 +179,43 @@ class karyawan_osController extends AppBaseController
 
             return redirect(route('karyawanOs.index'));
         }
+        $input = $request->all();
+        if(isset($input['ganti_doc_bpjs_tk'])){
+            $input['doc_no_bpjs_tk'] = serialize($this->update_dokumen($id,'doc_no_bpjs_tk',$input['doc_no_bpjs_tk'],$karyawanOs->doc_no_bpjs_tk));
+        }else{
+            unset($input['doc_no_bpjs_tk']);
+        }
 
-        $karyawanOs = $this->karyawanOsRepository->update($request->all(), $id);
+        if(isset($input['ganti_doc_bpjs_kesehatan'])){
+            $input['doc_no_bpjs_kesehatan'] = serialize($this->update_dokumen($id,'doc_no_bpjs_kesehatan',$input['doc_no_bpjs_kesehatan'],$karyawanOs->doc_no_bpjs_kesehatan));
+        }else{
+            unset($input['doc_no_bpjs_kesehatan']);
+        }
+
+        if(isset($input['ganti_ganti_doc_lisensi'])){
+            $input['doc_lisensi'] = serialize($this->update_dokumen($id,'doc_lisensi',$input['doc_lisensi'],$karyawanOs->doc_lisensi));
+        }else{
+            unset($input['doc_lisensi']);
+        }
+
+        if(isset($input['ganti_doc_no_lisensi'])){
+            $input['doc_no_lisensi'] = serialize($this->update_dokumen($id,'doc_no_lisensi',$input['doc_no_lisensi'],$karyawanOs->doc_no_lisensi));
+        }else{
+            unset($input['doc_no_lisensi']);
+        }
+
+        if(isset($input['ganti_doc_jangka_waktu'])){
+            $input['doc_jangka_waktu'] = serialize($this->update_dokumen($id,'doc_jangka_waktu',$input['doc_jangka_waktu'],$karyawanOs->doc_jangka_waktu));
+        }else{
+            unset($input['doc_jangka_waktu']);
+        }
+
+        if(isset($input['ganti_doc_no_kontrak_kerja'])){
+            $input['doc_no_kontrak_kerja'] = serialize($this->update_dokumen($id,'doc_no_kontrak_kerja',$input['doc_no_kontrak_kerja'],$karyawanOs->doc_no_kontrak_kerja));
+        }else{
+            unset($input['doc_no_kontrak_kerja']);
+        }
+        $karyawanOs = $this->karyawanOsRepository->update($input, $id);
 
         Flash::success('Karyawan Os updated successfully.');
 
@@ -223,5 +244,29 @@ class karyawan_osController extends AppBaseController
         Flash::success('Karyawan Os deleted successfully.');
 
         return redirect(route('karyawanOs.index'));
+    }
+
+    public function update_dokumen($id,$field,$value,$valuelama){
+        // $doc_no_bpjs_tk = unserialize($this->data['karyawanOs']['doc_no_bpjs_tk']);
+        // $doc_no_bpjs_kesehatan = unserialize($this->data['karyawanOs']['doc_no_bpjs_kesehatan']);
+        // $doc_lisensi = unserialize($this->data['karyawanOs']['doc_lisensi']);
+        // $doc_no_lisensi= unserialize($this->data['karyawanOs']['doc_no_lisensi']);
+        // $doc_jangka_waktu = unserialize($this->data['karyawanOs']['doc_jangka_waktu']);
+        // $doc_no_kontrak_kerja = unserialize($this->data['karyawanOs']['doc_no_kontrak_kerja']);
+
+        //hapus file lama 
+        $filelama = unserialize($valuelama); 
+        foreach ($filelama as $key => $value) {
+            \File::delete('storage/'.$value);
+        }
+
+        //update field
+        $nilai=[];
+        $foldernya = str_replace('_', '',$field);
+        foreach ($value as $key => $photo) {
+            $filename = $photo->store($foldernya);
+            $nilai[$key]=$filename;
+        }
+        return $nilai;
     }
 }
