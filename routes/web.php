@@ -65,3 +65,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
 });
 
 Route::resource('karyawanOs', 'karyawan_osController');
+
+Route::resource('osperformances', 'OsperformanceController');

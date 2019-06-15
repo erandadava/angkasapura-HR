@@ -71,6 +71,10 @@
 <li class="{{ Request::is('mpp*') ? 'active' : '' }}">
     <a href="{!! route('mpp.index') !!}"><i class="fa fa-edit"></i><span>MPP</span></a>
 </li><li class="{{ Request::is('karyawanOs*') ? 'active' : '' }}">
-    <a href="{!! route('karyawanOs.index') !!}"><i class="fa fa-edit"></i><span>Karyawan Os</span></a>
+    <a href="{!! route('karyawanOs.index') !!}"><i class="fa fa-edit"></i><span>Karyawan Outsourcing</span></a>
+</li>
+
+<li class="{{ Request::is('osperformances*') ? 'active' : '' }}">
+    <a href="{!! route('osperformances.index') !!}"><i class="fa fa-edit"></i><span>OS Performance</span></a>
 </li>
 

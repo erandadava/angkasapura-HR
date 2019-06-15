@@ -256,8 +256,8 @@ class karyawan_osController extends AppBaseController
 
         //hapus file lama 
         $filelama = unserialize($valuelama); 
-        foreach ($filelama as $key => $value) {
-            \File::delete('storage/'.$value);
+        foreach ($filelama as $key => $dt) {
+            \File::delete('storage/'.$dt);
         }
 
         //update field

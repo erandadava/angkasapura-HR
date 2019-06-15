@@ -81,3 +81,5 @@ Route::resource('unitkerjas', 'unitkerjaAPIController');
 Route::resource('roles', 'rolesAPIController');
 
 Route::resource('karyawan_os', 'karyawan_osAPIController');
+
+Route::resource('osperformances', 'OsperformanceAPIController');
