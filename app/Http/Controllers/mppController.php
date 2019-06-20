@@ -6,7 +6,7 @@ use App\DataTables\mppDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreatemppRequest;
 use App\Http\Requests\UpdatemppRequest;
-use App\Repositories\KaryawanRepository;
+use App\Repositories\karyawanRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -16,7 +16,7 @@ class mppController extends AppBaseController
     /** @var  mppRepository */
     private $KaryawanRepository;
 
-    public function __construct(KaryawanRepository $KaryawanRepo)
+    public function __construct(karyawanRepository $KaryawanRepo)
     {
         $this->KaryawanRepository = $KaryawanRepo;
     }
