@@ -89,6 +89,7 @@ class ComposerStaticInitc2c0f0aa2cfdb3fa94e9d96d3b4373bd
             'Psr\\SimpleCache\\' => 16,
             'Psr\\Log\\' => 8,
             'Psr\\Container\\' => 14,
+            'Prophecy\\' => 9,
             'Prettus\\Validator\\' => 18,
             'Prettus\\Repository\\' => 19,
             'PhpParser\\' => 10,
@@ -302,6 +303,10 @@ class ComposerStaticInitc2c0f0aa2cfdb3fa94e9d96d3b4373bd
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
         ),
+        'Prophecy\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
+        ),
         'Prettus\\Validator\\' => 
         array (
             0 => __DIR__ . '/..' . '/prettus/laravel-validation/src/Prettus/Validator',
@@ -448,10 +453,6 @@ class ComposerStaticInitc2c0f0aa2cfdb3fa94e9d96d3b4373bd
         ),
         'P' => 
         array (
-            'Prophecy\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
-            ),
             'Parsedown' => 
             array (
                 0 => __DIR__ . '/..' . '/erusev/parsedown',

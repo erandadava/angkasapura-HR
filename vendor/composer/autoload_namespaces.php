@@ -9,7 +9,6 @@ return array(
     'Xethron\\MigrationsGenerator' => array($vendorDir . '/xethron/migrations-generator/src'),
     'Way\\Generators' => array($vendorDir . '/xethron/laravel-4-generators/src'),
     'UpdateHelper\\' => array($vendorDir . '/kylekatarnls/update-helper/src'),
-    'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
     'Parsedown' => array($vendorDir . '/erusev/parsedown'),
     'PHPExcel' => array($vendorDir . '/phpoffice/phpexcel/Classes'),
     'Orangehill\\Iseed' => array($vendorDir . '/orangehill/iseed/src'),

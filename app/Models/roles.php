@@ -3,7 +3,7 @@
 namespace App\Models;
 
 use Eloquent as Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+// use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class roles
@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class roles extends Model
 {
-    use SoftDeletes;
+    // use SoftDeletes;
 
     public $table = 'roles';
     
