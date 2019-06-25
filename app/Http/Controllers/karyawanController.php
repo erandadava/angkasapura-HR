@@ -186,8 +186,8 @@ class karyawanController extends AppBaseController
     }
 
     public function import_from_csv(Request $request){
-        $validator = Validator::make($request->all(), ['file_csv' => 'required|file|mimes:csv']);
-        if ($validator->fails())
+        try {
+            if (empty($request->file_csv) || $request->file_csv->getClientOriginalExtension() != 'csv')
         {
             Flash::error("Pastikan Terdapat File Yang Diupload dan Memiliki Format CSV");
             return redirect(route('karyawans.index'));
@@ -260,6 +260,9 @@ class karyawanController extends AppBaseController
                 $teks = $teks.', '.$dt;
             }
             Flash::info($teks);
+        }
+        } catch (\Throwable $th) {
+            Flash::error('Terjadi Kesalahan ! </br> Pastikan File CSV Anda Sudah Benar </br> <small>Tips Jika File Sudah Benar: Pastikan Pada Header CSV Tidak Ada Yang Kosong</small>');
         }
         return redirect(route('karyawans.index'));
     }

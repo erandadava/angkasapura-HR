@@ -12,8 +12,9 @@ use App\Http\Controllers\AppBaseController;
 use Response;
 use App\Models\unitkerja;
 use App\Models\fungsi;
-
-
+use Illuminate\Http\Request;
+use Validator;
+use League\Csv\Reader;
 class karyawan_osController extends AppBaseController
 {
     /** @var  karyawan_osRepository */
@@ -269,5 +270,86 @@ class karyawan_osController extends AppBaseController
             $nilai[$key]=$filename;
         }
         return $nilai;
+    }
+
+    public function import_from_csv(Request $request){
+        try {
+            if (empty($request->file_csv) || $request->file_csv->getClientOriginalExtension() != 'csv')
+        {
+            Flash::error("Pastikan Terdapat File Yang Diupload dan Memiliki Format CSV");
+            return redirect(route('karyawanOs.index'));
+        }
+        $csv = Reader::createFromPath($request->file('file_csv'), 'r');
+        $csv->setHeaderOffset(0);
+        $arrfungsi = [];
+        $arrjabatan = [];
+        $arruk = [];
+        $arrberhasil = [];
+        foreach ($csv as $row) {
+            // $cek_jabatan = \App\Models\jabatan::where('nama_jabatan','=',$row['JABATAN'])->first();
+            // if(empty($cek_jabatan)){
+            //     // $cek_jabatan = $this->jabatanRepository->create([
+            //     //     'nama_jabatan' => $row['JABATAN']
+            //     // ]);
+            //     array_push($arrjabatan, $row['JABATAN']);
+            // }
+
+            // $cek_uk = \App\Models\unitkerja::where('nama_uk','=',$row['UNIT KERJA'])->first();
+            // if(empty($cek_uk)){
+            //     // $cek_uk = $this->unitkerjaRepository->create([
+            //     //     'nama_uk' => $row['UNIT KERJA']
+            //     // ]);
+            //     array_push($arruk, $row['UNIT KERJA']);
+            // }
+
+            $cek_fungsi = \App\Models\fungsi::where('nama_fungsi','=',$row['FUNGSI'])->first();
+            if(empty($cek_fungsi)){
+                // $cek_fungsi = $this->fungsiRepository->create([
+                //     'nama_fungsi' => $row['FUNGSI']
+                // ]);
+                array_push($arrfungsi, $row['FUNGSI']);
+            }
+            if(!empty($cek_fungsi)){
+                $input['nama'] = $row['NAMA'];
+                $input['tgl_lahir'] = \Carbon\Carbon::parse($row['TTL'])->format('Y-m-d H:i:s');
+                if($row['JENIS KELAMIN']=="P"){
+                    $row['JENIS KELAMIN'] = 'Perempuan';
+                }else{
+                    $row['JENIS KELAMIN'] = 'Laki-laki';
+                }
+                $input['gender'] = $row['JENIS KELAMIN'];
+                $input['id_fungsi'] = $cek_fungsi['id'];
+
+                $this->karyawanOsRepository->create($input);
+
+                array_push($arrberhasil, 'a');
+            }
+            
+        }
+
+        if(empty($arrfungsi)){
+            Flash::success('Import from CSV successfully.');
+        }else{
+            $gagal = count($arrfungsi);
+            $teks = '<b>'.(String) count($arrberhasil)." Karyawan Ousourcing Created Successfully</b> </br> <b>".(String)$gagal." Karyawan Outsourcing Not Created Because : </b> </br> Fungsi Not Found: </br>";
+            // foreach((array) array_unique($arrjabatan) as $dt){
+            //     $teks = $teks.', '.$dt;
+            // }
+
+            $teks = $teks.'</br> Fungsi Not Found: </br>';
+            foreach((array) array_unique($arrfungsi) as $dt){
+                $teks = $teks.', '.$dt;
+            }
+
+            // $teks = $teks.'</br> Unit Kerja Not Found : </br>';
+            // foreach((array) array_unique($arruk) as $dt){
+            //     $teks = $teks.', '.$dt;
+            // }
+            Flash::info($teks);
+        }
+        } catch (\Throwable $th) {
+            Flash::error('Terjadi Kesalahan ! </br> Pastikan File CSV Anda Sudah Benar </br> <small>Tips Jika File Sudah Benar: Pastikan Pada Header CSV Tidak Ada Yang Kosong</small>');
+        }
+        return redirect(route('karyawanOs.index'));
     }
 }

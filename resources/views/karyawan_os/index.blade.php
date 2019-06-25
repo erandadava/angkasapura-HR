@@ -40,9 +40,8 @@
         <div class="alert alert-info">
             <strong>Info!</strong> Format Tanggal Harus *3/14/2012 (dd/mm/yyyy).
         </div>
-            {!! Form::open(['url' => '/uploadcsvkaryawan', 'method' => 'POST','enctype'=>'multipart/form-data']) !!}
+            {!! Form::open(['url' => '/uploadcsvkaryawanos', 'method' => 'POST','enctype'=>'multipart/form-data']) !!}
                 <input  type="file"  name="file_csv" accept=".csv">
-            
         </div>
         <div class="modal-footer">
             <button type="submit" class="btn btn-default">Import</button>

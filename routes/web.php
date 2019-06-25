@@ -43,8 +43,10 @@ Route::resource('klsjabatans', 'klsjabatanController');
 Route::resource('osdocs', 'osdocController');
 
 Route::resource('statuskars', 'statuskarController');
+
 Route::post('/uploadcsvkaryawan', 'karyawanController@import_from_csv');
 
+Route::post('/uploadcsvkaryawanos', 'karyawan_osController@import_from_csv');
 
 
 
