@@ -51,7 +51,6 @@ class roles extends Model
      */
     public static $rules = [
         'name' => 'required',
-        'guard_name' => 'required'
     ];
 
     /**

@@ -6,6 +6,7 @@
     </br>
 </div>
 </br>
+@hasrole('Admin|Super Admin')
 @if(($status_pensiun == 'N' || $status_pensiun==null) && $Age==1)
 <a href="#" class='btn btn-success btn-xs' data-toggle="modal" data-target="#modalAmbil{{$id}}">
         <i class="glyphicon glyphicon-ok"></i> Ambil
@@ -55,4 +56,5 @@
 
 @endif
 
+@endhasrole
 

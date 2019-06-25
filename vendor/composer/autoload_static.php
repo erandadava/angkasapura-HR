@@ -503,6 +503,7 @@ class ComposerStaticInitc2c0f0aa2cfdb3fa94e9d96d3b4373bd
     );
 
     public static $classMap = array (
+        'App\\Console\\Commands\\cekpensiun' => __DIR__ . '/../..' . '/app/Console/Commands/cekpensiun.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\DataTables\\OsperformanceDataTable' => __DIR__ . '/../..' . '/app/DataTables/OsperformanceDataTable.php',
         'App\\DataTables\\formasiExistingDataTable' => __DIR__ . '/../..' . '/app/DataTables/formasiExistingDataTable.php',

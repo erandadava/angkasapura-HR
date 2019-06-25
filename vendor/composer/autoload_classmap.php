@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'App\\Console\\Commands\\cekpensiun' => $baseDir . '/app/Console/Commands/cekpensiun.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
     'App\\DataTables\\OsperformanceDataTable' => $baseDir . '/app/DataTables/OsperformanceDataTable.php',
     'App\\DataTables\\formasiExistingDataTable' => $baseDir . '/app/DataTables/formasiExistingDataTable.php',
