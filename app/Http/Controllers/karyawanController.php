@@ -18,17 +18,23 @@ use App\Models\tipekar;
 use App\Models\unit;
 use App\Models\unitkerja;
 use App\Models\fungsi;
-
+use Illuminate\Http\Request;
+use League\Csv\Reader;
+use App\Repositories\jabatanRepository;
+use App\Repositories\fungsiRepository;
+use Validator;
 
 class karyawanController extends AppBaseController
 {
     /** @var  karyawanRepository */
     private $karyawanRepository;
 
-    public function __construct(karyawanRepository $karyawanRepo, unitkerjaRepository $unitkerjaRepo)
+    public function __construct(karyawanRepository $karyawanRepo, unitkerjaRepository $unitkerjaRepo, jabatanRepository $jabatanRepo, fungsiRepository $fungsiRepo)
     {
         $this->karyawanRepository = $karyawanRepo;
         $this->unitkerjaRepository = $unitkerjaRepo;
+        $this->jabatanRepository = $jabatanRepo;
+        $this->fungsiRepository = $fungsiRepo;
         $this->data['jabatan'] = jabatan::pluck('nama_jabatan','id');
         $this->data['klsjabatan'] = klsjabatan::pluck('nama_kj','id');
         $this->data['statuskar'] = statuskar::pluck('nama_stat','id');
@@ -177,5 +183,84 @@ class karyawanController extends AppBaseController
         $uk = unitkerja::find($id);
         $input['jml_existing'] = (int) $uk->jml_existing + (int) $jml;
         return $this->unitkerjaRepository->update($input, $id);
+    }
+
+    public function import_from_csv(Request $request){
+        $validator = Validator::make($request->all(), ['file_csv' => 'required|file|mimes:csv']);
+        if ($validator->fails())
+        {
+            Flash::error("Pastikan Terdapat File Yang Diupload dan Memiliki Format CSV");
+            return redirect(route('karyawans.index'));
+        }
+        $csv = Reader::createFromPath($request->file('file_csv'), 'r');
+        $csv->setHeaderOffset(0);
+        $arrfungsi = [];
+        $arrjabatan = [];
+        $arruk = [];
+        $arrberhasil = [];
+        foreach ($csv as $row) {
+            $cek_jabatan = \App\Models\jabatan::where('nama_jabatan','=',$row['JABATAN'])->first();
+            if(empty($cek_jabatan)){
+                // $cek_jabatan = $this->jabatanRepository->create([
+                //     'nama_jabatan' => $row['JABATAN']
+                // ]);
+                array_push($arrjabatan, $row['JABATAN']);
+            }
+
+            $cek_uk = \App\Models\unitkerja::where('nama_uk','=',$row['UNIT KERJA'])->first();
+            if(empty($cek_uk)){
+                // $cek_uk = $this->unitkerjaRepository->create([
+                //     'nama_uk' => $row['UNIT KERJA']
+                // ]);
+                array_push($arruk, $row['UNIT KERJA']);
+            }
+
+            $cek_fungsi = \App\Models\fungsi::where('nama_fungsi','=',$row['FUNGSI'])->first();
+            if(empty($cek_fungsi)){
+                // $cek_fungsi = $this->fungsiRepository->create([
+                //     'nama_fungsi' => $row['FUNGSI']
+                // ]);
+                array_push($arrfungsi, $row['FUNGSI']);
+            }
+            if(!empty($cek_fungsi) && !empty($cek_uk) && !empty($cek_jabatan)){
+                $input['nik'] = $row['NIK'];
+                $input['nama'] = $row['NAMA'];
+                $input['tgl_lahir'] = \Carbon\Carbon::parse($row['TGL LAHIR'])->format('Y-m-d H:i:s');
+                $input['rencana_mpp'] = \Carbon\Carbon::parse($row['RENCANA MPP'])->format('Y-m-d H:i:s');
+                $input['rencana_pensiun'] = \Carbon\Carbon::parse($row['RENCANA PENSIUN'])->format('Y-m-d H:i:s');
+                $input['gender'] = $row['JENIS KELAMIN'];
+                $input['pend_diakui'] = $row['PENDIDIKAN DIAKUI'];
+                $input['id_jabatan'] = $cek_jabatan['id'];
+                $input['id_unitkerja'] = $cek_uk['id'];
+                $input['id_fungsi'] = $cek_fungsi['id'];
+
+                $this->karyawanRepository->create($input);
+
+                array_push($arrberhasil, 'a');
+            }
+            
+        }
+
+        if(empty($arrfungsi || $arrjabatan || $arruk)){
+            Flash::success('Import from CSV successfully.');
+        }else{
+            $gagal = count($arrfungsi) + count($arrjabatan) + count($arruk);
+            $teks = '<b>'.(String) count($arrberhasil)." Karyawan Created Successfully</b> </br> <b>".(String)$gagal." Karyawan Not Created Because : </b> </br> Jabatan Not Found: </br>";
+            foreach((array) array_unique($arrjabatan) as $dt){
+                $teks = $teks.', '.$dt;
+            }
+
+            $teks = $teks.'</br> Fungsi Not Found: </br>';
+            foreach((array) array_unique($arrfungsi) as $dt){
+                $teks = $teks.', '.$dt;
+            }
+
+            $teks = $teks.'</br> Unit Kerja Not Found : </br>';
+            foreach((array) array_unique($arruk) as $dt){
+                $teks = $teks.', '.$dt;
+            }
+            Flash::info($teks);
+        }
+        return redirect(route('karyawans.index'));
     }
 }

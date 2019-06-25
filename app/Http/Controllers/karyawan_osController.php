@@ -13,6 +13,7 @@ use Response;
 use App\Models\unitkerja;
 use App\Models\fungsi;
 
+
 class karyawan_osController extends AppBaseController
 {
     /** @var  karyawan_osRepository */

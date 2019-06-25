@@ -11,7 +11,7 @@
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('gender', 'Jenis Kelamin:') !!}
-    {!! Form::select('gender',['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'],null, ['class' => 'form-control']) !!}
+    {!! Form::select('gender',['Male' => 'Male', 'Female' => 'Female'],null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Tgl Lahir Field -->
