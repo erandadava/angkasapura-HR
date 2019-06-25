@@ -10,15 +10,17 @@ use App\Repositories\karyawanRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
-
+use Illuminate\Http\Request;
+use App\Repositories\unitkerjaRepository;
 class mppController extends AppBaseController
 {
     /** @var  mppRepository */
     private $KaryawanRepository;
 
-    public function __construct(karyawanRepository $KaryawanRepo)
+    public function __construct(karyawanRepository $KaryawanRepo, unitkerjaRepository $unitkerjaRepo)
     {
         $this->KaryawanRepository = $KaryawanRepo;
+        $this->unitkerjaRepository = $unitkerjaRepo;
     }
 
     /**
@@ -146,6 +148,37 @@ class mppController extends AppBaseController
         $this->mppRepository->delete($id);
 
         Flash::success('mpp deleted successfully.');
+
+        return redirect(route('mpp.index'));
+    }
+
+    public function update_pensiun(Request $request, $id)
+    {
+        $mpp = $this->KaryawanRepository->findWithoutFail($id);
+
+        if (empty($mpp)) {
+            Flash::error('Karyawan not found');
+
+            return redirect(route('mpp.index'));
+        }
+        
+        $input = $request->all();
+
+        if($request->status_pensiun == "M"){
+            $input['tgl_aktif_pensiun'] = date('Y-m-d H:i:s', strtotime('+1 month', strtotime(date('Y') . "-" . date('m') . "-" . "1")));
+            if($input['status_masih'] == 'T'){
+                $uk = $this->unitkerjaRepository->findWithoutFail($mpp->id_unitkerja);
+                $inputuk['jml_existing'] = (int) $jml_existing - 1;
+                $this->unitkerjaRepository->update($inputuk, $mpp->id_unitkerja);
+            }
+            $this->KaryawanRepository->update($input, $id);
+            Flash::success('Pensiun Berhasil Diambil </br> <b>Masa Pensiun Mulai Aktif Pada Tanggal </b>'.date('d-m-Y', strtotime($input['tgl_aktif_pensiun'])));
+        }else{
+            $this->KaryawanRepository->update($input, $id);
+            Flash::success('Pensiun Berhasil Tidak Diambil');
+        }
+        
+        //Flash::success('mpp deleted successfully.');
 
         return redirect(route('mpp.index'));
     }

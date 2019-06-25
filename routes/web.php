@@ -48,7 +48,7 @@ Route::post('/uploadcsvkaryawan', 'karyawanController@import_from_csv');
 
 Route::post('/uploadcsvkaryawanos', 'karyawan_osController@import_from_csv');
 
-
+Route::post('/updatepensiun/{id}', 'mppController@update_pensiun');
 
 
 
