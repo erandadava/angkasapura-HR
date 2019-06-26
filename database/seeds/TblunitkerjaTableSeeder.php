@@ -27,6 +27,16 @@ class TblunitkerjaTableSeeder extends Seeder
                 'created_at' => '2019-06-01 05:21:21',
                 'updated_at' => '2019-06-01 05:21:21',
             ),
+            1 => 
+            array (
+                'id' => 2,
+                'nama_uk' => 'ACCESIBILITY & ENVIRONMENT',
+                'jml_formasi' => 10,
+                'jml_existing' => 8,
+                'deleted_at' => NULL,
+                'created_at' => '2019-06-25 05:48:32',
+                'updated_at' => '2019-06-25 05:48:32',
+            ),
         ));
         
         

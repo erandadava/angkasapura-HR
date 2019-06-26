@@ -4,7 +4,10 @@
     <section class="content-header">
         <h1 class="pull-left">Karyawan Outsourcing</h1>
         <h1 class="pull-right">
-           <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('karyawanOs.create') !!}">Add New</a>
+            <div class="btn-group">
+                <a class="btn btn-default" style="margin-top: -10px;margin-bottom: 5px" data-toggle="modal" data-target="#modalUpload" href="#">Import From CSV</a>
+                <a class="btn btn-primary" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('karyawanOs.create') !!}">Add New</a>
+            </div>
         </h1>
     </section>
     <div class="content">
@@ -21,6 +24,32 @@
         <div class="text-center">
         
         </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="modalUpload" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Upload CSV</h4>
+        </div>
+        <div class="modal-body">
+        <div class="alert alert-info">
+            <strong>Info!</strong> Format Tanggal Harus *3/14/2012 (dd/mm/yyyy).
+        </div>
+            {!! Form::open(['url' => '/uploadcsvkaryawanos', 'method' => 'POST','enctype'=>'multipart/form-data']) !!}
+                <input  type="file"  name="file_csv" accept=".csv">
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-default">Import</button>
+            {!! Form::close() !!}
+        </div>
+        </div>
+
+    </div>
     </div>
 @endsection
 

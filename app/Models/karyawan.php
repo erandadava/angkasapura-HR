@@ -37,8 +37,9 @@ class karyawan extends Model
     const UPDATED_AT = 'updated_at';
 
 
-    protected $dates = ['deleted_at','entry_date'];
+    protected $dates = ['deleted_at','entry_date','tgl_lahir','rencana_mpp','rencana_pensiun'];
     protected $appends = ['Age'];
+    
     public $fillable = [
         'nama',
         'gender',
@@ -57,7 +58,9 @@ class karyawan extends Model
         'id_fungsi',
         'nik',
         'id_klsjabatan',
-        'id_unit'
+        'id_unit',
+        'status_pensiun',
+        'tgl_aktif_pensiun'
     ];
 
     /**
@@ -102,7 +105,8 @@ class karyawan extends Model
         'id_org' => 'required',
         'id_posisi' => 'required',
         'id_tipe_kar' => 'required',
-        'entry_date' => 'required'
+        'entry_date' => 'required',
+        
     ];
 
     public function fungsi(){

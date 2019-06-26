@@ -1,8 +1,3 @@
-<!-- id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'id:') !!}
-    <p>{!! $karyawan->id !!}</p>
-</div>
 
 <!-- Nama Field -->
 <div class="form-group">
@@ -12,13 +7,13 @@
 
 <!-- Gender Field -->
 <div class="form-group">
-    {!! Form::label('gender', 'Gender:') !!}
+    {!! Form::label('gender', 'Jenis Kelamin:') !!}
     <p>{!! $karyawan->gender !!}</p>
 </div>
 
 <!-- Tgl Lahir Field -->
 <div class="form-group">
-    {!! Form::label('tgl_lahir', 'Tgl Lahir:') !!}
+    {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
     <p>{!! $karyawan->tgl_lahir !!}</p>
 </div>
 
@@ -86,6 +81,21 @@
 <div class="form-group">
     {!! Form::label('id_tipe_kar', 'id Tipe Kar:') !!}
     <p>{!! $karyawan->id_tipe_kar !!}</p>
+</div>
+
+<div class="form-group">
+    {!! Form::label('status_pensiun', 'Status Pensiun:') !!}
+    <p>
+    @if($karyawan->status_pensiun == 'A') <span class='label label-success'>Sudah Pensiun</span>
+    @elseif ($karyawan->status_pensiun == 'R') <span class='label label-danger'>Pensiun Tidak Diambil</span>
+    @elseif ($karyawan->status_pensiun == 'M') <span class='label label-warning'>Menunggu Waktu Aktif Pensiun</span>
+    @elseif ($karyawan->status_pensiun == 'N') <span class='label label-info'>Belum Pensiun</span>@endif
+    </p>
+</div>
+
+<div class="form-group">
+    {!! Form::label('tgl_aktif_pensiun', 'Tanggal Aktif Pensiun:') !!}
+    <p>{!! $karyawan->tgl_aktif_pensiun !!}</p>
 </div>
 
 <!-- Entry Date Field -->
