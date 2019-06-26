@@ -4,28 +4,30 @@
 <div class="container">
     <div class="row">
 
-    <div style="width:75%;">
-		<canvas id="canvas"></canvas>
-    </div>
-    
-    <div>
-        <!-- //gender -->
-    </div>
+		<div class="col-md-6">
+			<canvas id="canvas"></canvas>
+		</div>
+		
+		<div>
+			<canvas id="jk"></canvas>
+			<!-- //gender -->
+		</div>
 
-    <div>
-        <!-- //rentang usia -->
-    </div>
+		<div>
+			<!-- //rentang usia -->
+		</div>
 
-    <div>
-        <!-- //status karyawan (PG atau KJ) -->
-    </div>
+		<div>
+			<!-- //status karyawan (PG atau KJ) -->
+		</div>
 
-    <div>
-        <!-- //fungsi karyawan -->
-    </div>
+		<div>
+			<!-- //fungsi karyawan -->
+		</div>
 
         <script src="{{ asset('js/Chart.min.js') }}"></script>
-        <script src="{{ asset('js/utils.js') }}"></script>
+		<script src="{{ asset('js/utils.js') }}"></script>
+		
         <script>
         var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 		var config = {
@@ -94,6 +96,7 @@
 				}
 			}
 		};
+
 
 		window.onload = function() {
 			var ctx = document.getElementById('canvas').getContext('2d');

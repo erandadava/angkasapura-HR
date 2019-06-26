@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-
+Route::get('dashboard/hr', 'HomeController@index');
 
 Auth::routes();
 
