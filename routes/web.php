@@ -70,3 +70,5 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
 Route::resource('karyawanOs', 'karyawan_osController');
 
 Route::resource('osperformances', 'OsperformanceController');
+
+Route::get('/exportpdf/{table}', 'pdfController@make_pdf');
