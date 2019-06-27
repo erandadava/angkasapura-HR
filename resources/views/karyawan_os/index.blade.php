@@ -6,6 +6,7 @@
         <h1 class="pull-right">
             <div class="btn-group">
                 <a class="btn btn-default" style="margin-top: -10px;margin-bottom: 5px" data-toggle="modal" data-target="#modalUpload" href="#">Import From CSV</a>
+                <a class="btn btn-warning" style="margin-top: -10px;margin-bottom: 5px" href="/exportpdf/{{Crypt::encrypt('karyawan_os')}}">Export To PDF</a>
                 <a class="btn btn-primary" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('karyawanOs.create') !!}">Add New</a>
             </div>
         </h1>
