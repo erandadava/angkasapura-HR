@@ -20,6 +20,7 @@ class UsersTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
+                'username' => 'admin',
                 'name' => 'admin',
                 'email' => 'admin@mail.com',
                 'password' => '$2y$10$5.6Y2JGn0jJ2k18GonT6wO3Fx9vJtLj44IyDdFhUotsqRo.saVf1u',
@@ -31,6 +32,7 @@ class UsersTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
+                'username' => 'Admin HR',
                 'name' => 'Admin HR',
                 'email' => 'adminhr@mail.com',
                 'password' => '$2y$10$N0fkQ2PUXHz8erIlwVQPTurYL8f/KpHee6PXxBhFXpcIYcDI/OPVq',
@@ -42,6 +44,7 @@ class UsersTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
+                'username' => 'Vendor',
                 'name' => 'Vendor',
                 'email' => 'vendor@mail.com',
                 'password' => '$2y$10$GGmb1kQzUjc0L46gR8ts5.vMaZnhiLORrbRAjjF1Jz2fMizGQu8Ue',

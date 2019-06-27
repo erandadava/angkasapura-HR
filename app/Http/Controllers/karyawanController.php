@@ -195,6 +195,7 @@ class karyawanController extends AppBaseController
         $csv = Reader::createFromPath($request->file('file_csv'), 'r');
         $csv->setHeaderOffset(0);
         $arrfungsi = [];
+        $arrklsjabatan = [];
         $arrjabatan = [];
         $arruk = [];
         $arrberhasil = [];
@@ -222,7 +223,16 @@ class karyawanController extends AppBaseController
                 // ]);
                 array_push($arrfungsi, $row['FUNGSI']);
             }
-            if(!empty($cek_fungsi) && !empty($cek_uk) && !empty($cek_jabatan)){
+
+            $cek_klsjabatan = \App\Models\klsjabatan::where('nama_kj','=',$row['PG'])->first();
+            if(empty($cek_klsjabatan)){
+                // $cek_fungsi = $this->fungsiRepository->create([
+                //     'nama_fungsi' => $row['FUNGSI']
+                // ]);
+                array_push($arrklsjabatan, $row['PG']);
+            }
+
+            if(!empty($cek_fungsi) && !empty($cek_uk) && !empty($cek_jabatan) && !empty($cek_klsjabatan)){
                 $input['nik'] = $row['NIK'];
                 $input['nama'] = $row['NAMA'];
                 $input['tgl_lahir'] = \Carbon\Carbon::parse($row['TGL LAHIR'])->format('Y-m-d H:i:s');
@@ -233,6 +243,7 @@ class karyawanController extends AppBaseController
                 $input['id_jabatan'] = $cek_jabatan['id'];
                 $input['id_unitkerja'] = $cek_uk['id'];
                 $input['id_fungsi'] = $cek_fungsi['id'];
+                $input['id_klsjabatan'] = $cek_klsjabatan['id'];
 
                 $this->karyawanRepository->create($input);
 
@@ -241,10 +252,10 @@ class karyawanController extends AppBaseController
             
         }
 
-        if(empty($arrfungsi || $arrjabatan || $arruk)){
+        if(empty($arrfungsi || $arrjabatan || $arruk || $arrklsjabatan)){
             Flash::success('Import from CSV successfully.');
         }else{
-            $gagal = count($arrfungsi) + count($arrjabatan) + count($arruk);
+            $gagal = count($arrfungsi) + count($arrjabatan) + count($arruk) + count($arrklsjabatan);
             $teks = '<b>'.(String) count($arrberhasil)." Karyawan Created Successfully</b> </br> <b>".(String)$gagal." Karyawan Not Created Because : </b> </br> Jabatan Not Found: </br>";
             foreach((array) array_unique($arrjabatan) as $dt){
                 $teks = $teks.', '.$dt;
@@ -257,6 +268,11 @@ class karyawanController extends AppBaseController
 
             $teks = $teks.'</br> Unit Kerja Not Found : </br>';
             foreach((array) array_unique($arruk) as $dt){
+                $teks = $teks.', '.$dt;
+            }
+
+            $teks = $teks.'</br> Kelas Jabatan Not Found : </br>';
+            foreach((array) array_unique($arrklsjabatan) as $dt){
                 $teks = $teks.', '.$dt;
             }
             Flash::info($teks);
