@@ -70,7 +70,17 @@
 <!-- Pend Diakui Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('pend_diakui', 'Pend Diakui:') !!}
-    {!! Form::text('pend_diakui', null, ['class' => 'form-control']) !!}
+    {!! Form::select('pend_diakui', [
+        'SLTA' => 'SLTA',
+        'SLTP' => 'SLTP',
+        'DI  - Diploma I' => 'DI  - Diploma I',
+        'DII  - Diploma II' => 'DII  - Diploma II',
+        'DIII  - Diploma III' => 'DIII  - Diploma III',
+        'DIV - Diploma IV' => 'DIV - Diploma IV',
+        'S1 - Strata 1' => 'S1 - Strata 1',
+        'S2 - Strata 2' => 'S2 - Strata 2',
+        'S3 - Strata 3' => 'S3 - Strata 3',
+    ], null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- id Org Field -->

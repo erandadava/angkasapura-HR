@@ -52,5 +52,7 @@ class fungsi extends Model
         'jml_butuh' => 'required'
     ];
 
-    
+    public function karyawan(){
+        return $this->hasMany('App\Models\karyawan', 'id_fungsi', 'id');
+    }
 }
