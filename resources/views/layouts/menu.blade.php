@@ -1,3 +1,27 @@
+<li class="">
+        <a href="/home"><i class="fa fa-edit"></i><span>Dashboard</span></a>
+    </li>
+
+<li class="{{ Request::is('users*') ? '' : '' }}">
+    <a href="#"><i class="fa fa-edit"></i><span>Komposisi Karyawan</span></a>
+</li>
+
+<li class="{{ Request::is('unitkerjas.formasiexisting') ? '' : '' }}">
+    <a href="/formasiexisting"><i class="fa fa-edit"></i><span>Formasi vs Eksisting</span></a>
+</li>
+
+<li class="{{ Request::is('mpp*') ? 'active' : '' }}">
+    <a href="{!! route('mpp.index') !!}"><i class="fa fa-edit"></i><span>MPP</span></a>
+</li>
+
+<li class="{{ Request::is('karyawanOs*') ? 'active' : '' }}">
+    <a href="{!! route('karyawanOs.index') !!}"><i class="fa fa-edit"></i><span>Karyawan Outsourcing</span></a>
+</li>
+
+<li class="{{ Request::is('osperformances*') ? 'active' : '' }}">
+    <a href="{!! route('osperformances.index') !!}"><i class="fa fa-edit"></i><span>OS Performance</span></a>
+</li>
+
 <li class="treeview">
     <a href="#">
       <i class="fa fa-edit"></i> <span>Management</span>
@@ -47,29 +71,7 @@
                 <a href="{!! route('unitkerjas.index') !!}"><i class="fa fa-edit"></i><span>Unit Kerja</span></a>
             </li>
 
-            <li class="{{ Request::is('roles*') ? 'active' : '' }}">
-                    <a href="{!! route('roles.index') !!}"><i class="fa fa-edit"></i><span>Roles</span></a>
-            </li>
-                
+              
     </ul>
 </li>
 
-<li class="{{ Request::is('users*') ? '' : '' }}">
-    <a href="#"><i class="fa fa-edit"></i><span>Komposisi Karyawan</span></a>
-</li>
-
-<li class="{{ Request::is('unitkerjas.formasiexisting') ? '' : '' }}">
-    <a href="/formasiexisting"><i class="fa fa-edit"></i><span>Formasi vs Eksisting</span></a>
-</li>
-
-<li class="{{ Request::is('mpp*') ? 'active' : '' }}">
-    <a href="{!! route('mpp.index') !!}"><i class="fa fa-edit"></i><span>MPP</span></a>
-</li>
-
-<li class="{{ Request::is('karyawanOs*') ? 'active' : '' }}">
-    <a href="{!! route('karyawanOs.index') !!}"><i class="fa fa-edit"></i><span>Karyawan Outsourcing</span></a>
-</li>
-
-<li class="{{ Request::is('osperformances*') ? 'active' : '' }}">
-    <a href="{!! route('osperformances.index') !!}"><i class="fa fa-edit"></i><span>OS Performance</span></a>
-</li>
