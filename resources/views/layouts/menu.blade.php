@@ -1,9 +1,10 @@
+<li class="">
+    <a href="/home"><i class="fa fa-edit"></i><span>Dashboard</span></a>
+</li>
+
 <!-- <li class="{{ Request::is('users*') ? 'active' : '' }}">
     <a href="{!! route('users.index') !!}"><i class="fa fa-edit"></i><span>Users</span></a>
 </li> -->
-<li class="{{ Request::is('users*') ? 'active' : '' }}">
-    <a href="{!! route('users.index') !!}"><i class="fa fa-edit"></i><span>Users</span></a>
-</li>
 
 <li class="{{ Request::is('fungsis*') ? 'active' : '' }}">
     <a href="{!! route('fungsis.index') !!}"><i class="fa fa-edit"></i><span>Fungsi</span></a>
