@@ -11,7 +11,7 @@
        <div class="box box-primary">
            <div class="box-body">
                <div class="row">
-                   {!! Form::model($karyawan, ['route' => ['karyawans.update', $karyawan->id], 'method' => 'patch']) !!}
+                   {!! Form::model($karyawan, ['route' => ['karyawans.update', $karyawan->id], 'method' => 'patch', 'onsubmit' => 'return validateForm()']) !!}
 
                         @include('karyawans.fields')
 
