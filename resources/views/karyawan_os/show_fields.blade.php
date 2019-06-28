@@ -7,13 +7,18 @@
 <!-- Id Fungsi Field -->
 <div class="form-group">
     {!! Form::label('id_fungsi', 'Fungsi:') !!}
-    <p>{!! $karyawanOs->fungsi->nama_fungsi !!}</p>
+    <p>{!! $karyawanOs->fungsi->nama_fungsi??'' !!}</p>
 </div>
 
 <!-- Id Unitkerja Field -->
 <div class="form-group">
     {!! Form::label('id_unitkerja', 'Unit Kerja:') !!}
-    <p>{!! $karyawanOs->unitkerja->nama_uk !!}</p>
+    <p>{!! $karyawanOs->unitkerja->nama_uk??''!!}</p>
+</div>
+
+<div class="form-group">
+    {!! Form::label('id_vendor', 'Vendor:') !!}
+    <p>{!! $karyawanOs->vendor->nama_vendor??''!!}</p>
 </div>
 
 <!-- Tgl Lahir Field -->

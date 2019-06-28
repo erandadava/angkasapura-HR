@@ -10,6 +10,34 @@
         @include('flash::message')
 
         <div class="clearfix"></div>
+        <div class="row" style='margin-top:25px;'>
+                    <div class="col-xs-10 col-xs-offset-1">
+                        <div class="info-box">
+                            <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-pencil"></i></span>
+
+                            <div class="info-box-content">
+                                {!! Form::open(['url' => '/home', 'method' => 'GET']) !!}
+                                        <div class="form-group col-sm-6">
+                                            <label for="exampleInputEmail1">Mulai Dari</label>
+                                            <input type="text" name="dari" id='tgl-range' class="form-control" value='{{$dari??''}}' required>
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="exampleInputEmail1">Sampai Dari</label>
+                                            <div class="input-group">
+                                                <input type="text" name="sampai" id='tgl-range2' class="form-control" value='{{$sampai??''}}' required>
+                                                    <span class="input-group-btn">
+                                                    <button type="submit" class="btn btn-info btn-flat">Cari</button>
+                                                    </span>
+                                            </div>
+                                        </div>
+                                {!! Form::close() !!}
+                            </div>
+                            
+                            <!-- /.info-box-content -->
+                        </div>
+                    <!-- /.info-box -->
+                    </div>
+                </div>
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row">
@@ -216,6 +244,13 @@
                     ]
                 },
         });
-
+        $('#tgl-range').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        });
+        $('#tgl-range2').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        });
         </script>
 @endsection

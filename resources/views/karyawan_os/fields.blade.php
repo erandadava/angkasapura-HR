@@ -16,6 +16,11 @@
     {!! Form::select('id_unitkerja', $unitkerja, null, ['class' => 'form-control']) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('id_vendor', 'Vendor:') !!}
+    {!! Form::select('id_vendor', $vendor, null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- Tgl Lahir Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}

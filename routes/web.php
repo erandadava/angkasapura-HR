@@ -72,3 +72,7 @@ Route::resource('karyawanOs', 'karyawan_osController');
 Route::resource('osperformances', 'OsperformanceController');
 
 Route::get('/exportpdf/{table}', 'pdfController@make_pdf');
+
+Route::resource('fungsiOs', 'fungsi_osController');
+
+Route::resource('vendorOs', 'vendor_osController');
