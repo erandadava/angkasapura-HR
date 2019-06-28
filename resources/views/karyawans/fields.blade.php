@@ -117,12 +117,19 @@
     <a href="{!! route('karyawans.index') !!}" class="btn btn-default">Batal</a>
 </div>
 
+
 @section('scripts')
+
     <script type="text/javascript">
    function validateForm() {
        var idunitkerja = $("#unitkerja option:selected").val();
        var uk = {!!$dtunitkerja!!};
        var status = 0;
+        @if(isset($karyawan['id_unitkerja']))
+            if(idunitkerja == {{$karyawan['id_unitkerja']}}){
+                return true;
+            }
+        @endif
        $.each(uk, function(i, v) {
             if (v.id == idunitkerja ) { 
                 if(v.Lowongan == 0){
