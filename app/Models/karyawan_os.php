@@ -47,6 +47,7 @@ class karyawan_os extends Model
     public $fillable = [
         'nama',
         'id_fungsi',
+        'id_vendor',
         'id_unitkerja',
         'tgl_lahir',
         'usia',
@@ -149,7 +150,10 @@ class karyawan_os extends Model
         return null;
     }
     public function fungsi(){
-        return $this->hasOne('App\Models\fungsi', 'id', 'id_fungsi');
+        return $this->hasOne('App\Models\fungsi_os', 'id', 'id_fungsi');
+    }
+    public function vendor(){
+        return $this->hasOne('App\Models\vendor_os', 'id', 'id_vendor');
     }
     public function unitkerja(){
         return $this->hasOne('App\Models\unitkerja', 'id', 'id_unitkerja');

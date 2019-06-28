@@ -17,6 +17,7 @@ class KaryawanOS extends Migration
             $table->increments('id');
             $table->string('nama')->nullable();
             $table->integer('id_fungsi')->nullable();
+            $table->integer('id_vendor')->nullable();
             $table->integer('id_unitkerja')->nullable();
             $table->date('tgl_lahir')->nullable();
             $table->integer('usia')->nullable();

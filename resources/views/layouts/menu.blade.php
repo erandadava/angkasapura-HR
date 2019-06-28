@@ -47,10 +47,6 @@
                 <a href="{!! route('klsjabatans.index') !!}"><i class="fa fa-edit"></i><span>Kelas jabatan</span></a>
             </li>
             
-            <li class="{{ Request::is('osdocs*') ? 'active' : '' }}">
-                <a href="{!! route('osdocs.index') !!}"><i class="fa fa-edit"></i><span>Os Doc</span></a>
-            </li>
-            
             <li class="{{ Request::is('statuskars*') ? 'active' : '' }}">
                 <a href="{!! route('statuskars.index') !!}"><i class="fa fa-edit"></i><span>Status Karyawan</span></a>
             </li>
@@ -67,6 +63,13 @@
                 <a href="{!! route('unitkerjas.index') !!}"><i class="fa fa-edit"></i><span>Unit Kerja</span></a>
             </li>
 
+            <li class="{{ Request::is('fungsiOs*') ? 'active' : '' }}">
+                <a href="{!! route('fungsiOs.index') !!}"><i class="fa fa-edit"></i><span>Fungsi OS</span></a>
+            </li>
+
+            <li class="{{ Request::is('vendorOs*') ? 'active' : '' }}">
+                <a href="{!! route('vendorOs.index') !!}"><i class="fa fa-edit"></i><span>Vendor OS</span></a>
+            </li>
               
     </ul>
 </li>

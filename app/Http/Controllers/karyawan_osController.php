@@ -11,7 +11,8 @@ use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
 use App\Models\unitkerja;
-use App\Models\fungsi;
+use App\Models\fungsi_os;
+use App\Models\vendor_os;
 use Illuminate\Http\Request;
 use Validator;
 use League\Csv\Reader;
@@ -24,7 +25,8 @@ class karyawan_osController extends AppBaseController
     {
         $this->karyawanOsRepository = $karyawanOsRepo;
         $this->data['unitkerja'] = unitkerja::pluck('nama_uk','id');
-        $this->data['fungsi'] = fungsi::pluck('nama_fungsi','id');
+        $this->data['fungsi'] = fungsi_os::pluck('nama_fungsi','id');
+        $this->data['vendor'] = vendor_os::where('is_active','=',1)->pluck('nama_vendor','id');
     }
 
     /**
@@ -131,7 +133,7 @@ class karyawan_osController extends AppBaseController
      */
     public function show($id)
     {
-        $karyawanOs = $this->karyawanOsRepository->with(['fungsi','unitkerja'])->findWithoutFail($id);
+        $karyawanOs = $this->karyawanOsRepository->with(['fungsi','unitkerja','vendor'])->findWithoutFail($id);
 
         if (empty($karyawanOs)) {
             Flash::error('Karyawan Os not found');

@@ -83,3 +83,7 @@ Route::resource('roles', 'rolesAPIController');
 Route::resource('karyawan_os', 'karyawan_osAPIController');
 
 Route::resource('osperformances', 'OsperformanceAPIController');
+
+Route::resource('fungsi_os', 'fungsi_osAPIController');
+
+Route::resource('vendor_os', 'vendor_osAPIController');
