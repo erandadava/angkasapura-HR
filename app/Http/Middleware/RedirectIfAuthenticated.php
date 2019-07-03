@@ -22,9 +22,9 @@ class RedirectIfAuthenticated
             $user = \Auth::user();
             $roles = $user->getRoleNames();
             if($roles[0] == 'User'){
-                return redirect('/beranda');
+                return redirect('/home');
             }
-            return redirect('/dashboard');
+            return redirect('/home');
         }
 
         return $next($request);
