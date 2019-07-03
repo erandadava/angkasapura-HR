@@ -66,4 +66,8 @@ class unitkerja extends Model
     {
         return ((int) $this->jml_existing / (int) $this->jml_formasi)*100 ."%";
     }
+    public function karyawan()
+    {
+        return $this->hasMany('App\Models\karyawan', 'id_unitkerja', 'id');
+    }
 }
