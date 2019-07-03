@@ -16,19 +16,19 @@
                             <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-pencil"></i></span>
 
                             <div class="info-box-content">
-                                {!! Form::open(['url' => '/home', 'method' => 'GET']) !!}
+                                {!! Form::open(['url' => '/home', 'method' => 'GET', 'autocomplete' => 'off']) !!}
                                         <div class="form-group col-sm-4">
                                             <label for="exampleInputEmail1">Fungsi</label>
-                                            {!! Form::select('value_fungsi',$data_fungsi, null, ['class' => 'form-control', 'placeholder' => '']) !!}
+                                            {!! Form::select('value_fungsi',$data_fungsi, null, ['class' => 'form-control', 'placeholder' => '', 'autocomplete' => 'off']) !!}
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label for="exampleInputEmail1">Mulai Dari</label>
-                                            <input type="text" name="dari" id='tgl-range' class="form-control" value='{{$dari??''}}' required>
+                                            <input type="text" name="dari" id='tgl-range' class="form-control" value='{{$dari??''}}' autocomplete='off'>
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label for="exampleInputEmail1">Sampai Dari</label>
                                             <div class="input-group">
-                                                <input type="text" name="sampai" id='tgl-range2' class="form-control" value='{{$sampai??''}}' required>
+                                                <input type="text" name="sampai" id='tgl-range2' class="form-control" value='{{$sampai??''}}' autocomplete='off'>
                                                     <span class="input-group-btn">
                                                     <button type="submit" class="btn btn-info btn-flat">Cari</button>
                                                     </span>

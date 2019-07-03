@@ -1,6 +1,7 @@
 <li class="">
         <a href="/home"><i class="fa fa-edit"></i><span>Dashboard</span></a>
-    </li>
+</li>
+@hasrole('Super Admin|Admin')
 
 <li class="{{ Request::is('unitkerjas.formasiexisting') ? '' : '' }}">
     <a href="/formasiexisting"><i class="fa fa-edit"></i><span>Formasi vs Eksisting</span></a>
@@ -73,4 +74,10 @@
               
     </ul>
 </li>
+@endhasrole
 
+@hasrole('Vendor')
+<li class="{{ Request::is('karyawanOs*') ? 'active' : '' }}">
+    <a href="{!! route('karyawanOs.index') !!}"><i class="fa fa-edit"></i><span>Karyawan Outsourcing</span></a>
+</li>
+@endhasrole

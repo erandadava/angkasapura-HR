@@ -29,7 +29,7 @@ class unitkerjaDataTable extends DataTable
      */
     public function query(unitkerja $model)
     {
-        return $model->newQuery();
+        return $model->withCount('karyawan')->newQuery();
     }
 
     /**
@@ -62,9 +62,9 @@ class unitkerjaDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'nama_uk',
-            'jml_formasi',
-            'jml_existing'
+            ['data' => 'nama_uk', 'title'=>'Nama'],
+            ['data' => 'jml_formasi', 'title'=>'Jumlah Formasi'],
+            ['data' => 'karyawan_count', 'title'=>'Jumlah Eksisting'],
         ];
     }
 
