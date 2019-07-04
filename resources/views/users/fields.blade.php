@@ -16,6 +16,11 @@
     {!! Form::password('password', ['class' => 'form-control']) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('password', 'Password Confirmation:') !!}
+    {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
+</div>
+
 <!-- Remember Token Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('roles', 'Roles:') !!}

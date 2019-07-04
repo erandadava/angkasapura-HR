@@ -64,7 +64,7 @@ class unitkerjaDataTable extends DataTable
         return [
             ['data' => 'nama_uk', 'title'=>'Nama'],
             ['data' => 'jml_formasi', 'title'=>'Jumlah Formasi'],
-            ['data' => 'karyawan_count', 'title'=>'Jumlah Eksisting'],
+            ['data' => 'jml_existing', 'title'=>'Jumlah Eksisting'],
         ];
     }
 

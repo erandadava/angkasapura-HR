@@ -63,6 +63,7 @@ class usersDataTable extends DataTable
     {
         return [
             'name',
+            'username',
             'email',
         ];
     }

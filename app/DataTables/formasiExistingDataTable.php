@@ -29,7 +29,7 @@ class formasiExistingDataTable extends DataTable
      */
     public function query(unitkerja $model)
     {
-        return $model->newQuery();
+        return $model->withCount('karyawan')->newQuery();
     }
 
     /**
@@ -63,7 +63,7 @@ class formasiExistingDataTable extends DataTable
         return [
             ['data'=>'nama_uk','title'=>'Unit Kerja'],
             ['data'=>'jml_formasi','title'=>'Formasi'],
-            ['data'=>'jml_existing','title'=>'Eksis'],
+            ['data'=>'karyawan_count','title'=>'Eksis'],
             ['data'=>'Lowongan','title'=>'Lowong'],
             ['data'=>'Kekuatansdm','title'=>'Kekuatan SDM'],
         ];
