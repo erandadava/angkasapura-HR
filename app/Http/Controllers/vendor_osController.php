@@ -10,15 +10,16 @@ use App\Repositories\vendor_osRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
-
+use App\Repositories\usersRepository;
 class vendor_osController extends AppBaseController
 {
     /** @var  vendor_osRepository */
     private $vendorOsRepository;
 
-    public function __construct(vendor_osRepository $vendorOsRepo)
+    public function __construct(vendor_osRepository $vendorOsRepo,usersRepository $usersRepo)
     {
         $this->vendorOsRepository = $vendorOsRepo;
+        $this->usersRepository = $usersRepo;
     }
 
     /**
@@ -52,8 +53,19 @@ class vendor_osController extends AppBaseController
     public function store(Createvendor_osRequest $request)
     {
         $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
 
         $vendorOs = $this->vendorOsRepository->create($input);
+
+        $input['name'] = $input['nama_vendor'];
+
+        $input['username'] = substr($input['email'], 0, strpos($input['email'], '@'));
+
+        $users = $this->usersRepository->create($input);
+
+        $akun = \App\User::find($users->id);
+
+        $akun->assignRole('Vendor');
 
         Flash::success('Vendor Os saved successfully.');
 

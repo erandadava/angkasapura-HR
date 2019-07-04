@@ -57,6 +57,7 @@ class usersController extends AppBaseController
         $input = $request->all();
         $input['verified'] = 1;
         $input['password'] = bcrypt($input['password']);
+        $input['username'] = substr($input['email'], 0, strpos($input['email'], '@'));
         $users = $this->usersRepository->create($input);
 
         $akun = \App\User::find($users->id);

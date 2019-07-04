@@ -63,10 +63,11 @@ class vendor_os extends Model
     public static $rules = [
         'nama_vendor' => 'required',
         'email' => 'required',
-        'password' => 'required',
+        'password' => 'required|min:6',
         'telepon' => 'required',
         'alamat' => 'required',
-        'is_active' => 'required'
+        'is_active' => 'required',
+        'password_confirmation' => 'required_with:password|same:password|min:6'
     ];
 
     
