@@ -18,7 +18,13 @@ class formasiExistingDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable;
+        return $dataTable->editColumn('lowong', function ($inquiry) {
+            return (int) $inquiry->jml_formasi - (int) $inquiry->karyawan_count;
+        })
+        ->editColumn('kekuatan', function ($inquiry) {
+            return ((int) $inquiry->karyawan_count / (int) $inquiry->jml_formasi)*100 ."%";
+        })
+        ->rawColumns(['lowong','kekuatan','action']);
     }
 
     /**
@@ -60,12 +66,21 @@ class formasiExistingDataTable extends DataTable
      */
     protected function getColumns()
     {
+        // public function getLowonganAttribute()
+        // {
+        //     return (int) $this->jml_formasi - (int) $this->jml_existing;
+        // }
+
+        // public function getKekuatansdmAttribute()
+        // {
+        //     return ((int) $this->jml_existing / (int) $this->jml_formasi)*100 ."%";
+        // }
         return [
             ['data'=>'nama_uk','title'=>'Unit Kerja'],
             ['data'=>'jml_formasi','title'=>'Formasi'],
             ['data'=>'karyawan_count','title'=>'Eksis'],
-            ['data'=>'Lowongan','title'=>'Lowong'],
-            ['data'=>'Kekuatansdm','title'=>'Kekuatan SDM'],
+            ['data'=>'lowong','title'=>'Lowong', 'orderable' => false],
+            ['data'=>'kekuatan','title'=>'Kekuatan SDM', 'orderable' => false],
         ];
     }
 
