@@ -128,6 +128,7 @@ class usersController extends AppBaseController
         }
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
+        $input['username'] = substr($input['email'], 0, strpos($input['email'], '@'));
         $users = $this->usersRepository->update($input, $id);
         $akun = \App\User::find($users->id);
         $akun->assignRole($input['roles']);

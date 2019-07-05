@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\karyawan;
 use App\Models\fungsi;
 use App\Models\klsjabatan;
+use App\Models\unitkerja;
 use DB;
 use Carbon\Carbon;
 use Flash;
@@ -41,7 +42,7 @@ class HomeController extends Controller
         //if all null
         $this->data['jk_laki'] = karyawan::select('gender')->where('gender','=','Male')->count();
         $this->data['jk_perempuan'] = karyawan::select('gender')->where('gender','!=','Male')->count();
-        $this->data['fungsi'] = fungsi::withCount('karyawan')->get()->toJson();
+        $this->data['unit_kerja'] = unitkerja::withCount('karyawan')->get()->toJson();
         $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->groupBy('pend_diakui')->get()->toJson();
         $this->data['kelas_jabatan'] = klsjabatan::withCount('karyawan')->get()->toJson();
         $this->data['umur_kurangdari30'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->count();
@@ -63,7 +64,7 @@ class HomeController extends Controller
 
             $this->data['jk_laki'] = karyawan::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where('gender','=','Male')->count();
             $this->data['jk_perempuan'] = karyawan::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where('gender','!=','Male')->count();
-            $this->data['fungsi'] = fungsi::whereHas('karyawan', function($query) use ($dari, $sampai) {
+            $this->data['unit_kerja'] = unitkerja::whereHas('karyawan', function($query) use ($dari, $sampai) {
                 $query->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
             })->withCount('karyawan')->get()->toJson();
             $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->groupBy('pend_diakui')->get()->toJson();
@@ -91,7 +92,7 @@ class HomeController extends Controller
             }
             $this->data['jk_laki'] = karyawan::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where([['gender','=','Male'],['id_fungsi','=',$value_fungsi]])->count();
             $this->data['jk_perempuan'] = karyawan::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where([['gender','!=','Male'],['id_fungsi','=',$value_fungsi]])->count();
-            $this->data['fungsi'] = fungsi::whereHas('karyawan', function($query) use ($dari, $sampai, $value_fungsi) {
+            $this->data['unit_kerja'] = unitkerja::whereHas('karyawan', function($query) use ($dari, $sampai, $value_fungsi) {
                 $query->where('id_fungsi','=',$value_fungsi)->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
             })->withCount('karyawan')->get()->toJson();
             $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->whereBetween('tgl_lahir', [$dari, $sampai])->where('id_fungsi','=',$value_fungsi)->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->groupBy('pend_diakui')->get()->toJson();
@@ -111,7 +112,7 @@ class HomeController extends Controller
             $this->data['value_fungsi'] = $request->value_fungsi;
             $this->data['jk_laki'] = karyawan::select('gender')->where([['gender','=','Male'],['id_fungsi','=',$value_fungsi]])->count();
             $this->data['jk_perempuan'] = karyawan::select('gender')->where([['gender','!=','Male'],['id_fungsi','=',$value_fungsi]])->count();
-            $this->data['fungsi'] = fungsi::whereHas('karyawan', function($query) use ($value_fungsi) {
+            $this->data['unit_kerja'] = unitkerja::whereHas('karyawan', function($query) use ($value_fungsi) {
                 $query->where('id_fungsi','=',$value_fungsi);
             })->withCount('karyawan')->get()->toJson();
             $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->where('id_fungsi','=',$value_fungsi)->groupBy('pend_diakui')->get()->toJson();
