@@ -18,10 +18,12 @@ class formasiExistingDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->editColumn('lowong', function ($inquiry) {
+        return $dataTable->editColumn('lowong', function ($inquiry) 
+        {
             return (int) $inquiry->jml_formasi - (int) $inquiry->karyawan_count;
         })
-        ->editColumn('kekuatan', function ($inquiry) {
+        ->editColumn('kekuatan', function ($inquiry) 
+        {
             return ((int) $inquiry->karyawan_count / (int) $inquiry->jml_formasi)*100 ."%";
         })
         ->rawColumns(['lowong','kekuatan','action']);
