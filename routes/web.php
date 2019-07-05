@@ -34,11 +34,9 @@ Route::group(['middleware' => ['role:Admin|Super Admin|Vendor|management']], fun
     
     Route::get('/exportpdf/{table}', 'pdfController@make_pdf');
 
-    Route::resource('osperformances', 'OsperformanceController');
-
 });
 
-Route::group(['middleware' => ['role:Admin|Super Admin']], function ()
+Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
 {
     Route::get('/formasiexisting', 'unitkerjaController@formasiExisting');
 
