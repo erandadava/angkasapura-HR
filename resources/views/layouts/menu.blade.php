@@ -21,6 +21,10 @@
     <a href="{!! route('osperformances.index') !!}"><i class="fa fa-edit"></i><span>OS Performance</span></a>
 </li>
 
+<li class="{{ Request::is('jabatanOs*') ? 'active' : '' }}">
+    <a href="{!! route('jabatanOs.index') !!}"><i class="fa fa-edit"></i><span>Jabatan Os</span></a>
+</li>
+
 <li class="treeview">
     <a href="#">
       <i class="fa fa-edit"></i> <span>Management</span>
@@ -87,3 +91,5 @@
     <a href="{!! route('osperformances.index') !!}"><i class="fa fa-edit"></i><span>OS Performance</span></a>
 </li>
 @endhasrole
+
+

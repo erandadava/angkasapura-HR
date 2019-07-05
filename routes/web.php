@@ -20,6 +20,7 @@ Route::get('dashboard/hr', 'HomeController@index');
 Auth::routes();
 
 Route::resource('users', 'usersController');
+Route::resource('jabatanOs', 'jabatan_osController');
 
 Route::get('register/verify', 'Auth\RegisterController@verify')->name('verifyEmailLink');
 Route::get('register/verify/resend', 'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
