@@ -24,7 +24,8 @@ Route::resource('users', 'usersController');
 Route::get('register/verify', 'Auth\RegisterController@verify')->name('verifyEmailLink');
 Route::get('register/verify/resend', 'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
 Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail');
-Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
+
+Route::group(['middleware' => ['role:Admin|Super Admin|Vendor|management']], function ()
 {
       
     Route::get('/home', 'HomeController@index');
@@ -32,6 +33,8 @@ Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
     Route::resource('karyawanOs', 'karyawan_osController');
     
     Route::get('/exportpdf/{table}', 'pdfController@make_pdf');
+
+    Route::resource('osperformances', 'OsperformanceController');
 
 });
 
