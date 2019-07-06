@@ -2619,6 +2619,7 @@ class ComposerStaticInitc2c0f0aa2cfdb3fa94e9d96d3b4373bd
         'InfyOm\\Generator\\Utils\\ResponseUtil' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/Utils/ResponseUtil.php',
         'InfyOm\\Generator\\Utils\\SchemaUtil' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/Utils/SchemaUtil.php',
         'InfyOm\\Generator\\Utils\\TableFieldsGenerator' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/Utils/TableFieldsGenerator.php',
+        'JabatanOsTableSeeder' => __DIR__ . '/../..' . '/database/seeds/JabatanOsTableSeeder.php',
         'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/ConsoleColor.php',
         'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => __DIR__ . '/..' . '/jakub-onderka/php-console-color/src/InvalidStyleException.php',
         'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => __DIR__ . '/..' . '/jakub-onderka/php-console-highlighter/src/Highlighter.php',

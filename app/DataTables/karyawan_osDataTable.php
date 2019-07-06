@@ -29,7 +29,7 @@ class karyawan_osDataTable extends DataTable
      */
     public function query(karyawan_os $model)
     {
-        return $model->with(['fungsi','unitkerja'])->newQuery();
+        return $model->with(['unitkerja','jabatan_os'])->newQuery();
     }
 
     /**
@@ -63,7 +63,7 @@ class karyawan_osDataTable extends DataTable
     {
         return [
             ['data'=>'nama','title'=>'Nama'],
-            ['data'=>'fungsi.nama_fungsi','title'=>'Fungsi'],
+            ['data'=>'jabatan_os.nama_jabatan','title'=>'Fungsi'],
             ['data'=>'unitkerja.nama_uk','title'=>'Unit Kerja'],
             ['data'=>'tgl_lahir','title'=>'Tanggal Lahir'],
             ['data'=>'usia','title'=>'Usia'],
