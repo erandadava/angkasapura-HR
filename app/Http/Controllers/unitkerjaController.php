@@ -38,6 +38,31 @@ class unitkerjaController extends AppBaseController
         return $formasiExistingDataTable->render('unitkerjas.formasi');
     }
 
+    public function formasiExistingShow($id)
+    {
+        $this->data['unitkerja'] = $this->unitkerjaRepository->withCount('karyawan')->findWithoutFail($id);
+        $this->data['kelasjabatan'] = \App\Models\klsjabatan::select('tblklsjabatan.nama_kj',\DB::raw('COUNT(tblkaryawan.id) as jml_kls_jbt'))   
+        ->leftJoin('tblkaryawan', 'tblkaryawan.id_klsjabatan', '=', 'tblklsjabatan.id')
+        ->rightJoin('tblunitkerja', 'tblkaryawan.id_unitkerja', '=', 'tblunitkerja.id')
+        ->where('tblunitkerja.id','=',$id)
+        ->groupBy('tblklsjabatan.nama_kj')
+        ->get();
+        // echo "<pre>";
+        // print_r($this->data['kelasjabatan']);
+        // return null;
+        if (empty($this->data['unitkerja'])) {
+            Flash::error('Formasi vs Eksisting not found');
+
+            return redirect(route('unitkerjas.index'));
+        }
+
+
+        $this->data['lowong'] = (int) $this->data['unitkerja']['jml_formasi'] - (int) $this->data['unitkerja']['karyawan_count'];
+     
+        $this->data['kekuatan'] = ((int) $this->data['unitkerja']['karyawan_count'] / (int) $this->data['unitkerja']['jml_formasi'])*100 ."%";
+        return view('unitkerjas.showformasi')->with($this->data);
+    }
+
     /**
      * Show the form for creating a new unitkerja.
      *

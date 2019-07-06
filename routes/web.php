@@ -41,6 +41,8 @@ Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
 {
     Route::get('/formasiexisting', 'unitkerjaController@formasiExisting');
 
+    Route::get('/formasi/{id}', 'unitkerjaController@formasiExistingShow');
+
     Route::resource('fungsis', 'fungsiController');
     
     Route::resource('jabatans', 'jabatanController');
