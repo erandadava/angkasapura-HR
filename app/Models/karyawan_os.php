@@ -158,4 +158,9 @@ class karyawan_os extends Model
     public function unitkerja(){
         return $this->hasOne('App\Models\unitkerja', 'id', 'id_unitkerja');
     }
+
+    public function jabatan_os()
+    {
+        return $this->hasOne('App\Models\jabatan_os', 'id', 'nama_jabatan');        
+    }
 }

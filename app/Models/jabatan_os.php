@@ -49,5 +49,8 @@ class jabatan_os extends Model
         'nama_jabatan' => 'required'
     ];
 
-    
+    public function karyawan_os()
+    {
+        return $this->hasMany('App\Models\karyawan_os', 'nama_jabatan', 'id');                
+    }
 }
