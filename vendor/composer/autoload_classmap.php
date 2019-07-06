@@ -2093,6 +2093,7 @@ return array(
     'InfyOm\\Generator\\Utils\\ResponseUtil' => $vendorDir . '/infyomlabs/laravel-generator/src/Utils/ResponseUtil.php',
     'InfyOm\\Generator\\Utils\\SchemaUtil' => $vendorDir . '/infyomlabs/laravel-generator/src/Utils/SchemaUtil.php',
     'InfyOm\\Generator\\Utils\\TableFieldsGenerator' => $vendorDir . '/infyomlabs/laravel-generator/src/Utils/TableFieldsGenerator.php',
+    'JabatanOsTableSeeder' => $baseDir . '/database/seeds/JabatanOsTableSeeder.php',
     'JakubOnderka\\PhpConsoleColor\\ConsoleColor' => $vendorDir . '/jakub-onderka/php-console-color/src/ConsoleColor.php',
     'JakubOnderka\\PhpConsoleColor\\InvalidStyleException' => $vendorDir . '/jakub-onderka/php-console-color/src/InvalidStyleException.php',
     'JakubOnderka\\PhpConsoleHighlighter\\Highlighter' => $vendorDir . '/jakub-onderka/php-console-highlighter/src/Highlighter.php',

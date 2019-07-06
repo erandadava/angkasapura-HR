@@ -22,7 +22,7 @@
 </li>
 
 <li class="{{ Request::is('jabatanOs*') ? 'active' : '' }}">
-    <a href="{!! route('jabatanOs.index') !!}"><i class="fa fa-edit"></i><span>Jabatan Os</span></a>
+    <a href="{!! route('jabatanOs.index') !!}"><i class="fa fa-edit"></i><span>Jabatan Outsourcing</span></a>
 </li>
 
 <li class="treeview">
