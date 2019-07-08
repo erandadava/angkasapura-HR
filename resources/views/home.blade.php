@@ -3,7 +3,16 @@
 @section('content')
 <style>
 canvas{
-    background: #fff !important;
+    background: #ffffff !important;
+}
+
+.box-body {
+    background-color: :#ffffff;
+    background : #ffffff;
+}
+html{
+    background-color: :#ffffff;
+    background : #ffffff;
 }
 </style>
 <section class="content-header">
@@ -49,7 +58,7 @@ canvas{
                 </div>
         <div class="box box-primary">
         
-        <div id="reportPage" style="background-color:white">
+        <div id="reportPage" style="background-color:#fff !important;">
             <div class="box-body" style="background-color:white">
                 <div class="row">
                         <div class="col-sm-12" style="margin-top:5px;margin-bottom:10px">
@@ -279,8 +288,9 @@ canvas{
         Chart.plugins.register({
         beforeDraw: function(chartInstance) {
             var ctx = chartInstance.chart.ctx;
-            ctx.fillStyle = "white";
-            ctx.fillRect(0, 0, chartInstance.chart.width, chartInstance.chart.height);
+            ctx.clearRect( 0 , 0 , chartInstance.width, chartInstance.height );
+            ctx.fillStyle="#FFFFFF";
+            ctx.fillRect(0 , 0 , chartInstance.width, chartInstance.height);
         }
         });
 
@@ -293,6 +303,14 @@ canvas{
             useCurrent: false
         });
 
+        // $("#downloadPdf").click(function(){
+        // html2canvas(document.querySelector("#reportPage")).then(canvas => {  
+        //     var dataURL = canvas.toDataURL();
+        //     var pdf = new jsPDF();
+        //     pdf.addImage(dataURL, 'JPEG', 20, 20, 170, 120); //addImage(image, format, x-coordinate, y-coordinate, width, height)
+        //     pdf.save("CanvasJS Charts.pdf");
+        // });
+        // });
         $('#downloadPdf').click(function(event) {
             // get size of report page
             var reportPageHeight = $('#reportPage').innerHeight();
@@ -302,14 +320,16 @@ canvas{
             var pdfCanvas = $('<canvas />').attr({
                 id: "canvaspdf",
                 width: reportPageWidth,
-                height: reportPageHeight
-            });
+                height: reportPageHeight,        
+            }).css("background", "#ffffff");
 
             // keep track canvas position
             var pdfctx = $(pdfCanvas)[0].getContext('2d');
+            //fin     
             var pdfctxX = 0;
             var pdfctxY = 0;
             var buffer = 100;
+            
 
             // for each chart.js chart
             $("canvas").each(function(index) {
@@ -317,7 +337,7 @@ canvas{
                 var canvasHeight = $(this).innerHeight();
                 var canvasWidth = $(this).innerWidth();
 
-                // draw the chart into the new canvas
+                // draw the chart into the new canvas  
                 pdfctx.drawImage($(this)[0], pdfctxX, pdfctxY, canvasWidth, canvasHeight);
                 pdfctxX += canvasWidth + buffer;
 
@@ -337,12 +357,11 @@ canvas{
             // doc = new jsPDF('p', 'mm', [canvas.height, canvas.width]);
             var pdf = new jsPDF('p', 'mm', [reportPageWidth, reportPageHeight])
             }
-            // var pdf = new jsPDF('l', 'pt', [reportPageWidth, reportPageHeight]);
-            pdf.setFillColor(204, 204,204,0);
-            pdf.rect(10, 10, 150, 160, "F");
-            pdf.addImage($(pdfCanvas)[0], 'PNG', 0, 0);
+
+            // // var pdf = new jsPDF('l', 'pt', [reportPageWidth, reportPageHeight]);
+            pdf.addImage($(pdfCanvas)[0].toDataURL(), 'JPEG', 20, 20);
             
-            // download the pdf
+            // // download the pdf
             pdf.save('chartHR.pdf');
         });
         </script>
