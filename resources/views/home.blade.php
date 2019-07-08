@@ -212,8 +212,6 @@ html{
                 return e.karyawan_count;
         });
 
-		console.log(label_kelas_jabatan);
-
 		var chrtpendidikan = new Chart(document.getElementById('chartPendidikan'), {
                 type: 'doughnut',
                 data: {
