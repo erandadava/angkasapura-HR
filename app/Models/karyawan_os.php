@@ -63,7 +63,8 @@ class karyawan_os extends Model
         'jangka_waktu',
         'doc_jangka_waktu',
         'no_kontrak_kerja',
-        'doc_no_kontrak_kerja'
+        'doc_no_kontrak_kerja',
+        'penempatan'
     ];
 
     /**
@@ -90,7 +91,8 @@ class karyawan_os extends Model
         'jangka_waktu' => 'string',
         'doc_jangka_waktu' => 'string',
         'no_kontrak_kerja' => 'string',
-        'doc_no_kontrak_kerja' => 'string'
+        'doc_no_kontrak_kerja' => 'string',
+        'penempatan' => 'string'
     ];
 
     /**

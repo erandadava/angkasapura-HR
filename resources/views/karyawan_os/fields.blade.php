@@ -39,6 +39,11 @@
     {!! Form::select('gender',['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'],null, ['class' => 'form-control']) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('penempatan', 'penempatan:') !!}
+    {!! Form::text('penempatan', null, ['class' => 'form-control']) !!}
+</div>
+
 <!-- No Bpjs Tk Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('no_bpjs_tk', 'No Bpjs Tk:') !!}
