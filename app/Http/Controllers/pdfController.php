@@ -49,16 +49,18 @@ class pdfController extends Controller
                 }
             break; 
             case 'formasi':
-                $get = \App\Models\unitkerja::get();
+                $get = \App\Models\unitkerja::withCount('karyawan')->get();
                 $head = ['Unit Kerja','Formasi', 'Eksis', 'Lowong', 'Kekuatan SDM'];
                 $title = 'Formasi vs Eksisting';
                 foreach ($get as $key => $value) {
+                    $lowong = (int) $value->jml_formasi - (int) $value->karyawan_count;
+                    $kekuatan = ((int) $value->karyawan_count / (int) $value->jml_formasi)*100 ."%";
                     $isinya[$key]=[
                         0 => $value['nama_uk'],
                         1 => $value['jml_formasi'],
-                        2 => $value['jml_existing'],
-                        3 => $value['lowongan'],
-                        4 => $value['kekuatansdm'],
+                        2 => $value['karyawan_count'],
+                        3 => $lowong,
+                        4 => $kekuatan,
                     ];   
                 }
             break; 

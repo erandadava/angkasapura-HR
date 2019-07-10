@@ -6,8 +6,8 @@
 
 <!-- Id Fungsi Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_fungsi', 'Fungsi:') !!}
-    {!! Form::select('id_fungsi', $fungsi, null, ['class' => 'form-control']) !!}
+    {!! Form::label('nama_jabatan', 'Nama Jabatan:') !!}
+    {!! Form::select('nama_jabatan', $jabatan_os, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Id Unitkerja Field -->
@@ -37,6 +37,11 @@
 <div class="form-group col-sm-6">
     {!! Form::label('gender', 'Jenis Kelamin:') !!}
     {!! Form::select('gender',['Laki-laki' => 'Laki-laki', 'Perempuan' => 'Perempuan'],null, ['class' => 'form-control']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('penempatan', 'penempatan:') !!}
+    {!! Form::text('penempatan', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- No Bpjs Tk Field -->

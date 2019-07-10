@@ -22,5 +22,6 @@ class DatabaseSeeder extends Seeder
         $this->call(TblunitkerjaTableSeeder::class);
         $this->call(TblkaryawanTableSeeder::class);
         $this->call(TblfungsiTableSeeder::class);
+        $this->call(JabatanOsTableSeeder::class);
     }
 }

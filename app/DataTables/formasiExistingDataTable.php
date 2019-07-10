@@ -18,11 +18,17 @@ class formasiExistingDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->editColumn('lowong', function ($inquiry) {
+        return $dataTable->addColumn('action', 'unitkerjas.datatables_actionsformasi')
+        ->editColumn('lowong', function ($inquiry) 
+        {
             return (int) $inquiry->jml_formasi - (int) $inquiry->karyawan_count;
         })
-        ->editColumn('kekuatan', function ($inquiry) {
+        ->editColumn('kekuatan', function ($inquiry) 
+        {
             return ((int) $inquiry->karyawan_count / (int) $inquiry->jml_formasi)*100 ."%";
+        })
+        ->with('sum_formasi', function() use ($query) {
+            return $query->sum('jml_formasi');
         })
         ->rawColumns(['lowong','kekuatan','action']);
     }
@@ -48,6 +54,7 @@ class formasiExistingDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
+            ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
                 'dom'     => 'Bfrtip',
                 'order'   => [[0, 'desc']],
@@ -56,6 +63,43 @@ class formasiExistingDataTable extends DataTable
                     ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
                 ],
+                'initComplete' => "function () {
+                    
+                    this.api().columns(1).every(function () {
+                        var column = this;
+                        var sum = column
+                            .data()
+                            .reduce(function (a, b) { 
+                            a = parseInt(a, 10);
+                            if(isNaN(a)){ a = 0; }                   
+
+                            b = parseInt(b, 10);
+                            if(isNaN(b)){ b = 0; }
+
+                            return a + b;
+                            });
+
+                        $(column.footer()).html('Total: ' + sum);
+                        
+                    });
+                    this.api().columns(2).every(function () {
+                        var column = this;
+                        var sum = column
+                            .data()
+                            .reduce(function (a, b) { 
+                            a = parseInt(a, 10);
+                            if(isNaN(a)){ a = 0; }                   
+
+                            b = parseInt(b, 10);
+                            if(isNaN(b)){ b = 0; }
+
+                            return a + b;
+                            });
+
+                        $(column.footer()).html('Total: ' + sum);
+                        
+                    });
+                }",
             ]);
     }
 

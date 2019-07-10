@@ -12,6 +12,7 @@ use App\Http\Controllers\AppBaseController;
 use Response;
 use App\Models\unitkerja;
 use App\Models\fungsi_os;
+use App\Models\jabatan_os;
 use App\Models\vendor_os;
 use Illuminate\Http\Request;
 use Validator;
@@ -26,6 +27,7 @@ class karyawan_osController extends AppBaseController
         $this->karyawanOsRepository = $karyawanOsRepo;
         $this->data['unitkerja'] = unitkerja::pluck('nama_uk','id');
         $this->data['fungsi'] = fungsi_os::pluck('nama_fungsi','id');
+        $this->data['jabatan_os'] = jabatan_os::pluck('nama_jabatan','id');
         $this->data['vendor'] = vendor_os::where('is_active','=',1)->pluck('nama_vendor','id');
     }
 

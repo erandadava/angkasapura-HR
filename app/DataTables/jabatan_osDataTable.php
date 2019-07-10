@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\karyawan_os;
+use App\Models\jabatan_os;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class karyawan_osDataTable extends DataTable
+class jabatan_osDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,18 +18,18 @@ class karyawan_osDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'karyawan_os.datatables_actions');
+        return $dataTable->addColumn('action', 'jabatan_os.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\karyawan_os $model
+     * @param \App\Models\jabatan_os $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(karyawan_os $model)
+    public function query(jabatan_os $model)
     {
-        return $model->with(['unitkerja','jabatan_os'])->newQuery();
+        return $model->newQuery();
     }
 
     /**
@@ -47,6 +47,8 @@ class karyawan_osDataTable extends DataTable
                 'dom'     => 'Bfrtip',
                 'order'   => [[0, 'desc']],
                 'buttons' => [
+                    ['extend' => 'create', 'className' => 'btn btn-default btn-sm no-corner',],
+                    ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -62,13 +64,7 @@ class karyawan_osDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data'=>'nama','title'=>'Nama'],
-            ['data'=>'jabatan_os.nama_jabatan','title'=>'Fungsi'],
-            ['data'=>'unitkerja.nama_uk','title'=>'Unit Kerja'],
-            ['data'=>'tgl_lahir','title'=>'Tanggal Lahir'],
-            ['data'=>'usia','title'=>'Usia'],
-            ['data'=>'gender','title'=>'Jenis Kelamin'],
-            ['data'=>'penempatan','title'=>'Penempatan'],
+            'nama_jabatan'
         ];
     }
 
@@ -79,6 +75,6 @@ class karyawan_osDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'karyawan_osdatatable_' . time();
+        return 'jabatan_osdatatable_' . time();
     }
 }

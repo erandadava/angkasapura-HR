@@ -87,3 +87,5 @@ Route::resource('osperformances', 'OsperformanceAPIController');
 Route::resource('fungsi_os', 'fungsi_osAPIController');
 
 Route::resource('vendor_os', 'vendor_osAPIController');
+
+Route::resource('jabatan_os', 'jabatan_osAPIController');

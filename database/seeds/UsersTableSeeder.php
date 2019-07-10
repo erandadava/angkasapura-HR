@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
                 'name' => 'admin',
                 'email' => 'admin@mail.com',
                 'password' => '$2y$10$5.6Y2JGn0jJ2k18GonT6wO3Fx9vJtLj44IyDdFhUotsqRo.saVf1u',
-                'remember_token' => 'Fo7IhN9AGLEvRhQXuXAWgWeEiJxk1WuTNoF1nMMj6Vfzu1uaE0Dp6e84zIS0',
+                'remember_token' => '08rBr9q54d8s1Y60buYoboDMrv72UrtEshm1Y2z0kMk2ICcb6q0C1yD96NYm',
                 'created_at' => '2019-05-31 03:58:35',
                 'updated_at' => '2019-06-25 13:29:12',
                 'verified' => 0,
@@ -51,6 +51,18 @@ class UsersTableSeeder extends Seeder
                 'remember_token' => NULL,
                 'created_at' => '2019-06-25 13:31:23',
                 'updated_at' => '2019-06-25 13:31:23',
+                'verified' => 0,
+            ),
+            3 => 
+            array (
+                'id' => 5,
+                'username' => 'management',
+                'name' => 'management',
+                'email' => 'management@mail.com',
+                'password' => '$2y$10$gcWzmtDVVomwqh9LGErNnOfFDYuJng4qJWpbcdIZd5gB/DLPIN5GK',
+                'remember_token' => 'BzWhdisZLVLEbIYgcRF8d9WChcVdR0eZoBt9njKNrnaxYmNSJg0g1C3aEe2g',
+                'created_at' => '2019-07-05 15:18:49',
+                'updated_at' => '2019-07-05 15:18:49',
                 'verified' => 0,
             ),
         ));

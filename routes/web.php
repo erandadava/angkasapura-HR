@@ -20,11 +20,13 @@ Route::get('dashboard/hr', 'HomeController@index');
 Auth::routes();
 
 Route::resource('users', 'usersController');
+Route::resource('jabatanOs', 'jabatan_osController');
 
 Route::get('register/verify', 'Auth\RegisterController@verify')->name('verifyEmailLink');
 Route::get('register/verify/resend', 'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
 Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail');
-Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
+
+Route::group(['middleware' => ['role:Admin|Super Admin|Vendor|management']], function ()
 {
       
     Route::get('/home', 'HomeController@index');
@@ -35,9 +37,11 @@ Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
 
 });
 
-Route::group(['middleware' => ['role:Admin|Super Admin']], function ()
+Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
 {
     Route::get('/formasiexisting', 'unitkerjaController@formasiExisting');
+
+    Route::get('/formasi/{id}', 'unitkerjaController@formasiExistingShow');
 
     Route::resource('fungsis', 'fungsiController');
     

@@ -1,6 +1,8 @@
+
 <li class="">
         <a href="/home"><i class="fa fa-edit"></i><span>Dashboard</span></a>
 </li>
+
 @hasrole('Super Admin|Admin')
 
 <li class="{{ Request::is('unitkerjas.formasiexisting') ? '' : '' }}">
@@ -17,6 +19,10 @@
 
 <li class="{{ Request::is('osperformances*') ? 'active' : '' }}">
     <a href="{!! route('osperformances.index') !!}"><i class="fa fa-edit"></i><span>OS Performance</span></a>
+</li>
+
+<li class="{{ Request::is('jabatanOs*') ? 'active' : '' }}">
+    <a href="{!! route('jabatanOs.index') !!}"><i class="fa fa-edit"></i><span>Jabatan Outsourcing</span></a>
 </li>
 
 <li class="treeview">
@@ -80,4 +86,10 @@
 <li class="{{ Request::is('karyawanOs*') ? 'active' : '' }}">
     <a href="{!! route('karyawanOs.index') !!}"><i class="fa fa-edit"></i><span>Karyawan Outsourcing</span></a>
 </li>
+
+<li class="{{ Request::is('osperformances*') ? 'active' : '' }}">
+    <a href="{!! route('osperformances.index') !!}"><i class="fa fa-edit"></i><span>OS Performance</span></a>
+</li>
 @endhasrole
+
+

@@ -31,6 +31,7 @@ class KaryawanOS extends Migration
             $table->string('no_lisensi')->nullable();
             $table->longText('doc_no_lisensi')->nullable();
             $table->string('jangka_waktu')->nullable();
+            $table->string('penempatan')->nullable();
             $table->longText('doc_jangka_waktu')->nullable();
             $table->string('no_kontrak_kerja')->nullable();
             $table->longText('doc_no_kontrak_kerja')->nullable();
