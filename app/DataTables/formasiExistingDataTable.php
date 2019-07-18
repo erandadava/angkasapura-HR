@@ -17,6 +17,11 @@ class formasiExistingDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
+        $unit = \App\Models\unitkerja::withCount('karyawan')->get();
+        $sum_eksis = 0 ;
+        foreach ($unit as $key => $value) {
+            $sum_eksis += (int) $value['karyawan_count'];
+        }
 
         return $dataTable->addColumn('action', 'unitkerjas.datatables_actionsformasi')
         ->editColumn('lowong', function ($inquiry) 
@@ -30,6 +35,7 @@ class formasiExistingDataTable extends DataTable
         ->with('sum_formasi', function() use ($query) {
             return $query->sum('jml_formasi');
         })
+        ->with('sum_eksis', $sum_eksis)
         ->rawColumns(['lowong','kekuatan','action']);
     }
 
@@ -57,7 +63,7 @@ class formasiExistingDataTable extends DataTable
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
                 'dom'     => 'Bfrtip',
-                'order'   => [[0, 'desc']],
+                'order'   => [[0, 'asc']],
                 'buttons' => [
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -67,36 +73,12 @@ class formasiExistingDataTable extends DataTable
                     
                     this.api().columns(1).every(function () {
                         var column = this;
-                        var sum = column
-                            .data()
-                            .reduce(function (a, b) { 
-                            a = parseInt(a, 10);
-                            if(isNaN(a)){ a = 0; }                   
-
-                            b = parseInt(b, 10);
-                            if(isNaN(b)){ b = 0; }
-
-                            return a + b;
-                            });
-
-                        $(column.footer()).html('Total: ' + sum);
+                        $(column.footer()).html('Total: ' + LaravelDataTables['dataTableBuilder'].ajax.json().sum_formasi);
                         
                     });
                     this.api().columns(2).every(function () {
                         var column = this;
-                        var sum = column
-                            .data()
-                            .reduce(function (a, b) { 
-                            a = parseInt(a, 10);
-                            if(isNaN(a)){ a = 0; }                   
-
-                            b = parseInt(b, 10);
-                            if(isNaN(b)){ b = 0; }
-
-                            return a + b;
-                            });
-
-                        $(column.footer()).html('Total: ' + sum);
+                        $(column.footer()).html('Total: ' + LaravelDataTables['dataTableBuilder'].ajax.json().sum_eksis);
                         
                     });
                 }",
