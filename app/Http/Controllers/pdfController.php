@@ -107,7 +107,8 @@ class pdfController extends Controller
         }
         $values = $isinya;
         $pdf = PDF::loadview('pdf.index',['head'=>$head,'title'=>$title,'value'=>$values]);
-        return $pdf->download($tabel.time().'.pdf');
+        // return $pdf->download($tabel.time().'.pdf');
+        return $pdf->stream($tabel.time().'.pdf', array("Attachment" => false));
 
     }
 }

@@ -176,7 +176,7 @@ html{
         var warnaUnitKerja = [];
         function getRandomColorHex() {
             
-            for (var a = 1; a <= 40; a++) {
+            for (var a = 1; a <= 250; a++) {
                 var hex = "0123456789ABCDEF",
                 color = "#";
                 for (var i = 1; i <= 6; i++) {
@@ -219,10 +219,17 @@ html{
                     datasets: [
                         {
                         label: "Jumlah",
-                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3B1F2B","#0E7C7B","#E01A4F","#F15946","#7B3E19","#175676"],
                         data: value_status_pendidikan
                         }
                     ]
+                },
+                options: {
+                    plugins: {
+                        datalabels: {
+                            color : '#fff'
+                        }
+                    }
                 }
         });
 
@@ -238,6 +245,13 @@ html{
                         data: [{!!$jk_laki!!},{!!$jk_perempuan!!}]
                         }
                     ]
+                },
+                options: {
+                    plugins: {
+                        datalabels: {
+                            color : '#fff'
+                        }
+                    }
                 }
         });
 
@@ -253,6 +267,13 @@ html{
                         }
                     ]
                 },
+                options: {
+                    plugins: {
+                        datalabels: {
+                            color : '#fff'
+                        }
+                    }
+                }
         });
 
 		var chrtunit_kerja = new Chart(document.getElementById('chartUnitKerja'), {
@@ -265,8 +286,15 @@ html{
                         backgroundColor: warnaUnitKerja,
                         data: value_unit_kerja
                         }
-                    ]
+                    ],
                 },
+                options: {
+                    plugins: {
+                        datalabels: {
+                            color : '#000'
+                        }
+                    }
+                }
         });
 
 		var chrtkelasjabatan = new Chart(document.getElementById('chartKelasJabatan'), {
@@ -276,11 +304,18 @@ html{
                     datasets: [
                         {
                         label : "Jumlah",   
-                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#3F3047","#3B1F2B","#0E7C7B","#E01A4F","#F15946","#7B3E19","#175676","#B6C649","#F7D002","#BF1A2F","#586BA4","#F5DD90","#F68E5F","#F76C5E","#EF476F","#118AB2"],
                         data: value_kelas_jabatan
                         }
                     ]
                 },
+                options: {
+                    plugins: {
+                        datalabels: {
+                            color : '#fff'
+                        }
+                    }
+                }
         });
 
         Chart.plugins.register({

@@ -62,7 +62,7 @@ class formasiExistingDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'dom'     => 'Bfrtip',
+                'dom'     => 'Blfrtip',
                 'order'   => [[0, 'asc']],
                 'buttons' => [
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
