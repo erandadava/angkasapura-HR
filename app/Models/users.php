@@ -59,5 +59,10 @@ class users extends Model
         'password_confirmation' => 'required_with:password|same:password|min:6'
     ];
 
+    public static $rulesUpdate = [
+        'name' => 'required',
+        'email' => 'required',
+    ];
+
 
 }
