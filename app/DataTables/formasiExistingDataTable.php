@@ -3,6 +3,7 @@
 namespace App\DataTables;
 
 use App\Models\unitkerja;
+use App\Models\klsjabatan;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -22,7 +23,7 @@ class formasiExistingDataTable extends DataTable
         foreach ($unit as $key => $value) {
             $sum_eksis += (int) $value['karyawan_count'];
         }
-
+        
         return $dataTable->addColumn('action', 'unitkerjas.datatables_actionsformasi')
         ->editColumn('lowong', function ($inquiry) 
         {
@@ -92,21 +93,21 @@ class formasiExistingDataTable extends DataTable
      */
     protected function getColumns()
     {
-        // public function getLowonganAttribute()
-        // {
-        //     return (int) $this->jml_formasi - (int) $this->jml_existing;
-        // }
+        // $pkwt = unitkerja::withAndWhereHas('klsjabatan', function($query) use ($id){
+        //     $query->where('id', $id);
+        // })->get();
+            // undefined variable :id
+        //  $KMPG = unitkerja::withAndWhereHas('klsjabatan', function($query) use ($id){
+        //     $query->where('id', $id);
+        // })->get();
 
-        // public function getKekuatansdmAttribute()
-        // {
-        //     return ((int) $this->jml_existing / (int) $this->jml_formasi)*100 ."%";
-        // }
         return [
             ['data'=>'nama_uk','title'=>'Unit Kerja'],
             ['data'=>'jml_formasi','title'=>'Formasi'],
             ['data'=>'karyawan_count','title'=>'Eksis'],
             ['data'=>'lowong','title'=>'Lowong', 'orderable' => false],
             ['data'=>'kekuatan','title'=>'Kekuatan SDM', 'orderable' => false],
+            ['data'=>'pkwt','title'=>'PKWT'],
         ];
     }
 
