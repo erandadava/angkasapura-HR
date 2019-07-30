@@ -74,7 +74,7 @@ Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
     
     Route::resource('unitkerjas', 'unitkerjaController');
     
-    Route::resource('roles', 'rolesController');
+    Route::resource('roles', 'rolesController',['only' => ['index', 'show']]);
     
     Route::resource('mpp', 'mppController');
     
