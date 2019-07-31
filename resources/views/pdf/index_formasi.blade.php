@@ -65,6 +65,13 @@ table.paleBlueRows tfoot {
 table.paleBlueRows tfoot td {
   font-size: 14px;
 }
+
+tr.group,
+    tr.group:hover {
+        background-color: #16a085 !important;
+        color:white;
+        text-align: left;
+    }
 </style>
 <head>
 	<title>PDF</title>
@@ -89,7 +96,20 @@ table.paleBlueRows tfoot td {
                         @endforeach
                     </tr>
                     <tbody>
+                            @php
+                            $sebelumnya = "";   
+                           @endphp
                         @foreach($value as $key => $dt)
+                                    @if($sebelumnya != $group[$key][0])
+                                        @php
+                                            $sebelumnya = $group[$key][0];   
+                                        @endphp
+                                        <tr class="group">
+                                            <td colspan="11">
+                                                {{ $group[$key][1] }}
+                                            </td>
+                                        </tr>
+                                    @endif
                             <tr>
                             <td><center>{{$key+1}}</center></td>
                                 @foreach($dt as $key2 => $dt2)

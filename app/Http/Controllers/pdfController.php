@@ -49,10 +49,11 @@ class pdfController extends Controller
                 }
             break; 
             case 'formasi':
-                $get = \App\Models\unitkerja::withCount('karyawan')->with('kategori_unit_kerja')->get();
+                $get = \App\Models\unitkerja::withCount('karyawan')->with('kategori_unit_kerja')->orderBy('id_kategori_unit_kerja_fk', 'DESC')->get();
                 $head = ['Unit Kerja','Formasi', 'Eksis', 'Lowong', 'Kekuatan SDM','Pejabat','Karyawan','PKWT','KMPG','Total Eksis'];
                 
                 $title = 'Formasi vs Eksisting';
+                $group = [];
                 foreach ($get as $key => $value) {
                     $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
                     $pkwt = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pkwt){
@@ -90,11 +91,15 @@ class pdfController extends Controller
                         7 => count($pkwt->karyawan),
                         8 => count($kmpg->karyawan),
                         9 => count($pejabat->karyawan)+count($karyawan->karyawan)+count($pkwt->karyawan)+count($kmpg->karyawan),
+                    ];  
+                    $group[$key]= [
+                        0 => $value['id_kategori_unit_kerja_fk'],
+                        1 => $value['kategori_unit_kerja']['nama_kategori_uk']
                     ];   
                 }
 
-                $values = $isinya;
-                $pdf = PDF::loadview('pdf.index_formasi',['head'=>$head,'title'=>$title,'value'=>$values])->setPaper('a4', 'landscape');
+                $values = $isinya; 
+                $pdf = PDF::loadview('pdf.index_formasi',['head'=>$head,'title'=>$title,'value'=>$values,'group'=>$group])->setPaper('a4', 'landscape');
                 // return $pdf->download($tabel.time().'.pdf');
                 return $pdf->stream($tabel.time().'.pdf', array("Attachment" => false));
             break; 
