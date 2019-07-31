@@ -61,6 +61,19 @@ class formasiExistingDataTable extends DataTable
             }])->first();
             return count($karyawan->karyawan);
         })
+
+        ->editColumn('jml_pejabat', function ($inquiry) use($query)
+        {
+            $id_19 = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
+            $id_20 = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
+            $id_21 = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
+
+            $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21){
+                $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null]]);
+            }])->first();
+            return count($karyawan->karyawan);
+        })
+
         ->editColumn('total_eksis', function ($inquiry) use($query)
         {
             $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
