@@ -64,14 +64,14 @@ class formasiExistingDataTable extends DataTable
 
         ->editColumn('jml_pejabat', function ($inquiry) use($query)
         {
-            $id_19 = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
-            $id_20 = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
-            $id_21 = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
+            $id_19_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','19')->first();
+            $id_20_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','20')->first();
+            $id_21_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','21')->first();
 
-            $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21){
-                $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null]]);
+            $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19_pejabat,$id_20_pejabat,$id_21_pejabat){
+                $q->orWhere([['id_klsjabatan','==', $id_19_pejabat->id??null],['id_klsjabatan','==', $id_20_pejabat->id??null],['id_klsjabatan','==', $id_21_pejabat->id??null]]);
             }])->first();
-            return count($karyawan->karyawan);
+            return count($pejabat->karyawan);
         })
 
         ->editColumn('total_eksis', function ($inquiry) use($query)
@@ -91,11 +91,21 @@ class formasiExistingDataTable extends DataTable
             $id_21 = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
             $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
             $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
+
+            $id_19_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','19')->first();
+            $id_20_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','20')->first();
+            $id_21_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','21')->first();
+
+
             $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
                 $q->where('id_klsjabatan','!=', $id_19->id??null)->orWhere('id_klsjabatan','!=', $id_20->id??null)->orWhere('id_klsjabatan','!=', $id_21->id??null)->orWhere('id_klsjabatan','!=', $id_pkwt->id??null)->orWhere('id_klsjabatan','!=', $id_kmpg->id??null);
             }])->first();
+
+            $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19_pejabat,$id_20_pejabat,$id_21_pejabat){
+                $q->where([['id_klsjabatan','=', $id_19_pejabat->id??null],['id_klsjabatan','=', $id_20_pejabat->id??null],['id_klsjabatan','=', $id_21_pejabat->id??null]]);
+            }])->first();
             
-            return count($karyawan->karyawan) + count($kmpg->karyawan) + count($pkwt->karyawan);
+            return count($pejabat->karyawan) + count($karyawan->karyawan) + count($kmpg->karyawan) + count($pkwt->karyawan);
         })
         ->with('sum_formasi', function() use ($query) {
             return $query->sum('jml_formasi');
@@ -171,12 +181,6 @@ class formasiExistingDataTable extends DataTable
     protected function getColumns()
     {
         
-
-            // undefined variable :id
-        //  $KMPG = unitkerja::withAndWhereHas('klsjabatan', function($query) use ($id){
-        //     $query->where('id', $id);
-        // })->get();
-
         return [
             ['data' => 'id', 'title'=>'id', 'visible' => false],
             ['data'=>'nama_uk','title'=>'Unit Kerja'],
@@ -185,6 +189,7 @@ class formasiExistingDataTable extends DataTable
             ['data'=>'karyawan_count','title'=>'Eksis','searchable' => false],
             ['data'=>'lowong','title'=>'Lowong', 'orderable' => false,'searchable' => false],
             ['data'=>'kekuatan','title'=>'Kekuatan SDM', 'orderable' => false,'searchable' => false],
+            ['data'=>'jml_pejabat','title'=>'Pejabat', 'orderable' => false,'searchable' => false],
             ['data'=>'jml_karyawan','title'=>'Karyawan', 'orderable' => false,'searchable' => false],
             ['data'=>'jml_pkwt','title'=>'PKWT', 'orderable' => false,'searchable' => false],
             ['data'=>'jml_kmpg','title'=>'KMPG', 'orderable' => false,'searchable' => false],  
