@@ -79,7 +79,7 @@ class formasiExistingDataTable extends DataTable
             $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
             $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
             $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
-                $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
+                $q->where('id_klsjabatan','!=', $id_19->id??null)->orWhere('id_klsjabatan','!=', $id_20->id??null)->orWhere('id_klsjabatan','!=', $id_21->id??null)->orWhere('id_klsjabatan','!=', $id_pkwt->id??null)->orWhere('id_klsjabatan','!=', $id_kmpg->id??null);
             }])->first();
             
             return count($karyawan->karyawan) + count($kmpg->karyawan) + count($pkwt->karyawan);
