@@ -20,6 +20,7 @@ class unitkerjaController extends AppBaseController
     public function __construct(unitkerjaRepository $unitkerjaRepo)
     {
         $this->unitkerjaRepository = $unitkerjaRepo;
+        $this->data['kategori_unit_kerja'] = \App\Models\kategori_unit_kerja::pluck('nama_kategori_uk','id');
     }
 
     /**
@@ -41,11 +42,11 @@ class unitkerjaController extends AppBaseController
     public function formasiExistingShow($id)
     {
         $this->data['unitkerja'] = $this->unitkerjaRepository->withCount('karyawan')->findWithoutFail($id);
-        $this->data['kelasjabatan'] = \App\Models\klsjabatan::select('tblklsjabatan.nama_kj',\DB::raw('COUNT(tblkaryawan.id) as jml_kls_jbt'))   
+        $this->data['kelasjabatan'] = \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tblkaryawan.id) as jml_kls_jbt'))   
         ->leftJoin('tblkaryawan', 'tblkaryawan.id_klsjabatan', '=', 'tblklsjabatan.id')
         ->rightJoin('tblunitkerja', 'tblkaryawan.id_unitkerja', '=', 'tblunitkerja.id')
         ->where('tblunitkerja.id','=',$id)
-        ->groupBy('tblklsjabatan.nama_kj')
+        ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
         ->get();
         // echo "<pre>";
         // print_r($this->data['kelasjabatan']);
@@ -70,7 +71,7 @@ class unitkerjaController extends AppBaseController
      */
     public function create()
     {
-        return view('unitkerjas.create');
+        return view('unitkerjas.create')->with($this->data);
     }
 
     /**
@@ -100,8 +101,8 @@ class unitkerjaController extends AppBaseController
      */
     public function show($id)
     {
-        $unitkerja = $this->unitkerjaRepository->findWithoutFail($id);
-
+        $unitkerja = $this->unitkerjaRepository->with('kategori_unit_kerja')->findWithoutFail($id);
+        
         if (empty($unitkerja)) {
             Flash::error('Unitkerja not found');
 
@@ -120,15 +121,15 @@ class unitkerjaController extends AppBaseController
      */
     public function edit($id)
     {
-        $unitkerja = $this->unitkerjaRepository->findWithoutFail($id);
+        $this->data['unitkerja'] = $this->unitkerjaRepository->findWithoutFail($id);
 
-        if (empty($unitkerja)) {
+        if (empty($this->data['unitkerja'])) {
             Flash::error('Unitkerja not found');
 
             return redirect(route('unitkerjas.index'));
         }
 
-        return view('unitkerjas.edit')->with('unitkerja', $unitkerja);
+        return view('unitkerjas.edit')->with($this->data);
     }
 
     /**
@@ -180,3 +181,4 @@ class unitkerjaController extends AppBaseController
         return redirect(route('unitkerjas.index'));
     }
 }
+

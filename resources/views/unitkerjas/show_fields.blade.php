@@ -30,6 +30,13 @@
 </div>
 <div class="row">
     <div class="col-md-3">
+        <!-- Updated At Field -->
+        <div class="form-group">
+            {!! Form::label('updated_at', 'Kategori Unit Kerja:') !!}
+            <p>{!! $unitkerja->kategori_unit_kerja->nama_kategori_uk ?? '' !!}</p>
+        </div>
+    </div>
+    <div class="col-md-3">
         <!-- Created At Field -->
         <div class="form-group">
             {!! Form::label('created_at', 'Created At:') !!}
@@ -43,4 +50,6 @@
             <p>{!! $unitkerja->updated_at !!}</p>
         </div>
     </div>
+    
+    
 </div>

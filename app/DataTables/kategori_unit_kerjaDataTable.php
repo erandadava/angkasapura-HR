@@ -2,11 +2,11 @@
 
 namespace App\DataTables;
 
-use App\Models\unitkerja;
+use App\Models\kategori_unit_kerja;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
-class unitkerjaDataTable extends DataTable
+class kategori_unit_kerjaDataTable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -18,18 +18,18 @@ class unitkerjaDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'unitkerjas.datatables_actions');
+        return $dataTable->addColumn('action', 'kategori_unit_kerjas.datatables_actions');
     }
 
     /**
      * Get query source of dataTable.
      *
-     * @param \App\Models\unitkerja $model
+     * @param \App\Models\kategori_unit_kerja $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(unitkerja $model)
+    public function query(kategori_unit_kerja $model)
     {
-        return $model->withCount('karyawan')->with('kategori_unit_kerja')->newQuery();
+        return $model->newQuery();
     }
 
     /**
@@ -45,8 +45,9 @@ class unitkerjaDataTable extends DataTable
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
                 'dom'     => 'Blfrtip',
-                'order'   => [[2, 'asc']],
+                'order'   => [[0, 'desc']],
                 'buttons' => [
+                    ['extend' => 'export', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -62,11 +63,7 @@ class unitkerjaDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'id', 'title'=>'id', 'visible' => false],
-            ['data' => 'kategori_unit_kerja.nama_kategori_uk', 'title'=>'Kategori'],
-            ['data' => 'nama_uk', 'title'=>'Nama'],
-            ['data' => 'jml_formasi', 'title'=>'Jumlah Formasi'],
-            ['data' => 'jml_existing', 'title'=>'Jumlah Eksisting'],
+            ['data' => 'nama_kategori_uk', 'title' => 'Nama Kategori Unit Kerja']
         ];
     }
 
@@ -77,6 +74,6 @@ class unitkerjaDataTable extends DataTable
      */
     protected function filename()
     {
-        return 'unitkerjasdatatable_' . time();
+        return 'kategori_unit_kerjasdatatable_' . time();
     }
 }

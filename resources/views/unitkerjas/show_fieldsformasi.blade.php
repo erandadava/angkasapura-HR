@@ -41,7 +41,7 @@
         <div class="form-group">
             {!! Form::label('kelas_jabatan', 'Kelas Jabatan:') !!}
             <div class="row">
-                <div class="col-md-6 col-sm-12">
+                <div class="col-md-12 col-sm-12">
                     <table class="table table-striped table-bordered">
                         <thead>
                             <th style='text-align:center'>
@@ -52,6 +52,12 @@
                             </th>
                             <th style='text-align:center'>
                                 Jumlah Kelas Jabatan
+                            </th>
+                            <th style='text-align:center'>
+                                Jumlah Eksisting
+                            </th>
+                            <th style='text-align:center'>
+                                Jumlah Formasi
                             </th>
                         </thead>
                         <tbody>
@@ -67,6 +73,12 @@
                                      <td style='text-align:center'>
                                          {{$item['jml_kls_jbt']}}
                                      </td>
+                                     <td style='text-align:center'>
+                                        {{$item['jml_kls_jbt']}}
+                                    </td>
+                                    <td style='text-align:center'>
+                                        {{$item['jml_butuh']}}
+                                    </td>
                                 </tr>
                             @endforeach
                         </tbody>

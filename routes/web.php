@@ -83,9 +83,13 @@ Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
     Route::resource('fungsiOs', 'fungsi_osController');
     
     Route::resource('vendorOs', 'vendor_osController');
+
+    Route::resource('kategoriUnitKerjas', 'kategori_unit_kerjaController');
 });
 
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     \Aschmelyun\Larametrics\Larametrics::routes();
 });
+
+
