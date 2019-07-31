@@ -49,10 +49,34 @@ class pdfController extends Controller
                 }
             break; 
             case 'formasi':
-                $get = \App\Models\unitkerja::withCount('karyawan')->get();
-                $head = ['Unit Kerja','Formasi', 'Eksis', 'Lowong', 'Kekuatan SDM'];
+                $get = \App\Models\unitkerja::withCount('karyawan')->with('kategori_unit_kerja')->get();
+                $head = ['Unit Kerja','Formasi', 'Eksis', 'Lowong', 'Kekuatan SDM','Pejabat','Karyawan','PKWT','KMPG','Total Eksis'];
+                
                 $title = 'Formasi vs Eksisting';
                 foreach ($get as $key => $value) {
+                    $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
+                    $pkwt = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pkwt){
+                        $q->where('id_klsjabatan', $id_pkwt->id);
+                    }])->first();
+
+                    $id_19 = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
+                    $id_20 = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
+                    $id_21 = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
+                    $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
+                    $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
+                    $karyawan = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
+                        $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
+                    }])->first();
+
+                    $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
+                    $kmpg = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_kmpg){
+                        $q->where('id_klsjabatan', $id_kmpg->id);
+                    }])->first();
+
+                    $pejabat = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21){
+                        $q->where('id_klsjabatan', $id_19->id??null)->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
+                    }])->first();
+
                     $lowong = (int) $value->jml_formasi - (int) $value->karyawan_count;
                     $kekuatan = ((int) $value->karyawan_count / (int) $value->jml_formasi)*100 ."%";
                     $isinya[$key]=[
@@ -61,8 +85,18 @@ class pdfController extends Controller
                         2 => $value['karyawan_count'],
                         3 => $lowong,
                         4 => $kekuatan,
+                        5 => count($pejabat->karyawan),
+                        6 => count($karyawan->karyawan),
+                        7 => count($pkwt->karyawan),
+                        8 => count($kmpg->karyawan),
+                        9 => count($pejabat->karyawan)+count($karyawan->karyawan)+count($pkwt->karyawan)+count($kmpg->karyawan),
                     ];   
                 }
+
+                $values = $isinya;
+                $pdf = PDF::loadview('pdf.index_formasi',['head'=>$head,'title'=>$title,'value'=>$values])->setPaper('a4', 'landscape');
+                // return $pdf->download($tabel.time().'.pdf');
+                return $pdf->stream($tabel.time().'.pdf', array("Attachment" => false));
             break; 
             case 'mpp':
                 $get = \App\Models\karyawan::with(['jabatan','unit','fungsi','klsjabatan'])->get();
