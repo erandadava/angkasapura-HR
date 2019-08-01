@@ -64,12 +64,11 @@ class formasiExistingDataTable extends DataTable
 
         ->editColumn('jml_pejabat', function ($inquiry) use($query)
         {
-            $id_19_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','19')->first();
-            $id_20_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','20')->first();
-            $id_21_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','21')->first();
-
+            $id_19_pejabat = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
+            $id_20_pejabat = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
+            $id_21_pejabat = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
             $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19_pejabat,$id_20_pejabat,$id_21_pejabat){
-                $q->orWhere([['id_klsjabatan','==', $id_19_pejabat->id??null],['id_klsjabatan','==', $id_20_pejabat->id??null],['id_klsjabatan','==', $id_21_pejabat->id??null]]);
+                $q->where('id_klsjabatan','=', $id_19_pejabat->id??null)->orWhere('id_klsjabatan','=', $id_20_pejabat->id??null)->orWhere('id_klsjabatan','=', $id_21_pejabat->id??null);
             }])->first();
             return count($pejabat->karyawan);
         })
@@ -81,28 +80,22 @@ class formasiExistingDataTable extends DataTable
                 $q->where('id_klsjabatan', $id_pkwt->id);
             }])->first();
 
-            $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
-            $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg){
-                $q->where('id_klsjabatan', $id_kmpg->id);
-            }])->first();
-
             $id_19 = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
             $id_20 = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
             $id_21 = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
             $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
             $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
-
-            $id_19_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','19')->first();
-            $id_20_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','20')->first();
-            $id_21_pejabat = \App\Models\karyawan::where('id_klsjabatan','=','21')->first();
-
-
             $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
-                $q->where('id_klsjabatan','!=', $id_19->id??null)->orWhere('id_klsjabatan','!=', $id_20->id??null)->orWhere('id_klsjabatan','!=', $id_21->id??null)->orWhere('id_klsjabatan','!=', $id_pkwt->id??null)->orWhere('id_klsjabatan','!=', $id_kmpg->id??null);
+                $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
             }])->first();
 
-            $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19_pejabat,$id_20_pejabat,$id_21_pejabat){
-                $q->where([['id_klsjabatan','=', $id_19_pejabat->id??null],['id_klsjabatan','=', $id_20_pejabat->id??null],['id_klsjabatan','=', $id_21_pejabat->id??null]]);
+            $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
+            $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg){
+                $q->where('id_klsjabatan', $id_kmpg->id);
+            }])->first();
+
+            $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21){
+                $q->where('id_klsjabatan', $id_19->id??null)->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
             }])->first();
             
             return count($pejabat->karyawan) + count($karyawan->karyawan) + count($kmpg->karyawan) + count($pkwt->karyawan);
