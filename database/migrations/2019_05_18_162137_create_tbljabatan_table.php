@@ -15,7 +15,7 @@ class CreateTbljabatanTable extends Migration {
 		Schema::create('tbljabatan', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('nama_jabatan', 50);
+			$table->string('nama_jabatan', 255);
 			$table->text('syarat_didik');
 			$table->text('syarat_latih');
 			$table->text('syarat_pengalaman');

@@ -16,7 +16,7 @@ class CreateTblunitkerjaTable extends Migration {
 		{
 			$table->increments('id');
 			$table->integer('id_kategori_unit_kerja_fk')->nullable();
-			$table->string('nama_uk', 50);
+			$table->string('nama_uk', 255);
 			$table->integer('jml_formasi');
 			$table->integer('jml_existing');
 			$table->softDeletes();

@@ -20,6 +20,7 @@ class TblunitkerjaTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ACCESIBILITY & ENVIRONMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -30,6 +31,7 @@ class TblunitkerjaTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ACCESIBILITY & ROAD',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -40,6 +42,7 @@ class TblunitkerjaTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ACCOUNT RECEIVABLE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -50,6 +53,7 @@ class TblunitkerjaTableSeeder extends Seeder
             3 => 
             array (
                 'id' => 4,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ACCOUNT RECEIVABLE COLLECTION',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -60,6 +64,7 @@ class TblunitkerjaTableSeeder extends Seeder
             4 => 
             array (
                 'id' => 5,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AGREEMENT & COMMERCIAL CONTRACT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -70,6 +75,7 @@ class TblunitkerjaTableSeeder extends Seeder
             5 => 
             array (
                 'id' => 6,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRCRAFT RESCUE & FIRE FIGHTING',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -80,6 +86,7 @@ class TblunitkerjaTableSeeder extends Seeder
             6 => 
             array (
                 'id' => 7,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRFIELD',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -90,6 +97,7 @@ class TblunitkerjaTableSeeder extends Seeder
             7 => 
             array (
                 'id' => 8,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRPORT DATA MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -100,6 +108,7 @@ class TblunitkerjaTableSeeder extends Seeder
             8 => 
             array (
                 'id' => 9,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRPORT MAINTENANCE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -110,6 +119,7 @@ class TblunitkerjaTableSeeder extends Seeder
             9 => 
             array (
                 'id' => 10,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRPORT OPERATION',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -120,6 +130,7 @@ class TblunitkerjaTableSeeder extends Seeder
             10 => 
             array (
                 'id' => 11,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRPORT OPERATION CENTER ',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -130,6 +141,7 @@ class TblunitkerjaTableSeeder extends Seeder
             11 => 
             array (
                 'id' => 12,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRPORT OPERATION QUALITY CONTROL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -140,6 +152,7 @@ class TblunitkerjaTableSeeder extends Seeder
             12 => 
             array (
                 'id' => 13,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRPORT RFF',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -150,6 +163,7 @@ class TblunitkerjaTableSeeder extends Seeder
             13 => 
             array (
                 'id' => 14,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRPORT SECURITY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -160,6 +174,7 @@ class TblunitkerjaTableSeeder extends Seeder
             14 => 
             array (
                 'id' => 15,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRPORT SERVICE QUALITY CONTROL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -170,6 +185,7 @@ class TblunitkerjaTableSeeder extends Seeder
             15 => 
             array (
                 'id' => 16,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRPORT SERVICES & FACILITY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -180,6 +196,7 @@ class TblunitkerjaTableSeeder extends Seeder
             16 => 
             array (
                 'id' => 17,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRSIDE INFRASTRUCTURE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -190,6 +207,7 @@ class TblunitkerjaTableSeeder extends Seeder
             17 => 
             array (
                 'id' => 18,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRSIDE INFRASTRUCTURE & SUPPORT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -200,6 +218,7 @@ class TblunitkerjaTableSeeder extends Seeder
             18 => 
             array (
                 'id' => 19,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRSIDE OPERATION',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -210,6 +229,7 @@ class TblunitkerjaTableSeeder extends Seeder
             19 => 
             array (
                 'id' => 20,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AIRSIDE OPERATION & ARFF',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -220,6 +240,7 @@ class TblunitkerjaTableSeeder extends Seeder
             20 => 
             array (
                 'id' => 21,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AOCC',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -230,6 +251,7 @@ class TblunitkerjaTableSeeder extends Seeder
             21 => 
             array (
                 'id' => 22,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'APMS Service',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -240,6 +262,7 @@ class TblunitkerjaTableSeeder extends Seeder
             22 => 
             array (
                 'id' => 23,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'APRON MANAGEMENT SERVICE - T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -250,6 +273,7 @@ class TblunitkerjaTableSeeder extends Seeder
             23 => 
             array (
                 'id' => 24,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'APRON MANAGEMENT SERVICE - T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -260,6 +284,7 @@ class TblunitkerjaTableSeeder extends Seeder
             24 => 
             array (
                 'id' => 25,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'APRON MANAGEMENT SERVICE – T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -270,6 +295,7 @@ class TblunitkerjaTableSeeder extends Seeder
             25 => 
             array (
                 'id' => 26,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ASSETS & LOGISTIC MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -280,6 +306,7 @@ class TblunitkerjaTableSeeder extends Seeder
             26 => 
             array (
                 'id' => 27,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ASSETS MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -290,6 +317,7 @@ class TblunitkerjaTableSeeder extends Seeder
             27 => 
             array (
                 'id' => 28,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AVIATION SECURITY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -300,6 +328,7 @@ class TblunitkerjaTableSeeder extends Seeder
             28 => 
             array (
                 'id' => 29,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AVIATION SECURITY - T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -310,6 +339,7 @@ class TblunitkerjaTableSeeder extends Seeder
             29 => 
             array (
                 'id' => 30,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AVIATION SECURITY – T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -320,6 +350,7 @@ class TblunitkerjaTableSeeder extends Seeder
             30 => 
             array (
                 'id' => 31,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AVIATION SECURITY – T3 DOMESTIC',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -330,6 +361,7 @@ class TblunitkerjaTableSeeder extends Seeder
             31 => 
             array (
                 'id' => 32,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'AVIATION SECURITY – T3 INTERNATIONAL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -340,6 +372,7 @@ class TblunitkerjaTableSeeder extends Seeder
             32 => 
             array (
                 'id' => 33,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'BAGGAGE HANDLING SYSTEM',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -350,6 +383,7 @@ class TblunitkerjaTableSeeder extends Seeder
             33 => 
             array (
                 'id' => 34,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'BANDARA SOEKARNO-HATTA',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -360,6 +394,7 @@ class TblunitkerjaTableSeeder extends Seeder
             34 => 
             array (
                 'id' => 35,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'BRANCH COMMUNICATION',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -370,6 +405,7 @@ class TblunitkerjaTableSeeder extends Seeder
             35 => 
             array (
                 'id' => 36,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'BRANCH COMMUNICATION & LEGAL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -380,6 +416,7 @@ class TblunitkerjaTableSeeder extends Seeder
             36 => 
             array (
                 'id' => 37,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'BUDGETING',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -390,6 +427,7 @@ class TblunitkerjaTableSeeder extends Seeder
             37 => 
             array (
                 'id' => 38,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'BUILDING RESCUE & FIRE FIGHTING',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -400,6 +438,7 @@ class TblunitkerjaTableSeeder extends Seeder
             38 => 
             array (
                 'id' => 39,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'CARGO SECURITY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -410,6 +449,7 @@ class TblunitkerjaTableSeeder extends Seeder
             39 => 
             array (
                 'id' => 40,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'CARGO SERVICE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -420,6 +460,7 @@ class TblunitkerjaTableSeeder extends Seeder
             40 => 
             array (
                 'id' => 41,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'CASH MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -430,6 +471,7 @@ class TblunitkerjaTableSeeder extends Seeder
             41 => 
             array (
                 'id' => 42,
+                'id_kategori_unit_kerja_fk' => NULL,
             'nama_uk' => 'CLOSED CIRCUIT TELEVISION (CCTV)',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -440,6 +482,7 @@ class TblunitkerjaTableSeeder extends Seeder
             42 => 
             array (
                 'id' => 43,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'COMMUNICATION & DATA NETWORK',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -450,6 +493,7 @@ class TblunitkerjaTableSeeder extends Seeder
             43 => 
             array (
                 'id' => 44,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'COMMUNITY DEVELOPMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -460,6 +504,7 @@ class TblunitkerjaTableSeeder extends Seeder
             44 => 
             array (
                 'id' => 45,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'DATA NETWORK & IT NON PUBLIC SERVICE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -470,6 +515,7 @@ class TblunitkerjaTableSeeder extends Seeder
             45 => 
             array (
                 'id' => 46,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'DIGITAL SERVICE – T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -480,6 +526,7 @@ class TblunitkerjaTableSeeder extends Seeder
             46 => 
             array (
                 'id' => 47,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'DIGITAL SERVICE – T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -490,6 +537,7 @@ class TblunitkerjaTableSeeder extends Seeder
             47 => 
             array (
                 'id' => 48,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'DIGITAL SERVICE – T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -500,6 +548,7 @@ class TblunitkerjaTableSeeder extends Seeder
             48 => 
             array (
                 'id' => 49,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ELECTRICAL & MECHANICAL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -510,6 +559,7 @@ class TblunitkerjaTableSeeder extends Seeder
             49 => 
             array (
                 'id' => 50,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ELECTRICAL FACILITY – NON TERMINAL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -520,6 +570,7 @@ class TblunitkerjaTableSeeder extends Seeder
             50 => 
             array (
                 'id' => 51,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ELECTRICAL FACILITY – T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -530,6 +581,7 @@ class TblunitkerjaTableSeeder extends Seeder
             51 => 
             array (
                 'id' => 52,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ELECTRICAL FACILITY – T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -540,6 +592,7 @@ class TblunitkerjaTableSeeder extends Seeder
             52 => 
             array (
                 'id' => 53,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ELECTRICAL FACILITY – T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -550,6 +603,7 @@ class TblunitkerjaTableSeeder extends Seeder
             53 => 
             array (
                 'id' => 54,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ELECTRICAL NETWORK ',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -560,6 +614,7 @@ class TblunitkerjaTableSeeder extends Seeder
             54 => 
             array (
                 'id' => 55,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ELECTRICAL PROTECTION',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -570,6 +625,7 @@ class TblunitkerjaTableSeeder extends Seeder
             55 => 
             array (
                 'id' => 56,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ENERGY & POWER SUPPLY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -580,6 +636,7 @@ class TblunitkerjaTableSeeder extends Seeder
             56 => 
             array (
                 'id' => 57,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'ENVIRONMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -590,6 +647,7 @@ class TblunitkerjaTableSeeder extends Seeder
             57 => 
             array (
                 'id' => 58,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'EQUIPMENT & WORKSHOP',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -600,6 +658,7 @@ class TblunitkerjaTableSeeder extends Seeder
             58 => 
             array (
                 'id' => 59,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'EXECUTIVE GENERAL MANAGER',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -610,6 +669,7 @@ class TblunitkerjaTableSeeder extends Seeder
             59 => 
             array (
                 'id' => 60,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'FINANCE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -620,6 +680,7 @@ class TblunitkerjaTableSeeder extends Seeder
             60 => 
             array (
                 'id' => 61,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'FINANCE & HUMAN RESOURCES ',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -630,6 +691,7 @@ class TblunitkerjaTableSeeder extends Seeder
             61 => 
             array (
                 'id' => 62,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'FINANCIAL CONTROL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -640,6 +702,7 @@ class TblunitkerjaTableSeeder extends Seeder
             62 => 
             array (
                 'id' => 63,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'FINANCIAL MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -650,6 +713,7 @@ class TblunitkerjaTableSeeder extends Seeder
             63 => 
             array (
                 'id' => 64,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'FIXED ASSET MANAGEMENT ',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -660,6 +724,7 @@ class TblunitkerjaTableSeeder extends Seeder
             64 => 
             array (
                 'id' => 65,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'GENERAL & OPERATIONAL BUILDING',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -670,6 +735,7 @@ class TblunitkerjaTableSeeder extends Seeder
             65 => 
             array (
                 'id' => 66,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'GENERAL ACCOUNTING',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -680,6 +746,7 @@ class TblunitkerjaTableSeeder extends Seeder
             66 => 
             array (
                 'id' => 67,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'GENERAL AFFAIRS',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -690,6 +757,7 @@ class TblunitkerjaTableSeeder extends Seeder
             67 => 
             array (
                 'id' => 68,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'GENERAL ELECTRONICS FACILITY  - T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -700,6 +768,7 @@ class TblunitkerjaTableSeeder extends Seeder
             68 => 
             array (
                 'id' => 69,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'GENERAL ELECTRONICS FACILITY  - T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -710,6 +779,7 @@ class TblunitkerjaTableSeeder extends Seeder
             69 => 
             array (
                 'id' => 70,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'GENERAL ELECTRONICS FACILITY – NON TERMINAL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -720,6 +790,7 @@ class TblunitkerjaTableSeeder extends Seeder
             70 => 
             array (
                 'id' => 71,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'GENERAL ELECTRONICS FACILITY – T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -730,6 +801,7 @@ class TblunitkerjaTableSeeder extends Seeder
             71 => 
             array (
                 'id' => 72,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'GROUND SUPPORT SYSTEM',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -740,6 +812,7 @@ class TblunitkerjaTableSeeder extends Seeder
             72 => 
             array (
                 'id' => 73,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'HIRING & PEOPLE MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -750,6 +823,7 @@ class TblunitkerjaTableSeeder extends Seeder
             73 => 
             array (
                 'id' => 74,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'HIRING ADMINISTRATION',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -760,6 +834,7 @@ class TblunitkerjaTableSeeder extends Seeder
             74 => 
             array (
                 'id' => 75,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'HUMAN RESOURCES & GENERAL AFFAIRS',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -770,6 +845,7 @@ class TblunitkerjaTableSeeder extends Seeder
             75 => 
             array (
                 'id' => 76,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'HUMAN RESOURCES ADMINISTRATION',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -780,6 +856,7 @@ class TblunitkerjaTableSeeder extends Seeder
             76 => 
             array (
                 'id' => 77,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'INTERNAL AFFAIRS ',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -790,6 +867,7 @@ class TblunitkerjaTableSeeder extends Seeder
             77 => 
             array (
                 'id' => 78,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'INVENTORY & WAREHOUSE MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -800,6 +878,7 @@ class TblunitkerjaTableSeeder extends Seeder
             78 => 
             array (
                 'id' => 79,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'INVENTORY MANAGEMENT ',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -810,6 +889,7 @@ class TblunitkerjaTableSeeder extends Seeder
             79 => 
             array (
                 'id' => 80,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'IT NON PUBLIC SERVICE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -820,6 +900,7 @@ class TblunitkerjaTableSeeder extends Seeder
             80 => 
             array (
                 'id' => 81,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'IT PUBLIC SERVICE & SECURITY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -830,6 +911,7 @@ class TblunitkerjaTableSeeder extends Seeder
             81 => 
             array (
                 'id' => 82,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'LAND MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -840,6 +922,7 @@ class TblunitkerjaTableSeeder extends Seeder
             82 => 
             array (
                 'id' => 83,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'LANDSCAPE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -850,6 +933,7 @@ class TblunitkerjaTableSeeder extends Seeder
             83 => 
             array (
                 'id' => 84,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'LANDSIDE & CARGO SERVICE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -860,6 +944,7 @@ class TblunitkerjaTableSeeder extends Seeder
             84 => 
             array (
                 'id' => 85,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'LANDSIDE FACILITY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -870,6 +955,7 @@ class TblunitkerjaTableSeeder extends Seeder
             85 => 
             array (
                 'id' => 86,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'LANDSIDE SERVICE & FACILITY  ',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -880,6 +966,7 @@ class TblunitkerjaTableSeeder extends Seeder
             86 => 
             array (
                 'id' => 87,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'LANDSIDE SERVICES',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -890,6 +977,7 @@ class TblunitkerjaTableSeeder extends Seeder
             87 => 
             array (
                 'id' => 88,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'LEGAL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -900,6 +988,7 @@ class TblunitkerjaTableSeeder extends Seeder
             88 => 
             array (
                 'id' => 89,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'MAIN POWER STATION 1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -910,6 +999,7 @@ class TblunitkerjaTableSeeder extends Seeder
             89 => 
             array (
                 'id' => 90,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'MAIN POWER STATION 2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -920,6 +1010,7 @@ class TblunitkerjaTableSeeder extends Seeder
             90 => 
             array (
                 'id' => 91,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'MAIN POWER STATION 3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -930,6 +1021,7 @@ class TblunitkerjaTableSeeder extends Seeder
             91 => 
             array (
                 'id' => 92,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'MAINTENANCE QUALITY CONTROL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -940,6 +1032,7 @@ class TblunitkerjaTableSeeder extends Seeder
             92 => 
             array (
                 'id' => 93,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'MANAGEMENT ACCOUNTING',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -950,6 +1043,7 @@ class TblunitkerjaTableSeeder extends Seeder
             93 => 
             array (
                 'id' => 94,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'MECHANICAL & AIRPORT EQUIPMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -960,6 +1054,7 @@ class TblunitkerjaTableSeeder extends Seeder
             94 => 
             array (
                 'id' => 95,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'MECHANICAL FACILITY – NON TERMINAL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -970,6 +1065,7 @@ class TblunitkerjaTableSeeder extends Seeder
             95 => 
             array (
                 'id' => 96,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'MECHANICAL FACILITY – T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -980,6 +1076,7 @@ class TblunitkerjaTableSeeder extends Seeder
             96 => 
             array (
                 'id' => 97,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'MECHANICAL FACILITY – T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -990,6 +1087,7 @@ class TblunitkerjaTableSeeder extends Seeder
             97 => 
             array (
                 'id' => 98,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'MECHANICAL FACILITY – T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1000,6 +1098,7 @@ class TblunitkerjaTableSeeder extends Seeder
             98 => 
             array (
                 'id' => 99,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'MONITORING & REPORTING',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1010,6 +1109,7 @@ class TblunitkerjaTableSeeder extends Seeder
             99 => 
             array (
                 'id' => 100,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'NON TERMINAL & TRAFFIC',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1020,6 +1120,7 @@ class TblunitkerjaTableSeeder extends Seeder
             100 => 
             array (
                 'id' => 101,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'NORTH RUNWAY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1030,6 +1131,7 @@ class TblunitkerjaTableSeeder extends Seeder
             101 => 
             array (
                 'id' => 102,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'NORTH VISUAL AID',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1040,6 +1142,7 @@ class TblunitkerjaTableSeeder extends Seeder
             102 => 
             array (
                 'id' => 103,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'OFFICE MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1050,6 +1153,7 @@ class TblunitkerjaTableSeeder extends Seeder
             103 => 
             array (
                 'id' => 104,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'OFFICER IN CHARGE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1060,6 +1164,7 @@ class TblunitkerjaTableSeeder extends Seeder
             104 => 
             array (
                 'id' => 105,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'OPERATION & SERVICES PROCUREMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1070,6 +1175,7 @@ class TblunitkerjaTableSeeder extends Seeder
             105 => 
             array (
                 'id' => 106,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PASSENGER SERVICE – T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1080,6 +1186,7 @@ class TblunitkerjaTableSeeder extends Seeder
             106 => 
             array (
                 'id' => 107,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PASSENGER SERVICES - T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1090,6 +1197,7 @@ class TblunitkerjaTableSeeder extends Seeder
             107 => 
             array (
                 'id' => 108,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PASSENGER SERVICE-T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1100,6 +1208,7 @@ class TblunitkerjaTableSeeder extends Seeder
             108 => 
             array (
                 'id' => 109,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PEOPLE MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1110,6 +1219,7 @@ class TblunitkerjaTableSeeder extends Seeder
             109 => 
             array (
                 'id' => 110,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PERIMETER & VITAL OBJECT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1120,6 +1230,7 @@ class TblunitkerjaTableSeeder extends Seeder
             110 => 
             array (
                 'id' => 111,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PLANNING & DISTRIBUTION',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1130,6 +1241,7 @@ class TblunitkerjaTableSeeder extends Seeder
             111 => 
             array (
                 'id' => 112,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PROCUREMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1140,6 +1252,7 @@ class TblunitkerjaTableSeeder extends Seeder
             112 => 
             array (
                 'id' => 113,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PROCUREMENT CONTRACT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1150,6 +1263,7 @@ class TblunitkerjaTableSeeder extends Seeder
             113 => 
             array (
                 'id' => 114,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PROTOCOL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1160,6 +1274,7 @@ class TblunitkerjaTableSeeder extends Seeder
             114 => 
             array (
                 'id' => 115,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PUBLIC RELATIONS',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1170,6 +1285,7 @@ class TblunitkerjaTableSeeder extends Seeder
             115 => 
             array (
                 'id' => 116,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PUBLIC SECURITY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1180,6 +1296,7 @@ class TblunitkerjaTableSeeder extends Seeder
             116 => 
             array (
                 'id' => 117,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PUBLIC SECURITY - T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1190,6 +1307,7 @@ class TblunitkerjaTableSeeder extends Seeder
             117 => 
             array (
                 'id' => 118,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PUBLIC SECURITY - T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1200,6 +1318,7 @@ class TblunitkerjaTableSeeder extends Seeder
             118 => 
             array (
                 'id' => 119,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PUBLIC SECURITY - T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1210,6 +1329,7 @@ class TblunitkerjaTableSeeder extends Seeder
             119 => 
             array (
                 'id' => 120,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'PUBLIC SERVICE & IT SYSTEM',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1220,6 +1340,7 @@ class TblunitkerjaTableSeeder extends Seeder
             120 => 
             array (
                 'id' => 121,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'RECEIVABLES ADMINISTRATION',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1230,6 +1351,7 @@ class TblunitkerjaTableSeeder extends Seeder
             121 => 
             array (
                 'id' => 122,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'RFF EXERCISE & FACILITY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1240,6 +1362,7 @@ class TblunitkerjaTableSeeder extends Seeder
             122 => 
             array (
                 'id' => 123,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'SAFETY & RISK MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1250,6 +1373,7 @@ class TblunitkerjaTableSeeder extends Seeder
             123 => 
             array (
                 'id' => 124,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'SAFETY & SECURITY  IT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1260,6 +1384,7 @@ class TblunitkerjaTableSeeder extends Seeder
             124 => 
             array (
                 'id' => 125,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'SAFETY & SECURITY FACILITY – NON TERMINAL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1270,6 +1395,7 @@ class TblunitkerjaTableSeeder extends Seeder
             125 => 
             array (
                 'id' => 126,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'SAFETY & SECURITY FACILITY – T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1280,6 +1406,7 @@ class TblunitkerjaTableSeeder extends Seeder
             126 => 
             array (
                 'id' => 127,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'SAFETY & SECURITY FACILITY – T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1290,6 +1417,7 @@ class TblunitkerjaTableSeeder extends Seeder
             127 => 
             array (
                 'id' => 128,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'SAFETY & SECURITY FACILITY – T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1300,6 +1428,7 @@ class TblunitkerjaTableSeeder extends Seeder
             128 => 
             array (
                 'id' => 129,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'SAFETY, RISK, & QUALITY CONTROL',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1310,6 +1439,7 @@ class TblunitkerjaTableSeeder extends Seeder
             129 => 
             array (
                 'id' => 130,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'SANITATION FACILITY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1320,6 +1450,7 @@ class TblunitkerjaTableSeeder extends Seeder
             130 => 
             array (
                 'id' => 131,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'SOUTH RUNWAY',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1330,6 +1461,7 @@ class TblunitkerjaTableSeeder extends Seeder
             131 => 
             array (
                 'id' => 132,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'SUBSIDIARY & SUPPORTING PROCUREMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1340,6 +1472,7 @@ class TblunitkerjaTableSeeder extends Seeder
             132 => 
             array (
                 'id' => 133,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TAX MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1350,6 +1483,7 @@ class TblunitkerjaTableSeeder extends Seeder
             133 => 
             array (
                 'id' => 134,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL BUILDING – T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1360,6 +1494,7 @@ class TblunitkerjaTableSeeder extends Seeder
             134 => 
             array (
                 'id' => 135,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL BULDING – T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1370,6 +1505,7 @@ class TblunitkerjaTableSeeder extends Seeder
             135 => 
             array (
                 'id' => 136,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL BULDING – T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1380,6 +1516,7 @@ class TblunitkerjaTableSeeder extends Seeder
             136 => 
             array (
                 'id' => 137,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL FACILITY - T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1390,6 +1527,7 @@ class TblunitkerjaTableSeeder extends Seeder
             137 => 
             array (
                 'id' => 138,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL FACILITY - T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1400,6 +1538,7 @@ class TblunitkerjaTableSeeder extends Seeder
             138 => 
             array (
                 'id' => 139,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL INSPECTION – T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1410,6 +1549,7 @@ class TblunitkerjaTableSeeder extends Seeder
             139 => 
             array (
                 'id' => 140,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL INSPECTION - T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1420,6 +1560,7 @@ class TblunitkerjaTableSeeder extends Seeder
             140 => 
             array (
                 'id' => 141,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL INSPECTION-T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1430,6 +1571,7 @@ class TblunitkerjaTableSeeder extends Seeder
             141 => 
             array (
                 'id' => 142,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL SERVICE - T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1440,6 +1582,7 @@ class TblunitkerjaTableSeeder extends Seeder
             142 => 
             array (
                 'id' => 143,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL SERVICE - T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1450,6 +1593,7 @@ class TblunitkerjaTableSeeder extends Seeder
             143 => 
             array (
                 'id' => 144,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL SERVICE - T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1460,6 +1604,7 @@ class TblunitkerjaTableSeeder extends Seeder
             144 => 
             array (
                 'id' => 145,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL SERVICE & FACILITY – T1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1470,6 +1615,7 @@ class TblunitkerjaTableSeeder extends Seeder
             145 => 
             array (
                 'id' => 146,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL SERVICE & FACILITY – T2',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1480,6 +1626,7 @@ class TblunitkerjaTableSeeder extends Seeder
             146 => 
             array (
                 'id' => 147,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TERMINAL SERVICE & FACILITY - T3',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1490,6 +1637,7 @@ class TblunitkerjaTableSeeder extends Seeder
             147 => 
             array (
                 'id' => 148,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TOC 1',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1500,6 +1648,7 @@ class TblunitkerjaTableSeeder extends Seeder
             148 => 
             array (
                 'id' => 149,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'TOD SERVICE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1510,6 +1659,7 @@ class TblunitkerjaTableSeeder extends Seeder
             149 => 
             array (
                 'id' => 150,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'UPS & CONVERTER',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1520,6 +1670,7 @@ class TblunitkerjaTableSeeder extends Seeder
             150 => 
             array (
                 'id' => 151,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'WAREHOUSE MANAGEMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1530,6 +1681,7 @@ class TblunitkerjaTableSeeder extends Seeder
             151 => 
             array (
                 'id' => 152,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'WATER TREATMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1540,6 +1692,7 @@ class TblunitkerjaTableSeeder extends Seeder
             152 => 
             array (
                 'id' => 153,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'WELFARE',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
@@ -1550,7 +1703,151 @@ class TblunitkerjaTableSeeder extends Seeder
             153 => 
             array (
                 'id' => 154,
+                'id_kategori_unit_kerja_fk' => NULL,
                 'nama_uk' => 'WELFARE & HUMAN RESOURCES ADMINISTRATION',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            154 => 
+            array (
+                'id' => 155,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'NDSIDE SERVICE & FACILITY',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            155 => 
+            array (
+                'id' => 156,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'AIRSIDE INFRASTRUCTURE & SUPPORT',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            156 => 
+            array (
+                'id' => 157,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'ELECTRICAL & MECHANICAL',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            157 => 
+            array (
+                'id' => 158,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'INFORMATION TECHNOLOGY',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            158 => 
+            array (
+                'id' => 159,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'INFORMATION TECHNOLOGY',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            159 => 
+            array (
+                'id' => 160,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'FINANCE',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            160 => 
+            array (
+                'id' => 161,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'ASSETS & LOGISTIC MANAGEMENT',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            161 => 
+            array (
+                'id' => 162,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'HUMAN RESOURCES & GENERAL AFFAIRS',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            162 => 
+            array (
+                'id' => 163,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'SAFETY',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            163 => 
+            array (
+                'id' => 164,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'RISK',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            164 => 
+            array (
+                'id' => 165,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => '& QUALITY CONTROL',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            165 => 
+            array (
+                'id' => 166,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'BRANCH COMMUNICATION & LEGAL',
+                'jml_formasi' => 10,
+                'jml_existing' => 0,
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            166 => 
+            array (
+                'id' => 167,
+                'id_kategori_unit_kerja_fk' => NULL,
+                'nama_uk' => 'PROCUREMENT',
                 'jml_formasi' => 10,
                 'jml_existing' => 0,
                 'deleted_at' => NULL,
