@@ -77,6 +77,9 @@
             <li class="{{ Request::is('vendorOs*') ? 'active' : '' }}">
                 <a href="{!! route('vendorOs.index') !!}"><i class="fa fa-edit"></i><span>Vendor OS</span></a>
             </li>
+            <li class="{{ Request::is('kategoriUnitKerjas*') ? 'active' : '' }}">
+                <a href="{!! route('kategoriUnitKerjas.index') !!}"><i class="fa fa-edit"></i><span>Kategori Unit Kerja</span></a>
+            </li>
               
     </ul>
 </li>
@@ -91,5 +94,7 @@
     <a href="{!! route('osperformances.index') !!}"><i class="fa fa-edit"></i><span>OS Performance</span></a>
 </li>
 @endhasrole
+
+
 
 

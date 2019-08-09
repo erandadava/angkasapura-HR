@@ -25,6 +25,7 @@ class CreateTblkaryawanTable extends Migration {
 			$table->date('rencana_mpp');
 			$table->date('rencana_pensiun');
 			$table->string('pend_diakui', 50);
+			$table->string('pend_milik', 50);
 			$table->integer('id_org')->nullable();
 			$table->integer('id_posisi')->nullable();
 			$table->integer('id_tipe_kar')->nullable();

@@ -15,7 +15,8 @@ class CreateTblunitkerjaTable extends Migration {
 		Schema::create('tblunitkerja', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('nama_uk', 50);
+			$table->integer('id_kategori_unit_kerja_fk')->nullable();
+			$table->string('nama_uk', 255);
 			$table->integer('jml_formasi');
 			$table->integer('jml_existing');
 			$table->softDeletes();

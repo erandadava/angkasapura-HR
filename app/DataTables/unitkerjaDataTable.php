@@ -29,7 +29,7 @@ class unitkerjaDataTable extends DataTable
      */
     public function query(unitkerja $model)
     {
-        return $model->withCount('karyawan')->newQuery();
+        return $model->withCount('karyawan')->with('kategori_unit_kerja')->newQuery();
     }
 
     /**
@@ -45,7 +45,7 @@ class unitkerjaDataTable extends DataTable
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
                 'dom'     => 'Blfrtip',
-                'order'   => [[0, 'desc']],
+                'order'   => [[2, 'asc']],
                 'buttons' => [
                     ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
                     ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
@@ -62,6 +62,8 @@ class unitkerjaDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            ['data' => 'id', 'title'=>'id', 'visible' => false],
+            ['data' => 'kategori_unit_kerja.nama_kategori_uk', 'title'=>'Kategori'],
             ['data' => 'nama_uk', 'title'=>'Nama'],
             ['data' => 'jml_formasi', 'title'=>'Jumlah Formasi'],
             ['data' => 'jml_existing', 'title'=>'Jumlah Eksisting'],

@@ -20,7 +20,7 @@ class TbljabatanTableSeeder extends Seeder
             0 => 
             array (
                 'id' => 1,
-                'nama_jabatan' => 'ACCESIBI16',
+                'nama_jabatan' => 'EXECUTIVE GENERAL MANAGER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -31,7 +31,7 @@ class TbljabatanTableSeeder extends Seeder
             1 => 
             array (
                 'id' => 2,
-                'nama_jabatan' => 'ACCESIBI10',
+                'nama_jabatan' => 'DEPUTY EXECUTIVE GENERAL MANAGER OF FINANCE & HUMAN RESOURCES MPP',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -42,7 +42,7 @@ class TbljabatanTableSeeder extends Seeder
             2 => 
             array (
                 'id' => 3,
-                'nama_jabatan' => 'ACCESIBI13',
+                'nama_jabatan' => 'STAFF OF EXECUTIVE GENERAL MANAGER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -53,7 +53,7 @@ class TbljabatanTableSeeder extends Seeder
             3 => 
             array (
                 'id' => 4,
-                'nama_jabatan' => 'ACCESIBI12',
+            'nama_jabatan' => 'ASSISTANT OF OFFICER IN CHARGE (MPP)',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -64,7 +64,7 @@ class TbljabatanTableSeeder extends Seeder
             4 => 
             array (
                 'id' => 5,
-                'nama_jabatan' => 'ACCESIBI11',
+            'nama_jabatan' => 'OFFICER IN CHARGE (MPP)',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -75,7 +75,7 @@ class TbljabatanTableSeeder extends Seeder
             5 => 
             array (
                 'id' => 6,
-                'nama_jabatan' => 'ACCOUNT 16',
+                'nama_jabatan' => 'STAFF AHLI OOEEM 0',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -86,7 +86,7 @@ class TbljabatanTableSeeder extends Seeder
             6 => 
             array (
                 'id' => 7,
-                'nama_jabatan' => 'ACCOUNT 14',
+                'nama_jabatan' => 'CHIEF OF OFFICER IN CHARGE',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -97,7 +97,7 @@ class TbljabatanTableSeeder extends Seeder
             7 => 
             array (
                 'id' => 8,
-                'nama_jabatan' => 'ACCOUNT 12',
+                'nama_jabatan' => 'OFFICER IN CHARGE',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -108,7 +108,7 @@ class TbljabatanTableSeeder extends Seeder
             8 => 
             array (
                 'id' => 9,
-                'nama_jabatan' => 'ACCOUNT 11',
+                'nama_jabatan' => 'ASSISTANT OF OFFICER IN CHARGE',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -119,7 +119,7 @@ class TbljabatanTableSeeder extends Seeder
             9 => 
             array (
                 'id' => 10,
-                'nama_jabatan' => 'ACCOUNT 10',
+                'nama_jabatan' => 'OFFICER IN CHARGE STAFF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -130,7 +130,7 @@ class TbljabatanTableSeeder extends Seeder
             10 => 
             array (
                 'id' => 11,
-                'nama_jabatan' => 'ACCOUNT 9',
+                'nama_jabatan' => 'DEPUTY EXECUTIVE GENERAL MANAGER OF AIRPORT OPERATION',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -141,7 +141,7 @@ class TbljabatanTableSeeder extends Seeder
             11 => 
             array (
                 'id' => 12,
-                'nama_jabatan' => 'AGREEMEN14',
+                'nama_jabatan' => 'AIRPORT OPERATION JUNIOR OFFICER  ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -152,7 +152,7 @@ class TbljabatanTableSeeder extends Seeder
             12 => 
             array (
                 'id' => 13,
-                'nama_jabatan' => 'AGREEMEN10',
+                'nama_jabatan' => 'SENIOR MANAGER OF AIRSIDE OPERATION & ARFF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -163,7 +163,7 @@ class TbljabatanTableSeeder extends Seeder
             13 => 
             array (
                 'id' => 14,
-                'nama_jabatan' => 'AIRCRAFT14',
+                'nama_jabatan' => 'Staff of Senior Manager of Airside Operation & ARFF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -174,7 +174,7 @@ class TbljabatanTableSeeder extends Seeder
             14 => 
             array (
                 'id' => 15,
-                'nama_jabatan' => 'AIRCRAFT12',
+                'nama_jabatan' => 'AIRSIDE OPERATION & ARFF JUNIOR OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -185,7 +185,7 @@ class TbljabatanTableSeeder extends Seeder
             15 => 
             array (
                 'id' => 16,
-                'nama_jabatan' => 'AIRCRAFT11',
+                'nama_jabatan' => 'AIRSIDE OPERATION & ARFF STAFF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -196,7 +196,7 @@ class TbljabatanTableSeeder extends Seeder
             16 => 
             array (
                 'id' => 17,
-                'nama_jabatan' => 'AIRCRAFT10',
+                'nama_jabatan' => 'MANAGER OF AIRSIDE OPERATION',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -207,7 +207,7 @@ class TbljabatanTableSeeder extends Seeder
             17 => 
             array (
                 'id' => 18,
-                'nama_jabatan' => 'AIRCRAFT9',
+                'nama_jabatan' => 'AIRSIDE OPERATION OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -218,7 +218,7 @@ class TbljabatanTableSeeder extends Seeder
             18 => 
             array (
                 'id' => 19,
-                'nama_jabatan' => 'AIRCRAFT8',
+                'nama_jabatan' => 'AIRSIDE OPERATION JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -229,7 +229,7 @@ class TbljabatanTableSeeder extends Seeder
             19 => 
             array (
                 'id' => 20,
-                'nama_jabatan' => 'AIRCRAFT7',
+                'nama_jabatan' => 'KMPG',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -240,7 +240,7 @@ class TbljabatanTableSeeder extends Seeder
             20 => 
             array (
                 'id' => 21,
-                'nama_jabatan' => 'AIRFIELD14',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF APRON MOVEMENT CONTROL - T1 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -251,7 +251,7 @@ class TbljabatanTableSeeder extends Seeder
             21 => 
             array (
                 'id' => 22,
-                'nama_jabatan' => 'AIRFIELD12',
+                'nama_jabatan' => 'APRON MOVEMENT CONTROL COORDINATOR ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -262,7 +262,7 @@ class TbljabatanTableSeeder extends Seeder
             22 => 
             array (
                 'id' => 23,
-                'nama_jabatan' => 'AIRFIELD11',
+                'nama_jabatan' => 'APRON MOVEMENT CONTROL SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -273,7 +273,7 @@ class TbljabatanTableSeeder extends Seeder
             23 => 
             array (
                 'id' => 24,
-                'nama_jabatan' => 'AIRFIELD9',
+                'nama_jabatan' => 'APRON MOVEMENT CONTROL OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -284,7 +284,7 @@ class TbljabatanTableSeeder extends Seeder
             24 => 
             array (
                 'id' => 25,
-                'nama_jabatan' => 'AIRFIELD8',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF APRON MOVEMENT CONTROL  - T2 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -295,7 +295,7 @@ class TbljabatanTableSeeder extends Seeder
             25 => 
             array (
                 'id' => 26,
-                'nama_jabatan' => 'AIRPORT 15',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF APRON MOVEMENT CONTROL - T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -306,7 +306,7 @@ class TbljabatanTableSeeder extends Seeder
             26 => 
             array (
                 'id' => 27,
-                'nama_jabatan' => 'AIRPORT 14',
+                'nama_jabatan' => 'APRON MANAGEMENT SERVICE COORDINATOR ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -317,7 +317,7 @@ class TbljabatanTableSeeder extends Seeder
             27 => 
             array (
                 'id' => 28,
-                'nama_jabatan' => 'AIRPORT 11',
+                'nama_jabatan' => 'APRON MANAGEMENT SERVICE SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -328,7 +328,7 @@ class TbljabatanTableSeeder extends Seeder
             28 => 
             array (
                 'id' => 29,
-                'nama_jabatan' => 'AIRPORT 10',
+                'nama_jabatan' => 'APRON MOVEMENT CONTROL JUNIOR OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -339,7 +339,7 @@ class TbljabatanTableSeeder extends Seeder
             29 => 
             array (
                 'id' => 30,
-                'nama_jabatan' => 'STAFF OF MAINTENANCE EXECUTIVE MGR',
+                'nama_jabatan' => 'PKWT AMC TOWER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -350,7 +350,7 @@ class TbljabatanTableSeeder extends Seeder
             30 => 
             array (
                 'id' => 31,
-                'nama_jabatan' => 'AIRPORT 18',
+                'nama_jabatan' => 'AIRPORT OPERATION CENTRE COORDINATOR ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -361,7 +361,7 @@ class TbljabatanTableSeeder extends Seeder
             31 => 
             array (
                 'id' => 32,
-                'nama_jabatan' => 'AIRPORT 19',
+                'nama_jabatan' => 'AIRPORT OPERATION CENTRE SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -372,7 +372,7 @@ class TbljabatanTableSeeder extends Seeder
             32 => 
             array (
                 'id' => 33,
-                'nama_jabatan' => 'AIRPORT 12',
+                'nama_jabatan' => 'AIRPORT OPERATION CENTRE OPERATOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -383,7 +383,7 @@ class TbljabatanTableSeeder extends Seeder
             33 => 
             array (
                 'id' => 34,
-                'nama_jabatan' => 'AIRPORT 13',
+                'nama_jabatan' => 'FLIGHT PLANNING CENTRE SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -394,7 +394,7 @@ class TbljabatanTableSeeder extends Seeder
             34 => 
             array (
                 'id' => 35,
-                'nama_jabatan' => 'AIRPORT 9',
+                'nama_jabatan' => 'MANAGER OF AIRPORT RESCUE & FIRE FIGHTING',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -405,7 +405,7 @@ class TbljabatanTableSeeder extends Seeder
             35 => 
             array (
                 'id' => 36,
-                'nama_jabatan' => 'AIRPORT 16',
+                'nama_jabatan' => 'AIRPORT RESCUE & FIRE FIGHTING JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -416,7 +416,7 @@ class TbljabatanTableSeeder extends Seeder
             36 => 
             array (
                 'id' => 37,
-                'nama_jabatan' => 'AIRPORT 8',
+                'nama_jabatan' => 'AIRPORT RESCUE & FIRE FIGHTING ADMINISTRATION STAFF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -427,7 +427,7 @@ class TbljabatanTableSeeder extends Seeder
             37 => 
             array (
                 'id' => 38,
-                'nama_jabatan' => 'AIRPORT 6',
+                'nama_jabatan' => 'AIRPORT RESCUE & FIRE FIGHTING GENERAL STAFF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -438,7 +438,7 @@ class TbljabatanTableSeeder extends Seeder
             38 => 
             array (
                 'id' => 39,
-                'nama_jabatan' => 'AIRPORT 7',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF AIRCRAFT RESCUE & FIRE FIGHTING ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -449,7 +449,7 @@ class TbljabatanTableSeeder extends Seeder
             39 => 
             array (
                 'id' => 40,
-                'nama_jabatan' => 'KMPG',
+                'nama_jabatan' => 'AIRCRAFT RESCUE & FIRE FIGHTING SENIOR CHIEF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -460,7 +460,7 @@ class TbljabatanTableSeeder extends Seeder
             40 => 
             array (
                 'id' => 41,
-                'nama_jabatan' => 'AIRSIDE 16',
+                'nama_jabatan' => 'AIRCRAFT RESCUE & FIRE FIGHTING CHIEF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -471,7 +471,7 @@ class TbljabatanTableSeeder extends Seeder
             41 => 
             array (
                 'id' => 42,
-                'nama_jabatan' => 'AIRSIDE 12',
+                'nama_jabatan' => 'AIRCRAFT RESCUE & FIRE FIGHTING TEAM LEADER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -482,7 +482,7 @@ class TbljabatanTableSeeder extends Seeder
             42 => 
             array (
                 'id' => 43,
-                'nama_jabatan' => 'AIRSIDE 17',
+                'nama_jabatan' => 'JUNIOR AIRCRAFT RESCUE & FIREFIGHTER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -493,7 +493,7 @@ class TbljabatanTableSeeder extends Seeder
             43 => 
             array (
                 'id' => 44,
-                'nama_jabatan' => 'AIRSIDE 11',
+                'nama_jabatan' => 'AIRCRAFT RESCUE & FIREFIGHTER ASSISTANT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -504,7 +504,7 @@ class TbljabatanTableSeeder extends Seeder
             44 => 
             array (
                 'id' => 45,
-                'nama_jabatan' => 'AIRSIDE 18',
+                'nama_jabatan' => 'WATCH ROOM GUARD',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -515,7 +515,7 @@ class TbljabatanTableSeeder extends Seeder
             45 => 
             array (
                 'id' => 46,
-                'nama_jabatan' => 'AIRSIDE 14',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF BUILDING RESCUE & FIRE FIGHTING',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -526,7 +526,7 @@ class TbljabatanTableSeeder extends Seeder
             46 => 
             array (
                 'id' => 47,
-                'nama_jabatan' => 'AIRSIDE 10',
+                'nama_jabatan' => 'BUILDING RESCUE & FIRE FIGHTING CHIEF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -537,7 +537,7 @@ class TbljabatanTableSeeder extends Seeder
             47 => 
             array (
                 'id' => 48,
-                'nama_jabatan' => 'AIRSIDE 9',
+                'nama_jabatan' => 'BUILDING RESCUE & FIRE FIGHTING TEAM LEADER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -548,7 +548,7 @@ class TbljabatanTableSeeder extends Seeder
             48 => 
             array (
                 'id' => 49,
-                'nama_jabatan' => 'AOCC16',
+                'nama_jabatan' => 'BUILDING PREVENTION OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -559,7 +559,7 @@ class TbljabatanTableSeeder extends Seeder
             49 => 
             array (
                 'id' => 50,
-                'nama_jabatan' => 'APMS Ser14',
+                'nama_jabatan' => 'BUILDING RESCUE & FIREFIGHTER ASSISTANT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -570,7 +570,7 @@ class TbljabatanTableSeeder extends Seeder
             50 => 
             array (
                 'id' => 51,
-                'nama_jabatan' => 'APMS Ser11',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF RFF EXERCISE & FACILITY ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -581,7 +581,7 @@ class TbljabatanTableSeeder extends Seeder
             51 => 
             array (
                 'id' => 52,
-                'nama_jabatan' => 'APMS Ser10',
+                'nama_jabatan' => 'RFF FACILITY MAINTENANCE OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -592,7 +592,7 @@ class TbljabatanTableSeeder extends Seeder
             52 => 
             array (
                 'id' => 53,
-                'nama_jabatan' => 'APMS Ser9',
+                'nama_jabatan' => 'RFF FACILITY MAINTENANCE ASSISTANT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -603,7 +603,7 @@ class TbljabatanTableSeeder extends Seeder
             53 => 
             array (
                 'id' => 54,
-                'nama_jabatan' => 'APRON MA14',
+                'nama_jabatan' => 'RFF EXERCISE ASSISTANT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -614,7 +614,7 @@ class TbljabatanTableSeeder extends Seeder
             54 => 
             array (
                 'id' => 55,
-                'nama_jabatan' => 'APRON MA12',
+            'nama_jabatan' => 'SENIOR MANAGER OF AIRPORT SECURITY (MPP)',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -625,7 +625,7 @@ class TbljabatanTableSeeder extends Seeder
             55 => 
             array (
                 'id' => 56,
-                'nama_jabatan' => 'APRON MA11',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF CCTV ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -636,7 +636,7 @@ class TbljabatanTableSeeder extends Seeder
             56 => 
             array (
                 'id' => 57,
-                'nama_jabatan' => 'APRON MA10',
+                'nama_jabatan' => 'AIRPORT SECURITY OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -647,7 +647,7 @@ class TbljabatanTableSeeder extends Seeder
             57 => 
             array (
                 'id' => 58,
-                'nama_jabatan' => 'APRON MA9',
+                'nama_jabatan' => 'AIRPORT SECURITY JUNIOR OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -658,7 +658,7 @@ class TbljabatanTableSeeder extends Seeder
             58 => 
             array (
                 'id' => 59,
-                'nama_jabatan' => 'PKWT AMC TOWER',
+                'nama_jabatan' => 'AIRPORT SECURITY STAFF ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -669,7 +669,7 @@ class TbljabatanTableSeeder extends Seeder
             59 => 
             array (
                 'id' => 60,
-                'nama_jabatan' => 'ASSETS &18',
+                'nama_jabatan' => 'AIRPORT SECURITY SENIOR CHIEF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -680,7 +680,7 @@ class TbljabatanTableSeeder extends Seeder
             60 => 
             array (
                 'id' => 61,
-                'nama_jabatan' => 'ASSETS &10',
+                'nama_jabatan' => 'AIRPORT SECURITY CHIEF ASSISTANT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -691,7 +691,7 @@ class TbljabatanTableSeeder extends Seeder
             61 => 
             array (
                 'id' => 62,
-                'nama_jabatan' => 'ASSETS M16',
+            'nama_jabatan' => 'CLOSED CIRCUIT TELEVISION (CCTV) SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -702,7 +702,7 @@ class TbljabatanTableSeeder extends Seeder
             62 => 
             array (
                 'id' => 63,
-                'nama_jabatan' => 'ASSETS M11',
+            'nama_jabatan' => 'CLOSED CIRCUIT TELEVISION (CCTV) SENIOR OPERATOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -713,7 +713,7 @@ class TbljabatanTableSeeder extends Seeder
             63 => 
             array (
                 'id' => 64,
-                'nama_jabatan' => 'AVIATION15',
+            'nama_jabatan' => 'CLOSED CIRCUIT TELEVISION (CCTV) OPERATOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -724,7 +724,7 @@ class TbljabatanTableSeeder extends Seeder
             64 => 
             array (
                 'id' => 65,
-                'nama_jabatan' => 'AVIATION11',
+                'nama_jabatan' => 'MANAGER OF AVIATION SECURITY',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -735,7 +735,7 @@ class TbljabatanTableSeeder extends Seeder
             65 => 
             array (
                 'id' => 66,
-                'nama_jabatan' => 'AVIATION14',
+                'nama_jabatan' => 'AVIATION SECURITY JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -746,7 +746,7 @@ class TbljabatanTableSeeder extends Seeder
             66 => 
             array (
                 'id' => 67,
-                'nama_jabatan' => 'AVIATION10',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF AVIATION SECURITY - T1',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -757,7 +757,7 @@ class TbljabatanTableSeeder extends Seeder
             67 => 
             array (
                 'id' => 68,
-                'nama_jabatan' => 'AVIATION9',
+                'nama_jabatan' => 'AVIATION SECURITY CHIEF ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -768,7 +768,7 @@ class TbljabatanTableSeeder extends Seeder
             68 => 
             array (
                 'id' => 69,
-                'nama_jabatan' => 'AVIATION8',
+                'nama_jabatan' => 'AVIATION SECURITY CHIEF ASSISTANT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -779,7 +779,7 @@ class TbljabatanTableSeeder extends Seeder
             69 => 
             array (
                 'id' => 70,
-                'nama_jabatan' => 'AVIATION7',
+                'nama_jabatan' => 'AVIATION SECURITY SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -790,7 +790,7 @@ class TbljabatanTableSeeder extends Seeder
             70 => 
             array (
                 'id' => 71,
-                'nama_jabatan' => 'BAGGAGE 13',
+                'nama_jabatan' => 'AVIATION SENIOR SECURITY',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -801,7 +801,7 @@ class TbljabatanTableSeeder extends Seeder
             71 => 
             array (
                 'id' => 72,
-                'nama_jabatan' => 'BAGGAGE 12',
+                'nama_jabatan' => 'TERMINAL JUNIOR SECURITY 0',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -812,7 +812,7 @@ class TbljabatanTableSeeder extends Seeder
             72 => 
             array (
                 'id' => 73,
-                'nama_jabatan' => 'BAGGAGE 11',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF AVIATION SECURITY - T2 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -823,7 +823,7 @@ class TbljabatanTableSeeder extends Seeder
             73 => 
             array (
                 'id' => 74,
-                'nama_jabatan' => 'BAGGAGE 10',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF AVIATION SECURITY - T3 DOMESTIC ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -834,7 +834,7 @@ class TbljabatanTableSeeder extends Seeder
             74 => 
             array (
                 'id' => 75,
-                'nama_jabatan' => 'STAFF AHLI OOEEM 0',
+                'nama_jabatan' => ' A.M. OF AVIATION SEC.-T3 INTERNATIONAL ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -845,7 +845,7 @@ class TbljabatanTableSeeder extends Seeder
             75 => 
             array (
                 'id' => 76,
-                'nama_jabatan' => 'BANDARA 19',
+                'nama_jabatan' => 'MANAGER OF PUBLIC SEC.',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -856,7 +856,7 @@ class TbljabatanTableSeeder extends Seeder
             76 => 
             array (
                 'id' => 77,
-                'nama_jabatan' => 'BANDARA 16',
+                'nama_jabatan' => 'PUBLIC SECURITY STAFF ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -867,7 +867,7 @@ class TbljabatanTableSeeder extends Seeder
             77 => 
             array (
                 'id' => 78,
-                'nama_jabatan' => 'BANDARA 14',
+                'nama_jabatan' => 'PUBLIC SECURITY CLERICAL STAFF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -878,7 +878,7 @@ class TbljabatanTableSeeder extends Seeder
             78 => 
             array (
                 'id' => 79,
-                'nama_jabatan' => 'STAFF AHLI BRANCH COMMUNICATION 0',
+                'nama_jabatan' => 'PUBLIC SECURITY GENERAL STAFF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -889,7 +889,7 @@ class TbljabatanTableSeeder extends Seeder
             79 => 
             array (
                 'id' => 80,
-                'nama_jabatan' => 'BRANCH C16',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF PUBLIC SECURITY - T1 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -900,7 +900,7 @@ class TbljabatanTableSeeder extends Seeder
             80 => 
             array (
                 'id' => 81,
-                'nama_jabatan' => 'BRANCH C12',
+                'nama_jabatan' => 'PUBLIC SECURITY CHIEF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -911,7 +911,7 @@ class TbljabatanTableSeeder extends Seeder
             81 => 
             array (
                 'id' => 82,
-                'nama_jabatan' => 'BRANCH C11',
+                'nama_jabatan' => 'PUBLIC SECURITY CHIEF ASSISTANT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -922,7 +922,7 @@ class TbljabatanTableSeeder extends Seeder
             82 => 
             array (
                 'id' => 83,
-                'nama_jabatan' => 'BRANCH C18',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF PUBLIC SECURITY - T2 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -933,7 +933,7 @@ class TbljabatanTableSeeder extends Seeder
             83 => 
             array (
                 'id' => 84,
-                'nama_jabatan' => 'BUDGETIN14',
+                'nama_jabatan' => 'PUBLIC SECURITY SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -944,7 +944,7 @@ class TbljabatanTableSeeder extends Seeder
             84 => 
             array (
                 'id' => 85,
-                'nama_jabatan' => 'BUDGETIN12',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF PUBLIC SECURITY-T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -955,7 +955,7 @@ class TbljabatanTableSeeder extends Seeder
             85 => 
             array (
                 'id' => 86,
-                'nama_jabatan' => 'BUDGETIN11',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF PERIMETER & VITAL OBJECT ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -966,7 +966,7 @@ class TbljabatanTableSeeder extends Seeder
             86 => 
             array (
                 'id' => 87,
-                'nama_jabatan' => 'BUILDING14',
+                'nama_jabatan' => 'PERIMETER & VITAL OBJECT SECURITY CHIEF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -977,7 +977,7 @@ class TbljabatanTableSeeder extends Seeder
             87 => 
             array (
                 'id' => 88,
-                'nama_jabatan' => 'BUILDING11',
+                'nama_jabatan' => 'PERIMETER & VITAL OBJECT SECURITY CHIEF ASSISTANT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -988,7 +988,7 @@ class TbljabatanTableSeeder extends Seeder
             88 => 
             array (
                 'id' => 89,
-                'nama_jabatan' => 'BUILDING10',
+                'nama_jabatan' => 'PERIMETER & VITAL OBJECT SECURITY TEAM LEADER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -999,7 +999,7 @@ class TbljabatanTableSeeder extends Seeder
             89 => 
             array (
                 'id' => 90,
-                'nama_jabatan' => 'BUILDING7',
+                'nama_jabatan' => 'PERIMETER & VITAL OBJECT SECURITY',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1010,7 +1010,7 @@ class TbljabatanTableSeeder extends Seeder
             90 => 
             array (
                 'id' => 91,
-                'nama_jabatan' => 'CARGO SE14',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF NON TERMINAL & TRAFFIC',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1021,7 +1021,7 @@ class TbljabatanTableSeeder extends Seeder
             91 => 
             array (
                 'id' => 92,
-                'nama_jabatan' => 'CARGO SE11',
+                'nama_jabatan' => 'NON TERMINAL & TRAFFIC SECURITY CHIEF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1032,7 +1032,7 @@ class TbljabatanTableSeeder extends Seeder
             92 => 
             array (
                 'id' => 93,
-                'nama_jabatan' => 'CARGO SE10',
+                'nama_jabatan' => 'NON TERMINAL & TRAFFIC SECURITY CHIEF ASSISTANT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1043,7 +1043,7 @@ class TbljabatanTableSeeder extends Seeder
             93 => 
             array (
                 'id' => 94,
-                'nama_jabatan' => 'CARGO SE9',
+                'nama_jabatan' => 'NON TERMINAL & TRAFFIC SECURITY TEAM LEADER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1054,7 +1054,7 @@ class TbljabatanTableSeeder extends Seeder
             94 => 
             array (
                 'id' => 95,
-                'nama_jabatan' => 'CARGO SE12',
+                'nama_jabatan' => 'NON TERMINAL & TRAFFIC SECURITY',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1065,7 +1065,7 @@ class TbljabatanTableSeeder extends Seeder
             95 => 
             array (
                 'id' => 96,
-                'nama_jabatan' => 'CASH MAN14',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF CARGO SECURITY ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1076,7 +1076,7 @@ class TbljabatanTableSeeder extends Seeder
             96 => 
             array (
                 'id' => 97,
-                'nama_jabatan' => 'CASH MAN12',
+                'nama_jabatan' => 'CARGO SECURITY CHIEF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1087,7 +1087,7 @@ class TbljabatanTableSeeder extends Seeder
             97 => 
             array (
                 'id' => 98,
-                'nama_jabatan' => 'CASH MAN11',
+                'nama_jabatan' => 'CARGO SECURITY CHIEF ASSISTANT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1098,7 +1098,7 @@ class TbljabatanTableSeeder extends Seeder
             98 => 
             array (
                 'id' => 99,
-                'nama_jabatan' => 'CASH MAN9',
+                'nama_jabatan' => 'CARGO SECURITY SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1109,7 +1109,7 @@ class TbljabatanTableSeeder extends Seeder
             99 => 
             array (
                 'id' => 100,
-                'nama_jabatan' => 'CLOSED C11',
+                'nama_jabatan' => 'DEPUTY EXECUTIVE GENERAL MANAGER OF AIRPORT SERVICE & FACILITY',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1120,7 +1120,7 @@ class TbljabatanTableSeeder extends Seeder
             100 => 
             array (
                 'id' => 101,
-                'nama_jabatan' => 'CLOSED C10',
+                'nama_jabatan' => 'AIRPORT SERVICE & FACILITY OFFICER  ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1131,7 +1131,7 @@ class TbljabatanTableSeeder extends Seeder
             101 => 
             array (
                 'id' => 102,
-                'nama_jabatan' => 'CLOSED C9',
+                'nama_jabatan' => 'SENIOR MANAGER OF TERMINAL SERVICE & FACILITY - T1',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1142,7 +1142,7 @@ class TbljabatanTableSeeder extends Seeder
             102 => 
             array (
                 'id' => 103,
-                'nama_jabatan' => 'COMMUNIC13',
+                'nama_jabatan' => 'STAFF OF SENIOR MANAGER OF TERMINAL SERVICE & FACILITY - T1',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1153,7 +1153,7 @@ class TbljabatanTableSeeder extends Seeder
             103 => 
             array (
                 'id' => 104,
-                'nama_jabatan' => 'COMMUNIC12',
+                'nama_jabatan' => 'Terminal Service & Facility Junior Officer',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1164,7 +1164,7 @@ class TbljabatanTableSeeder extends Seeder
             104 => 
             array (
                 'id' => 105,
-                'nama_jabatan' => 'COMMUNIC11',
+                'nama_jabatan' => 'MANAGER OF TERMINAL SERVICE - T1',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1175,7 +1175,7 @@ class TbljabatanTableSeeder extends Seeder
             105 => 
             array (
                 'id' => 106,
-                'nama_jabatan' => 'COMMUNIC10',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF TERMINAL INSPECTION - T1 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1186,7 +1186,7 @@ class TbljabatanTableSeeder extends Seeder
             106 => 
             array (
                 'id' => 107,
-                'nama_jabatan' => 'COMMUNIT16',
+                'nama_jabatan' => 'TERMINAL INSPECTION COORDINATOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1197,7 +1197,7 @@ class TbljabatanTableSeeder extends Seeder
             107 => 
             array (
                 'id' => 108,
-                'nama_jabatan' => 'DATA NET15',
+                'nama_jabatan' => 'TERMINAL INSPECTION SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1208,7 +1208,7 @@ class TbljabatanTableSeeder extends Seeder
             108 => 
             array (
                 'id' => 109,
-                'nama_jabatan' => 'DATA NET11',
+                'nama_jabatan' => 'TERMINAL INSPECTION OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1219,7 +1219,7 @@ class TbljabatanTableSeeder extends Seeder
             109 => 
             array (
                 'id' => 110,
-                'nama_jabatan' => 'DIGITAL 13',
+                'nama_jabatan' => ' A.M. OF PASSENGER SERVICE-T1 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1230,7 +1230,7 @@ class TbljabatanTableSeeder extends Seeder
             110 => 
             array (
                 'id' => 111,
-                'nama_jabatan' => 'DIGITAL 11',
+                'nama_jabatan' => 'PASSENGER SERVICE COORDINATOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1241,7 +1241,7 @@ class TbljabatanTableSeeder extends Seeder
             111 => 
             array (
                 'id' => 112,
-                'nama_jabatan' => 'DIGITAL 12',
+                'nama_jabatan' => 'PASSENGER SERVICE SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1252,7 +1252,7 @@ class TbljabatanTableSeeder extends Seeder
             112 => 
             array (
                 'id' => 113,
-                'nama_jabatan' => 'ELECTRIC18',
+                'nama_jabatan' => 'PASSENGER SERVICE OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1263,7 +1263,7 @@ class TbljabatanTableSeeder extends Seeder
             113 => 
             array (
                 'id' => 114,
-                'nama_jabatan' => 'ELECTRIC15',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF DIGITAL SERVICE - T1',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1274,7 +1274,7 @@ class TbljabatanTableSeeder extends Seeder
             114 => 
             array (
                 'id' => 115,
-                'nama_jabatan' => 'ELECTRIC11',
+                'nama_jabatan' => 'DIGITAL SERVICE SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1285,7 +1285,7 @@ class TbljabatanTableSeeder extends Seeder
             115 => 
             array (
                 'id' => 116,
-                'nama_jabatan' => 'ELECTRIC13',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF TERMINAL BUILDING - T1 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1296,7 +1296,7 @@ class TbljabatanTableSeeder extends Seeder
             116 => 
             array (
                 'id' => 117,
-                'nama_jabatan' => 'ELECTRIC12',
+                'nama_jabatan' => 'TERMINAL BUILDING SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1307,7 +1307,7 @@ class TbljabatanTableSeeder extends Seeder
             117 => 
             array (
                 'id' => 118,
-                'nama_jabatan' => 'ELECTRIC10',
+                'nama_jabatan' => 'TERMINAL BUILDING ENGINEER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1318,7 +1318,7 @@ class TbljabatanTableSeeder extends Seeder
             118 => 
             array (
                 'id' => 119,
-                'nama_jabatan' => 'ELECTRIC14',
+                'nama_jabatan' => 'TERMINAL BUILDING TECHNICIAN',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1329,7 +1329,7 @@ class TbljabatanTableSeeder extends Seeder
             119 => 
             array (
                 'id' => 120,
-                'nama_jabatan' => 'ENERGY &16',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF SAFETY & SECURITY FACILITY  - T1 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1340,7 +1340,7 @@ class TbljabatanTableSeeder extends Seeder
             120 => 
             array (
                 'id' => 121,
-                'nama_jabatan' => 'ENERGY &11',
+                'nama_jabatan' => 'SAFETY & SECURITY FACILITY SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1351,7 +1351,7 @@ class TbljabatanTableSeeder extends Seeder
             121 => 
             array (
                 'id' => 122,
-                'nama_jabatan' => 'ENVIRONM14',
+                'nama_jabatan' => 'SAFETY & SECURITY FACILITY ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1362,7 +1362,7 @@ class TbljabatanTableSeeder extends Seeder
             122 => 
             array (
                 'id' => 123,
-                'nama_jabatan' => 'ENVIRONM12',
+                'nama_jabatan' => 'Safety & Security Facility Technician',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1373,7 +1373,7 @@ class TbljabatanTableSeeder extends Seeder
             123 => 
             array (
                 'id' => 124,
-                'nama_jabatan' => 'ENVIRONM11',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF GENERAL ELECTRONICS FACILITY - T1 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1384,7 +1384,7 @@ class TbljabatanTableSeeder extends Seeder
             124 => 
             array (
                 'id' => 125,
-                'nama_jabatan' => 'ENVIRONM10',
+                'nama_jabatan' => 'GENERAL ELECTRONICS FACILITY SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1395,7 +1395,7 @@ class TbljabatanTableSeeder extends Seeder
             125 => 
             array (
                 'id' => 126,
-                'nama_jabatan' => 'ENVIRONM9',
+                'nama_jabatan' => ' GENERAL ELECTRONICS FACILITY SUPERVISOR ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1406,7 +1406,7 @@ class TbljabatanTableSeeder extends Seeder
             126 => 
             array (
                 'id' => 127,
-                'nama_jabatan' => 'EQUIPMEN11',
+                'nama_jabatan' => 'GENERAL ELECTRONICS FACILITY ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1417,7 +1417,7 @@ class TbljabatanTableSeeder extends Seeder
             127 => 
             array (
                 'id' => 128,
-                'nama_jabatan' => 'EQUIPMEN10',
+                'nama_jabatan' => 'General Electronics Facility Technician',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1428,7 +1428,7 @@ class TbljabatanTableSeeder extends Seeder
             128 => 
             array (
                 'id' => 129,
-                'nama_jabatan' => 'EXECUTIV21',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF ELECTRICAL FACILITY - T1',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1439,7 +1439,7 @@ class TbljabatanTableSeeder extends Seeder
             129 => 
             array (
                 'id' => 130,
-                'nama_jabatan' => 'FINANCE14',
+                'nama_jabatan' => 'ELECTRICAL FACILITY SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1450,7 +1450,7 @@ class TbljabatanTableSeeder extends Seeder
             130 => 
             array (
                 'id' => 131,
-                'nama_jabatan' => 'FINANCE 19',
+                'nama_jabatan' => 'ELECTRICAL FACILITY ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1461,7 +1461,7 @@ class TbljabatanTableSeeder extends Seeder
             131 => 
             array (
                 'id' => 132,
-                'nama_jabatan' => 'FINANCE 11',
+                'nama_jabatan' => 'ELECTRICAL FACILITY TECHNICIAN ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1472,7 +1472,7 @@ class TbljabatanTableSeeder extends Seeder
             132 => 
             array (
                 'id' => 133,
-                'nama_jabatan' => 'FINANCIA16',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF MECHANICAL FACILITY - T1',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1483,7 +1483,7 @@ class TbljabatanTableSeeder extends Seeder
             133 => 
             array (
                 'id' => 134,
-                'nama_jabatan' => 'FIXED AS14',
+                'nama_jabatan' => 'MECHANICAL FACILITY SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1494,7 +1494,7 @@ class TbljabatanTableSeeder extends Seeder
             134 => 
             array (
                 'id' => 135,
-                'nama_jabatan' => 'FIXED AS11',
+                'nama_jabatan' => 'MECHANICAL FACILITY ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1505,7 +1505,7 @@ class TbljabatanTableSeeder extends Seeder
             135 => 
             array (
                 'id' => 136,
-                'nama_jabatan' => 'FIXED AS8',
+                'nama_jabatan' => 'MECHANICAL FACILITY TECHNICIAN',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1516,7 +1516,7 @@ class TbljabatanTableSeeder extends Seeder
             136 => 
             array (
                 'id' => 137,
-                'nama_jabatan' => 'GENERAL 13',
+                'nama_jabatan' => 'SENIOR MANAGER OF TERMINAL SERVICE & FACILITY - T2',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1527,7 +1527,7 @@ class TbljabatanTableSeeder extends Seeder
             137 => 
             array (
                 'id' => 138,
-                'nama_jabatan' => 'GENERAL 12',
+                'nama_jabatan' => 'TERMINAL SERVICE & FACILITY JUNIOR STAFF ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1538,7 +1538,7 @@ class TbljabatanTableSeeder extends Seeder
             138 => 
             array (
                 'id' => 139,
-                'nama_jabatan' => 'GENERAL 11',
+                'nama_jabatan' => 'MANAGER OF TERMINAL SERVICE - T2',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1549,7 +1549,7 @@ class TbljabatanTableSeeder extends Seeder
             139 => 
             array (
                 'id' => 140,
-                'nama_jabatan' => 'GENERAL 10',
+                'nama_jabatan' => 'TERMINAL SERVICE OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1560,7 +1560,7 @@ class TbljabatanTableSeeder extends Seeder
             140 => 
             array (
                 'id' => 141,
-                'nama_jabatan' => 'GENERAL 16',
+                'nama_jabatan' => 'TERMINAL SERVICE JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1571,7 +1571,7 @@ class TbljabatanTableSeeder extends Seeder
             141 => 
             array (
                 'id' => 142,
-                'nama_jabatan' => 'GENERAL 14',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF TERMINAL INSPECTION - T2 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1582,7 +1582,7 @@ class TbljabatanTableSeeder extends Seeder
             142 => 
             array (
                 'id' => 143,
-                'nama_jabatan' => 'GROUND S12',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF PASSENGER SERVICE - T2',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1593,7 +1593,7 @@ class TbljabatanTableSeeder extends Seeder
             143 => 
             array (
                 'id' => 144,
-                'nama_jabatan' => 'HIRING &14',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF DIGITAL SERVICE - T2 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1604,7 +1604,7 @@ class TbljabatanTableSeeder extends Seeder
             144 => 
             array (
                 'id' => 145,
-                'nama_jabatan' => 'HIRING A14',
+                'nama_jabatan' => 'DIGITAL SERVICE COORDINATOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1615,7 +1615,7 @@ class TbljabatanTableSeeder extends Seeder
             145 => 
             array (
                 'id' => 146,
-                'nama_jabatan' => 'HIRING A11',
+                'nama_jabatan' => 'MANAGER OF TERMINAL FACILITY - T2',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1626,7 +1626,7 @@ class TbljabatanTableSeeder extends Seeder
             146 => 
             array (
                 'id' => 147,
-                'nama_jabatan' => 'HIRING A8',
+                'nama_jabatan' => 'TERMINAL FACILITY JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1637,7 +1637,7 @@ class TbljabatanTableSeeder extends Seeder
             147 => 
             array (
                 'id' => 148,
-                'nama_jabatan' => 'HUMAN RE18',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF TERMINAL BUILDING - T2',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1648,7 +1648,7 @@ class TbljabatanTableSeeder extends Seeder
             148 => 
             array (
                 'id' => 149,
-                'nama_jabatan' => 'HUMAN RE12',
+                'nama_jabatan' => 'TERMINAL BUILDING SUPERVISOR ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1659,7 +1659,7 @@ class TbljabatanTableSeeder extends Seeder
             149 => 
             array (
                 'id' => 150,
-                'nama_jabatan' => 'HUMAN RE14',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF SAFETY & SECURITY FACILITY  - T2 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1670,7 +1670,7 @@ class TbljabatanTableSeeder extends Seeder
             150 => 
             array (
                 'id' => 151,
-                'nama_jabatan' => 'HUMAN RE11',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF GENERAL ELECTRONICS FACILITY - T2',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1681,7 +1681,7 @@ class TbljabatanTableSeeder extends Seeder
             151 => 
             array (
                 'id' => 152,
-                'nama_jabatan' => 'HUMAN RE10',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF ELECTRICAL FACILITY - T2',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1692,7 +1692,7 @@ class TbljabatanTableSeeder extends Seeder
             152 => 
             array (
                 'id' => 153,
-                'nama_jabatan' => 'HUMAN RE9',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF MECHANICAL FACILITY - T2',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1703,7 +1703,7 @@ class TbljabatanTableSeeder extends Seeder
             153 => 
             array (
                 'id' => 154,
-                'nama_jabatan' => 'INTERNAL13',
+                'nama_jabatan' => 'SENIOR MANAGER OF TERMINAL SERVICE & FACILITY - T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1714,7 +1714,7 @@ class TbljabatanTableSeeder extends Seeder
             154 => 
             array (
                 'id' => 155,
-                'nama_jabatan' => 'INTERNAL11',
+                'nama_jabatan' => 'STAFF OF TERMINAL 3 SENIOR MANAGER 0',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1725,7 +1725,7 @@ class TbljabatanTableSeeder extends Seeder
             155 => 
             array (
                 'id' => 156,
-                'nama_jabatan' => 'INTERNAL10',
+                'nama_jabatan' => 'TERMINAL SERVICE & FACILITY OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1736,7 +1736,7 @@ class TbljabatanTableSeeder extends Seeder
             156 => 
             array (
                 'id' => 157,
-                'nama_jabatan' => 'INTERNAL9',
+                'nama_jabatan' => 'ASS. S.M.  OF TERMINAL SERV. & FAC. - T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1747,7 +1747,7 @@ class TbljabatanTableSeeder extends Seeder
             157 => 
             array (
                 'id' => 158,
-                'nama_jabatan' => 'INTERNAL8',
+                'nama_jabatan' => 'TERMINAL SERVICE & FACILITY STAFF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1758,7 +1758,7 @@ class TbljabatanTableSeeder extends Seeder
             158 => 
             array (
                 'id' => 159,
-                'nama_jabatan' => 'INVENTOR16',
+                'nama_jabatan' => 'MANAGER OF TERMINAL SERVICE - T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1769,7 +1769,7 @@ class TbljabatanTableSeeder extends Seeder
             159 => 
             array (
                 'id' => 160,
-                'nama_jabatan' => 'INVENTOR11',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF TERMINAL INSPECTION - T3 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1780,7 +1780,7 @@ class TbljabatanTableSeeder extends Seeder
             160 => 
             array (
                 'id' => 161,
-                'nama_jabatan' => 'INVENTOR14',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF PASSENGER SERVICE - T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1791,7 +1791,7 @@ class TbljabatanTableSeeder extends Seeder
             161 => 
             array (
                 'id' => 162,
-                'nama_jabatan' => 'KMPG ',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF DIGITAL SERVICE - T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1802,7 +1802,7 @@ class TbljabatanTableSeeder extends Seeder
             162 => 
             array (
                 'id' => 163,
-                'nama_jabatan' => 'IT NON P13',
+                'nama_jabatan' => 'MANAGER OF TERMINAL FACILITY - T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1813,7 +1813,7 @@ class TbljabatanTableSeeder extends Seeder
             163 => 
             array (
                 'id' => 164,
-                'nama_jabatan' => 'IT NON P12',
+                'nama_jabatan' => 'MPP',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1824,7 +1824,7 @@ class TbljabatanTableSeeder extends Seeder
             164 => 
             array (
                 'id' => 165,
-                'nama_jabatan' => 'IT NON P11',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF TERMINAL BUILDING - T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1835,7 +1835,7 @@ class TbljabatanTableSeeder extends Seeder
             165 => 
             array (
                 'id' => 166,
-                'nama_jabatan' => 'IT PUBLI16',
+                'nama_jabatan' => 'TERMINAL BUILDING JUNIOR TECHNICIAN',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1846,7 +1846,7 @@ class TbljabatanTableSeeder extends Seeder
             166 => 
             array (
                 'id' => 167,
-                'nama_jabatan' => 'IT PUBLI11',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF SAFETY & SECURITY FACILITY  - T3 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1857,7 +1857,7 @@ class TbljabatanTableSeeder extends Seeder
             167 => 
             array (
                 'id' => 168,
-                'nama_jabatan' => 'LAND MAN14',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF GENERAL ELECTRONICS FACILITY - T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1868,7 +1868,7 @@ class TbljabatanTableSeeder extends Seeder
             168 => 
             array (
                 'id' => 169,
-                'nama_jabatan' => 'LAND MAN11',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF ELECTRICAL FACILITY - T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1879,7 +1879,7 @@ class TbljabatanTableSeeder extends Seeder
             169 => 
             array (
                 'id' => 170,
-                'nama_jabatan' => 'LANDSCAP14',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF MECHANICAL FACILITY - T3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1890,7 +1890,7 @@ class TbljabatanTableSeeder extends Seeder
             170 => 
             array (
                 'id' => 171,
-                'nama_jabatan' => 'LANDSCAP11',
+                'nama_jabatan' => 'SENIOR MANAGER OF LANDSIDE SERVICE & FACILITY',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1901,7 +1901,7 @@ class TbljabatanTableSeeder extends Seeder
             171 => 
             array (
                 'id' => 172,
-                'nama_jabatan' => 'LANDSIDE16',
+                'nama_jabatan' => 'LANDSIDE SERVICE & FACILITY STAFF',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1912,7 +1912,7 @@ class TbljabatanTableSeeder extends Seeder
             172 => 
             array (
                 'id' => 173,
-                'nama_jabatan' => 'LANDSIDE12',
+                'nama_jabatan' => 'MANAGER OF LANDSIDE & CARGO SERVICE',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1923,7 +1923,7 @@ class TbljabatanTableSeeder extends Seeder
             173 => 
             array (
                 'id' => 174,
-                'nama_jabatan' => 'LANDSIDE17',
+                'nama_jabatan' => 'LANDSIDE & CARGO SERVICE OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1934,7 +1934,7 @@ class TbljabatanTableSeeder extends Seeder
             174 => 
             array (
                 'id' => 175,
-                'nama_jabatan' => 'LANDSIDE10',
+                'nama_jabatan' => 'LANDSIDE SERVICE COORDINATOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1945,7 +1945,7 @@ class TbljabatanTableSeeder extends Seeder
             175 => 
             array (
                 'id' => 176,
-                'nama_jabatan' => 'LEGAL16',
+                'nama_jabatan' => 'LANDSIDE SERVICE OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1956,7 +1956,7 @@ class TbljabatanTableSeeder extends Seeder
             176 => 
             array (
                 'id' => 177,
-                'nama_jabatan' => 'LEGAL11',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF CARGO SERVICE ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1967,7 +1967,7 @@ class TbljabatanTableSeeder extends Seeder
             177 => 
             array (
                 'id' => 178,
-                'nama_jabatan' => 'MAIN POW14',
+                'nama_jabatan' => 'CARGO SERVICE COORDINATOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1978,7 +1978,7 @@ class TbljabatanTableSeeder extends Seeder
             178 => 
             array (
                 'id' => 179,
-                'nama_jabatan' => 'MAIN POW12',
+                'nama_jabatan' => 'CARGO SERVICE JUNIOR OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -1989,7 +1989,7 @@ class TbljabatanTableSeeder extends Seeder
             179 => 
             array (
                 'id' => 180,
-                'nama_jabatan' => 'MAIN POW11',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF TOD SERVICE ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2000,7 +2000,7 @@ class TbljabatanTableSeeder extends Seeder
             180 => 
             array (
                 'id' => 181,
-                'nama_jabatan' => 'MAIN POW10',
+                'nama_jabatan' => 'TOD Service Officer',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2011,7 +2011,7 @@ class TbljabatanTableSeeder extends Seeder
             181 => 
             array (
                 'id' => 182,
-                'nama_jabatan' => 'MAIN POW9',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF APMS SERVICE ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2022,7 +2022,7 @@ class TbljabatanTableSeeder extends Seeder
             182 => 
             array (
                 'id' => 183,
-                'nama_jabatan' => 'MAINTENA14',
+                'nama_jabatan' => 'APMS Service Coordinator',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2033,7 +2033,7 @@ class TbljabatanTableSeeder extends Seeder
             183 => 
             array (
                 'id' => 184,
-                'nama_jabatan' => 'MAINTENA13',
+                'nama_jabatan' => 'APMS Service Officer',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2044,7 +2044,7 @@ class TbljabatanTableSeeder extends Seeder
             184 => 
             array (
                 'id' => 185,
-                'nama_jabatan' => 'MAINTENA12',
+                'nama_jabatan' => 'APMS Service Junior Officer',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2055,7 +2055,7 @@ class TbljabatanTableSeeder extends Seeder
             185 => 
             array (
                 'id' => 186,
-                'nama_jabatan' => 'MAINTENA11',
+                'nama_jabatan' => 'MANAGER OF LANDSIDE FACILITY',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2066,7 +2066,7 @@ class TbljabatanTableSeeder extends Seeder
             186 => 
             array (
                 'id' => 187,
-                'nama_jabatan' => 'MAINTENA10',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF GENERAL & OPERATIONAL BUILDING',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2077,7 +2077,7 @@ class TbljabatanTableSeeder extends Seeder
             187 => 
             array (
                 'id' => 188,
-                'nama_jabatan' => 'MANAGEME14',
+                'nama_jabatan' => 'GENERAL & OPERATIONAL BUILDING COORDINATOR ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2088,7 +2088,7 @@ class TbljabatanTableSeeder extends Seeder
             188 => 
             array (
                 'id' => 189,
-                'nama_jabatan' => 'MANAGEME10',
+                'nama_jabatan' => 'GENERAL & OPERATIONAL BUILDING ENGINEER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2099,7 +2099,7 @@ class TbljabatanTableSeeder extends Seeder
             189 => 
             array (
                 'id' => 190,
-                'nama_jabatan' => 'MECHANIC16',
+                'nama_jabatan' => 'General & Operational Building Technician',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2110,7 +2110,7 @@ class TbljabatanTableSeeder extends Seeder
             190 => 
             array (
                 'id' => 191,
-                'nama_jabatan' => 'MECHANIC14',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF SAFETY & SECURITY FACILITY - NON TERMINAL',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2121,7 +2121,7 @@ class TbljabatanTableSeeder extends Seeder
             191 => 
             array (
                 'id' => 192,
-                'nama_jabatan' => 'MECHANIC12',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF GENERAL ELECTRONICS FACILITY - NON TERMINAL',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2132,7 +2132,7 @@ class TbljabatanTableSeeder extends Seeder
             192 => 
             array (
                 'id' => 193,
-                'nama_jabatan' => 'MECHANIC11',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF ELECTRICAL FACILITY - NON TERMINAL',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2143,7 +2143,7 @@ class TbljabatanTableSeeder extends Seeder
             193 => 
             array (
                 'id' => 194,
-                'nama_jabatan' => 'MECHANIC10',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF MECHANICAL FACILITY - NON TERMINAL',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2154,7 +2154,7 @@ class TbljabatanTableSeeder extends Seeder
             194 => 
             array (
                 'id' => 195,
-                'nama_jabatan' => 'MECHANIC13',
+                'nama_jabatan' => 'DEPUTY EXECUTIVE GENERAL MANAGER OF AIRPORT MAINTENANCE',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2165,7 +2165,7 @@ class TbljabatanTableSeeder extends Seeder
             195 => 
             array (
                 'id' => 196,
-                'nama_jabatan' => 'MONITORI13',
+                'nama_jabatan' => 'STAFF OF MAINTENANCE EXECUTIVE MGR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2176,7 +2176,7 @@ class TbljabatanTableSeeder extends Seeder
             196 => 
             array (
                 'id' => 197,
-                'nama_jabatan' => 'MONITORI11',
+                'nama_jabatan' => 'AIRPORT MAINTENANCE OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2187,7 +2187,7 @@ class TbljabatanTableSeeder extends Seeder
             197 => 
             array (
                 'id' => 198,
-                'nama_jabatan' => 'NON TERM14',
+                'nama_jabatan' => 'SENIOR MANAGER OF AIRSIDE INFRASTRUCTURE & SUPPORT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2198,7 +2198,7 @@ class TbljabatanTableSeeder extends Seeder
             198 => 
             array (
                 'id' => 199,
-                'nama_jabatan' => 'NON TERM11',
+                'nama_jabatan' => 'AIRSIDE INFRASTRUCTURE & SUPPORT OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2209,7 +2209,7 @@ class TbljabatanTableSeeder extends Seeder
             199 => 
             array (
                 'id' => 200,
-                'nama_jabatan' => 'NON TERM10',
+                'nama_jabatan' => 'MANAGER OF AIRSIDE INFRASTRUCTURE',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2220,7 +2220,7 @@ class TbljabatanTableSeeder extends Seeder
             200 => 
             array (
                 'id' => 201,
-                'nama_jabatan' => 'NON TERM9',
+                'nama_jabatan' => 'AIRSIDE INFRASTRUCTURE OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2231,7 +2231,7 @@ class TbljabatanTableSeeder extends Seeder
             201 => 
             array (
                 'id' => 202,
-                'nama_jabatan' => 'NON TERM8',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF NORTH RUNWAY ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2242,7 +2242,7 @@ class TbljabatanTableSeeder extends Seeder
             202 => 
             array (
                 'id' => 203,
-                'nama_jabatan' => 'NORTH RU14',
+                'nama_jabatan' => 'NORTH RUNWAY SUPERVISOR ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2253,7 +2253,7 @@ class TbljabatanTableSeeder extends Seeder
             203 => 
             array (
                 'id' => 204,
-                'nama_jabatan' => 'NORTH RU12',
+                'nama_jabatan' => 'NORTH RUNWAY ENGINEER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2264,7 +2264,7 @@ class TbljabatanTableSeeder extends Seeder
             204 => 
             array (
                 'id' => 205,
-                'nama_jabatan' => 'NORTH RU11',
+                'nama_jabatan' => 'NORTH RUNWAY TECHNICIAN',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2275,7 +2275,7 @@ class TbljabatanTableSeeder extends Seeder
             205 => 
             array (
                 'id' => 206,
-                'nama_jabatan' => 'NORTH RU10',
+                'nama_jabatan' => 'NORTH RUNWAY JUNIOR TECHNICIAN',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2286,7 +2286,7 @@ class TbljabatanTableSeeder extends Seeder
             206 => 
             array (
                 'id' => 207,
-                'nama_jabatan' => 'NORTH RU9',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF SOUTH RUNWAY ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2297,7 +2297,7 @@ class TbljabatanTableSeeder extends Seeder
             207 => 
             array (
                 'id' => 208,
-                'nama_jabatan' => 'NORTH VI14',
+                'nama_jabatan' => 'SOUTH RUNWAY SUPERVISOR ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2308,7 +2308,7 @@ class TbljabatanTableSeeder extends Seeder
             208 => 
             array (
                 'id' => 209,
-                'nama_jabatan' => 'NORTH VI12',
+                'nama_jabatan' => 'SOUTH RUNWAY ENGINEER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2319,7 +2319,7 @@ class TbljabatanTableSeeder extends Seeder
             209 => 
             array (
                 'id' => 210,
-                'nama_jabatan' => 'NORTH VI11',
+                'nama_jabatan' => 'SOUTH RUNWAY TECHNICIAN',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2330,7 +2330,7 @@ class TbljabatanTableSeeder extends Seeder
             210 => 
             array (
                 'id' => 211,
-                'nama_jabatan' => 'NORTH VI10',
+                'nama_jabatan' => 'SOUTH RUNWAY JUNIOR TECHNICIAN',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2341,7 +2341,7 @@ class TbljabatanTableSeeder extends Seeder
             211 => 
             array (
                 'id' => 212,
-                'nama_jabatan' => 'OFFICE M13',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF AIRFIELD ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2352,7 +2352,7 @@ class TbljabatanTableSeeder extends Seeder
             212 => 
             array (
                 'id' => 213,
-                'nama_jabatan' => 'OFFICE M11',
+                'nama_jabatan' => 'AIRFIELD SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2363,7 +2363,7 @@ class TbljabatanTableSeeder extends Seeder
             213 => 
             array (
                 'id' => 214,
-                'nama_jabatan' => 'OFFICE M10',
+                'nama_jabatan' => 'AIRFIELD ENGINEER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2374,7 +2374,7 @@ class TbljabatanTableSeeder extends Seeder
             214 => 
             array (
                 'id' => 215,
-                'nama_jabatan' => 'OFFICER 18',
+                'nama_jabatan' => 'Airfield Technician',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2385,7 +2385,7 @@ class TbljabatanTableSeeder extends Seeder
             215 => 
             array (
                 'id' => 216,
-                'nama_jabatan' => 'OFFICER 16',
+                'nama_jabatan' => 'AIRFIELD JUNIOR TECHNICIAN ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2396,7 +2396,7 @@ class TbljabatanTableSeeder extends Seeder
             216 => 
             array (
                 'id' => 217,
-                'nama_jabatan' => 'OFFICER 15',
+                'nama_jabatan' => 'AIRFIELD TECHNICIAN ASSISTANT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2407,7 +2407,7 @@ class TbljabatanTableSeeder extends Seeder
             217 => 
             array (
                 'id' => 218,
-                'nama_jabatan' => 'OFFICER 14',
+                'nama_jabatan' => 'MANAGER OF ACCESIBILITY & ENVIRONMENT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2418,7 +2418,7 @@ class TbljabatanTableSeeder extends Seeder
             218 => 
             array (
                 'id' => 219,
-                'nama_jabatan' => 'OFFICER 10',
+                'nama_jabatan' => 'ACCESSIBILITY & ENVIRONMENT STAFF ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2429,7 +2429,7 @@ class TbljabatanTableSeeder extends Seeder
             219 => 
             array (
                 'id' => 220,
-                'nama_jabatan' => 'OPERATIO16',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF ACCESSIBILITY  & ROAD',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2440,7 +2440,7 @@ class TbljabatanTableSeeder extends Seeder
             220 => 
             array (
                 'id' => 221,
-                'nama_jabatan' => 'OPERATIO14',
+                'nama_jabatan' => 'ACCESSIBILITY & ROAD SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2451,7 +2451,7 @@ class TbljabatanTableSeeder extends Seeder
             221 => 
             array (
                 'id' => 222,
-                'nama_jabatan' => 'OPERATIO12',
+                'nama_jabatan' => 'ACCESSIBILITY & ROAD ENGINEER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2462,7 +2462,7 @@ class TbljabatanTableSeeder extends Seeder
             222 => 
             array (
                 'id' => 223,
-                'nama_jabatan' => 'OPERATIO11',
+                'nama_jabatan' => 'ACCESSIBILITY & ROAD TECHNICIAN',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2473,7 +2473,7 @@ class TbljabatanTableSeeder extends Seeder
             223 => 
             array (
                 'id' => 224,
-                'nama_jabatan' => 'OPERATIO7',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF ENVIRONMENT ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2484,7 +2484,7 @@ class TbljabatanTableSeeder extends Seeder
             224 => 
             array (
                 'id' => 225,
-                'nama_jabatan' => 'PASSENGE14',
+                'nama_jabatan' => 'ENVIRONMENT SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2495,7 +2495,7 @@ class TbljabatanTableSeeder extends Seeder
             225 => 
             array (
                 'id' => 226,
-                'nama_jabatan' => 'PASSENGE12',
+                'nama_jabatan' => 'ENVIRONMENT ENGINEER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2506,7 +2506,7 @@ class TbljabatanTableSeeder extends Seeder
             226 => 
             array (
                 'id' => 227,
-                'nama_jabatan' => 'PASSENGE11',
+                'nama_jabatan' => 'ENVIRONMENT TECHNICIAN',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2517,7 +2517,7 @@ class TbljabatanTableSeeder extends Seeder
             227 => 
             array (
                 'id' => 228,
-                'nama_jabatan' => 'PASSENGE9',
+                'nama_jabatan' => 'ENVIRONMENT JUNIOR TECHNICIAN',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2528,7 +2528,7 @@ class TbljabatanTableSeeder extends Seeder
             228 => 
             array (
                 'id' => 229,
-                'nama_jabatan' => 'PASSENGE13',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF LANDSCAPE ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2539,7 +2539,7 @@ class TbljabatanTableSeeder extends Seeder
             229 => 
             array (
                 'id' => 230,
-                'nama_jabatan' => 'PASSENGE10',
+                'nama_jabatan' => 'LANDSCAPE ENGINEER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2550,7 +2550,7 @@ class TbljabatanTableSeeder extends Seeder
             230 => 
             array (
                 'id' => 231,
-                'nama_jabatan' => 'PEOPLE M11',
+                'nama_jabatan' => 'SENIOR MANAGER OF ELECTRICAL & MECHANICAL',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2561,7 +2561,7 @@ class TbljabatanTableSeeder extends Seeder
             231 => 
             array (
                 'id' => 232,
-                'nama_jabatan' => 'PERIMETE14',
+                'nama_jabatan' => 'STAFF OF ENERGY & POWER SUPPLY MANAGER 0',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2572,7 +2572,7 @@ class TbljabatanTableSeeder extends Seeder
             232 => 
             array (
                 'id' => 233,
-                'nama_jabatan' => 'PERIMETE11',
+                'nama_jabatan' => '  Staff of Senior Manager of Electrical & Mechanical ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2583,7 +2583,7 @@ class TbljabatanTableSeeder extends Seeder
             233 => 
             array (
                 'id' => 234,
-                'nama_jabatan' => 'PERIMETE10',
+                'nama_jabatan' => 'ELECTRICAL & MECHANICAL OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2594,7 +2594,7 @@ class TbljabatanTableSeeder extends Seeder
             234 => 
             array (
                 'id' => 235,
-                'nama_jabatan' => 'PERIMETE9',
+                'nama_jabatan' => 'MANAGER OF ENERGY & POWER SUPPLY',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2605,7 +2605,7 @@ class TbljabatanTableSeeder extends Seeder
             235 => 
             array (
                 'id' => 236,
-                'nama_jabatan' => 'PERIMETE8',
+                'nama_jabatan' => 'ENERGY & POWER SUPPLY JUNIOR OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2616,7 +2616,7 @@ class TbljabatanTableSeeder extends Seeder
             236 => 
             array (
                 'id' => 237,
-                'nama_jabatan' => 'PLANNING14',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF MAIN POWER STATION 1 ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2627,7 +2627,7 @@ class TbljabatanTableSeeder extends Seeder
             237 => 
             array (
                 'id' => 238,
-                'nama_jabatan' => 'PLANNING11',
+                'nama_jabatan' => 'MAIN POWER STATION SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2638,7 +2638,7 @@ class TbljabatanTableSeeder extends Seeder
             238 => 
             array (
                 'id' => 239,
-                'nama_jabatan' => 'PLANNING9',
+                'nama_jabatan' => 'MAIN POWER STATION ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2649,7 +2649,7 @@ class TbljabatanTableSeeder extends Seeder
             239 => 
             array (
                 'id' => 240,
-                'nama_jabatan' => 'PROCUREM18',
+                'nama_jabatan' => 'MAIN POWER STATION TECHNICIAN ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2660,7 +2660,7 @@ class TbljabatanTableSeeder extends Seeder
             240 => 
             array (
                 'id' => 241,
-                'nama_jabatan' => 'PROCUREM12',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF MAIN POWER STATION 2',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2671,7 +2671,7 @@ class TbljabatanTableSeeder extends Seeder
             241 => 
             array (
                 'id' => 242,
-                'nama_jabatan' => 'PROCUREM14',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF MAIN POWER STATION 3',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2682,7 +2682,7 @@ class TbljabatanTableSeeder extends Seeder
             242 => 
             array (
                 'id' => 243,
-                'nama_jabatan' => 'PROCUREM11',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF ELECTRICAL PROTECTION',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2693,7 +2693,7 @@ class TbljabatanTableSeeder extends Seeder
             243 => 
             array (
                 'id' => 244,
-                'nama_jabatan' => 'PROTOCOL12',
+                'nama_jabatan' => 'ELECTRICAL PROTECTION SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2704,7 +2704,7 @@ class TbljabatanTableSeeder extends Seeder
             244 => 
             array (
                 'id' => 245,
-                'nama_jabatan' => 'PROTOCOL11',
+                'nama_jabatan' => 'ELECTRICAL PROTECTION ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2715,7 +2715,7 @@ class TbljabatanTableSeeder extends Seeder
             245 => 
             array (
                 'id' => 246,
-                'nama_jabatan' => 'PROTOCOL10',
+                'nama_jabatan' => 'ELECTRICAL PROTECTION TECHNICIAN ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2726,7 +2726,7 @@ class TbljabatanTableSeeder extends Seeder
             246 => 
             array (
                 'id' => 247,
-                'nama_jabatan' => 'PUBLIC R13',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF ELECTRICAL NETWORK ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2737,7 +2737,7 @@ class TbljabatanTableSeeder extends Seeder
             247 => 
             array (
                 'id' => 248,
-                'nama_jabatan' => 'PUBLIC S16',
+                'nama_jabatan' => 'ELECTRICAL NETWORK SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2748,7 +2748,7 @@ class TbljabatanTableSeeder extends Seeder
             248 => 
             array (
                 'id' => 249,
-                'nama_jabatan' => 'PUBLIC S10',
+                'nama_jabatan' => 'ELECTRICAL NETWORK ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2759,7 +2759,7 @@ class TbljabatanTableSeeder extends Seeder
             249 => 
             array (
                 'id' => 250,
-                'nama_jabatan' => 'PUBLIC S7',
+                'nama_jabatan' => 'ELECTRICAL NETWORK TECHNICIAN ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2770,7 +2770,7 @@ class TbljabatanTableSeeder extends Seeder
             250 => 
             array (
                 'id' => 251,
-                'nama_jabatan' => 'PUBLIC S6',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF UPS & CONVERTER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2781,7 +2781,7 @@ class TbljabatanTableSeeder extends Seeder
             251 => 
             array (
                 'id' => 252,
-                'nama_jabatan' => 'PUBLIC S14',
+                'nama_jabatan' => 'UPS & CONVERTER SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2792,7 +2792,7 @@ class TbljabatanTableSeeder extends Seeder
             252 => 
             array (
                 'id' => 253,
-                'nama_jabatan' => 'PUBLIC S11',
+                'nama_jabatan' => 'UPS & CONVERTER ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2803,7 +2803,7 @@ class TbljabatanTableSeeder extends Seeder
             253 => 
             array (
                 'id' => 254,
-                'nama_jabatan' => 'PUBLIC S9',
+                'nama_jabatan' => 'UPS & CONVERTER TECHNICIAN ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2814,7 +2814,7 @@ class TbljabatanTableSeeder extends Seeder
             254 => 
             array (
                 'id' => 255,
-                'nama_jabatan' => 'PUBLIC S13',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF NORTH VISUAL AID ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2825,7 +2825,7 @@ class TbljabatanTableSeeder extends Seeder
             255 => 
             array (
                 'id' => 256,
-                'nama_jabatan' => 'PUBLIC S12',
+                'nama_jabatan' => 'VISUAL AID SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2836,7 +2836,7 @@ class TbljabatanTableSeeder extends Seeder
             256 => 
             array (
                 'id' => 257,
-                'nama_jabatan' => 'RECEIVAB14',
+                'nama_jabatan' => 'VISUAL AID ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2847,7 +2847,7 @@ class TbljabatanTableSeeder extends Seeder
             257 => 
             array (
                 'id' => 258,
-                'nama_jabatan' => 'RECEIVAB12',
+                'nama_jabatan' => 'VISUAL AID TECHNICIAN ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2858,7 +2858,7 @@ class TbljabatanTableSeeder extends Seeder
             258 => 
             array (
                 'id' => 259,
-                'nama_jabatan' => 'RECEIVAB11',
+                'nama_jabatan' => 'MECHANICAL & AIRPORT EQUIPMENT MANAGER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2869,7 +2869,7 @@ class TbljabatanTableSeeder extends Seeder
             259 => 
             array (
                 'id' => 260,
-                'nama_jabatan' => 'RFF EXER14',
+            'nama_jabatan' => ' ASSISTANT MANAGER OF EQUIPMENT & WORKSHOP (MPP) ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2880,7 +2880,7 @@ class TbljabatanTableSeeder extends Seeder
             260 => 
             array (
                 'id' => 261,
-                'nama_jabatan' => 'RFF EXER11',
+                'nama_jabatan' => 'MECHANICAL & AIRPORT EQUIPMENT OFFICER  ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2891,7 +2891,7 @@ class TbljabatanTableSeeder extends Seeder
             261 => 
             array (
                 'id' => 262,
-                'nama_jabatan' => 'RFF EXER10',
+                'nama_jabatan' => 'MECHANICAL & AIRPORT EQUIPMENT JUNIOR OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2902,7 +2902,7 @@ class TbljabatanTableSeeder extends Seeder
             262 => 
             array (
                 'id' => 263,
-                'nama_jabatan' => 'RFF EXER7',
+                'nama_jabatan' => 'EQUIPMENT & WORKSHOP ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2913,7 +2913,7 @@ class TbljabatanTableSeeder extends Seeder
             263 => 
             array (
                 'id' => 264,
-                'nama_jabatan' => 'SAFETY &16',
+                'nama_jabatan' => 'Equipment & Workshop Technician ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2924,7 +2924,7 @@ class TbljabatanTableSeeder extends Seeder
             264 => 
             array (
                 'id' => 265,
-                'nama_jabatan' => 'SAFETY &14',
+                'nama_jabatan' => 'SANITATION FACILITY SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2935,7 +2935,7 @@ class TbljabatanTableSeeder extends Seeder
             265 => 
             array (
                 'id' => 266,
-                'nama_jabatan' => 'SAFETY &12',
+                'nama_jabatan' => 'SANITATION FACILITY ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2946,7 +2946,7 @@ class TbljabatanTableSeeder extends Seeder
             266 => 
             array (
                 'id' => 267,
-                'nama_jabatan' => 'SAFETY &11',
+                'nama_jabatan' => 'SANITATION FACILITY TECHNICIAN',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2957,7 +2957,7 @@ class TbljabatanTableSeeder extends Seeder
             267 => 
             array (
                 'id' => 268,
-                'nama_jabatan' => 'SAFETY &10',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF WATER TREATMENT ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2968,7 +2968,7 @@ class TbljabatanTableSeeder extends Seeder
             268 => 
             array (
                 'id' => 269,
-                'nama_jabatan' => 'SAFETY &13',
+                'nama_jabatan' => 'WATER TREATMENT SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2979,7 +2979,7 @@ class TbljabatanTableSeeder extends Seeder
             269 => 
             array (
                 'id' => 270,
-                'nama_jabatan' => 'SAFETY, 19',
+                'nama_jabatan' => 'WATER TREATMENT ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -2990,7 +2990,7 @@ class TbljabatanTableSeeder extends Seeder
             270 => 
             array (
                 'id' => 271,
-                'nama_jabatan' => 'SAFETY, 16',
+                'nama_jabatan' => 'Ground Support System Supervisor ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3001,7 +3001,7 @@ class TbljabatanTableSeeder extends Seeder
             271 => 
             array (
                 'id' => 272,
-                'nama_jabatan' => 'SAFETY, 10',
+                'nama_jabatan' => '#REF!',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3012,7 +3012,7 @@ class TbljabatanTableSeeder extends Seeder
             272 => 
             array (
                 'id' => 273,
-                'nama_jabatan' => 'SANITATI14',
+                'nama_jabatan' => 'INFORMATION TECHNOLOGY JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3023,7 +3023,7 @@ class TbljabatanTableSeeder extends Seeder
             273 => 
             array (
                 'id' => 274,
-                'nama_jabatan' => 'SANITATI12',
+                'nama_jabatan' => 'MANAGER OF IT PUBLIC SERVICE & SECURITY',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3034,7 +3034,7 @@ class TbljabatanTableSeeder extends Seeder
             274 => 
             array (
                 'id' => 275,
-                'nama_jabatan' => 'SANITATI11',
+                'nama_jabatan' => 'IT PUBLIC SERVICE & SECURITY JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3045,7 +3045,7 @@ class TbljabatanTableSeeder extends Seeder
             275 => 
             array (
                 'id' => 276,
-                'nama_jabatan' => 'SANITATI10',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF PUBLIC SERVICE & IT SYSTEM',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3056,7 +3056,7 @@ class TbljabatanTableSeeder extends Seeder
             276 => 
             array (
                 'id' => 277,
-                'nama_jabatan' => 'SOUTH RU14',
+                'nama_jabatan' => 'PUBLIC SERVICE & IT SYSTEM SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3067,7 +3067,7 @@ class TbljabatanTableSeeder extends Seeder
             277 => 
             array (
                 'id' => 278,
-                'nama_jabatan' => 'SOUTH RU12',
+                'nama_jabatan' => 'PUBLIC SERVICE & IT SYSTEM ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3078,7 +3078,7 @@ class TbljabatanTableSeeder extends Seeder
             278 => 
             array (
                 'id' => 279,
-                'nama_jabatan' => 'SOUTH RU11',
+                'nama_jabatan' => 'Public Service & IT System Technician',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3089,7 +3089,7 @@ class TbljabatanTableSeeder extends Seeder
             279 => 
             array (
                 'id' => 280,
-                'nama_jabatan' => 'SOUTH RU10',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF SAFETY & SECURITY IT ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3100,7 +3100,7 @@ class TbljabatanTableSeeder extends Seeder
             280 => 
             array (
                 'id' => 281,
-                'nama_jabatan' => 'SOUTH RU9',
+                'nama_jabatan' => 'SAFETY & SECURITY IT SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3111,7 +3111,7 @@ class TbljabatanTableSeeder extends Seeder
             281 => 
             array (
                 'id' => 282,
-                'nama_jabatan' => ' SUBSIDI16',
+                'nama_jabatan' => 'SAFETY & SECURITY IT ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3122,7 +3122,7 @@ class TbljabatanTableSeeder extends Seeder
             282 => 
             array (
                 'id' => 283,
-                'nama_jabatan' => ' SUBSIDI14',
+                'nama_jabatan' => 'Safety & Security IT Technician',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3133,7 +3133,7 @@ class TbljabatanTableSeeder extends Seeder
             283 => 
             array (
                 'id' => 284,
-                'nama_jabatan' => ' SUBSIDI13',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF BAGGAGE HANDLING SYSTEM',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3144,7 +3144,7 @@ class TbljabatanTableSeeder extends Seeder
             284 => 
             array (
                 'id' => 285,
-                'nama_jabatan' => ' SUBSIDI11',
+                'nama_jabatan' => 'BAGGAGE HANDLING SYSTEM SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3155,7 +3155,7 @@ class TbljabatanTableSeeder extends Seeder
             285 => 
             array (
                 'id' => 286,
-                'nama_jabatan' => 'TAX MANA14',
+                'nama_jabatan' => 'BAGGAGE HANDLING SYSTEM ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3166,7 +3166,7 @@ class TbljabatanTableSeeder extends Seeder
             286 => 
             array (
                 'id' => 287,
-                'nama_jabatan' => 'TAX MANA12',
+                'nama_jabatan' => 'Baggage Handling System Technician',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3177,7 +3177,7 @@ class TbljabatanTableSeeder extends Seeder
             287 => 
             array (
                 'id' => 288,
-                'nama_jabatan' => 'TAX MANA11',
+                'nama_jabatan' => 'MANAGER OF DATA NETWORK & IT NON PUBLIC SERVICE',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3188,7 +3188,7 @@ class TbljabatanTableSeeder extends Seeder
             288 => 
             array (
                 'id' => 289,
-                'nama_jabatan' => 'TAX MANA10',
+                'nama_jabatan' => 'DATA NETWORK & IT NON PUBLIC SERVICE JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3199,7 +3199,7 @@ class TbljabatanTableSeeder extends Seeder
             289 => 
             array (
                 'id' => 290,
-                'nama_jabatan' => 'TERMINAL12',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF COMMUNICATION & DATA NETWORK',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3210,7 +3210,7 @@ class TbljabatanTableSeeder extends Seeder
             290 => 
             array (
                 'id' => 291,
-                'nama_jabatan' => 'TERMINAL11',
+                'nama_jabatan' => 'COMMUNICATION & DATA NETWORK SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3221,7 +3221,7 @@ class TbljabatanTableSeeder extends Seeder
             291 => 
             array (
                 'id' => 292,
-                'nama_jabatan' => 'TERMINAL10',
+                'nama_jabatan' => 'COMMUNICATION & DATA NETWORK ENGINEER  ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3232,7 +3232,7 @@ class TbljabatanTableSeeder extends Seeder
             292 => 
             array (
                 'id' => 293,
-                'nama_jabatan' => 'TERMINAL14',
+                'nama_jabatan' => 'COMMUNICATION & DATA NETWORK TECHNICIAN ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3243,7 +3243,7 @@ class TbljabatanTableSeeder extends Seeder
             293 => 
             array (
                 'id' => 294,
-                'nama_jabatan' => 'TERMINAL13',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF IT NON PUBLIC SERVICE',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3254,7 +3254,7 @@ class TbljabatanTableSeeder extends Seeder
             294 => 
             array (
                 'id' => 295,
-                'nama_jabatan' => 'TERMINAL9',
+                'nama_jabatan' => 'BACK OFFICE SYSTEM SUPPORT ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3265,7 +3265,7 @@ class TbljabatanTableSeeder extends Seeder
             295 => 
             array (
                 'id' => 296,
-                'nama_jabatan' => 'TERMINAL16',
+                'nama_jabatan' => 'IT NON PUBLIC SERVICE SUPERVISOR',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3276,7 +3276,7 @@ class TbljabatanTableSeeder extends Seeder
             296 => 
             array (
                 'id' => 297,
-                'nama_jabatan' => 'TERMINAL15',
+                'nama_jabatan' => 'IT NON PUBLIC SERVICE ENGINEER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3287,7 +3287,7 @@ class TbljabatanTableSeeder extends Seeder
             297 => 
             array (
                 'id' => 298,
-                'nama_jabatan' => 'TERMINAL18',
+                'nama_jabatan' => 'KMPG ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3298,7 +3298,7 @@ class TbljabatanTableSeeder extends Seeder
             298 => 
             array (
                 'id' => 299,
-                'nama_jabatan' => 'TERMINAL17',
+                'nama_jabatan' => ' Deputy Executive General Manager of Finance & Human Resources ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3309,7 +3309,7 @@ class TbljabatanTableSeeder extends Seeder
             299 => 
             array (
                 'id' => 300,
-                'nama_jabatan' => 'TOC 110',
+                'nama_jabatan' => 'FINANCE & HUMAN RESOURCES JUNIOR OFFICER  ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3320,7 +3320,7 @@ class TbljabatanTableSeeder extends Seeder
             300 => 
             array (
                 'id' => 301,
-                'nama_jabatan' => 'TOD SERV14',
+                'nama_jabatan' => 'STAFF OF DEPUTY EXECUTIVE GENERAL MANAGER OF FINANCE & HUMAN RESOURCES',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3331,7 +3331,7 @@ class TbljabatanTableSeeder extends Seeder
             301 => 
             array (
                 'id' => 302,
-                'nama_jabatan' => 'TOD SERV11',
+                'nama_jabatan' => 'MANAGER OF FINANCIAL CONTROL',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3342,7 +3342,7 @@ class TbljabatanTableSeeder extends Seeder
             302 => 
             array (
                 'id' => 303,
-                'nama_jabatan' => 'TOD SERV10',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF BUDGETING ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3353,7 +3353,7 @@ class TbljabatanTableSeeder extends Seeder
             303 => 
             array (
                 'id' => 304,
-                'nama_jabatan' => 'UPS & CO13',
+                'nama_jabatan' => 'BUDGETING OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3364,7 +3364,7 @@ class TbljabatanTableSeeder extends Seeder
             304 => 
             array (
                 'id' => 305,
-                'nama_jabatan' => 'UPS & CO12',
+                'nama_jabatan' => 'BUDGETING JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3375,7 +3375,7 @@ class TbljabatanTableSeeder extends Seeder
             305 => 
             array (
                 'id' => 306,
-                'nama_jabatan' => 'UPS & CO11',
+                'nama_jabatan' => 'ASSISTANT MANAGER OF GENERAL ACCOUNTING',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3386,7 +3386,7 @@ class TbljabatanTableSeeder extends Seeder
             306 => 
             array (
                 'id' => 307,
-                'nama_jabatan' => 'UPS & CO10',
+                'nama_jabatan' => 'GENERAL ACCOUNTING OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3397,7 +3397,7 @@ class TbljabatanTableSeeder extends Seeder
             307 => 
             array (
                 'id' => 308,
-                'nama_jabatan' => 'WAREHOUS14',
+                'nama_jabatan' => 'GENERAL ACCOUNTING JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3408,7 +3408,7 @@ class TbljabatanTableSeeder extends Seeder
             308 => 
             array (
                 'id' => 309,
-                'nama_jabatan' => 'WAREHOUS11',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF TAX MANAGEMENT ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3419,7 +3419,7 @@ class TbljabatanTableSeeder extends Seeder
             309 => 
             array (
                 'id' => 310,
-                'nama_jabatan' => 'WAREHOUS10',
+                'nama_jabatan' => 'TAX MANAGEMENT OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3430,7 +3430,7 @@ class TbljabatanTableSeeder extends Seeder
             310 => 
             array (
                 'id' => 311,
-                'nama_jabatan' => 'WATER TR14',
+                'nama_jabatan' => 'TAX MANAGEMENT JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3441,7 +3441,7 @@ class TbljabatanTableSeeder extends Seeder
             311 => 
             array (
                 'id' => 312,
-                'nama_jabatan' => 'WATER TR12',
+                'nama_jabatan' => 'TAX MANAGEMENT STAFF ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3452,7 +3452,7 @@ class TbljabatanTableSeeder extends Seeder
             312 => 
             array (
                 'id' => 313,
-                'nama_jabatan' => 'WATER TR11',
+                'nama_jabatan' => 'MANAGER OF FINANCIAL MANAGEMENT',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3463,7 +3463,7 @@ class TbljabatanTableSeeder extends Seeder
             313 => 
             array (
                 'id' => 314,
-                'nama_jabatan' => 'WELFARE14',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF CASH MANAGEMENT ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3474,7 +3474,7 @@ class TbljabatanTableSeeder extends Seeder
             314 => 
             array (
                 'id' => 315,
-                'nama_jabatan' => 'WELFARE11',
+                'nama_jabatan' => 'CASH MANAGEMENT OFFICER',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3485,7 +3485,7 @@ class TbljabatanTableSeeder extends Seeder
             315 => 
             array (
                 'id' => 316,
-                'nama_jabatan' => 'WELFARE10',
+                'nama_jabatan' => 'CASH MANAGEMENT JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3496,7 +3496,7 @@ class TbljabatanTableSeeder extends Seeder
             316 => 
             array (
                 'id' => 317,
-                'nama_jabatan' => 'WELFARE 16',
+                'nama_jabatan' => 'Cash Management Junior Staff ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',
@@ -3507,7 +3507,1393 @@ class TbljabatanTableSeeder extends Seeder
             317 => 
             array (
                 'id' => 318,
-                'nama_jabatan' => 'WELFARE 11',
+                'nama_jabatan' => ' ASSISTANT MANAGER OF MANAGEMENT ACCOUNTING ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            318 => 
+            array (
+                'id' => 319,
+                'nama_jabatan' => 'Management Accounting Staff ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            319 => 
+            array (
+                'id' => 320,
+                'nama_jabatan' => 'MANAGER OF ACCOUNT RECEIVABLE',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            320 => 
+            array (
+                'id' => 321,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF RECEIVABLE ADMINISTRATION ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            321 => 
+            array (
+                'id' => 322,
+                'nama_jabatan' => 'RECEIVABLE ADMINISTRATION OFFICER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            322 => 
+            array (
+                'id' => 323,
+                'nama_jabatan' => 'RECEIVABLE ADMINISTRATION OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            323 => 
+            array (
+                'id' => 324,
+                'nama_jabatan' => 'RECEIVABLE ADMINISTRATION JUNIOR OFFICER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            324 => 
+            array (
+                'id' => 325,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF ACCOUNT RECEIVABLE COLLECTION ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            325 => 
+            array (
+                'id' => 326,
+                'nama_jabatan' => 'ACCOUNT RECEIVABLE COLLECTION OFFICER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            326 => 
+            array (
+                'id' => 327,
+                'nama_jabatan' => 'ACCOUNT RECEIVABLE COLLECTION JUNIOR OFFICER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            327 => 
+            array (
+                'id' => 328,
+                'nama_jabatan' => 'ACCOUNT RECEIVABLE COLLECTION STAFF',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            328 => 
+            array (
+                'id' => 329,
+                'nama_jabatan' => 'ACCOUNT RECEIVABLE COLLECTION JUNIOR STAFF',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            329 => 
+            array (
+                'id' => 330,
+                'nama_jabatan' => 'MANAGER OF COMMUNITY DEVELOPMENT',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            330 => 
+            array (
+                'id' => 331,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF  PLANNING & DISTRIBUTION ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            331 => 
+            array (
+                'id' => 332,
+                'nama_jabatan' => 'PLANNING & DISTRIBUTION JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            332 => 
+            array (
+                'id' => 333,
+                'nama_jabatan' => 'PLANNING & DISTRIBUTION JUNIOR STAFF  ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            333 => 
+            array (
+                'id' => 334,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF MONITORING & REPORTING ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            334 => 
+            array (
+                'id' => 335,
+                'nama_jabatan' => 'MONITORING & REPORTING JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            335 => 
+            array (
+                'id' => 336,
+                'nama_jabatan' => 'SENIOR MANAGER OF ASSETS & LOGISTIC MANAGEMENT',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            336 => 
+            array (
+                'id' => 337,
+                'nama_jabatan' => 'ASSETS & LOGISTIC MANAGEMENT STAFF ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            337 => 
+            array (
+                'id' => 338,
+                'nama_jabatan' => 'MANAGER OF ASSETS MANAGEMENT',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            338 => 
+            array (
+                'id' => 339,
+                'nama_jabatan' => 'ASSETS MANAGEMENT JUNIOR OFFICER  ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            339 => 
+            array (
+                'id' => 340,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF FIXED ASSETS MANAGEMENT ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            340 => 
+            array (
+                'id' => 341,
+                'nama_jabatan' => 'FIXED ASSETS MANAGEMENT JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            341 => 
+            array (
+                'id' => 342,
+                'nama_jabatan' => 'FIXED ASSETS MANAGEMENT ADMINISTRATION STAFF',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            342 => 
+            array (
+                'id' => 343,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF LAND MANAGEMENT ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            343 => 
+            array (
+                'id' => 344,
+                'nama_jabatan' => 'LAND MANAGEMENT OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            344 => 
+            array (
+                'id' => 345,
+                'nama_jabatan' => 'LAND MANAGEMENT JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            345 => 
+            array (
+                'id' => 346,
+                'nama_jabatan' => 'INVENTORY & WAREHOUSE MANAGEMENT JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            346 => 
+            array (
+                'id' => 347,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF INVENTORY MANAGEMENT ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            347 => 
+            array (
+                'id' => 348,
+                'nama_jabatan' => 'INVENTORY MANAGEMENT JUNIOR OFFICER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            348 => 
+            array (
+                'id' => 349,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF WAREHOUSE MANAGEMENT ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            349 => 
+            array (
+                'id' => 350,
+                'nama_jabatan' => 'WAREHOUSE MANAGEMENT JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            350 => 
+            array (
+                'id' => 351,
+                'nama_jabatan' => 'WAREHOUSE MANAGEMENT STAFF ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            351 => 
+            array (
+                'id' => 352,
+                'nama_jabatan' => 'SENIOR MANAGER OF HUMAN RESOURCES & GENERAL AFFAIRS',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            352 => 
+            array (
+                'id' => 353,
+                'nama_jabatan' => 'HUMAN RESOURCES & GENERAL AFFAIRS OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            353 => 
+            array (
+                'id' => 354,
+                'nama_jabatan' => 'MANAGER OF HIRING & PEOPLE MANAGEMENT',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            354 => 
+            array (
+                'id' => 355,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF HIRING ADMINISTRATION ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            355 => 
+            array (
+                'id' => 356,
+                'nama_jabatan' => 'HIRING ADMINISTRATION JUNIOR OFFICER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            356 => 
+            array (
+                'id' => 357,
+                'nama_jabatan' => 'HIRING ADMINISTRATION ADMINISTRATION STAFF',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            357 => 
+            array (
+                'id' => 358,
+                'nama_jabatan' => 'PEOPLE MANAGEMENT JUNIOR OFFICER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            358 => 
+            array (
+                'id' => 359,
+                'nama_jabatan' => 'MANAGER OF WELFARE & HUMAN RESOURCES ADMINISTRATION',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            359 => 
+            array (
+                'id' => 360,
+                'nama_jabatan' => 'WELFARE & HUMAN RESOURCES ADMINISTRATION JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            360 => 
+            array (
+                'id' => 361,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF WELFARE ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            361 => 
+            array (
+                'id' => 362,
+                'nama_jabatan' => 'WELFARE JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            362 => 
+            array (
+                'id' => 363,
+                'nama_jabatan' => 'WELFARE STAFF ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            363 => 
+            array (
+                'id' => 364,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF HUMAN RESOURCES ADMINISTRATION ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            364 => 
+            array (
+                'id' => 365,
+                'nama_jabatan' => 'HUMAN RESOURCES ADMINISTRATION JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            365 => 
+            array (
+                'id' => 366,
+                'nama_jabatan' => 'HUMAN RESOURCES ADMINISTRATION STAFF ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            366 => 
+            array (
+                'id' => 367,
+                'nama_jabatan' => 'HUMAN RESOURCES ADMINISTRATION JUNIOR STAFF',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            367 => 
+            array (
+                'id' => 368,
+                'nama_jabatan' => 'MANAGER OF GENERAL AFFAIRS',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            368 => 
+            array (
+                'id' => 369,
+                'nama_jabatan' => 'GENERAL AFFAIRS OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            369 => 
+            array (
+                'id' => 370,
+                'nama_jabatan' => 'GENERAL AFFAIRS JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            370 => 
+            array (
+                'id' => 371,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF INTERNAL AFFAIRS ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            371 => 
+            array (
+                'id' => 372,
+                'nama_jabatan' => 'INTERNAL AFFAIRS JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            372 => 
+            array (
+                'id' => 373,
+                'nama_jabatan' => 'INTERNAL AFFAIRS STAFF ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            373 => 
+            array (
+                'id' => 374,
+                'nama_jabatan' => 'INTERNAL AFFAIRS JUNIOR STAFF ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            374 => 
+            array (
+                'id' => 375,
+                'nama_jabatan' => 'INTERNAL AFFAIRS ADMINISTRATION STAFF',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            375 => 
+            array (
+                'id' => 376,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF OFFICE MANAGEMENT ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            376 => 
+            array (
+                'id' => 377,
+                'nama_jabatan' => 'OFFICE MANAGEMENT JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            377 => 
+            array (
+                'id' => 378,
+                'nama_jabatan' => 'OFFICE MANAGEMENT STAFF ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            378 => 
+            array (
+                'id' => 379,
+                'nama_jabatan' => ' SENIOR MANAGER OF AOCC ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            379 => 
+            array (
+                'id' => 380,
+                'nama_jabatan' => 'AOCC Administration Staff',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            380 => 
+            array (
+                'id' => 381,
+                'nama_jabatan' => 'TOC JUNIOR CONTROLLER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            381 => 
+            array (
+                'id' => 382,
+                'nama_jabatan' => 'SENIOR MANAGER OF SAFETY, RISK, & QUALITY CONTROL',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            382 => 
+            array (
+                'id' => 383,
+                'nama_jabatan' => 'MANAGER OF MAINTENANCE QUALITY CONTROL MPP',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            383 => 
+            array (
+                'id' => 384,
+                'nama_jabatan' => 'Safety, Risk, & Quality Control Staff ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            384 => 
+            array (
+                'id' => 385,
+                'nama_jabatan' => 'MANAGER OF SAFETY & RISK MANAGEMENT',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            385 => 
+            array (
+                'id' => 386,
+                'nama_jabatan' => ' AIRPORT SAFETY SENIOR INSPECTOR ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            386 => 
+            array (
+                'id' => 387,
+                'nama_jabatan' => ' OCCUPATIONAL, HEALTH, & SAFETY SENIOR INSPECTOR ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            387 => 
+            array (
+                'id' => 388,
+                'nama_jabatan' => 'Airport Safety & OHS Inspector',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            388 => 
+            array (
+                'id' => 389,
+                'nama_jabatan' => 'AIRPORT SAFETY OFFICER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            389 => 
+            array (
+                'id' => 390,
+                'nama_jabatan' => 'Safety & Risk Management Staff ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            390 => 
+            array (
+                'id' => 391,
+                'nama_jabatan' => ' RISK MANAGEMENT SENIOR INSPECTOR ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            391 => 
+            array (
+                'id' => 392,
+                'nama_jabatan' => 'MANAGER OF AIRPORT OPERATION QUALITY CONTROL',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            392 => 
+            array (
+                'id' => 393,
+                'nama_jabatan' => 'Airport Operation Quality Control Junior Officer ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            393 => 
+            array (
+                'id' => 394,
+                'nama_jabatan' => 'SECURITY QUALITY CONTROL SENIOR INSPECTOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            394 => 
+            array (
+                'id' => 395,
+                'nama_jabatan' => 'SECURITY QUALITY CONTROL INSPECTOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            395 => 
+            array (
+                'id' => 396,
+                'nama_jabatan' => 'SECURITY QUALITY CONTROL JUNIOR INSPECTOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            396 => 
+            array (
+                'id' => 397,
+                'nama_jabatan' => 'SECURITY QUALITY CONTROL ASSISTANT INSPECTOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            397 => 
+            array (
+                'id' => 398,
+                'nama_jabatan' => ' AIRPORT RESCUE & FIRE FIGHTING QUALITY SENIOR INSPECTOR ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            398 => 
+            array (
+                'id' => 399,
+                'nama_jabatan' => 'AIRPORT RESCUE & FIRE FIGHTING QUALITY INSPECTOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            399 => 
+            array (
+                'id' => 400,
+                'nama_jabatan' => 'AIRPORT RESCUE & FIRE FIGHTING QUALITY JUNIOR INSPECTOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            400 => 
+            array (
+                'id' => 401,
+                'nama_jabatan' => 'AIRSIDE QUALITY SENIOR INSPECTOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            401 => 
+            array (
+                'id' => 402,
+                'nama_jabatan' => 'AIRSIDE QUALITY INSPECTOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            402 => 
+            array (
+                'id' => 403,
+                'nama_jabatan' => 'MANAGER OF SERVICE QUALITY CONTROL',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            403 => 
+            array (
+                'id' => 404,
+                'nama_jabatan' => 'SERVICE QUALITY INSPECTOR  ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            404 => 
+            array (
+                'id' => 405,
+                'nama_jabatan' => 'SERVICE QUALITY JUNIOR OFFICER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            405 => 
+            array (
+                'id' => 406,
+                'nama_jabatan' => 'Service Quality Staff',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            406 => 
+            array (
+                'id' => 407,
+                'nama_jabatan' => 'Service Quality Junior Staff',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            407 => 
+            array (
+                'id' => 408,
+                'nama_jabatan' => 'Service Quality Clerical Staff',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            408 => 
+            array (
+                'id' => 409,
+                'nama_jabatan' => 'MANAGER OF AIRPORT DATA MANAGEMENT',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            409 => 
+            array (
+                'id' => 410,
+                'nama_jabatan' => 'AIRPORT DATA MANAGEMENT MEMBER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            410 => 
+            array (
+                'id' => 411,
+                'nama_jabatan' => 'AIRPORT DATA MANAGEMENT SUPERVISOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            411 => 
+            array (
+                'id' => 412,
+                'nama_jabatan' => 'AIRPORT DATA MANAGEMENT ADMINISTRATOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            412 => 
+            array (
+                'id' => 413,
+                'nama_jabatan' => 'MAINTENANCE QUALITY CONTROL JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            413 => 
+            array (
+                'id' => 414,
+                'nama_jabatan' => 'MAINTENANCE QUALITY CONTROL STAFF ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            414 => 
+            array (
+                'id' => 415,
+                'nama_jabatan' => 'ELECTRONIC FACILITY MAINTENANCE QUALITY SENIOR INSPECTOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            415 => 
+            array (
+                'id' => 416,
+                'nama_jabatan' => 'ELECTRONIC FACILITY MAINTENANCE QUALITY INSPECTOR',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            416 => 
+            array (
+                'id' => 417,
+                'nama_jabatan' => ' ELECTRICAL FACILITY MAINTENANCE QUALITY SENIOR INSPECTOR ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            417 => 
+            array (
+                'id' => 418,
+                'nama_jabatan' => 'Senior Manager of Branch Communication & Legal',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            418 => 
+            array (
+                'id' => 419,
+                'nama_jabatan' => 'Branch Communication & Legal Officer ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            419 => 
+            array (
+                'id' => 420,
+                'nama_jabatan' => 'MANAGER OF LEGAL',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            420 => 
+            array (
+                'id' => 421,
+                'nama_jabatan' => 'Legal Junior Officer ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            421 => 
+            array (
+                'id' => 422,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF PROCUREMENT CONTRACT  ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            422 => 
+            array (
+                'id' => 423,
+                'nama_jabatan' => ' PROCUREMENT CONTRACT JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            423 => 
+            array (
+                'id' => 424,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF AGREEMENT & COMMERCIAL CONTRACT ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            424 => 
+            array (
+                'id' => 425,
+                'nama_jabatan' => 'AGREEMENT & COMMERCIAL CONTRACT JUNIOR OFFICER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            425 => 
+            array (
+                'id' => 426,
+                'nama_jabatan' => 'AGREEMENT & COMMERCIAL CONTRACT STAFF',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            426 => 
+            array (
+                'id' => 427,
+                'nama_jabatan' => 'MANAGER OF BRANCH COMMUNICATION',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            427 => 
+            array (
+                'id' => 428,
+                'nama_jabatan' => 'STAFF AHLI BRANCH COMMUNICATION 0',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            428 => 
+            array (
+                'id' => 429,
+                'nama_jabatan' => 'SECRETARY OF EXECUTIVE GENERAL MANAGER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            429 => 
+            array (
+                'id' => 430,
+                'nama_jabatan' => 'BRANCH COMMUNICATION JUNIOR OFFICER',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            430 => 
+            array (
+                'id' => 431,
+                'nama_jabatan' => ' ASSISTANT MANAGER OF PUBLIC RELATION ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            431 => 
+            array (
+                'id' => 432,
+                'nama_jabatan' => 'ASSISTANT MANAGER OF PROTOCOL ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            432 => 
+            array (
+                'id' => 433,
+                'nama_jabatan' => 'PROTOCOL JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            433 => 
+            array (
+                'id' => 434,
+                'nama_jabatan' => 'PROTOCOL STAFF ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            434 => 
+            array (
+                'id' => 435,
+                'nama_jabatan' => 'SENIOR MANAGER OF PROCUREMENT',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            435 => 
+            array (
+                'id' => 436,
+                'nama_jabatan' => 'PROCUREMENT OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            436 => 
+            array (
+                'id' => 437,
+                'nama_jabatan' => 'MANAGER OF OPERATION & SERVICE PROCUREMENT',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            437 => 
+            array (
+                'id' => 438,
+                'nama_jabatan' => ' OPERATION & SERVICE PROCUREMENT MEMBER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            438 => 
+            array (
+                'id' => 439,
+                'nama_jabatan' => 'OPERATION & SERVICE PROCUREMENT OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            439 => 
+            array (
+                'id' => 440,
+                'nama_jabatan' => 'OPERATION & SERVICE PROCUREMENT JUNIOR OFFICER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            440 => 
+            array (
+                'id' => 441,
+                'nama_jabatan' => 'OPERATION & SERVICE PROCUREMENT  ADMINISTRATION STAFF',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            441 => 
+            array (
+                'id' => 442,
+                'nama_jabatan' => 'MANAGER OF SUBSIDIARY & SUPPORTING PROCUREMENT',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            442 => 
+            array (
+                'id' => 443,
+                'nama_jabatan' => ' SUBSIDIARY & SUPPORTING PROCUREMENT MEMBER ',
+                'syarat_didik' => '',
+                'syarat_latih' => '',
+                'syarat_pengalaman' => '',
+                'deleted_at' => NULL,
+                'created_at' => NULL,
+                'updated_at' => NULL,
+            ),
+            443 => 
+            array (
+                'id' => 444,
+                'nama_jabatan' => 'BUSINESS & SUPPORTING PROCUREMENT JUNIOR OFFICER ',
                 'syarat_didik' => '',
                 'syarat_latih' => '',
                 'syarat_pengalaman' => '',

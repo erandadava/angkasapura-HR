@@ -31,7 +31,8 @@ class unitkerja extends Model
     public $fillable = [
         'nama_uk',
         'jml_formasi',
-        'jml_existing'
+        'jml_existing',
+        'id_kategori_unit_kerja_fk'
     ];
 
     /**
@@ -70,5 +71,10 @@ class unitkerja extends Model
     public function karyawan()
     {
         return $this->hasMany('App\Models\karyawan', 'id_unitkerja', 'id');
+    }
+
+    public function kategori_unit_kerja()
+    {
+        return $this->hasOne('App\Models\kategori_unit_kerja', 'id', 'id_kategori_unit_kerja_fk');
     }
 }

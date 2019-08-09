@@ -277,7 +277,7 @@ html{
         });
 
 		var chrtunit_kerja = new Chart(document.getElementById('chartUnitKerja'), {
-                type: 'bar',
+                type: 'horizontalBar',
                 data: {
                 labels: label_unit_kerja,
                     datasets: [
