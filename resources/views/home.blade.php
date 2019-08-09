@@ -212,6 +212,17 @@ html{
                 return e.karyawan_count;
         });
 
+        var kelas_jabatan_alphabet = {!!$kelas_jabatan_alphabet!!};
+		var label_kelas_jabatan_alphabet = $.map(kelas_jabatan_alphabet, function(e) {
+                return e.nama_kj;
+        });
+		var value_kelas_jabatan_alphabet = $.map(kelas_jabatan_alphabet, function(e) {
+                return e.karyawan_count;
+        });
+
+        var value_kelas_jabatan_combine = value_kelas_jabatan.concat(value_kelas_jabatan_alphabet);
+        var label_kelas_jabatan_combine = label_kelas_jabatan.concat(label_kelas_jabatan_alphabet);
+
 		var chrtpendidikan = new Chart(document.getElementById('chartPendidikan'), {
                 type: 'doughnut',
                 data: {
@@ -300,12 +311,12 @@ html{
 		var chrtkelasjabatan = new Chart(document.getElementById('chartKelasJabatan'), {
                 type: 'bar',
                 data: {
-                labels: label_kelas_jabatan,
+                labels: label_kelas_jabatan_combine,
                     datasets: [
                         {
                         label : "Jumlah",   
                         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#3F3047","#3B1F2B","#0E7C7B","#E01A4F","#F15946","#7B3E19","#175676","#B6C649","#F7D002","#BF1A2F","#586BA4","#F5DD90","#F68E5F","#F76C5E","#EF476F","#118AB2"],
-                        data: value_kelas_jabatan
+                        data: value_kelas_jabatan_combine
                         }
                     ]
                 },

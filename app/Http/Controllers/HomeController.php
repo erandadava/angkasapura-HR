@@ -44,7 +44,8 @@ class HomeController extends Controller
         $this->data['jk_perempuan'] = karyawan::select('gender')->where('gender','!=','Male')->count();
         $this->data['unit_kerja'] = unitkerja::withCount('karyawan')->get()->toJson();
         $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->groupBy('pend_diakui')->get()->toJson();
-        $this->data['kelas_jabatan'] = klsjabatan::withCount('karyawan')->get()->toJson();
+        $this->data['kelas_jabatan'] = klsjabatan::withCount('karyawan')->whereRaw("nama_kj REGEXP '^-?[0-9]+$'")->orderByRaw('LENGTH(nama_kj) DESC')->orderBy('nama_kj','DESC')->get()->toJson();
+        $this->data['kelas_jabatan_alphabet'] = klsjabatan::withCount('karyawan')->whereRaw("nama_kj REGEXP '^[A-z]+$'")->orderBy('nama_kj','ASC')->get()->toJson();
         $this->data['umur_kurangdari30'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->count();
         $this->data['umur_31sd40'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->count();
         $this->data['umur_41sd50'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->count();
@@ -70,7 +71,10 @@ class HomeController extends Controller
             $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->groupBy('pend_diakui')->get()->toJson();
             $this->data['kelas_jabatan'] = klsjabatan::whereHas('karyawan', function($query) use ($dari, $sampai) {
                 $query->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
-            })->withCount('karyawan')->get()->toJson();
+            })->withCount('karyawan')->whereRaw("nama_kj REGEXP '^-?[0-9]+$'")->orderByRaw('LENGTH(nama_kj) DESC')->orderBy('nama_kj','DESC')->get()->toJson();
+            $this->data['kelas_jabatan_alphabet'] = klsjabatan::whereHas('karyawan', function($query) use ($dari, $sampai) {
+                $query->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
+            })->withCount('karyawan')->whereRaw("nama_kj REGEXP '^[A-z]+$'")->orderBy('nama_kj','ASC')->get()->toJson();
             $this->data['umur_kurangdari30'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
             $this->data['umur_31sd40'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
             $this->data['umur_41sd50'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
@@ -98,7 +102,10 @@ class HomeController extends Controller
             $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->whereBetween('tgl_lahir', [$dari, $sampai])->where('id_fungsi','=',$value_fungsi)->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->groupBy('pend_diakui')->get()->toJson();
             $this->data['kelas_jabatan'] = klsjabatan::whereHas('karyawan', function($query) use ($dari, $sampai, $value_fungsi) {
                 $query->where('id_fungsi','=',$value_fungsi)->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
-            })->withCount('karyawan')->get()->toJson();
+            })->withCount('karyawan')->whereRaw("nama_kj REGEXP '^-?[0-9]+$'")->orderByRaw('LENGTH(nama_kj) DESC')->orderBy('nama_kj','DESC')->get()->toJson();
+            $this->data['kelas_jabatan_alphabet'] = klsjabatan::whereHas('karyawan', function($query) use ($dari, $sampai, $value_fungsi) {
+                $query->where('id_fungsi','=',$value_fungsi)->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
+            })->withCount('karyawan')->whereRaw("nama_kj REGEXP '^[A-z]+$'")->orderBy('nama_kj','ASC')->get()->toJson();
             $this->data['umur_kurangdari30'] = karyawan::where('id_fungsi','=',$value_fungsi)->whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
             $this->data['umur_31sd40'] = karyawan::where('id_fungsi','=',$value_fungsi)->whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
             $this->data['umur_41sd50'] = karyawan::where('id_fungsi','=',$value_fungsi)->whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
@@ -118,7 +125,10 @@ class HomeController extends Controller
             $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->where('id_fungsi','=',$value_fungsi)->groupBy('pend_diakui')->get()->toJson();
             $this->data['kelas_jabatan'] = klsjabatan::whereHas('karyawan', function($query) use ($value_fungsi) {
                 $query->where('id_fungsi','=',$value_fungsi);
-            })->withCount('karyawan')->get()->toJson();
+            })->withCount('karyawan')->whereRaw("nama_kj REGEXP '^-?[0-9]+$'")->orderByRaw('LENGTH(nama_kj) DESC')->orderBy('nama_kj','DESC')->get()->toJson();
+            $this->data['kelas_jabatan_alphabet'] = klsjabatan::whereHas('karyawan', function($query) use ($value_fungsi) {
+                $query->where('id_fungsi','=',$value_fungsi);
+            })->withCount('karyawan')->whereRaw("nama_kj REGEXP '^[A-z]+$'")->orderBy('nama_kj','ASC')->get()->toJson();
             $this->data['umur_kurangdari30'] = karyawan::where('id_fungsi','=',$value_fungsi)->whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->count();
             $this->data['umur_31sd40'] = karyawan::where('id_fungsi','=',$value_fungsi)->whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->count();
             $this->data['umur_41sd50'] = karyawan::where('id_fungsi','=',$value_fungsi)->whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->count();
