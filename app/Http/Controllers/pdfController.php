@@ -16,6 +16,8 @@ class pdfController extends Controller
         $roles = $user->getRoleNames();
         $tabel = \Crypt::decrypt($tabel);
         $isinya = [];
+        setlocale(LC_TIME, 'id');
+        \Carbon\Carbon::setLocale('id');
         switch ($tabel) {
             case 'karyawan_os':
                 $get = \App\Models\karyawan_os::with(['fungsi','unitkerja'])->get();
@@ -26,7 +28,7 @@ class pdfController extends Controller
                         0 => $value['nama'],
                         1 => $value['fungsi']['nama_fungsi'],
                         2 => $value['unitkerja']['nama_uk'],
-                        3 => $value['tgl_lahir'],
+                        3 => \Carbon\Carbon::parse($value['tgl_lahir'])->formatLocalized('%d %B %Y'),
                         4 => $value['usia'],
                         5 => $value['gender'],
                     ];   
@@ -41,7 +43,7 @@ class pdfController extends Controller
                         0 => $value['nik'],
                         1 => $value['nama'],
                         2 => $value['gender'],
-                        3 => $value['tgl_lahir'],
+                        3 => \Carbon\Carbon::parse($value['tgl_lahir'])->formatLocalized('%d %B %Y'),
                         4 => $value['jabatan']['nama_jabatan'],
                         5 => $value['klsjabatan']['nama_kj'],
                         6 => $value['unitkerja']['nama_uk'],
@@ -121,7 +123,7 @@ class pdfController extends Controller
                         2 => $value['fungsi']['nama_fungsi'],
                         3 => $value['nama'],
                         4 => $value['nik'],
-                        5 => $value['rencana_mpp'],
+                        5 => \Carbon\Carbon::parse($value['rencana_mpp'])->formatLocalized('%d %B %Y'),
                         6 => $pensiun,
                         7 => $age,
                     ];   
@@ -133,9 +135,9 @@ class pdfController extends Controller
                 $title = 'OS Performance';
                 foreach ($get as $key => $value) {
                     $isinya[$key]=[
-                        0 => $value['tanggal_pelaporan'],
+                        0 => \Carbon\Carbon::parse($value['tanggal_pelaporan'])->formatLocalized('%d %B %Y'),
                         1 => $value['keluhan'],
-                        2 => $value['tanggal_penyelesaian'],
+                        2 => \Carbon\Carbon::parse($value['tanggal_penyelesaian'])->formatLocalized('%d %B %Y'),
                         3 => $value['hasil'],
                     ];   
                 }
