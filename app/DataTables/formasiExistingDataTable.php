@@ -31,7 +31,7 @@ class formasiExistingDataTable extends DataTable
         })
         ->editColumn('kekuatan', function ($inquiry) 
         {
-            return ((int) $inquiry->karyawan_count / (int) $inquiry->jml_formasi)*100 ."%";
+            return round(((int) $inquiry->karyawan_count / (int) $inquiry->jml_formasi)*100)."%";
         })
         ->editColumn('jml_pkwt', function ($inquiry) use($query)
         {

@@ -79,7 +79,7 @@ class pdfController extends Controller
                     }])->first();
 
                     $lowong = (int) $value->jml_formasi - (int) $value->karyawan_count;
-                    $kekuatan = ((int) $value->karyawan_count / (int) $value->jml_formasi)*100 ."%";
+                    $kekuatan = round(((int) $value->karyawan_count / (int) $value->jml_formasi)*100)."%";
                     $isinya[$key]=[
                         0 => $value['nama_uk'],
                         1 => $value['jml_formasi'],

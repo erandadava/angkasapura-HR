@@ -60,7 +60,7 @@ class unitkerjaController extends AppBaseController
 
         $this->data['lowong'] = (int) $this->data['unitkerja']['jml_formasi'] - (int) $this->data['unitkerja']['karyawan_count'];
      
-        $this->data['kekuatan'] = ((int) $this->data['unitkerja']['karyawan_count'] / (int) $this->data['unitkerja']['jml_formasi'])*100 ."%";
+        $this->data['kekuatan'] = round(((int) $this->data['unitkerja']['karyawan_count'] / (int) $this->data['unitkerja']['jml_formasi'])*100)."%";
         return view('unitkerjas.showformasi')->with($this->data);
     }
 
