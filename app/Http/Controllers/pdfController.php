@@ -54,7 +54,7 @@ class pdfController extends Controller
                 $get = \App\Models\unitkerja::withCount('karyawan')->with('kategori_unit_kerja')->orderBy('id_kategori_unit_kerja_fk', 'DESC')->get();
                 $head = ['Unit Kerja','Formasi', 'Eksis', 'Lowong', 'Kekuatan SDM','Pejabat','Karyawan','PKWT','KMPG','Total Eksis'];
                 
-                $title = 'Formasi vs Eksisting';
+                $title = 'Laporan Kekuatan SDM KCU BSH';
                 $group = [];
                 foreach ($get as $key => $value) {
                     $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
@@ -101,6 +101,7 @@ class pdfController extends Controller
                 }
 
                 $values = $isinya; 
+                $tabel = 'laporan_kekuatan_SDM KCU BSH';
                 $pdf = PDF::loadview('pdf.index_formasi',['head'=>$head,'title'=>$title,'value'=>$values,'group'=>$group])->setPaper('a4', 'landscape');
                 // return $pdf->download($tabel.time().'.pdf');
                 return $pdf->stream($tabel.time().'.pdf', array("Attachment" => false));
