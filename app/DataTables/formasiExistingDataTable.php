@@ -148,7 +148,7 @@ class formasiExistingDataTable extends DataTable
                         $(column.footer()).html('Total: ' + LaravelDataTables['dataTableBuilder'].ajax.json().sum_formasi);
                         
                     });
-                    this.api().columns(2).every(function () {
+                    this.api().columns(3).every(function () {
                         var column = this;
                         $(column.footer()).html('Total: ' + LaravelDataTables['dataTableBuilder'].ajax.json().sum_eksis);
                         
