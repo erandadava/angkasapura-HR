@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\karyawan;
 use App\Models\fungsi;
+use App\Models\fungsi_os;
 use App\Models\klsjabatan;
 use App\Models\unitkerja;
 use DB;
@@ -44,6 +45,7 @@ class HomeController extends Controller
         $user = Auth::user();
         $roles = $user->getRoleNames();
         if($roles[0] == "Vendor"){
+            $this->data['data_fungsi'] = fungsi_os::pluck('nama_fungsi','id');
             $id_vendor = \App\Models\vendor_os::where('email','=',$user->email)->first();
             //if all null
             $this->data['jk_laki'] = karyawan_os::select('gender')->where([['gender','=','Laki-laki'],['id_vendor','=',$id_vendor->id]])->count();

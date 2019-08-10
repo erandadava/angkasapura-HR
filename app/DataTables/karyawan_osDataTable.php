@@ -33,7 +33,7 @@ class karyawan_osDataTable extends DataTable
         $roles = $user->getRoleNames();
         if($roles[0] == "Vendor"){
             $id_vendor = \App\Models\vendor_os::where('email','=',$user->email)->first();
-            return $model->with(['unitkerja','jabatan_os'])->where('id_vendor','=',$id_vendor->id)->newQuery();
+            return $model->with(['unitkerja','jabatan_os','fungsi'])->where('id_vendor','=',$id_vendor->id)->newQuery();
         }
         return $model->with(['unitkerja','jabatan_os'])->newQuery();
     }
@@ -69,7 +69,7 @@ class karyawan_osDataTable extends DataTable
     {
         return [
             ['data'=>'nama','title'=>'Nama'],
-            ['data'=>'jabatan_os.nama_jabatan','title'=>'Fungsi'],
+            ['data'=>'fungsi.nama_fungsi','title'=>'Fungsi'],
             ['data'=>'unitkerja.nama_uk','title'=>'Unit Kerja'],
             ['data'=>'tgl_lahir','title'=>'Tanggal Lahir'],
             ['data'=>'usia','title'=>'Usia'],

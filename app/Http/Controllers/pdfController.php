@@ -28,7 +28,7 @@ class pdfController extends Controller
                 }else{
                     $get = \App\Models\karyawan_os::with(['fungsi','unitkerja'])->get();
                 }
-                $head = ['Nama', 'Fungsi', 'Unit Kerja', 'Tanggal Lahir', 'Usia', 'Jenis Kelamin'];
+                $head = ['Nama', 'Fungsi', 'Unit Kerja', 'Tanggal Lahir', 'Usia', 'Jenis Kelamin', 'Penempatan'];
                 $title = 'Karyawan Outsourcing';
                 foreach ($get as $key => $value) {
                     $isinya[$key]=[
@@ -38,6 +38,7 @@ class pdfController extends Controller
                         3 => \Carbon\Carbon::parse($value['tgl_lahir'])->formatLocalized('%d %B %Y'),
                         4 => $value['usia'],
                         5 => $value['gender'],
+                        6 => $value['penempatan']
                     ];   
                 }
                 break; 

@@ -6,8 +6,8 @@
 
 <!-- Id Fungsi Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nama_jabatan', 'Nama Jabatan:') !!}
-    {!! Form::select('nama_jabatan', $jabatan_os, null, ['class' => 'form-control']) !!}
+    {!! Form::label('id_fungsi', 'Nama Fungsi:') !!}
+    {!! Form::select('id_fungsi', $fungsi, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Id Unitkerja Field -->
