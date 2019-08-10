@@ -73,6 +73,11 @@ class unitkerja extends Model
         return $this->hasMany('App\Models\karyawan', 'id_unitkerja', 'id');
     }
 
+    public function karyawan_os()
+    {
+        return $this->hasMany('App\Models\karyawan_os', 'id_unitkerja', 'id');
+    }
+
     public function kategori_unit_kerja()
     {
         return $this->hasOne('App\Models\kategori_unit_kerja', 'id', 'id_kategori_unit_kerja_fk');

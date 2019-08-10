@@ -12,15 +12,16 @@ use App\Http\Controllers\AppBaseController;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Traits\HasRole;
 use Response;
-
+use App\Repositories\vendor_osRepository;
 class usersController extends AppBaseController
 {
     /** @var  usersRepository */
     private $usersRepository;
 
-    public function __construct(usersRepository $usersRepo)
+    public function __construct(usersRepository $usersRepo,vendor_osRepository $vendorOsRepo)
     {
         $this->usersRepository = $usersRepo;
+        $this->vendorOsRepository = $vendorOsRepo;
         $this->data['role'] = \App\Models\roles::pluck('name','id')->all();
     }
 
@@ -63,6 +64,14 @@ class usersController extends AppBaseController
         $akun = \App\User::find($users->id);
 
         $akun->assignRole($input['roles']);
+        
+        if($input['roles'] == "3"){
+            $input['nama_vendor'] = $input['name'];
+            $input['telepon'] = " ";
+            $input['alamat'] = " ";
+            $input['is_active'] = 1;
+            $this->vendorOsRepository->create($input);
+        }
 
         Flash::success('Users saved successfully.');
 
@@ -105,7 +114,7 @@ class usersController extends AppBaseController
 
             return redirect(route('users.index'));
         }
-
+        
         return view('users.edit')->with($this->data);
     }
 

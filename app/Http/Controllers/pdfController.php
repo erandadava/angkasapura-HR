@@ -20,7 +20,14 @@ class pdfController extends Controller
         \Carbon\Carbon::setLocale('id');
         switch ($tabel) {
             case 'karyawan_os':
-                $get = \App\Models\karyawan_os::with(['fungsi','unitkerja'])->get();
+                $user = Auth::user();
+                $roles = $user->getRoleNames();
+                if($roles[0] == "Vendor"){
+                    $id_vendor = \App\Models\vendor_os::where('email','=',$user->email)->first();
+                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja'])->where('id_vendor','=',$id_vendor->id)->get();
+                }else{
+                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja'])->get();
+                }
                 $head = ['Nama', 'Fungsi', 'Unit Kerja', 'Tanggal Lahir', 'Usia', 'Jenis Kelamin'];
                 $title = 'Karyawan Outsourcing';
                 foreach ($get as $key => $value) {

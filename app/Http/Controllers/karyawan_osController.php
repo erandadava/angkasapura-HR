@@ -17,6 +17,7 @@ use App\Models\vendor_os;
 use Illuminate\Http\Request;
 use Validator;
 use League\Csv\Reader;
+use Auth;
 class karyawan_osController extends AppBaseController
 {
     /** @var  karyawan_osRepository */
@@ -29,6 +30,7 @@ class karyawan_osController extends AppBaseController
         $this->data['fungsi'] = fungsi_os::pluck('nama_fungsi','id');
         $this->data['jabatan_os'] = jabatan_os::pluck('nama_jabatan','id');
         $this->data['vendor'] = vendor_os::where('is_active','=',1)->pluck('nama_vendor','id');
+
     }
 
     /**
@@ -49,6 +51,7 @@ class karyawan_osController extends AppBaseController
      */
     public function create()
     {
+        $this->data['id_vendor'] = \App\Models\vendor_os::where('email','=',Auth::user()->email)->first();
         return view('karyawan_os.create')->with($this->data);
     }
 
@@ -156,7 +159,7 @@ class karyawan_osController extends AppBaseController
     public function edit($id)
     {
         $this->data['karyawanOs'] = $this->karyawanOsRepository->findWithoutFail($id);
-
+        $this->data['id_vendor'] = \App\Models\vendor_os::where('email','=',Auth::user()->email)->first();
         if (empty($this->data['karyawanOs'])) {
             Flash::error('Karyawan Os not found');
 
