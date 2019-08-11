@@ -62,9 +62,9 @@
                 <a href="{!! route('tipekars.index') !!}"><i class="fa fa-edit"></i><span>Tipe Karyawan</span></a>
             </li>
             
-            <li class="{{ Request::is('units*') ? 'active' : '' }}">
+            {{-- <li class="{{ Request::is('units*') ? 'active' : '' }}">
                 <a href="{!! route('units.index') !!}"><i class="fa fa-edit"></i><span>Unit</span></a>
-            </li>
+            </li> --}}
             
             <li class="{{ Request::is('unitkerjas*') ? 'active' : '' }}">
                 <a href="{!! route('unitkerjas.index') !!}"><i class="fa fa-edit"></i><span>Unit Kerja</span></a>

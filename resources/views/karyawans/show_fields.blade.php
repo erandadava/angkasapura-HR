@@ -12,18 +12,18 @@
         <p>{!! $karyawan->gender !!}</p>
     </div>
   </div>
-  <div class="col-md-3">
-    <div class="form-group">
-        {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
-        <p>{!! $karyawan->tgl_lahir !!}</p>
+   <div class="col-md-3">
+        <div class="form-group">
+            {!! Form::label('pend_diakui', 'Pend Diakui:') !!}
+            <p>{!! $karyawan->pend_diakui !!}</p>
+        </div>
     </div>
-  </div>
-  <div class="col-md-3">
+  {{-- <div class="col-md-3">
     <div class="form-group">
         {!! Form::label('id_kj', 'id Kj:') !!}
         <p>{!! $karyawan->id_kj !!}</p>
     </div>
-  </div>
+  </div> --}}
 </div>
 
 <div class="row">
@@ -33,7 +33,7 @@
             <p>{!! $karyawan->id_jabatan !!}</p>
         </div>
     </div>
-    <div class="col-md-3">
+    {{-- <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('id_status1', 'id Status1:') !!}
             <p>{!! $karyawan->id_status1 !!}</p>
@@ -44,7 +44,7 @@
             {!! Form::label('id_status2', 'id Status2:') !!}
             <p>{!! $karyawan->id_status2 !!}</p>
         </div>
-    </div>
+    </div> --}}
     <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('id_unitkerja', 'id Unitkerja:') !!}
@@ -66,33 +66,27 @@
             <p>{!! $karyawan->rencana_pensiun !!}</p>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="form-group">
-            {!! Form::label('pend_diakui', 'Pend Diakui:') !!}
-            <p>{!! $karyawan->pend_diakui !!}</p>
-        </div>
-    </div>
-    <div class="col-md-3">
+    {{-- <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('id_org', 'id Org:') !!}
             <p>{!! $karyawan->id_org !!}</p>
         </div>
-    </div>
+    </div> --}}
 </div>
 
 <div class="row">
-    <div class="col-md-3">
+    {{-- <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('id_posisi', 'id Posisi:') !!}
             <p>{!! $karyawan->id_posisi !!}</p>
         </div>
-    </div>
-    <div class="col-md-3">
+    </div> --}}
+    {{-- <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('id_tipe_kar', 'id Tipe Kar:') !!}
             <p>{!! $karyawan->id_tipe_kar !!}</p>
         </div>
-    </div>
+    </div> --}}
     <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('status_pensiun', 'Status Pensiun:') !!}
@@ -110,10 +104,12 @@
             <p>{!! $karyawan->tgl_aktif_pensiun !!}</p>
         </div>
     </div>
+
 </div>
 
 <div class="row">
-    <div class="col-md-6">
+
+    <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('entry_date', 'Entry Date:') !!}
             <p>{!! $karyawan->entry_date !!}</p>
@@ -121,8 +117,14 @@
     </div>
     <div class="col-md-6">
         <div class="form-group">
+            {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
+            <p>{!! $karyawan->tgl_lahir !!}</p>
+        </div>
+    </div>
+    {{-- <div class="col-md-6">
+        <div class="form-group">
             {!! Form::label('deleted_at', 'Deleted At:') !!}
             <p>{!! $karyawan->deleted_at !!}</p>
         </div>
-    </div>
+    </div> --}}
 </div>

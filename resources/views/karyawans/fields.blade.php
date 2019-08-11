@@ -39,10 +39,10 @@
 </div>
 
 <!-- id Status2 Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('id_status2', 'Status 2:') !!}
     {!! Form::select('id_status2', $statuskar, null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- id Unitkerja Field -->
 <div class="form-group col-sm-6">
@@ -50,11 +50,11 @@
     {!! Form::select('id_unitkerja',$unitkerja, null, ['class' => 'form-control', 'id' => 'unitkerja']) !!}
 </div>
 
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('id_unit', 'Unit:') !!}
     {!! Form::select('id_unit',$unit, null, ['class' => 'form-control', 'id' => 'unitkerja']) !!}
-</div>
-
+</div> --}}
+    
 <!-- Rencana Mpp Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('rencana_mpp', 'Rencana MPP:') !!}
@@ -83,17 +83,32 @@
     ], null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- id Org Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_org', 'id Org:') !!}
-    {!! Form::number('id_org', null, ['class' => 'form-control']) !!}
+    {!! Form::label('pend_milik', 'Pend milik:') !!}
+    {!! Form::select('pend_milik', [
+        'SLTA' => 'SLTA',
+        'SLTP' => 'SLTP',
+        'DI  - Diploma I' => 'DI  - Diploma I',
+        'DII  - Diploma II' => 'DII  - Diploma II',
+        'DIII  - Diploma III' => 'DIII  - Diploma III',
+        'DIV - Diploma IV' => 'DIV - Diploma IV',
+        'S1 - Strata 1' => 'S1 - Strata 1',
+        'S2 - Strata 2' => 'S2 - Strata 2',
+        'S3 - Strata 3' => 'S3 - Strata 3',
+    ], null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- id Org Field -->
+{{-- <div class="form-group col-sm-6">
+    {!! Form::label('id_org', 'id Org:') !!}
+    {!! Form::number('id_org', null, ['class' => 'form-control']) !!}
+</div> --}}
+
 <!-- id Posisi Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('id_posisi', 'id Posisi:') !!}
     {!! Form::number('id_posisi', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- id Tipe Kar Field -->
 <div class="form-group col-sm-6">
