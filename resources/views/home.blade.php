@@ -32,8 +32,8 @@ html{
                             <div class="info-box-content">
                                 {!! Form::open(['url' => '/home', 'method' => 'GET', 'autocomplete' => 'off']) !!}
                                         <div class="form-group col-sm-4">
-                                            <label for="exampleInputEmail1">Fungsi</label>
-                                            {!! Form::select('value_fungsi',$data_fungsi, null, ['class' => 'form-control', 'placeholder' => '', 'autocomplete' => 'off']) !!}
+                                            <label for="exampleInputEmail1">Unit</label>
+                                            {!! Form::select('value_unit',$data_unit_kerja, null, ['class' => 'form-control', 'placeholder' => '', 'autocomplete' => 'off']) !!}
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label for="exampleInputEmail1">Mulai Dari</label>
