@@ -37,11 +37,11 @@
         <li class="{{ Request::is('users*') ? 'active' : '' }}">
                 <a href="{!! route('users.index') !!}"><i class="fa fa-edit"></i><span>Users</span></a>
             </li>
-            
+{{--             
             <li class="{{ Request::is('fungsis*') ? 'active' : '' }}">
                 <a href="{!! route('fungsis.index') !!}"><i class="fa fa-edit"></i><span>Fungsi</span></a>
             </li>
-            
+             --}}
             <li class="{{ Request::is('jabatans*') ? 'active' : '' }}">
                 <a href="{!! route('jabatans.index') !!}"><i class="fa fa-edit"></i><span>Jabatan</span></a>
             </li>

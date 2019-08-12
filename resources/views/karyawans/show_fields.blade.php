@@ -29,8 +29,8 @@
 <div class="row">
     <div class="col-md-3">
         <div class="form-group">
-            {!! Form::label('id_jabatan', 'id Jabatan:') !!}
-            <p>{!! $karyawan->id_jabatan !!}</p>
+            {!! Form::label('id_jabatan', 'Nama Jabatan:') !!}
+            <p>{!! $karyawan->jabatan->nama_jabatan !!}</p>
         </div>
     </div>
     {{-- <div class="col-md-3">
@@ -66,6 +66,12 @@
             <p>{!! $karyawan->rencana_pensiun !!}</p>
         </div>
     </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
+            <p>{!!  \Carbon\Carbon::parse($karyawan->tgl_lahir)->formatLocalized('%d %B %Y'); !!}</p>
+        </div>
+    </div>
     {{-- <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('id_org', 'id Org:') !!}
@@ -98,12 +104,12 @@
             </p>
         </div>
     </div>
-    <div class="col-md-3">
+    {{-- <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('tgl_aktif_pensiun', 'Tanggal Aktif Pensiun:') !!}
             <p>{!! $karyawan->tgl_aktif_pensiun !!}</p>
         </div>
-    </div>
+    </div> --}}
 
 </div>
 
@@ -115,10 +121,10 @@
             <p>{!! $karyawan->entry_date !!}</p>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-3">
         <div class="form-group">
-            {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
-            <p>{!! $karyawan->tgl_lahir !!}</p>
+            {!! Form::label('updated_at', 'Updated At:') !!}
+            <p>{!! $karyawan->updated_at !!}</p>
         </div>
     </div>
     {{-- <div class="col-md-6">
