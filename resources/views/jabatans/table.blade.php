@@ -7,4 +7,7 @@
 @section('scripts')
     @include('layouts.datatables_js')
     {!! $dataTable->scripts() !!}
+    <script>
+        $('#dataTableBuilder thead').prepend("<tr><th colspan='1'></th><th colspan='3' style='text-align:center;background-color:#f5f5f5'>Persyaratan Jabatan</th><th></th></tr>");
+    </script>
 @endsection
