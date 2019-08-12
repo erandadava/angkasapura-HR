@@ -54,22 +54,22 @@
                 <a href="{!! route('klsjabatans.index') !!}"><i class="fa fa-edit"></i><span>Kelas jabatan</span></a>
             </li>
             
-            <li class="{{ Request::is('statuskars*') ? 'active' : '' }}">
+            {{-- <li class="{{ Request::is('statuskars*') ? 'active' : '' }}">
                 <a href="{!! route('statuskars.index') !!}"><i class="fa fa-edit"></i><span>Status Karyawan</span></a>
-            </li>
+            </li> --}}
             
             <li class="{{ Request::is('tipekars*') ? 'active' : '' }}">
                 <a href="{!! route('tipekars.index') !!}"><i class="fa fa-edit"></i><span>Tipe Karyawan</span></a>
             </li>
-            
-            {{-- <li class="{{ Request::is('units*') ? 'active' : '' }}">
-                <a href="{!! route('units.index') !!}"><i class="fa fa-edit"></i><span>Unit</span></a>
-            </li> --}}
-            
+               
             <li class="{{ Request::is('unitkerjas*') ? 'active' : '' }}">
-                <a href="{!! route('unitkerjas.index') !!}"><i class="fa fa-edit"></i><span>Unit Kerja</span></a>
+                <a href="{!! route('unitkerjas.index') !!}"><i class="fa fa-edit"></i><span>Unit 1</span></a>
             </li>
 
+            <li class="{{ Request::is('units*') ? 'active' : '' }}">
+                <a href="{!! route('units.index') !!}"><i class="fa fa-edit"></i><span>Unit 2</span></a>
+            </li>
+         
             <li class="{{ Request::is('fungsiOs*') ? 'active' : '' }}">
                 <a href="{!! route('fungsiOs.index') !!}"><i class="fa fa-edit"></i><span>Fungsi OS</span></a>
             </li>
@@ -77,9 +77,9 @@
             <li class="{{ Request::is('vendorOs*') ? 'active' : '' }}">
                 <a href="{!! route('vendorOs.index') !!}"><i class="fa fa-edit"></i><span>Vendor OS</span></a>
             </li>
-            <li class="{{ Request::is('kategoriUnitKerjas*') ? 'active' : '' }}">
+            {{-- <li class="{{ Request::is('kategoriUnitKerjas*') ? 'active' : '' }}">
                 <a href="{!! route('kategoriUnitKerjas.index') !!}"><i class="fa fa-edit"></i><span>Kategori Unit Kerja</span></a>
-            </li>
+            </li> --}}
               
     </ul>
 </li>
