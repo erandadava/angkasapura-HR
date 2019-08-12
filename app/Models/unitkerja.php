@@ -65,7 +65,7 @@ class unitkerja extends Model
 
     public function getKekuatansdmAttribute()
     {
-        return ((int) $this->jml_existing / (int) $this->jml_formasi)*100 ."%";
+        return round(((int) $this->jml_existing / (int) $this->jml_formasi)*100)."%";
     }
     
     public function karyawan()

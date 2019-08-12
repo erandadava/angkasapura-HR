@@ -130,25 +130,24 @@ class formasiExistingDataTable extends DataTable
             ->minifiedAjax()
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
-                'dom'     => 'Blfrtip',
+                'dom'     => 'Bfrtip',
                 'order'   => [[2, 'desc']],
+                'paging' => false,
                 "columnDefs" => [
                     [ "visible" => false, "targets" => [2] ]
                 ],
                 'buttons' => [
-                    ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
+                    'pdf'
                 ],
                 'initComplete' => "function () {
                     var rows = this.api().rows( {page:'current'} ).nodes();
                     var last=null;
-                    this.api().columns(1).every(function () {
+                    this.api().columns(3).every(function () {
                         var column = this;
                         $(column.footer()).html('Total: ' + LaravelDataTables['dataTableBuilder'].ajax.json().sum_formasi);
                         
                     });
-                    this.api().columns(3).every(function () {
+                    this.api().columns(4).every(function () {
                         var column = this;
                         $(column.footer()).html('Total: ' + LaravelDataTables['dataTableBuilder'].ajax.json().sum_eksis);
                         
