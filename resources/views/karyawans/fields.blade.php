@@ -8,16 +8,15 @@
     {!! Form::text('nama', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Gender Field -->
+<!-- id Jabatan Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('gender', 'Jenis Kelamin:') !!}
-    {!! Form::select('gender',['Male' => 'Male', 'Female' => 'Female'],null, ['class' => 'form-control']) !!}
+    {!! Form::label('id_jabatan', 'Jabatan:') !!}
+    {!! Form::select('id_jabatan', $jabatan, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Tgl Lahir Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
-    {!! Form::text('tgl_lahir', null, ['class' => 'form-control','id'=>'tgl_lahir']) !!}
+    {!! Form::label('id_unitkerja', 'Unit Kerja:') !!}
+    {!! Form::select('id_unitkerja',$unitkerja, null, ['class' => 'form-control', 'id' => 'unitkerja']) !!}
 </div>
 
 <!-- id Kj Field -->
@@ -26,10 +25,15 @@
     {!! Form::select('id_klsjabatan', $klsjabatan, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- id Jabatan Field -->
+<!-- Gender Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_jabatan', 'Jabatan:') !!}
-    {!! Form::select('id_jabatan', $jabatan, null, ['class' => 'form-control']) !!}
+    {!! Form::label('gender', 'Jenis Kelamin:') !!}
+    {!! Form::select('gender',['Male' => 'Male', 'Female' => 'Female'],null, ['class' => 'form-control']) !!}
+</div>
+<!-- Tgl Lahir Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
+    {!! Form::text('tgl_lahir', null, ['class' => 'form-control','id'=>'tgl_lahir']) !!}
 </div>
 
 <!-- id Status1 Field -->

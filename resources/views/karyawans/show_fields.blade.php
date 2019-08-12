@@ -47,8 +47,8 @@
     </div> --}}
     <div class="col-md-3">
         <div class="form-group">
-            {!! Form::label('id_unitkerja', 'id Unitkerja:') !!}
-            <p>{!! $karyawan->id_unitkerja !!}</p>
+            {!! Form::label('id_unitkerja', 'Unit 1:') !!}
+            <p>{!! $karyawan->unitkerja->nama_uk !!}</p>
         </div>
     </div>
 </div>
