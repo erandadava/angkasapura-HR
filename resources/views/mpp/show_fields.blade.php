@@ -19,7 +19,7 @@
 <!-- Tgl Lahir Field -->
 <div class="form-group">
     {!! Form::label('tgl_lahir', 'Tgl Lahir:') !!}
-    <p>{!! $mpp->tgl_lahir !!}</p>
+    <p>{!! ($mpp->tgl_lahir)->format('d-m-Y') !!}</p>
 </div>
 
 <!-- id Kj Field -->
@@ -55,17 +55,17 @@
 <!-- Rencana Mpp Field -->
 <div class="form-group">
     {!! Form::label('rencana_mpp', 'Rencana Mpp:') !!}
-    <p>{!! $mpp->rencana_mpp !!}</p>
+    <p>{!! ($mpp->rencana_mpp)->format('d-m-Y') !!}</p>
 </div>
 
 <!-- Rencana Pensiun Field -->
 <div class="form-group">
     {!! Form::label('rencana_pensiun', 'Rencana Pensiun:') !!}
-    <p>{!! $mpp->rencana_pensiun !!}</p>
+    <p>{!! ($mpp->rencana_pensiun)->format('d-m-Y') !!}</p>
 </div>
 
 <!-- Pend Diakui Field -->
-<div class="form-group">
+{{-- <div class="form-group">
     {!! Form::label('pend_diakui', 'Pend Diakui:') !!}
     <p>{!! $mpp->pend_diakui !!}</p>
 </div>
@@ -98,5 +98,5 @@
 <div class="form-group">
     {!! Form::label('deleted_at', 'Deleted At:') !!}
     <p>{!! $mpp->deleted_at !!}</p>
-</div>
+</div> --}}
 
