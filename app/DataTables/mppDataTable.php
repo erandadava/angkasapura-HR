@@ -46,6 +46,9 @@ class mppDataTable extends DataTable
             if ($inquiry->status_pensiun == 'M') return "<span class='label label-warning'>Menunggu Waktu Aktif Pensiun</span>";
             if ($inquiry->status_pensiun == 'N') return "<span class='label label-info'>Belum Pensiun</span>";
         })
+        ->editColumn('rencana_mpp', function ($inquiry) {
+            return \Carbon\Carbon::parse($inquiry->rencana_mpp)->formatLocalized('%d %B %Y');
+        })
         ->rawColumns(['tgl_lahir','status_pensiun','action']);
     }
 

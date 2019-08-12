@@ -60,7 +60,7 @@
               <div class="col-md-3">
                     <div class="form-group">
                         {!! Form::label('rencana_mpp', 'Rencana Mpp:') !!}
-                        <p>{!! $karyawan->rencana_mpp !!}</p>
+                        <p>{!!  \Carbon\Carbon::parse($karyawan->rencana_mpp)->formatLocalized('%d %B %Y'); !!}</p>
                     </div>
                 </div>
 
@@ -77,7 +77,8 @@
           <div class="col-md-3">
               <div class="form-group">
                   {!! Form::label('rencana_pensiun', 'Rencana Pensiun:') !!}
-                  <p>{!! $karyawan->rencana_pensiun !!}</p>
+                  <p>{!!  \Carbon\Carbon::parse($karyawan->rencana_pensiun)->formatLocalized('%d %B %Y'); !!}</p>
+
               </div>
           </div>
           <div class="col-md-3">
@@ -102,7 +103,8 @@
             <div class="col-md-3">
                 <div class="form-group">
                     {!! Form::label('tgl_aktif_pensiun', 'Tanggal Aktif Pensiun:') !!}
-                    <p>{!! $karyawan->tgl_aktif_pensiun !!}</p>
+                    <p>{!!  \Carbon\Carbon::parse($karyawan->tgl_aktif_pensiun)->formatLocalized('%d %B %Y'); !!}</p>
+
                 </div>
             </div>
           {{-- <div class="col-md-3">
@@ -135,13 +137,16 @@
           <div class="col-md-3">
               <div class="form-group">
                   {!! Form::label('entry_date', 'Entry Date:') !!}
-                  <p>{!! $karyawan->entry_date !!}</p>
+                  <p>{!!  \Carbon\Carbon::parse($karyawan->entry_date)->formatLocalized('%d %B %Y | %H:%M:%S'); !!}</p>
+
+                  
               </div>
           </div>
           <div class="col-md-6">
               <div class="form-group">
                   {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
-                  <p>{!! $karyawan->tgl_lahir !!}</p>
+                  <p>{!!  \Carbon\Carbon::parse($karyawan->tgl_lahir)->formatLocalized('%d %B %Y'); !!}</p>
+
               </div>
           </div>
           {{-- <div class="col-md-6">
