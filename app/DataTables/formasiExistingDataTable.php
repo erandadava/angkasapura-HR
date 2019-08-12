@@ -137,7 +137,7 @@ class formasiExistingDataTable extends DataTable
                     [ "visible" => false, "targets" => [2] ]
                 ],
                 'buttons' => [
-                    'pdf'
+                    
                 ],
                 'initComplete' => "function () {
                     var rows = this.api().rows( {page:'current'} ).nodes();
