@@ -72,15 +72,15 @@ class mppController extends AppBaseController
      */
     public function show($id)
     {
-        $mpp = $this->KaryawanRepository->findWithoutFail($id);
+         $karyawan = $this->karyawanRepository->findWithoutFail($id);
 
-        if (empty($mpp)) {
-            Flash::error('mpp not found');
+        if (empty($karyawan)) {
+            Flash::error('Karyawan not found');
 
-            return redirect(route('mpp.index'));
+            return redirect(route('karyawans.index'));
         }
 
-        return view('mpp.show')->with('mpp', $mpp);
+        return view('karyawans.show')->with('karyawan', $karyawan);
     }
 
     /**
