@@ -9,9 +9,10 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Traits\HasRole;
 use Auth;
 use Carbon\Carbon;
+
 class pdfController extends Controller
 {
-    public function make_pdf($tabel){
+    public function make_pdf($tabel,Request $request){
         $user = Auth::user();
         $roles = $user->getRoleNames();
         $tabel = \Crypt::decrypt($tabel);
@@ -59,7 +60,40 @@ class pdfController extends Controller
                 }
             break; 
             case 'formasi':
-                $get = \App\Models\unitkerja::withCount('karyawan')->with('kategori_unit_kerja')->orderBy('id_kategori_unit_kerja_fk', 'DESC')->get();
+                if($request->f && $request->key){
+                    if($request->key=="asc"){
+                        if($request->s){
+                            $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                                $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
+                            })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                return $product[$request->f];
+                            });
+                        }else{
+                            $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                return $product[$request->f];
+                            });
+                        }
+                    }else{
+                        if($request->s){
+                            $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                                $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
+                            })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderByDesc('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                return $product[$request->f];
+                            });
+                        }else{
+                            $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortByDesc(function ($product, $key) use($request){
+                                return $product[$request->f];
+                            });
+                        }
+                    }
+                }elseif($request->s){
+                    $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                        $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
+                   })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                }else{
+                    $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->with('kategori_unit_kerja')->withCount('karyawan')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                }
+
                 $head = ['Unit Kerja','Formasi', 'Eksis', 'Lowong', 'Kekuatan SDM','Pejabat','Karyawan','PKWT','KMPG','Total Eksis'];
                 
                 $title = 'Laporan Kekuatan SDM KCU BSH';
