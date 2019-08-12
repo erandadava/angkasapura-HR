@@ -78,9 +78,7 @@ class mppDataTable extends DataTable
                 'dom'     => 'Blfrtip',
                 'order'   => [[0, 'desc']],
                 'buttons' => [
-                    ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
+                    
                 ],
             ]);
     }
@@ -93,6 +91,7 @@ class mppDataTable extends DataTable
     protected function getColumns()
     {
         return [
+            ['data' => 'id', 'title' => 'id', 'visible' => false],
             ['data' => 'unit.nama_unit', 'title' => 'Unit'],
             ['data' => 'jabatan.nama_jabatan', 'title' => 'Jabatan'],
             ['data' => 'fungsi.nama_fungsi', 'title' => 'Fungsi'],
