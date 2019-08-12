@@ -91,13 +91,20 @@ class mppDataTable extends DataTable
     protected function getColumns()
     {
         return [
+<<<<<<< HEAD
             ['data' => 'id', 'title' => 'id', 'visible' => false],
             ['data' => 'unit.nama_unit', 'title' => 'Unit'],
             ['data' => 'jabatan.nama_jabatan', 'title' => 'Jabatan'],
             ['data' => 'fungsi.nama_fungsi', 'title' => 'Fungsi'],
             ['data' => 'nama', 'title' => 'Nama'],
+=======
+>>>>>>> b2a711c795a9505c337fc5aa392a5bd5bea0394b
             ['data' => 'nik', 'title' => 'NIK'],
+            ['data' => 'nama', 'title' => 'Nama'],
+            ['data' => 'jabatan.nama_jabatan', 'title' => 'Jabatan'],
+            ['data' => 'unit.nama_unit', 'title' => 'Unit'],
             ['data' => 'rencana_mpp', 'title' => 'Rencana MPP'],
+            ['data' => 'fungsi.nama_fungsi', 'title' => 'Fungsi'],
             ['data' => 'status_pensiun', 'title' => 'Status Pensiun'],
             ['data' => 'tgl_lahir', 'title' => 'Status MPP']
         ];
