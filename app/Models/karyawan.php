@@ -38,7 +38,7 @@ class karyawan extends Model
 
 
     protected $dates = ['deleted_at','entry_date','tgl_lahir','rencana_mpp','rencana_pensiun'];
-    protected $appends = ['Age'];
+    protected $appends = ['Age','Statusmpp'];
     
     public $fillable = [
         'nama',
@@ -148,5 +148,16 @@ class karyawan extends Model
         }else{
             return 2;
         }
+    }
+
+    public function getStatusmppAttribute(){
+        $to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Carbon::now());
+        $m = date('-m-d', strtotime($this->tgl_lahir));
+        $from = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Carbon::now()->year.$m.' 9:30:34');
+        $sisa = $to->diffInDays($from);
+        $umur =  \Carbon\Carbon::parse($this->tgl_lahir)->age;
+        if ((int) $umur == 55 && (int) $sisa < 60 && (int) $sisa > 0) return "<span class='label label-warning'>Masa MPP Akan Datang</span>";
+        if ((int) $umur < 55 || (int) $sisa > 60) return "<span class='label label-default'>Belum Masa MPP</span>";
+        return "<span class='label label-danger'>Sudah Masa MPP</span>";
     }
 }
