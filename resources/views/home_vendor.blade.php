@@ -175,6 +175,10 @@ html{
                         datalabels: {
                             color : '#fff'
                         }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Jumlah Karyawan Berdasarkan Gender'
                     }
                 }
         });
@@ -196,6 +200,10 @@ html{
                         datalabels: {
                             color : '#fff'
                         }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Jumlah Karyawan Berdasarkan Umur'
                     }
                 }
         });
@@ -217,6 +225,10 @@ html{
                         datalabels: {
                             color : '#000'
                         }
+                    },
+                    title: {
+                        display: true,
+                        text: 'Jumlah Karyawan Berdasarkan Unit Kerja'
                     }
                 }
         });

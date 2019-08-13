@@ -71,18 +71,18 @@ class HomeController extends Controller
                         return view('home_vendor')->with($this->data);
                     }
 
-                    $this->data['jk_laki'] = karyawan_os::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where([['gender','=','Laki-laki'],['id_vendor','=',$id_vendor->id]])->count();
-                    $this->data['jk_perempuan'] = karyawan_os::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where([['gender','!=','Laki-laki'],['id_vendor','=',$id_vendor->id]])->count();
+                    $this->data['jk_laki'] = karyawan_os::select('gender')->whereBetween('created_at', [$dari, $sampai])->where([['gender','=','Laki-laki'],['id_vendor','=',$id_vendor->id]])->count();
+                    $this->data['jk_perempuan'] = karyawan_os::select('gender')->whereBetween('created_at', [$dari, $sampai])->where([['gender','!=','Laki-laki'],['id_vendor','=',$id_vendor->id]])->count();
                     $this->data['unit_kerja'] = unitkerja::whereHas('karyawan_os', function($query) use ($dari, $sampai, $id_vendor) {
-                        $query->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where('id_vendor','=',$id_vendor->id);
+                        $query->whereBetween('created_at', [$dari, $sampai])->where('id_vendor','=',$id_vendor->id);
                     })->withCount(['karyawan_os' => function ($query) use($dari, $sampai, $id_vendor){
-                        $query->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where('id_vendor','=',$id_vendor->id);
+                        $query->whereBetween('created_at', [$dari, $sampai])->where('id_vendor','=',$id_vendor->id);
                     }])->get()->toJson();
-                    $this->data['umur_kurangdari30'] = karyawan_os::where('id_vendor','=',$id_vendor->id)->whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                    $this->data['umur_31sd40'] = karyawan_os::where('id_vendor','=',$id_vendor->id)->whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                    $this->data['umur_41sd50'] = karyawan_os::where('id_vendor','=',$id_vendor->id)->whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                    $this->data['umur_51sd54'] = karyawan_os::where('id_vendor','=',$id_vendor->id)->whereBetween('tgl_lahir', [Carbon::today()->subYears(54), Carbon::today()->subYears(51)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                    $this->data['umur_lebihdari55'] = karyawan_os::where('id_vendor','=',$id_vendor->id)->whereBetween('tgl_lahir', [Carbon::today()->subYears(200), Carbon::today()->subYears(55)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
+                    $this->data['umur_kurangdari30'] = karyawan_os::where('id_vendor','=',$id_vendor->id)->whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->whereBetween('created_at', [$dari, $sampai])->count();
+                    $this->data['umur_31sd40'] = karyawan_os::where('id_vendor','=',$id_vendor->id)->whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->whereBetween('created_at', [$dari, $sampai])->count();
+                    $this->data['umur_41sd50'] = karyawan_os::where('id_vendor','=',$id_vendor->id)->whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->whereBetween('created_at', [$dari, $sampai])->count();
+                    $this->data['umur_51sd54'] = karyawan_os::where('id_vendor','=',$id_vendor->id)->whereBetween('tgl_lahir', [Carbon::today()->subYears(54), Carbon::today()->subYears(51)->endOfDay()])->whereBetween('created_at', [$dari, $sampai])->count();
+                    $this->data['umur_lebihdari55'] = karyawan_os::where('id_vendor','=',$id_vendor->id)->whereBetween('tgl_lahir', [Carbon::today()->subYears(200), Carbon::today()->subYears(55)->endOfDay()])->whereBetween('created_at', [$dari, $sampai])->count();
                     return view('home_vendor')->with($this->data);
 
                 //if range tanggal and fungsi not null
@@ -97,18 +97,18 @@ class HomeController extends Controller
                         Flash::error('Mulai dari dan Sampai dari tidak boleh kosong');
                         return view('home_vendor')->with($this->data);
                     }
-                    $this->data['jk_laki'] = karyawan_os::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where([['gender','=','Laki-laki'],['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->count();
-                    $this->data['jk_perempuan'] = karyawan_os::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where([['gender','!=','Laki-laki'],['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->count();
+                    $this->data['jk_laki'] = karyawan_os::select('gender')->whereBetween('created_at', [$dari, $sampai])->where([['gender','=','Laki-laki'],['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->count();
+                    $this->data['jk_perempuan'] = karyawan_os::select('gender')->whereBetween('created_at', [$dari, $sampai])->where([['gender','!=','Laki-laki'],['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->count();
                     $this->data['unit_kerja'] = unitkerja::whereHas('karyawan_os', function($query) use ($dari, $sampai, $value_unit,$id_vendor) {
-                        $query->where([['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
+                        $query->where([['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('created_at', [$dari, $sampai]);
                     })->withCount(['karyawan_os' => function ($query) use($dari, $sampai, $value_unit,$id_vendor){
-                        $query->where([['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
+                        $query->where([['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('created_at', [$dari, $sampai]);
                     }])->get()->toJson();
-                    $this->data['umur_kurangdari30'] = karyawan_os::where([['id_unitkerj','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                    $this->data['umur_31sd40'] = karyawan_os::where([['id_unitkerj','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                    $this->data['umur_41sd50'] = karyawan_os::where([['id_unitkerj','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                    $this->data['umur_51sd54'] = karyawan_os::where([['id_unitkerj','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [Carbon::today()->subYears(54), Carbon::today()->subYears(51)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                    $this->data['umur_lebihdari55'] = karyawan_os::where([['id_unitkerj','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [Carbon::today()->subYears(200), Carbon::today()->subYears(55)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
+                    $this->data['umur_kurangdari30'] = karyawan_os::where([['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->whereBetween('created_at', [$dari, $sampai])->count();
+                    $this->data['umur_31sd40'] = karyawan_os::where([['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->whereBetween('created_at', [$dari, $sampai])->count();
+                    $this->data['umur_41sd50'] = karyawan_os::where([['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->whereBetween('created_at', [$dari, $sampai])->count();
+                    $this->data['umur_51sd54'] = karyawan_os::where([['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [Carbon::today()->subYears(54), Carbon::today()->subYears(51)->endOfDay()])->whereBetween('created_at', [$dari, $sampai])->count();
+                    $this->data['umur_lebihdari55'] = karyawan_os::where([['id_unitkerja','=',$value_unit],['id_vendor','=',$id_vendor->id]])->whereBetween('tgl_lahir', [Carbon::today()->subYears(200), Carbon::today()->subYears(55)->endOfDay()])->whereBetween('created_at', [$dari, $sampai])->count();
                     return view('home_vendor')->with($this->data);
 
                 //if tanggal null and fungsi not null
@@ -169,23 +169,29 @@ class HomeController extends Controller
                     return view('home')->with($this->data);
                 }
 
-                $this->data['jk_laki'] = karyawan::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where('gender','=','Male')->count();
-                $this->data['jk_perempuan'] = karyawan::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where('gender','!=','Male')->count();
+                $this->data['jk_laki'] = karyawan::select('gender')->whereBetween('tmt_date', [$dari, $sampai])->where('gender','=','Male')->count();
+                $this->data['jk_perempuan'] = karyawan::select('gender')->whereBetween('tmt_date', [$dari, $sampai])->where('gender','!=','Male')->count();
                 $this->data['unit_kerja'] = unitkerja::whereHas('karyawan', function($query) use ($dari, $sampai) {
-                    $query->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
-                })->withCount('karyawan')->get()->toJson();
-                $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->groupBy('pend_diakui')->get()->toJson();
+                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                })->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->get()->toJson();
+                $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->whereBetween('tmt_date', [$dari, $sampai])->groupBy('pend_diakui')->get()->toJson();
                 $this->data['kelas_jabatan'] = klsjabatan::whereHas('karyawan', function($query) use ($dari, $sampai) {
-                    $query->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
-                })->withCount('karyawan')->whereRaw("nama_kj REGEXP '^-?[0-9]+$'")->orderByRaw('LENGTH(nama_kj) DESC')->orderBy('nama_kj','DESC')->get()->toJson();
+                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                })->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->whereRaw("nama_kj REGEXP '^-?[0-9]+$'")->orderByRaw('LENGTH(nama_kj) DESC')->orderBy('nama_kj','DESC')->get()->toJson();
                 $this->data['kelas_jabatan_alphabet'] = klsjabatan::whereHas('karyawan', function($query) use ($dari, $sampai) {
-                    $query->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
-                })->withCount('karyawan')->whereRaw("nama_kj REGEXP '^[A-z]+$'")->orderBy('nama_kj','ASC')->get()->toJson();
-                $this->data['umur_kurangdari30'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                $this->data['umur_31sd40'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                $this->data['umur_41sd50'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                $this->data['umur_51sd54'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(54), Carbon::today()->subYears(51)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                $this->data['umur_lebihdari55'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(200), Carbon::today()->subYears(55)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
+                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                })->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->whereRaw("nama_kj REGEXP '^[A-z]+$'")->orderBy('nama_kj','ASC')->get()->toJson();
+                $this->data['umur_kurangdari30'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->whereBetween('tmt_date', [$dari, $sampai])->count();
+                $this->data['umur_31sd40'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->whereBetween('tmt_date', [$dari, $sampai])->count();
+                $this->data['umur_41sd50'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->whereBetween('tmt_date', [$dari, $sampai])->count();
+                $this->data['umur_51sd54'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(54), Carbon::today()->subYears(51)->endOfDay()])->whereBetween('tmt_date', [$dari, $sampai])->count();
+                $this->data['umur_lebihdari55'] = karyawan::whereBetween('tgl_lahir', [Carbon::today()->subYears(200), Carbon::today()->subYears(55)->endOfDay()])->whereBetween('tmt_date', [$dari, $sampai])->count();
             return view('home')->with($this->data);
 
             //if range tanggal and fungsi not null
@@ -200,23 +206,29 @@ class HomeController extends Controller
                     Flash::error('Mulai dari dan Sampai dari tidak boleh kosong');
                     return view('home')->with($this->data);
                 }
-                $this->data['jk_laki'] = karyawan::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where([['gender','=','Male'],['id_unitkerja','=',$value_unit]])->count();
-                $this->data['jk_perempuan'] = karyawan::select('gender')->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->where([['gender','!=','Male'],['id_unitkerja','=',$value_unit]])->count();
+                $this->data['jk_laki'] = karyawan::select('gender')->whereBetween('tmt_date', [$dari, $sampai])->where([['gender','=','Male'],['id_unitkerja','=',$value_unit]])->count();
+                $this->data['jk_perempuan'] = karyawan::select('gender')->whereBetween('tmt_date', [$dari, $sampai])->where([['gender','!=','Male'],['id_unitkerja','=',$value_unit]])->count();
                 $this->data['unit_kerja'] = unitkerja::whereHas('karyawan', function($query) use ($dari, $sampai, $value_unit) {
-                    $query->where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
-                })->withCount('karyawan')->get()->toJson();
-                $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->whereBetween('tgl_lahir', [$dari, $sampai])->where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()])->groupBy('pend_diakui')->get()->toJson();
+                    $query->where('id_unitkerja','=',$value_unit)->whereBetween('tmt_date', [$dari, $sampai]);
+                })->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->get()->toJson();
+                $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->whereBetween('tmt_date', [$dari, $sampai])->where('id_unitkerja','=',$value_unit)->groupBy('pend_diakui')->get()->toJson();
                 $this->data['kelas_jabatan'] = klsjabatan::whereHas('karyawan', function($query) use ($dari, $sampai, $value_unit) {
-                    $query->where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
-                })->withCount('karyawan')->whereRaw("nama_kj REGEXP '^-?[0-9]+$'")->orderByRaw('LENGTH(nama_kj) DESC')->orderBy('nama_kj','DESC')->get()->toJson();
+                    $query->where('id_unitkerja','=',$value_unit)->whereBetween('tmt_date', [$dari, $sampai]);
+                })->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->whereRaw("nama_kj REGEXP '^-?[0-9]+$'")->orderByRaw('LENGTH(nama_kj) DESC')->orderBy('nama_kj','DESC')->get()->toJson();
                 $this->data['kelas_jabatan_alphabet'] = klsjabatan::whereHas('karyawan', function($query) use ($dari, $sampai, $value_unit) {
-                    $query->where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [$dari, $sampai])->whereBetween('tgl_lahir', [Carbon::createFromFormat('Y-m-d', $sampai)->subYears(56), Carbon::createFromFormat('Y-m-d', $sampai)->subYears(0)->addYear()->subDay()]);
-                })->withCount('karyawan')->whereRaw("nama_kj REGEXP '^[A-z]+$'")->orderBy('nama_kj','ASC')->get()->toJson();
-                $this->data['umur_kurangdari30'] = karyawan::where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                $this->data['umur_31sd40'] = karyawan::where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                $this->data['umur_41sd50'] = karyawan::where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                $this->data['umur_51sd54'] = karyawan::where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [Carbon::today()->subYears(54), Carbon::today()->subYears(51)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
-                $this->data['umur_lebihdari55'] = karyawan::where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [Carbon::today()->subYears(200), Carbon::today()->subYears(55)->endOfDay()])->whereBetween('tgl_lahir', [$dari, $sampai])->count();
+                    $query->where('id_unitkerja','=',$value_unit)->whereBetween('tmt_date', [$dari, $sampai]);
+                })->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->whereRaw("nama_kj REGEXP '^[A-z]+$'")->orderBy('nama_kj','ASC')->get()->toJson();
+                $this->data['umur_kurangdari30'] = karyawan::where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [Carbon::today()->subYears(30), Carbon::today()->subYears(0)->endOfDay()])->whereBetween('tmt_date', [$dari, $sampai])->count();
+                $this->data['umur_31sd40'] = karyawan::where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [Carbon::today()->subYears(40), Carbon::today()->subYears(31)->endOfDay()])->whereBetween('tmt_date', [$dari, $sampai])->count();
+                $this->data['umur_41sd50'] = karyawan::where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [Carbon::today()->subYears(50), Carbon::today()->subYears(41)->endOfDay()])->whereBetween('tmt_date', [$dari, $sampai])->count();
+                $this->data['umur_51sd54'] = karyawan::where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [Carbon::today()->subYears(54), Carbon::today()->subYears(51)->endOfDay()])->whereBetween('tmt_date', [$dari, $sampai])->count();
+                $this->data['umur_lebihdari55'] = karyawan::where('id_unitkerja','=',$value_unit)->whereBetween('tgl_lahir', [Carbon::today()->subYears(200), Carbon::today()->subYears(55)->endOfDay()])->whereBetween('tmt_date', [$dari, $sampai])->count();
             return view('home')->with($this->data);
 
             //if tanggal null and fungsi not null

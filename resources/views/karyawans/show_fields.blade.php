@@ -14,7 +14,7 @@
   </div>
    <div class="col-md-3">
         <div class="form-group">
-            {!! Form::label('pend_diakui', 'Pend Diakui:') !!}
+            {!! Form::label('pend_diakui', 'Pendidikan Diakui:') !!}
             <p>{!! $karyawan->pend_diakui !!}</p>
         </div>
     </div>
