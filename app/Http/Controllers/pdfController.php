@@ -63,35 +63,102 @@ class pdfController extends Controller
                 if($request->f && $request->key){
                     if($request->key=="asc"){
                         if($request->s){
-                            $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
-                                $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
-                            })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
-                                return $product[$request->f];
-                            });
+                            if($request->dari && $request->sampai){
+                                $dari = $request->dari;
+                                $sampai = $request->sampai;
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                                }])->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                                    $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
+                                })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                    return $product[$request->f];
+                                });
+                            }else{
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                                    $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
+                                })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                    return $product[$request->f];
+                                });
+                            }
+                            
                         }else{
-                            $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
-                                return $product[$request->f];
-                            });
+                            if($request->dari && $request->sampai){
+                                $dari = $request->dari;
+                                $sampai = $request->sampai;
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                                }])->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                    return $product[$request->f];
+                                });
+                            }else{
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                    return $product[$request->f];
+                                });
+                            }
+                            
                         }
                     }else{
                         if($request->s){
-                            $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
-                                $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
-                            })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderByDesc('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
-                                return $product[$request->f];
-                            });
+                            if($request->dari && $request->sampai){
+                                $dari = $request->dari;
+                                $sampai = $request->sampai;
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                                }])->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                                    $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
+                                })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderByDesc('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                    return $product[$request->f];
+                                });
+                            }else{
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                                    $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
+                                })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderByDesc('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                    return $product[$request->f];
+                                });
+                            }
+                            
                         }else{
-                            $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortByDesc(function ($product, $key) use($request){
-                                return $product[$request->f];
-                            });
+                            if($request->dari && $request->sampai){
+                                $dari = $request->dari;
+                                $sampai = $request->sampai;
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                                }])->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortByDesc(function ($product, $key) use($request){
+                                    return $product[$request->f];
+                                });
+                            }else{
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortByDesc(function ($product, $key) use($request){
+                                    return $product[$request->f];
+                                });
+                            }
                         }
                     }
                 }elseif($request->s){
-                    $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
-                        $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
-                   })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                    if($request->dari && $request->sampai){
+                        $dari = $request->dari;
+                        $sampai = $request->sampai;
+                        $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                            $query->whereBetween('tmt_date', [$dari, $sampai]);
+                        }])->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                            $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
+                       })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                    }else{
+                        $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                            $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
+                       })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                    }
+                    
                 }else{
-                    $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->with('kategori_unit_kerja')->withCount('karyawan')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                    if($request->dari && $request->sampai){
+                        $dari = $request->dari;
+                        $sampai = $request->sampai;
+                        $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->with('kategori_unit_kerja')->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                            $query->whereBetween('tmt_date', [$dari, $sampai]);
+                        }])->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                    }else{
+                        $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->with('kategori_unit_kerja')->withCount('karyawan')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                    }
+                    
                 }
 
                 $head = ['Unit Kerja','Formasi', 'Eksis', 'Lowong', 'Kekuatan SDM','Pejabat','Karyawan','PKWT','KMPG','Total Eksis'];
@@ -100,27 +167,62 @@ class pdfController extends Controller
                 $group = [];
                 foreach ($get as $key => $value) {
                     $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
-                    $pkwt = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pkwt){
-                        $q->where('id_klsjabatan', $id_pkwt->id);
-                    }])->first();
+                    if($request->dari && $request->sampai){
+                        $dari = $request->dari;
+                        $sampai = $request->sampai;
+                        $pkwt = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
+                            $q->where('id_klsjabatan', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                        }])->first();
+                    }else{
+                        $pkwt = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pkwt){
+                            $q->where('id_klsjabatan', $id_pkwt->id);
+                        }])->first();
+                    }
+                    
 
                     $id_19 = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
                     $id_20 = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
                     $id_21 = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
                     $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
                     $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
-                    $karyawan = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
-                        $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
-                    }])->first();
+                    if($request->dari && $request->sampai){
+                        $dari = $request->dari;
+                        $sampai = $request->sampai;
+                        $karyawan = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg,$dari, $sampai){
+                            $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]])->whereBetween('tmt_date', [$dari, $sampai]);
+                        }])->first();
+                    }else{
+                        $karyawan = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
+                            $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
+                        }])->first();
+                    }
+                    
 
                     $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
-                    $kmpg = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_kmpg){
-                        $q->where('id_klsjabatan', $id_kmpg->id);
-                    }])->first();
-
-                    $pejabat = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21){
-                        $q->where('id_klsjabatan', $id_19->id??null)->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
-                    }])->first();
+                    if($request->dari && $request->sampai){
+                        $dari = $request->dari;
+                        $sampai = $request->sampai;
+                        $kmpg = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
+                            $q->where('id_klsjabatan', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                        }])->first();
+                    }else{
+                        $kmpg = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_kmpg){
+                            $q->where('id_klsjabatan', $id_kmpg->id);
+                        }])->first();
+                    }
+                    
+                    if($request->dari && $request->sampai){
+                        $dari = $request->dari;
+                        $sampai = $request->sampai;
+                        $pejabat = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$dari, $sampai){
+                            $q->where('id_klsjabatan', $id_19->id??null)->whereBetween('tmt_date', [$dari, $sampai])->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
+                        }])->first();
+                    }else{
+                        $pejabat = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21){
+                            $q->where('id_klsjabatan', $id_19->id??null)->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
+                        }])->first();
+                    }
+                    
 
                     $lowong = (int) $value->jml_formasi - (int) $value->karyawan_count;
                     $kekuatan = round(((int) $value->karyawan_count / (int) $value->jml_formasi)*100)."%";

@@ -183,7 +183,7 @@
 
         $('#entry_date').datetimepicker({
             format: 'Y-MM-DD hh:mm:ss',
-            useCurrent: false
+            useCurrent: true
         });
 
         $('#tmt_date').datetimepicker({

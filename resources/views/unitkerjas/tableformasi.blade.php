@@ -74,6 +74,27 @@
             $(".tombol-pdf").attr("href", href2+"s="+$('.dataTables_filter input').val());
         }
     }
+    $('#tgl-range').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        });
+        $('#tgl-range2').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        });
+
 
     </script>
+    @if (isset($dari) && isset($sampai))
+        <script>
+            var dari = {!! json_encode($dari) !!};
+            var sampai = {!! json_encode($sampai) !!};
+            $('#dataTableBuilder').on( 'draw.dt', function () {
+                $('.btn-shownya').each(function(i, obj) {
+                    var hasil = $('.btn-shownya:eq('+i+')').attr('href');
+                    $('.btn-shownya:eq('+i+')').attr("href",hasil+"?dari="+dari+"&sampai="+sampai).val();
+                });
+            });
+        </script>
+    @endif
 @endsection

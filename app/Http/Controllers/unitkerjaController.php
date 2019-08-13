@@ -11,6 +11,7 @@ use App\Repositories\unitkerjaRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use Illuminate\Http\Request;
 
 class unitkerjaController extends AppBaseController
 {
@@ -34,20 +35,50 @@ class unitkerjaController extends AppBaseController
         return $unitkerjaDataTable->render('unitkerjas.index');
     }
 
-    public function formasiExisting(formasiExistingDataTable $formasiExistingDataTable)
+    public function formasiExisting(formasiExistingDataTable $formasiExistingDataTable, Request $request)
     {
+        if($request->dari != null){
+            if($request->dari == null || $request->sampai == null){
+                Flash::error('Mulai dari dan Sampai dari tidak boleh kosong');
+                return redirect('/formasiexisting');
+            }
+            return $formasiExistingDataTable->with([
+                'sampai' => $request->sampai,
+                'dari' => $request->dari
+            ])->render('unitkerjas.formasi',[
+                'sampai' => $request->sampai,
+                'dari' => $request->dari
+            ]);
+
+        }
         return $formasiExistingDataTable->render('unitkerjas.formasi');
     }
 
-    public function formasiExistingShow($id)
+    public function formasiExistingShow($id, Request $request)
     {
-        $this->data['unitkerja'] = $this->unitkerjaRepository->withCount('karyawan')->findWithoutFail($id);
-        $this->data['kelasjabatan'] = \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tblkaryawan.id) as jml_kls_jbt'))   
-        ->leftJoin('tblkaryawan', 'tblkaryawan.id_klsjabatan', '=', 'tblklsjabatan.id')
-        ->rightJoin('tblunitkerja', 'tblkaryawan.id_unitkerja', '=', 'tblunitkerja.id')
-        ->where('tblunitkerja.id','=',$id)
-        ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
-        ->get();
+        if($request->dari != null && $request->sampai != null){
+                $dari = $request->dari;
+                $sampai = $request->sampai;
+                $this->data['unitkerja'] = $this->unitkerjaRepository->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->findWithoutFail($id);
+                $this->data['kelasjabatan'] = \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tblkaryawan.id) as jml_kls_jbt'))   
+                ->leftJoin('tblkaryawan', 'tblkaryawan.id_klsjabatan', '=', 'tblklsjabatan.id')
+                ->rightJoin('tblunitkerja', 'tblkaryawan.id_unitkerja', '=', 'tblunitkerja.id')
+                ->where('tblunitkerja.id','=',$id)
+                ->whereBetween('tblkaryawan.tmt_date', [$dari, $sampai])
+                ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
+                ->get();
+        }else{
+            $this->data['unitkerja'] = $this->unitkerjaRepository->withCount('karyawan')->findWithoutFail($id);
+            $this->data['kelasjabatan'] = \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tblkaryawan.id) as jml_kls_jbt'))   
+            ->leftJoin('tblkaryawan', 'tblkaryawan.id_klsjabatan', '=', 'tblklsjabatan.id')
+            ->rightJoin('tblunitkerja', 'tblkaryawan.id_unitkerja', '=', 'tblunitkerja.id')
+            ->where('tblunitkerja.id','=',$id)
+            ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
+            ->get();
+        }
+        
         // echo "<pre>";
         // print_r($this->data['kelasjabatan']);
         // return null;

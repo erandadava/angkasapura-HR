@@ -18,7 +18,16 @@ class formasiExistingDataTable extends DataTable
     public function dataTable($query)
     {
         $dataTable = new EloquentDataTable($query);
-        $unit = \App\Models\unitkerja::withCount('karyawan')->get();
+        if($this->dari && $this->sampai){
+            $dari = $this->dari;
+            $sampai = $this->sampai;
+            $unit = \App\Models\unitkerja::withCount(['karyawan' => function($query) use ($dari, $sampai){
+                $query->whereBetween('tmt_date', [$dari, $sampai]);
+            }])->get();
+        }else{
+            $unit = \App\Models\unitkerja::withCount('karyawan')->get();
+        }
+        
         $sum_eksis = 0 ;
         foreach ($unit as $key => $value) {
             $sum_eksis += (int) $value['karyawan_count'];
@@ -36,17 +45,35 @@ class formasiExistingDataTable extends DataTable
         ->editColumn('jml_pkwt', function ($inquiry) use($query)
         {
             $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
-            $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt){
-                $q->where('id_klsjabatan', $id_pkwt->id);
-            }])->first();
+            if($this->dari && $this->sampai){
+                $dari = $this->dari;
+                $sampai = $this->sampai;
+                $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
+                    $q->where('id_klsjabatan', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->first();
+            }else{
+                $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt){
+                    $q->where('id_klsjabatan', $id_pkwt->id);
+                }])->first();
+            }
+            
             return count($pkwt->karyawan);
         })
         ->editColumn('jml_kmpg', function ($inquiry) use($query)
         {
             $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
-            $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg){
-                $q->where('id_klsjabatan', $id_kmpg->id);
-            }])->first();
+            if($this->dari && $this->sampai){
+                $dari = $this->dari;
+                $sampai = $this->sampai;
+                $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
+                    $q->where('id_klsjabatan', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->first();
+            }else{
+                $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg){
+                    $q->where('id_klsjabatan', $id_kmpg->id);
+                }])->first();
+            }
+            
             return count($kmpg->karyawan);
         })
         ->editColumn('jml_karyawan', function ($inquiry) use($query)
@@ -56,9 +83,18 @@ class formasiExistingDataTable extends DataTable
             $id_21 = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
             $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
             $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
-            $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
-                $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
-            }])->first();
+            if($this->dari && $this->sampai){
+                $dari = $this->dari;
+                $sampai = $this->sampai;
+                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg,$dari, $sampai){
+                    $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]])->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->first();
+            }else{
+                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
+                    $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
+                }])->first();
+            }
+            
             return count($karyawan->karyawan);
         })
 
@@ -67,36 +103,80 @@ class formasiExistingDataTable extends DataTable
             $id_19_pejabat = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
             $id_20_pejabat = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
             $id_21_pejabat = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
-            $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19_pejabat,$id_20_pejabat,$id_21_pejabat){
-                $q->where('id_klsjabatan','=', $id_19_pejabat->id??null)->orWhere('id_klsjabatan','=', $id_20_pejabat->id??null)->orWhere('id_klsjabatan','=', $id_21_pejabat->id??null);
-            }])->first();
+            if($this->dari && $this->sampai){
+                $dari = $this->dari;
+                $sampai = $this->sampai;
+                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19_pejabat,$id_20_pejabat,$id_21_pejabat,$dari, $sampai){
+                    $q->where('id_klsjabatan','=', $id_19_pejabat->id??null)->whereBetween('tmt_date', [$dari, $sampai])->orWhere('id_klsjabatan','=', $id_20_pejabat->id??null)->orWhere('id_klsjabatan','=', $id_21_pejabat->id??null);
+                }])->first();
+            }else{
+                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19_pejabat,$id_20_pejabat,$id_21_pejabat){
+                    $q->where('id_klsjabatan','=', $id_19_pejabat->id??null)->orWhere('id_klsjabatan','=', $id_20_pejabat->id??null)->orWhere('id_klsjabatan','=', $id_21_pejabat->id??null);
+                }])->first();
+            }
+            
             return count($pejabat->karyawan);
         })
 
         ->editColumn('total_eksis', function ($inquiry) use($query)
         {
             $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
-            $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt){
-                $q->where('id_klsjabatan', $id_pkwt->id);
-            }])->first();
+            if($this->dari && $this->sampai){
+                $dari = $this->dari;
+                $sampai = $this->sampai;
+                $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
+                    $q->where('id_klsjabatan', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->first();
+            }else{
+                $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt){
+                    $q->where('id_klsjabatan', $id_pkwt->id);
+                }])->first();
+            }
+            
 
             $id_19 = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
             $id_20 = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
             $id_21 = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
             $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
             $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
-            $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
-                $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
-            }])->first();
+            if($this->dari && $this->sampai){
+                $dari = $this->dari;
+                $sampai = $this->sampai;
+                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg,$dari, $sampai){
+                    $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]])->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->first();
+            }else{
+                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
+                    $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
+                }])->first();
+            }
+            
 
             $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
-            $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg){
-                $q->where('id_klsjabatan', $id_kmpg->id);
-            }])->first();
-
-            $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21){
-                $q->where('id_klsjabatan', $id_19->id??null)->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
-            }])->first();
+            if($this->dari && $this->sampai){
+                $dari = $this->dari;
+                $sampai = $this->sampai;
+                $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
+                    $q->where('id_klsjabatan', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                }])->first();
+            }else{
+                $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg){
+                    $q->where('id_klsjabatan', $id_kmpg->id);
+                }])->first();
+            }
+            
+            if($this->dari && $this->sampai){
+                $dari = $this->dari;
+                $sampai = $this->sampai;
+                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$dari, $sampai){
+                    $q->where('id_klsjabatan', $id_19->id??null)->whereBetween('tmt_date', [$dari, $sampai])->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
+                }])->first();
+            }else{
+                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21){
+                    $q->where('id_klsjabatan', $id_19->id??null)->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
+                }])->first();
+            }
+            
             
             return count($pejabat->karyawan) + count($karyawan->karyawan) + count($kmpg->karyawan) + count($pkwt->karyawan);
         })
@@ -115,6 +195,15 @@ class formasiExistingDataTable extends DataTable
      */
     public function query(unitkerja $model)
     {
+
+        if($this->dari && $this->sampai){
+            $dari = $this->dari;
+            $sampai = $this->sampai;
+            return $model->withCount(['karyawan' => function($query) use ($dari, $sampai){
+                $query->whereBetween('tmt_date', [$dari, $sampai]);
+            }])->with(['kategori_unit_kerja'])->newQuery();
+        }
+
         return $model->withCount('karyawan')->with('kategori_unit_kerja')->newQuery();
     }
 
