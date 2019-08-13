@@ -61,7 +61,8 @@ class karyawan extends Model
         'id_klsjabatan',
         'id_unit',
         'status_pensiun',
-        'tgl_aktif_pensiun'
+        'tgl_aktif_pensiun',
+        'tmt_date'
     ];
 
     /**

@@ -130,6 +130,10 @@
     {!! Form::text('entry_date', null, ['class' => 'form-control','id'=>'entry_date']) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('tmt_date', 'Terhitung Mulai Tanggal:') !!}
+    {!! Form::text('tmt_date', null, ['class' => 'form-control','id'=>'tmt_date']) !!}
+</div>
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}
@@ -179,6 +183,11 @@
 
         $('#entry_date').datetimepicker({
             format: 'Y-MM-DD hh:mm:ss',
+            useCurrent: false
+        });
+
+        $('#tmt_date').datetimepicker({
+            format: 'Y-MM-DD',
             useCurrent: false
         });
 

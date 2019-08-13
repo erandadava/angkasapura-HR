@@ -57,13 +57,13 @@
     <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('rencana_mpp', 'Rencana Mpp:') !!}
-            <p>{!! $karyawan->rencana_mpp !!}</p>
+            <p>{!!  \Carbon\Carbon::parse($karyawan->rencana_mpp)->formatLocalized('%d %B %Y'); !!}</p>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('rencana_pensiun', 'Rencana Pensiun:') !!}
-            <p>{!! $karyawan->rencana_pensiun !!}</p>
+            <p>{!!  \Carbon\Carbon::parse($karyawan->rencana_pensiun)->formatLocalized('%d %B %Y'); !!}</p>
         </div>
     </div>
     <div class="col-md-3">
@@ -118,7 +118,13 @@
     <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('entry_date', 'Entry Date:') !!}
-            <p>{!! $karyawan->entry_date !!}</p>
+            <p>{!!  \Carbon\Carbon::parse($karyawan->entry_date)->formatLocalized('%d %B %Y | %H:%M:%S'); !!}</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="form-group">
+            {!! Form::label('tmt_date', 'Tehirung Mulai Tanggal:') !!}
+            <p>{!!  \Carbon\Carbon::parse($karyawan->tmt_date)->formatLocalized('%d %B %Y'); !!}</p>
         </div>
     </div>
     <div class="col-md-3">

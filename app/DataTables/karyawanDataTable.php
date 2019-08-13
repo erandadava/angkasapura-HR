@@ -18,7 +18,7 @@ class karyawanDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'mpp.datatables_actions')->editColumn('tgl_lahir', function ($inquiry) 
+        return $dataTable->addColumn('action', 'karyawans.datatables_actions')->editColumn('tgl_lahir', function ($inquiry) 
         {
             
         })

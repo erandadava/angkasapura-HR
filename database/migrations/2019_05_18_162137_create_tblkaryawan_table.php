@@ -35,6 +35,7 @@ class CreateTblkaryawanTable extends Migration {
 			$table->integer('id_unit')->nullable();
 			$table->enum('status_pensiun',['A','M','R','N'])->default('N')->nullable();
 			$table->date('tgl_aktif_pensiun')->nullable();
+			$table->date('tmt_date')->nullable();
 			$table->timestamp('entry_date')->default(DB::raw('CURRENT_TIMESTAMP'));
 			$table->timestamps();
 			$table->softDeletes();
