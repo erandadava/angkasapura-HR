@@ -2,58 +2,63 @@
 <div class="row">
   <div class="col-md-3">
       <div class="form-group">
+        {!! Form::label('nik', 'Nik:') !!}
+        <p>{!! $karyawan->nik !!}</p>
+    </div>
+  </div>
+    <div class="col-md-3">
+      <div class="form-group">
         {!! Form::label('nama', 'Nama:') !!}
         <p>{!! $karyawan->nama !!}</p>
     </div>
   </div>
   <div class="col-md-3">
-    <div class="form-group">
-        {!! Form::label('gender', 'Jenis Kelamin:') !!}
-        <p>{!! $karyawan->gender !!}</p>
-    </div>
-  </div>
-   <div class="col-md-3">
-        <div class="form-group">
-            {!! Form::label('pend_diakui', 'Pendidikan Diakui:') !!}
-            <p>{!! $karyawan->pend_diakui !!}</p>
-        </div>
-    </div>
-  {{-- <div class="col-md-3">
-    <div class="form-group">
-        {!! Form::label('id_kj', 'id Kj:') !!}
-        <p>{!! $karyawan->id_kj !!}</p>
-    </div>
-  </div> --}}
-</div>
-
-<div class="row">
-    <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('id_jabatan', 'Nama Jabatan:') !!}
             <p>{!! $karyawan->jabatan->nama_jabatan !!}</p>
         </div>
     </div>
-    {{-- <div class="col-md-3">
-        <div class="form-group">
-            {!! Form::label('id_status1', 'id Status1:') !!}
-            <p>{!! $karyawan->id_status1 !!}</p>
-        </div>
-    </div>
-    <div class="col-md-3">
-        <div class="form-group">
-            {!! Form::label('id_status2', 'id Status2:') !!}
-            <p>{!! $karyawan->id_status2 !!}</p>
-        </div>
-    </div> --}}
     <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('id_unitkerja', 'Unit 1:') !!}
             <p>{!! $karyawan->unitkerja->nama_uk !!}</p>
         </div>
     </div>
+  
+   
+ 
 </div>
 
 <div class="row">
+
+     <div class="col-md-3">
+    <div class="form-group">
+        {!! Form::label('id_kj', 'id Kj:') !!}
+        <p>{!! $karyawan->klsjabatan->nama_kj !!}</p>
+    </div>
+  </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            {!! Form::label('gender', 'Jenis Kelamin:') !!}
+            <p>{!! $karyawan->gender !!}</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
+            <p>{!!  \Carbon\Carbon::parse($karyawan->tgl_lahir)->formatLocalized('%d %B %Y'); !!}</p>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            {!! Form::label('pend_diakui', 'Pendidikan Diakui:') !!}
+            <p>{!! $karyawan->pend_diakui !!}</p>
+        </div>
+    </div>
+
     <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('rencana_mpp', 'Rencana Mpp:') !!}
@@ -66,33 +71,11 @@
             <p>{!!  \Carbon\Carbon::parse($karyawan->rencana_pensiun)->formatLocalized('%d %B %Y'); !!}</p>
         </div>
     </div>
-    <div class="col-md-3">
-        <div class="form-group">
-            {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
-            <p>{!!  \Carbon\Carbon::parse($karyawan->tgl_lahir)->formatLocalized('%d %B %Y'); !!}</p>
-        </div>
-    </div>
-    {{-- <div class="col-md-3">
-        <div class="form-group">
-            {!! Form::label('id_org', 'id Org:') !!}
-            <p>{!! $karyawan->id_org !!}</p>
-        </div>
-    </div> --}}
+    
 </div>
 
+<br>
 <div class="row">
-    {{-- <div class="col-md-3">
-        <div class="form-group">
-            {!! Form::label('id_posisi', 'id Posisi:') !!}
-            <p>{!! $karyawan->id_posisi !!}</p>
-        </div>
-    </div> --}}
-    {{-- <div class="col-md-3">
-        <div class="form-group">
-            {!! Form::label('id_tipe_kar', 'id Tipe Kar:') !!}
-            <p>{!! $karyawan->id_tipe_kar !!}</p>
-        </div>
-    </div> --}}
     <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('status_pensiun', 'Status Pensiun:') !!}
