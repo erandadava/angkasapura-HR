@@ -29,10 +29,12 @@ class formasiExistingDataTable extends DataTable
         }
         
         $sum_eksis = 0 ;
-        foreach ($unit as $key => $value) {
-            $sum_eksis += (int) $value['karyawan_count'];
+        if($unit){
+            foreach ($unit as $key => $value) {
+                $sum_eksis += (int) $value['karyawan_count'];
+            }
+            
         }
-        
         return $dataTable->addColumn('action', 'unitkerjas.datatables_actionsformasi')
         ->editColumn('lowong', function ($inquiry) 
         {
@@ -40,7 +42,11 @@ class formasiExistingDataTable extends DataTable
         })
         ->editColumn('kekuatan', function ($inquiry) 
         {
-            return round(((int) $inquiry->karyawan_count / (int) $inquiry->jml_formasi)*100)."%";
+            if((int) $inquiry->jml_formasi>0){
+                return round(((int) $inquiry->karyawan_count / (int) $inquiry->jml_formasi)*100)."%";
+            }
+            return "0%";
+            
         })
         ->editColumn('jml_pkwt', function ($inquiry) use($query)
         {

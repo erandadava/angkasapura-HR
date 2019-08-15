@@ -15,13 +15,13 @@
   <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('id_jabatan', 'Nama Jabatan:') !!}
-            <p>{!! $karyawan->jabatan->nama_jabatan !!}</p>
+            <p>{!! $karyawan->jabatan->nama_jabatan??'' !!}</p>
         </div>
     </div>
     <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('id_unitkerja', 'Unit 1:') !!}
-            <p>{!! $karyawan->unitkerja->nama_uk !!}</p>
+            <p>{!! $karyawan->unitkerja->nama_uk??'' !!}</p>
         </div>
     </div>
   
@@ -33,8 +33,8 @@
 
      <div class="col-md-3">
     <div class="form-group">
-        {!! Form::label('id_kj', 'id Kj:') !!}
-        <p>{!! $karyawan->klsjabatan->nama_kj !!}</p>
+        {!! Form::label('id_kj', 'Kelas Jabatan:') !!}
+        <p>{!! $karyawan->klsjabatan->nama_kj??''!!}</p>
     </div>
   </div>
 
