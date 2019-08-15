@@ -60,7 +60,7 @@ class mppDataTable extends DataTable
      */
     public function query(karyawan $model)
     {
-        return $model->with(['jabatan','unit','fungsi','klsjabatan'])->newQuery();
+        return $model->with(['jabatan','unit','fungsi','klsjabatan','unitkerja'])->newQuery();
         // foreach ($dt as $key => $value) {
         //     $dt['status_mpp'] = $value->age;
         // }
@@ -97,7 +97,7 @@ class mppDataTable extends DataTable
             ['data' => 'nik', 'title' => 'NIK'],
             ['data' => 'nama', 'title' => 'Nama'],
             ['data' => 'jabatan.nama_jabatan', 'title' => 'Jabatan'],
-            ['data' => 'unit.nama_unit', 'title' => 'Unit'],
+            ['data' => 'unitkerja.nama_uk', 'title' => 'Unit Kerja'],
             ['data' => 'rencana_mpp', 'title' => 'Rencana MPP'],
             ['data' => 'fungsi.nama_fungsi', 'title' => 'Fungsi'],
             ['data' => 'status_pensiun', 'title' => 'Status Pensiun'],
