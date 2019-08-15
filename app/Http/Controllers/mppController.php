@@ -72,7 +72,7 @@ class mppController extends AppBaseController
      */
     public function show($id)
     {
-        $mpp = $this->KaryawanRepository->with(['jabatan','unit','fungsi','klsjabatan'])->findWithoutFail($id);
+        $mpp = $this->KaryawanRepository->with(['jabatan','unit','unitkerja','fungsi','klsjabatan'])->findWithoutFail($id);
 
         if (empty($mpp)) {
             Flash::error('mpp not found');

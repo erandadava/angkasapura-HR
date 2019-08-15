@@ -3,7 +3,7 @@
         <div class="col-md-3">
                 <div class="form-group">
                   {!! Form::label('unit', 'Unit:') !!}
-                  <p>{!! $karyawan->unit->nama_unit??'' !!}</p>
+                  <p>{!! $karyawan->unitkerja->nama_uk??'' !!}</p>
                 </div>
         </div>
         <div class="col-md-3">

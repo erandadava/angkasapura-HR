@@ -45,17 +45,17 @@ class pdfController extends Controller
                 break; 
                 case 'karyawan':
                 $get = \App\Models\karyawan::with(['klsjabatan','jabatan','unitkerja'])->get();
-                $head = ['NIK','Nama', 'Gender', 'Tanggal Lahir', 'Jabatan', 'Kelas Jabatan', 'Unit Kerja'];
+                $head = ['NIK','Nama', 'Jabatan', 'Unit Kerja', 'Kelas Jabatan', 'Gender', 'Tanggal Lahir'];
                 $title = 'Karyawan';
                 foreach ($get as $key => $value) {
                     $isinya[$key]=[
                         0 => $value['nik'],
                         1 => $value['nama'],
-                        2 => $value['gender'],
-                        3 => \Carbon\Carbon::parse($value['tgl_lahir'])->formatLocalized('%d %B %Y'),
-                        4 => $value['jabatan']['nama_jabatan'],
-                        5 => $value['klsjabatan']['nama_kj'],
-                        6 => $value['unitkerja']['nama_uk'],
+                        2 => $value['jabatan']['nama_jabatan'],
+                        3 => $value['unitkerja']['nama_uk'],
+                        4 => $value['klsjabatan']['nama_kj'],
+                        5 => $value['gender'],
+                        6 => \Carbon\Carbon::parse($value['tgl_lahir'])->formatLocalized('%d %B %Y'),
                     ];   
                 }
             break; 
@@ -70,13 +70,13 @@ class pdfController extends Controller
                                     $query->whereBetween('tmt_date', [$dari, $sampai]);
                                 }])->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
                                     $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
-                                })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblunitkerja.id', 'ASC')->get()->sortBy(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }else{
                                 $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
                                     $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
-                                })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblunitkerja.id', 'ASC')->get()->sortBy(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }
@@ -87,11 +87,11 @@ class pdfController extends Controller
                                 $sampai = $request->sampai;
                                 $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
                                     $query->whereBetween('tmt_date', [$dari, $sampai]);
-                                }])->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                }])->with('kategori_unit_kerja')->orderBy('tblunitkerja.id', 'ASC')->get()->sortBy(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }else{
-                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->orderBy('tblunitkerja.id', 'ASC')->get()->sortBy(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }
@@ -123,11 +123,11 @@ class pdfController extends Controller
                                 $sampai = $request->sampai;
                                 $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
                                     $query->whereBetween('tmt_date', [$dari, $sampai]);
-                                }])->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortByDesc(function ($product, $key) use($request){
+                                }])->with('kategori_unit_kerja')->orderBy('tblunitkerja.id', 'ASC')->get()->sortByDesc(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }else{
-                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortByDesc(function ($product, $key) use($request){
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->orderBy('tblunitkerja.id', 'ASC')->get()->sortByDesc(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }
@@ -141,11 +141,11 @@ class pdfController extends Controller
                             $query->whereBetween('tmt_date', [$dari, $sampai]);
                         }])->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
                             $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
-                       })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                       })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblunitkerja.id', 'ASC')->get();
                     }else{
                         $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
                             $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
-                       })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                       })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->orWhere('nama_uk','LIKE','%'.$request->s.'%')->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->orderBy('tblunitkerja.id', 'ASC')->get();
                     }
                     
                 }else{
@@ -154,9 +154,9 @@ class pdfController extends Controller
                         $sampai = $request->sampai;
                         $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->with('kategori_unit_kerja')->withCount(['karyawan' => function($query) use ($dari, $sampai){
                             $query->whereBetween('tmt_date', [$dari, $sampai]);
-                        }])->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                        }])->orderBy('tblunitkerja.id', 'ASC')->get();
                     }else{
-                        $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->with('kategori_unit_kerja')->withCount('karyawan')->orderBy('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get();
+                        $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->with('kategori_unit_kerja')->withCount('karyawan')->orderBy('tblunitkerja.id', 'ASC')->get();
                     }
                     
                 }
@@ -251,8 +251,8 @@ class pdfController extends Controller
                 return $pdf->stream($tabel.time().'.pdf', array("Attachment" => false));
             break; 
             case 'mpp':
-                $get = \App\Models\karyawan::with(['jabatan','unit','fungsi','klsjabatan'])->get();
-                $head = ['Unit','Jabatan', 'Fungsi', 'Nama', 'NIK', 'Rencana MPP', 'Status Pensiun', 'Status MPP'];
+                $get = \App\Models\karyawan::with(['jabatan','unit','fungsi','unitkerja','klsjabatan'])->get();
+                $head = ['NIK','Nama','Jabatan','Unit Kerja','Rencana MPP','Fungsi', 'Status Pensiun', 'Status MPP'];
                 $title = 'MPP';
                 foreach ($get as $key => $value) {
                     if ($value['Age'] == 0){ $age = 'Belum Masa MPP';}
@@ -263,12 +263,12 @@ class pdfController extends Controller
                     if ($value['status_pensiun'] == 'M'){ $pensiun = "Menunggu Waktu Aktif Pensiun";}
                     if ($value['status_pensiun'] == 'N'){ $pensiun = "Belum Pensiun";}
                     $isinya[$key]=[
-                        0 => $value['unit']['nama_unit'],
-                        1 => $value['jabatan']['nama_jabatan'],
-                        2 => $value['fungsi']['nama_fungsi'],
-                        3 => $value['nama'],
-                        4 => $value['nik'],
-                        5 => \Carbon\Carbon::parse($value['rencana_mpp'])->formatLocalized('%d %B %Y'),
+                        0 => $value['nik'],
+                        1 => $value['nama'],
+                        2 => $value['jabatan']['nama_jabatan'],
+                        3 => $value['unitkerja']['nama_uk'],
+                        4 => \Carbon\Carbon::parse($value['rencana_mpp'])->formatLocalized('%d %B %Y'),
+                        5 => $value['fungsi']['nama_fungsi'],
                         6 => $pensiun,
                         7 => $age,
                     ];   

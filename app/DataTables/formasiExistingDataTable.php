@@ -226,7 +226,7 @@ class formasiExistingDataTable extends DataTable
             ->addAction(['width' => '120px', 'printable' => false])
             ->parameters([
                 'dom'     => 'Bfrtip',
-                'order'   => [[2, 'desc']],
+                'order'   => [[0, 'asc']],
                 'paging' => false,
                 "columnDefs" => [
                     [ "visible" => false, "targets" => [2] ]
