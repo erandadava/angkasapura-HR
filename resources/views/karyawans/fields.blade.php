@@ -191,6 +191,20 @@
             useCurrent: false
         });
 
+        $('#tgl_lahir').on('dp.change', function(e){ return _calculateAge($('#tgl_lahir').val()); })    
+
+        function _calculateAge(birthday) 
+        { // birthday is a date
+            var birth_date = new Date(birthday);
+            var ageDifMs = Date.now() - birth_date.getTime();
+            var year = birth_date.getFullYear();
+            var month = birth_date.getMonth();
+            var day = birth_date.getDate();
+            var c = new Date(year + 56, month, day);
+            
+            // console.log(c);
+            $('#rencana_mpp').data("DateTimePicker").date(c);
+        }
+        
     </script>
-    
 @endsection
