@@ -3,7 +3,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            MPP
+            Karyawan MPP
         </h1>
     </section>
     <div class="content">
@@ -11,7 +11,7 @@
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
                     @include('mpp.show_fields')
-                    <a href="{!! route('karyawans.index') !!}" class="btn btn-default">Back</a>
+                    <a href="{!! route('mpp.index') !!}" class="btn btn-default">Back</a>
                 </div>
             </div>
         </div>

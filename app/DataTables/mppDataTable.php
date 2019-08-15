@@ -46,6 +46,9 @@ class mppDataTable extends DataTable
             if ($inquiry->status_pensiun == 'M') return "<span class='label label-warning'>Menunggu Waktu Aktif Pensiun</span>";
             if ($inquiry->status_pensiun == 'N') return "<span class='label label-info'>Belum Pensiun</span>";
         })
+        ->editColumn('rencana_mpp', function ($inquiry) {
+            return \Carbon\Carbon::parse($inquiry->rencana_mpp)->formatLocalized('%d %B %Y');
+        })
         ->rawColumns(['tgl_lahir','status_pensiun','action']);
     }
 
@@ -78,9 +81,7 @@ class mppDataTable extends DataTable
                 'dom'     => 'Blfrtip',
                 'order'   => [[0, 'desc']],
                 'buttons' => [
-                    ['extend' => 'print', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reset', 'className' => 'btn btn-default btn-sm no-corner',],
-                    ['extend' => 'reload', 'className' => 'btn btn-default btn-sm no-corner',],
+                    
                 ],
             ]);
     }
@@ -93,12 +94,12 @@ class mppDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            ['data' => 'unit.nama_unit', 'title' => 'Unit'],
-            ['data' => 'jabatan.nama_jabatan', 'title' => 'Jabatan'],
-            ['data' => 'fungsi.nama_fungsi', 'title' => 'Fungsi'],
-            ['data' => 'nama', 'title' => 'Nama'],
             ['data' => 'nik', 'title' => 'NIK'],
+            ['data' => 'nama', 'title' => 'Nama'],
+            ['data' => 'jabatan.nama_jabatan', 'title' => 'Jabatan'],
+            ['data' => 'unit.nama_unit', 'title' => 'Unit'],
             ['data' => 'rencana_mpp', 'title' => 'Rencana MPP'],
+            ['data' => 'fungsi.nama_fungsi', 'title' => 'Fungsi'],
             ['data' => 'status_pensiun', 'title' => 'Status Pensiun'],
             ['data' => 'tgl_lahir', 'title' => 'Status MPP']
         ];

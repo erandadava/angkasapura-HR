@@ -62,7 +62,7 @@ class tipekarDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'nama_tipekar'
+            ['data'=>'nama_tipekar','title'=>'Tipe Karyawan'],
         ];
     }
 

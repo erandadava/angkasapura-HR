@@ -38,7 +38,7 @@ class karyawan extends Model
 
 
     protected $dates = ['deleted_at','entry_date','tgl_lahir','rencana_mpp','rencana_pensiun'];
-    protected $appends = ['Age'];
+    protected $appends = ['Age','Statusmpp'];
     
     public $fillable = [
         'nama',
@@ -51,6 +51,7 @@ class karyawan extends Model
         'rencana_mpp',
         'rencana_pensiun',
         'pend_diakui',
+        'pend_milik',
         'id_org',
         'id_posisi',
         'id_tipe_kar',
@@ -60,7 +61,8 @@ class karyawan extends Model
         'id_klsjabatan',
         'id_unit',
         'status_pensiun',
-        'tgl_aktif_pensiun'
+        'tgl_aktif_pensiun',
+        'tmt_date'
     ];
 
     /**
@@ -80,6 +82,7 @@ class karyawan extends Model
         'rencana_mpp' => 'date',
         'rencana_pensiun' => 'date',
         'pend_diakui' => 'string',
+        'pend_milik' => 'string',
         'id_org' => 'integer',
         'id_posisi' => 'integer',
         'id_tipe_kar' => 'integer',
@@ -97,13 +100,12 @@ class karyawan extends Model
         'tgl_lahir' => 'required',
         'id_jabatan' => 'required',
         'id_status1' => 'required',
-        'id_status2' => 'required',
+        // 'id_status2' => 'required',
         'id_unitkerja' => 'required',
         'rencana_mpp' => 'required',
         'rencana_pensiun' => 'required',
         'pend_diakui' => 'required',
-        'id_org' => 'required',
-        'id_posisi' => 'required',
+        'pend_milik' => 'required',
         'id_tipe_kar' => 'required',
         'entry_date' => 'required',
         
@@ -147,5 +149,16 @@ class karyawan extends Model
         }else{
             return 2;
         }
+    }
+
+    public function getStatusmppAttribute(){
+        $to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Carbon::now());
+        $m = date('-m-d', strtotime($this->tgl_lahir));
+        $from = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Carbon::now()->year.$m.' 9:30:34');
+        $sisa = $to->diffInDays($from);
+        $umur =  \Carbon\Carbon::parse($this->tgl_lahir)->age;
+        if ((int) $umur == 55 && (int) $sisa < 60 && (int) $sisa > 0) return "<span class='label label-warning'>Masa MPP Akan Datang</span>";
+        if ((int) $umur < 55 || (int) $sisa > 60) return "<span class='label label-default'>Belum Masa MPP</span>";
+        return "<span class='label label-danger'>Sudah Masa MPP</span>";
     }
 }

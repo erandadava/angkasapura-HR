@@ -84,28 +84,7 @@ html{
                             <!-- /.box-body -->
                         </div>
                     </div>
-                    <div class="col-md-6 col-sm-12">
-                        <div class="box box-info">
-                            <div class="box-header with-border">
-                            <h3 class="box-title">Jumlah Karyawan Berdasarkan Pendidikan</h3>
 
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <!-- /.box-tools -->
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body" style="">
-								<canvas id="chartPendidikan"></canvas>
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                    </div>
-
-                </div>
-
-				<div class="row">
 				<div class="col-md-6 col-sm-12">
                         <div class="box box-info">
                             <div class="box-header with-border">
@@ -120,24 +99,6 @@ html{
                             <!-- /.box-header -->
                             <div class="box-body" style="">
 								<canvas id="chartUmur"></canvas>
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="box box-info">
-                            <div class="box-header with-border">
-                            <h3 class="box-title">Jumlah Karyawan Berdasarkan Kelas Jabatan</h3>
-
-                            <div class="box-tools pull-right">
-                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                </button>
-                            </div>
-                            <!-- /.box-tools -->
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body" style="">
-								<canvas id="chartKelasJabatan"></canvas>
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -188,65 +149,15 @@ html{
         }
         getRandomColorHex();
 
-		var status_pendidikan = {!!$status_pendidikan!!};
-		var label_status_pendidikan = $.map(status_pendidikan, function(e) {
-                return e.pendidikan;
-        });
-		var value_status_pendidikan = $.map(status_pendidikan, function(e) {
-                return e.jumlah;
-        });
 
 		var unit_kerja = {!!$unit_kerja!!};
 		var label_unit_kerja = $.map(unit_kerja, function(e) {
                 return e.nama_uk;
         });
 		var value_unit_kerja = $.map(unit_kerja, function(e) {
-                return e.karyawan_count;
+                return e.karyawan_os_count;
         });
 
-		var kelas_jabatan = {!!$kelas_jabatan!!};
-		var label_kelas_jabatan = $.map(kelas_jabatan, function(e) {
-                return e.nama_kj;
-        });
-		var value_kelas_jabatan = $.map(kelas_jabatan, function(e) {
-                return e.karyawan_count;
-        });
-
-        var kelas_jabatan_alphabet = {!!$kelas_jabatan_alphabet!!};
-		var label_kelas_jabatan_alphabet = $.map(kelas_jabatan_alphabet, function(e) {
-                return e.nama_kj;
-        });
-		var value_kelas_jabatan_alphabet = $.map(kelas_jabatan_alphabet, function(e) {
-                return e.karyawan_count;
-        });
-
-        var value_kelas_jabatan_combine = value_kelas_jabatan.concat(value_kelas_jabatan_alphabet);
-        var label_kelas_jabatan_combine = label_kelas_jabatan.concat(label_kelas_jabatan_alphabet);
-
-		var chrtpendidikan = new Chart(document.getElementById('chartPendidikan'), {
-                type: 'doughnut',
-                data: {
-                labels: label_status_pendidikan,
-                    datasets: [
-                        {
-                        label: "Jumlah",
-                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#3B1F2B","#0E7C7B","#E01A4F","#F15946","#7B3E19","#175676"],
-                        data: value_status_pendidikan
-                        }
-                    ]
-                },
-                options: {
-                    plugins: {
-                        datalabels: {
-                            color : '#fff'
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Jumlah Karyawan Berdasarkan Pendidikan'
-                    }
-                }
-        });
 		var chrtgender = new Chart(document.getElementById('chartGender'), {
                 type: 'pie',
                 data: {
@@ -322,30 +233,7 @@ html{
                 }
         });
 
-		var chrtkelasjabatan = new Chart(document.getElementById('chartKelasJabatan'), {
-                type: 'bar',
-                data: {
-                labels: label_kelas_jabatan_combine,
-                    datasets: [
-                        {
-                        label : "Jumlah",   
-                        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850", "#3F3047","#3B1F2B","#0E7C7B","#E01A4F","#F15946","#7B3E19","#175676","#B6C649","#F7D002","#BF1A2F","#586BA4","#F5DD90","#F68E5F","#F76C5E","#EF476F","#118AB2"],
-                        data: value_kelas_jabatan_combine
-                        }
-                    ]
-                },
-                options: {
-                    plugins: {
-                        datalabels: {
-                            color : '#fff'
-                        }
-                    },
-                    title: {
-                        display: true,
-                        text: 'Jumlah Karyawan Berdasarkan Kelas Jabatan'
-                    }
-                }
-        });
+
 
         Chart.plugins.register({
         beforeDraw: function(chartInstance) {

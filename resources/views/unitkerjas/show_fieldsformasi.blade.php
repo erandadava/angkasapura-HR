@@ -51,13 +51,13 @@
                                 Nama Kelas Jabatan
                             </th>
                             <th style='text-align:center'>
-                                Jumlah Kelas Jabatan
+                                Jumlah Formasi
                             </th>
                             <th style='text-align:center'>
                                 Jumlah Eksisting
                             </th>
                             <th style='text-align:center'>
-                                Jumlah Formasi
+                                Jumlah Lowong
                             </th>
                         </thead>
                         <tbody>

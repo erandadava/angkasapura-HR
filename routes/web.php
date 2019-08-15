@@ -57,7 +57,7 @@ Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
     
     Route::resource('osdocs', 'osdocController');
     
-    Route::resource('statuskars', 'statuskarController');
+    // Route::resource('statuskars', 'statuskarController');
     
     Route::post('/uploadcsvkaryawan', 'karyawanController@import_from_csv');
     

@@ -63,10 +63,10 @@ class jabatanDataTable extends DataTable
     {
         return [
             ['data' => 'ID', 'visible'=> false],
-            'nama_jabatan',
-            'syarat_didik',
-            'syarat_latih',
-            'syarat_pengalaman'
+            ['data' => 'nama_jabatan', 'title' => 'Nama Jabatan'],
+            ['data' => 'syarat_didik', 'title' => 'Pendidikan'],
+            ['data' => 'syarat_latih', 'title' => 'Pelatihan'],
+            ['data' => 'syarat_pengalaman', 'title' => 'Pengalaman']
         ];
     }
 

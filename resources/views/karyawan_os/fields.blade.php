@@ -6,8 +6,8 @@
 
 <!-- Id Fungsi Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('nama_jabatan', 'Nama Jabatan:') !!}
-    {!! Form::select('nama_jabatan', $jabatan_os, null, ['class' => 'form-control']) !!}
+    {!! Form::label('id_fungsi', 'Nama Fungsi:') !!}
+    {!! Form::select('id_fungsi', $fungsi, null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Id Unitkerja Field -->
@@ -15,11 +15,14 @@
     {!! Form::label('id_unitkerja', 'Unit Kerja:') !!}
     {!! Form::select('id_unitkerja', $unitkerja, null, ['class' => 'form-control']) !!}
 </div>
-
-<div class="form-group col-sm-6">
-    {!! Form::label('id_vendor', 'Vendor:') !!}
-    {!! Form::select('id_vendor', $vendor, null, ['class' => 'form-control']) !!}
-</div>
+@hasrole('Vendor')
+    {!! Form::hidden('id_vendor', $id_vendor->id, ['class' => 'form-control']) !!}
+@else
+    <div class="form-group col-sm-6">
+        {!! Form::label('id_vendor', 'Vendor:') !!}
+        {!! Form::select('id_vendor', $vendor, null, ['class' => 'form-control']) !!}
+    </div>
+@endhasrole
 
 <!-- Tgl Lahir Field -->
 <div class="form-group col-sm-6">

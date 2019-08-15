@@ -18,7 +18,16 @@ class karyawanDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'karyawans.datatables_actions');
+        return $dataTable->addColumn('action', 'karyawans.datatables_actions')->editColumn('tgl_lahir', function ($inquiry) 
+        {
+            
+        })
+        ->editColumn('tgl_lahir', function ($inquiry) 
+            {
+             return \Carbon\Carbon::parse($inquiry->tgl_lahir)->formatLocalized('%d %B %Y');
+            })
+
+        ->rawColumns(['tgl_lahir','status_pensiun','action']);
     }
 
     /**
@@ -29,6 +38,7 @@ class karyawanDataTable extends DataTable
      */
     public function query(karyawan $model)
     {
+        
         return $model->with(['klsjabatan','jabatan','unitkerja'])->newQuery();
     }
 
@@ -64,11 +74,11 @@ class karyawanDataTable extends DataTable
         return [
             ['data'=>'nik','title'=>'NIK'],
             ['data'=>'nama','title'=>'Nama'],
+            ['data'=>'jabatan.nama_jabatan','title'=>'Jabatan'],
+            ['data'=>'unitkerja.nama_uk','title'=>'Unit Kerja'],
+            ['data'=>'klsjabatan.nama_kj','title'=>'Kelas Jabatan'],
             ['data'=>'gender','title'=>'Gender'],
             ['data'=>'tgl_lahir','title'=>'Tanggal Lahir'],
-            ['data'=>'jabatan.nama_jabatan','title'=>'Jabatan'],
-            ['data'=>'klsjabatan.nama_kj','title'=>'Kelas Jabatan'],
-            ['data'=>'unitkerja.nama_uk','title'=>'Unit Kerja'],
         ];
     }
 

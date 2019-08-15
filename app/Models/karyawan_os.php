@@ -165,4 +165,5 @@ class karyawan_os extends Model
     {
         return $this->hasOne('App\Models\jabatan_os', 'id', 'nama_jabatan');        
     }
+    
 }

@@ -30,13 +30,13 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-3">
+    {{-- <div class="col-md-3">
         <!-- Deleted At Field -->
         <div class="form-group">
             {!! Form::label('deleted_at', 'Deleted At:') !!}
             <p>{!! $jabatan->deleted_at !!}</p>
         </div>
-    </div>
+    </div> --}}
     <div class="col-md-3">
         <!-- Created At Field -->
         <div class="form-group">

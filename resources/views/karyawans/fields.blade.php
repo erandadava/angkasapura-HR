@@ -8,16 +8,15 @@
     {!! Form::text('nama', null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Gender Field -->
+<!-- id Jabatan Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('gender', 'Jenis Kelamin:') !!}
-    {!! Form::select('gender',['Male' => 'Male', 'Female' => 'Female'],null, ['class' => 'form-control']) !!}
+    {!! Form::label('id_jabatan', 'Jabatan:') !!}
+    {!! Form::select('id_jabatan', $jabatan, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- Tgl Lahir Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
-    {!! Form::text('tgl_lahir', null, ['class' => 'form-control','id'=>'tgl_lahir']) !!}
+    {!! Form::label('id_unitkerja', 'Unit Kerja:') !!}
+    {!! Form::select('id_unitkerja',$unitkerja, null, ['class' => 'form-control', 'id' => 'unitkerja']) !!}
 </div>
 
 <!-- id Kj Field -->
@@ -26,10 +25,15 @@
     {!! Form::select('id_klsjabatan', $klsjabatan, null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- id Jabatan Field -->
+<!-- Gender Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_jabatan', 'Jabatan:') !!}
-    {!! Form::select('id_jabatan', $jabatan, null, ['class' => 'form-control']) !!}
+    {!! Form::label('gender', 'Jenis Kelamin:') !!}
+    {!! Form::select('gender',['Male' => 'Male', 'Female' => 'Female'],null, ['class' => 'form-control']) !!}
+</div>
+<!-- Tgl Lahir Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('tgl_lahir', 'Tanggal Lahir:') !!}
+    {!! Form::text('tgl_lahir', null, ['class' => 'form-control','id'=>'tgl_lahir']) !!}
 </div>
 
 <!-- id Status1 Field -->
@@ -39,10 +43,10 @@
 </div>
 
 <!-- id Status2 Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('id_status2', 'Status 2:') !!}
     {!! Form::select('id_status2', $statuskar, null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- id Unitkerja Field -->
 <div class="form-group col-sm-6">
@@ -50,11 +54,11 @@
     {!! Form::select('id_unitkerja',$unitkerja, null, ['class' => 'form-control', 'id' => 'unitkerja']) !!}
 </div>
 
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('id_unit', 'Unit:') !!}
     {!! Form::select('id_unit',$unit, null, ['class' => 'form-control', 'id' => 'unitkerja']) !!}
-</div>
-
+</div> --}}
+    
 <!-- Rencana Mpp Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('rencana_mpp', 'Rencana MPP:') !!}
@@ -83,17 +87,32 @@
     ], null, ['class' => 'form-control']) !!}
 </div>
 
-<!-- id Org Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('id_org', 'id Org:') !!}
-    {!! Form::number('id_org', null, ['class' => 'form-control']) !!}
+    {!! Form::label('pend_milik', 'Pend milik:') !!}
+    {!! Form::select('pend_milik', [
+        'SLTA' => 'SLTA',
+        'SLTP' => 'SLTP',
+        'DI  - Diploma I' => 'DI  - Diploma I',
+        'DII  - Diploma II' => 'DII  - Diploma II',
+        'DIII  - Diploma III' => 'DIII  - Diploma III',
+        'DIV - Diploma IV' => 'DIV - Diploma IV',
+        'S1 - Strata 1' => 'S1 - Strata 1',
+        'S2 - Strata 2' => 'S2 - Strata 2',
+        'S3 - Strata 3' => 'S3 - Strata 3',
+    ], null, ['class' => 'form-control']) !!}
 </div>
 
+<!-- id Org Field -->
+{{-- <div class="form-group col-sm-6">
+    {!! Form::label('id_org', 'id Org:') !!}
+    {!! Form::number('id_org', null, ['class' => 'form-control']) !!}
+</div> --}}
+
 <!-- id Posisi Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('id_posisi', 'id Posisi:') !!}
     {!! Form::number('id_posisi', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- id Tipe Kar Field -->
 <div class="form-group col-sm-6">
@@ -111,6 +130,10 @@
     {!! Form::text('entry_date', null, ['class' => 'form-control','id'=>'entry_date']) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('tmt_date', 'Terhitung Mulai Tanggal:') !!}
+    {!! Form::text('tmt_date', null, ['class' => 'form-control','id'=>'tmt_date']) !!}
+</div>
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Simpan', ['class' => 'btn btn-primary']) !!}
@@ -160,9 +183,28 @@
 
         $('#entry_date').datetimepicker({
             format: 'Y-MM-DD hh:mm:ss',
+            useCurrent: true
+        });
+
+        $('#tmt_date').datetimepicker({
+            format: 'Y-MM-DD',
             useCurrent: false
         });
 
+        $('#tgl_lahir').on('dp.change', function(e){ return _calculateAge($('#tgl_lahir').val()); })    
+
+        function _calculateAge(birthday) 
+        { // birthday is a date
+            var birth_date = new Date(birthday);
+            var ageDifMs = Date.now() - birth_date.getTime();
+            var year = birth_date.getFullYear();
+            var month = birth_date.getMonth();
+            var day = birth_date.getDate();
+            var c = new Date(year + 56, month, day);
+            
+            // console.log(c);
+            $('#rencana_mpp').data("DateTimePicker").date(c);
+        }
+        
     </script>
-    
 @endsection
