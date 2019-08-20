@@ -421,7 +421,9 @@ html{
             }
 
             // // var pdf = new jsPDF('l', 'pt', [reportPageWidth, reportPageHeight]);
-            pdf.addImage($(pdfCanvas)[0].toDataURL(), 'JPEG', 20, 20);
+            	
+            pdf.addImage($(pdfCanvas)[0].toDataURL(), 'JPEG', 20, 50);
+            pdf.text(20, 30, 'Grafik Dashboard HR');
             
             // // download the pdf
             pdf.save('chartHR.pdf');
