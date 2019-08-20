@@ -2086,7 +2086,6 @@ return array(
     'InfyOm\\Generator\\Generators\\Scaffold\\RoutesGenerator' => $vendorDir . '/infyomlabs/laravel-generator/src/Generators/Scaffold/RoutesGenerator.php',
     'InfyOm\\Generator\\Generators\\Scaffold\\ViewGenerator' => $vendorDir . '/infyomlabs/laravel-generator/src/Generators/Scaffold/ViewGenerator.php',
     'InfyOm\\Generator\\Generators\\SwaggerGenerator' => $vendorDir . '/infyomlabs/laravel-generator/src/Generators/SwaggerGenerator.php',
-    'InfyOm\\Generator\\Generators\\TestTraitGenerator' => $vendorDir . '/infyomlabs/laravel-generator/src/Generators/TestTraitGenerator.php',
     'InfyOm\\Generator\\Generators\\VueJs\\APIRequestGenerator' => $vendorDir . '/infyomlabs/laravel-generator/src/Generators/VueJs/APIRequestGenerator.php',
     'InfyOm\\Generator\\Generators\\VueJs\\ControllerGenerator' => $vendorDir . '/infyomlabs/laravel-generator/src/Generators/VueJs/ControllerGenerator.php',
     'InfyOm\\Generator\\Generators\\VueJs\\ModelJsConfigGenerator' => $vendorDir . '/infyomlabs/laravel-generator/src/Generators/VueJs/ModelJsConfigGenerator.php',

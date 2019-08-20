@@ -99,7 +99,7 @@ class mppDataTable extends DataTable
             ['data' => 'jabatan.nama_jabatan', 'title' => 'Jabatan'],
             ['data' => 'unitkerja.nama_uk', 'title' => 'Unit Kerja'],
             ['data' => 'rencana_mpp', 'title' => 'Rencana MPP'],
-            ['data' => 'fungsi.nama_fungsi', 'title' => 'Fungsi'],
+            // ['data' => 'fungsi.nama_fungsi', 'title' => 'Fungsi'],
             ['data' => 'status_pensiun', 'title' => 'Status Pensiun'],
             ['data' => 'tgl_lahir', 'title' => 'Status MPP']
         ];
