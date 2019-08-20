@@ -224,7 +224,7 @@ html{
         var label_kelas_jabatan_combine = label_kelas_jabatan.concat(label_kelas_jabatan_alphabet);
 
 		var chrtpendidikan = new Chart(document.getElementById('chartPendidikan'), {
-                type: 'doughnut',
+                type: 'pie',
                 data: {
                 labels: label_status_pendidikan,
                     datasets: [

@@ -50,16 +50,16 @@ class formasiExistingDataTable extends DataTable
         })
         ->editColumn('jml_pkwt', function ($inquiry) use($query)
         {
-            $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
+            $id_pkwt = \App\Models\tipekar::where('nama_tipekar','LIKE','%PKWT%')->first();
             if($this->dari && $this->sampai){
                 $dari = $this->dari;
                 $sampai = $this->sampai;
                 $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
-                    $q->where('id_klsjabatan', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                    $q->where('id_tipe_kar', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
                 }])->first();
             }else{
                 $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt){
-                    $q->where('id_klsjabatan', $id_pkwt->id);
+                    $q->where('id_tipe_kar', $id_pkwt->id);
                 }])->first();
             }
             
@@ -67,16 +67,16 @@ class formasiExistingDataTable extends DataTable
         })
         ->editColumn('jml_kmpg', function ($inquiry) use($query)
         {
-            $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
+            $id_kmpg = \App\Models\tipekar::where('nama_tipekar','LIKE','%KMPG%')->first();
             if($this->dari && $this->sampai){
                 $dari = $this->dari;
                 $sampai = $this->sampai;
                 $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
-                    $q->where('id_klsjabatan', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                    $q->where('id_tipe_kar', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
                 }])->first();
             }else{
                 $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg){
-                    $q->where('id_klsjabatan', $id_kmpg->id);
+                    $q->where('id_tipe_kar', $id_kmpg->id);
                 }])->first();
             }
             
@@ -84,20 +84,16 @@ class formasiExistingDataTable extends DataTable
         })
         ->editColumn('jml_karyawan', function ($inquiry) use($query)
         {
-            $id_19 = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
-            $id_20 = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
-            $id_21 = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
-            $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
-            $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
+            $non_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Non Pejabat%')->first();
             if($this->dari && $this->sampai){
                 $dari = $this->dari;
                 $sampai = $this->sampai;
-                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg,$dari, $sampai){
-                    $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]])->whereBetween('tmt_date', [$dari, $sampai]);
+                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($non_pejabat,$dari, $sampai){
+                    $q->where('id_tipe_kar', $non_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
                 }])->first();
             }else{
-                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
-                    $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
+                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($non_pejabat){
+                    $q->where('id_tipe_kar', $non_pejabat->id);
                 }])->first();
             }
             
@@ -106,18 +102,16 @@ class formasiExistingDataTable extends DataTable
 
         ->editColumn('jml_pejabat', function ($inquiry) use($query)
         {
-            $id_19_pejabat = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
-            $id_20_pejabat = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
-            $id_21_pejabat = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
+            $id_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Pejabat%')->first();
             if($this->dari && $this->sampai){
                 $dari = $this->dari;
                 $sampai = $this->sampai;
-                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19_pejabat,$id_20_pejabat,$id_21_pejabat,$dari, $sampai){
-                    $q->where('id_klsjabatan','=', $id_19_pejabat->id??null)->whereBetween('tmt_date', [$dari, $sampai])->orWhere('id_klsjabatan','=', $id_20_pejabat->id??null)->orWhere('id_klsjabatan','=', $id_21_pejabat->id??null);
+                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pejabat,$dari, $sampai){
+                    $q->where('id_tipe_kar', $id_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
                 }])->first();
             }else{
-                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19_pejabat,$id_20_pejabat,$id_21_pejabat){
-                    $q->where('id_klsjabatan','=', $id_19_pejabat->id??null)->orWhere('id_klsjabatan','=', $id_20_pejabat->id??null)->orWhere('id_klsjabatan','=', $id_21_pejabat->id??null);
+                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pejabat){
+                    $q->where('id_tipe_kar', $id_pejabat->id);
                 }])->first();
             }
             
@@ -126,60 +120,57 @@ class formasiExistingDataTable extends DataTable
 
         ->editColumn('total_eksis', function ($inquiry) use($query)
         {
-            $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
+            $id_pkwt = \App\Models\tipekar::where('nama_tipekar','LIKE','%PKWT%')->first();
             if($this->dari && $this->sampai){
                 $dari = $this->dari;
                 $sampai = $this->sampai;
                 $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
-                    $q->where('id_klsjabatan', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                    $q->where('id_tipe_kar', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
                 }])->first();
             }else{
                 $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt){
-                    $q->where('id_klsjabatan', $id_pkwt->id);
+                    $q->where('id_tipe_kar', $id_pkwt->id);
                 }])->first();
             }
             
 
-            $id_19 = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
-            $id_20 = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
-            $id_21 = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
-            $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
-            $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
+            $non_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Non Pejabat%')->first();
             if($this->dari && $this->sampai){
                 $dari = $this->dari;
                 $sampai = $this->sampai;
-                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg,$dari, $sampai){
-                    $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]])->whereBetween('tmt_date', [$dari, $sampai]);
+                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($non_pejabat,$dari, $sampai){
+                    $q->where('id_tipe_kar', $non_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
                 }])->first();
             }else{
-                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
-                    $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
+                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($non_pejabat){
+                    $q->where('id_tipe_kar', $non_pejabat->id);
                 }])->first();
             }
             
 
-            $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
+            $id_kmpg = \App\Models\tipekar::where('nama_tipekar','LIKE','%KMPG%')->first();
             if($this->dari && $this->sampai){
                 $dari = $this->dari;
                 $sampai = $this->sampai;
                 $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
-                    $q->where('id_klsjabatan', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                    $q->where('id_tipe_kar', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
                 }])->first();
             }else{
                 $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg){
-                    $q->where('id_klsjabatan', $id_kmpg->id);
+                    $q->where('id_tipe_kar', $id_kmpg->id);
                 }])->first();
             }
             
+            $id_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Pejabat%')->first();
             if($this->dari && $this->sampai){
                 $dari = $this->dari;
                 $sampai = $this->sampai;
-                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$dari, $sampai){
-                    $q->where('id_klsjabatan', $id_19->id??null)->whereBetween('tmt_date', [$dari, $sampai])->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
+                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pejabat,$dari, $sampai){
+                    $q->where('id_tipe_kar', $id_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
                 }])->first();
             }else{
-                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21){
-                    $q->where('id_klsjabatan', $id_19->id??null)->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
+                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pejabat){
+                    $q->where('id_tipe_kar', $id_pejabat->id);
                 }])->first();
             }
             
@@ -190,6 +181,9 @@ class formasiExistingDataTable extends DataTable
             return $query->sum('jml_formasi');
         })
         ->with('sum_eksis', $sum_eksis)
+        ->with('sum_unit', function() use ($query) {
+            return $query->count('id');
+        })
         ->rawColumns(['lowong','kekuatan','action']);
     }
 
@@ -237,16 +231,119 @@ class formasiExistingDataTable extends DataTable
                 'initComplete' => "function () {
                     var rows = this.api().rows( {page:'current'} ).nodes();
                     var last=null;
+                    this.api().columns(1).every(function () {
+                        var column = this;
+                        $(column.footer()).html('TOTAL');
+                        
+                    });
                     this.api().columns(3).every(function () {
                         var column = this;
-                        $(column.footer()).html('Total: ' + LaravelDataTables['dataTableBuilder'].ajax.json().sum_formasi);
+                        $(column.footer()).html(LaravelDataTables['dataTableBuilder'].ajax.json().sum_formasi);
                         
                     });
                     this.api().columns(4).every(function () {
                         var column = this;
-                        $(column.footer()).html('Total: ' + LaravelDataTables['dataTableBuilder'].ajax.json().sum_eksis);
+                        $(column.footer()).html(LaravelDataTables['dataTableBuilder'].ajax.json().sum_eksis);
                         
                     });
+                    // Total lowong
+
+                    totalLowong = this.api().column( 5, { page: 'current'} ).data().reduce( function (a, b) {
+
+                    return parseInt(a) + parseInt(b);
+
+                    }, 0 );
+
+                    this.api().columns(5).every(function () {
+                        var column = this;
+                        $(column.footer()).html(totalLowong);
+                        
+                    });
+
+                    // Total kekuatan sdm
+
+                    totalKekuatan = this.api().column( 6, { page: 'current'} ).data().reduce( function (a, b) {
+
+                    return parseInt(a) + parseInt(b);
+
+                    }, 0 );
+
+                    this.api().columns(6).every(function () {
+                        var column = this;
+                        $(column.footer()).html(Math.round(parseInt(totalKekuatan))+'%');
+                        
+                    });
+
+                    // Total pejabat
+
+                    pejabat = this.api().column( 7, { page: 'current'} ).data().reduce( function (a, b) {
+
+                    return parseInt(a) + parseInt(b);
+
+                    }, 0 );
+
+                    this.api().columns(7).every(function () {
+                        var column = this;
+                        $(column.footer()).html(pejabat);
+                        
+                    });
+
+                    // Total jumlahkaryawan
+
+                    jumlahkaryawan = this.api().column( 8, { page: 'current'} ).data().reduce( function (a, b) {
+
+                    return parseInt(a) + parseInt(b);
+
+                    }, 0 );
+
+                    this.api().columns(8).every(function () {
+                        var column = this;
+                        $(column.footer()).html(jumlahkaryawan);
+                        
+                    });
+
+                    // Total jumlahpkwt
+
+                    jumlahpkwt = this.api().column( 9, { page: 'current'} ).data().reduce( function (a, b) {
+
+                    return parseInt(a) + parseInt(b);
+
+                    }, 0 );
+
+                    this.api().columns(9).every(function () {
+                        var column = this;
+                        $(column.footer()).html(jumlahpkwt);
+                        
+                    });
+
+                    // Total jumlahkmpg
+
+                    jumlahkmpg = this.api().column( 10, { page: 'current'} ).data().reduce( function (a, b) {
+
+                    return parseInt(a) + parseInt(b);
+
+                    }, 0 );
+
+                    this.api().columns(10).every(function () {
+                        var column = this;
+                        $(column.footer()).html(jumlahkmpg);
+                        
+                    });
+
+                    // Total totaleksiskanan
+
+                    totaleksiskanan = this.api().column( 11, { page: 'current'} ).data().reduce( function (a, b) {
+
+                    return parseInt(a) + parseInt(b);
+
+                    }, 0 );
+
+                    this.api().columns(11).every(function () {
+                        var column = this;
+                        $(column.footer()).html(totaleksiskanan);
+                        
+                    });
+
                     this.api().column(2, {page:'current'} ).data().each( function ( group, i ) {
                         if ( last !== group ) {
                             $(rows).eq( i ).before(
