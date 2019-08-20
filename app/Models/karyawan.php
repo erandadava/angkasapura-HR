@@ -56,7 +56,7 @@ class karyawan extends Model
         'id_posisi',
         'id_tipe_kar',
         'entry_date',
-        'id_fungsi',
+        // 'id_fungsi',
         'nik',
         'id_klsjabatan',
         'id_unit',
