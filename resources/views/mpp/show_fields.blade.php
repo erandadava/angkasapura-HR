@@ -12,12 +12,12 @@
                   <p>{!! $karyawan->jabatan->nama_jabatan??'' !!}</p>
                 </div>
         </div>
-        <div class="col-md-3">
+        {{-- <div class="col-md-3">
                 <div class="form-group">
                   {!! Form::label('fungsi', 'Fungsi:') !!}
                   <p>{!! $karyawan->fungsi->nama_fungsi??'' !!}</p>
                 </div>
-        </div>
+        </div> --}}
         <div class="col-md-3">
             <div class="form-group">
               {!! Form::label('nama', 'Nama:') !!}
@@ -31,8 +31,21 @@
               <p>{!! $karyawan->id_kj !!}</p>
           </div>
         </div> --}}
+        <div class="col-md-3">
+            <div class="form-group">
+                {!! Form::label('pend_diakui', 'Pendidikan Diakui:') !!}
+                <p>{!! $karyawan->pend_diakui !!}</p>
+            </div>
+        </div>
     </div> 
       <div class="row">
+          <div class="col-md-3">
+            <div class="form-group">
+                {!! Form::label('rencana_pensiun', 'Rencana Pensiun:') !!}
+                <p>{!!  \Carbon\Carbon::parse($karyawan->rencana_pensiun)->formatLocalized('%d %B %Y'); !!}</p>
+
+            </div>
+        </div>
           {{-- <div class="col-md-3">
               <div class="form-group">
                   {!! Form::label('id_status1', 'id Status1:') !!}
@@ -64,23 +77,10 @@
                     </div>
                 </div>
 
-               <div class="col-md-3">
-                    <div class="form-group">
-                        {!! Form::label('pend_diakui', 'Pend Diakui:') !!}
-                        <p>{!! $karyawan->pend_diakui !!}</p>
-                    </div>
-                </div>
       </div>
       
       <div class="row">
           
-          <div class="col-md-3">
-              <div class="form-group">
-                  {!! Form::label('rencana_pensiun', 'Rencana Pensiun:') !!}
-                  <p>{!!  \Carbon\Carbon::parse($karyawan->rencana_pensiun)->formatLocalized('%d %B %Y'); !!}</p>
-
-              </div>
-          </div>
           <div class="col-md-3">
                 <div class="form-group">
                     {!! Form::label('status_pensiun', 'Status Pensiun:') !!}

@@ -100,7 +100,7 @@ tr.group,
     <div class="row">
         <div class='col-sm-12'>
             <h1>{{$title}}</h1>
-            <small>{!! \Carbon\Carbon::now() !!}</small>
+            <small>{!! \Carbon\Carbon::parse(\Carbon\Carbon::now())->formatLocalized('%d %B %Y'); !!}</small>
         </div>
         <div class="col-sm-12">
             <div class="table">
@@ -135,6 +135,13 @@ tr.group,
                                 @endforeach
                             </tr>
                         @endforeach
+                        <tr>
+                            @foreach($total as $key_total => $dt_total)
+                                <td>
+                                    {!! $dt_total !!}
+                                </td>
+                            @endforeach
+                        </tr>
                     </tbody>
                 </table>
             </div>

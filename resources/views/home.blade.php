@@ -224,7 +224,7 @@ html{
         var label_kelas_jabatan_combine = label_kelas_jabatan.concat(label_kelas_jabatan_alphabet);
 
 		var chrtpendidikan = new Chart(document.getElementById('chartPendidikan'), {
-                type: 'doughnut',
+                type: 'pie',
                 data: {
                 labels: label_status_pendidikan,
                     datasets: [
@@ -421,7 +421,9 @@ html{
             }
 
             // // var pdf = new jsPDF('l', 'pt', [reportPageWidth, reportPageHeight]);
-            pdf.addImage($(pdfCanvas)[0].toDataURL(), 'JPEG', 20, 20);
+            	
+            pdf.addImage($(pdfCanvas)[0].toDataURL(), 'JPEG', 20, 50);
+            pdf.text(20, 30, 'Grafik Dashboard HR');
             
             // // download the pdf
             pdf.save('chartHR.pdf');

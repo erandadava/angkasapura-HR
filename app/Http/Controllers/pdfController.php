@@ -165,67 +165,78 @@ class pdfController extends Controller
                 
                 $title = 'Laporan Kekuatan SDM KCU BSH';
                 $group = [];
+                $hasil_lowong = 0;
+                $hasil_kekuatan = 0;
+                $hasil_pejabat = 0;
+                $hasil_karyawan = 0;
+                $hasil_pkwt = 0;
+                $hasil_kmpg = 0;
+                $hasil_total_eksis_kanan = 0;
                 foreach ($get as $key => $value) {
-                    $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
+                    $id_pkwt = \App\Models\tipekar::where('nama_tipekar','LIKE','%PKWT%')->first();
                     if($request->dari && $request->sampai){
                         $dari = $request->dari;
                         $sampai = $request->sampai;
                         $pkwt = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
-                            $q->where('id_klsjabatan', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                            $q->where('id_tipe_kar', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
                         }])->first();
                     }else{
                         $pkwt = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pkwt){
-                            $q->where('id_klsjabatan', $id_pkwt->id);
+                            $q->where('id_tipe_kar', $id_pkwt->id);
                         }])->first();
                     }
                     
 
-                    $id_19 = \App\Models\klsjabatan::where('nama_kj','=','19')->first();
-                    $id_20 = \App\Models\klsjabatan::where('nama_kj','=','20')->first();
-                    $id_21 = \App\Models\klsjabatan::where('nama_kj','=','21')->first();
-                    $id_pkwt = \App\Models\klsjabatan::where('nama_kj','=','PKWT')->first();
-                    $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
+                    $non_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Non Pejabat%')->first();
                     if($request->dari && $request->sampai){
                         $dari = $request->dari;
                         $sampai = $request->sampai;
-                        $karyawan = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg,$dari, $sampai){
-                            $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]])->whereBetween('tmt_date', [$dari, $sampai]);
+                        $karyawan = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($non_pejabat,$dari, $sampai){
+                            $q->where('id_tipe_kar', $non_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
                         }])->first();
                     }else{
-                        $karyawan = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$id_pkwt,$id_kmpg){
-                            $q->where([['id_klsjabatan','!=', $id_19->id??null],['id_klsjabatan','!=', $id_20->id??null],['id_klsjabatan','!=', $id_21->id??null],['id_klsjabatan','!=', $id_pkwt->id??null],['id_klsjabatan','!=', $id_kmpg->id??null]]);
+                        $karyawan = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($non_pejabat){
+                            $q->where('id_tipe_kar', $non_pejabat->id);
                         }])->first();
                     }
                     
 
-                    $id_kmpg = \App\Models\klsjabatan::where('nama_kj','=','KMPG')->first();
+                    $id_kmpg = \App\Models\tipekar::where('nama_tipekar','LIKE','%KMPG%')->first();
                     if($request->dari && $request->sampai){
                         $dari = $request->dari;
                         $sampai = $request->sampai;
                         $kmpg = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
-                            $q->where('id_klsjabatan', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                            $q->where('id_tipe_kar', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
                         }])->first();
                     }else{
                         $kmpg = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_kmpg){
-                            $q->where('id_klsjabatan', $id_kmpg->id);
+                            $q->where('id_tipe_kar', $id_kmpg->id);
                         }])->first();
                     }
                     
+                    $id_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Pejabat%')->first();
                     if($request->dari && $request->sampai){
                         $dari = $request->dari;
                         $sampai = $request->sampai;
-                        $pejabat = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21,$dari, $sampai){
-                            $q->where('id_klsjabatan', $id_19->id??null)->whereBetween('tmt_date', [$dari, $sampai])->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
+                        $pejabat = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pejabat,$dari, $sampai){
+                            $q->where('id_tipe_kar', $id_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
                         }])->first();
                     }else{
-                        $pejabat = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_19,$id_20,$id_21){
-                            $q->where('id_klsjabatan', $id_19->id??null)->orWhere('id_klsjabatan', $id_20->id??null)->orWhere('id_klsjabatan', $id_21->id??null);
+                        $pejabat = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pejabat){
+                            $q->where('id_tipe_kar', $id_pejabat->id);
                         }])->first();
                     }
                     
 
                     $lowong = (int) $value->jml_formasi - (int) $value->karyawan_count;
+                    $hasil_lowong += $lowong;
                     $kekuatan = round(((int) $value->karyawan_count / (int) $value->jml_formasi)*100)."%";
+                    $hasil_kekuatan += (int)$kekuatan;
+                    $hasil_pejabat += count($pejabat->karyawan);
+                    $hasil_karyawan += count($karyawan->karyawan);
+                    $hasil_pkwt += count($pkwt->karyawan);
+                    $hasil_kmpg += count($kmpg->karyawan);
+                    $hasil_total_eksis_kanan += count($pejabat->karyawan)+count($karyawan->karyawan)+count($pkwt->karyawan)+count($kmpg->karyawan);
                     $isinya[$key]=[
                         0 => $value['nama_uk'],
                         1 => $value['jml_formasi'],
@@ -241,12 +252,32 @@ class pdfController extends Controller
                     $group[$key]= [
                         0 => $value['id_kategori_unit_kerja_fk'],
                         1 => $value['kategori_unit_kerja']['nama_kategori_uk']
-                    ];   
+                    ];
+
+                    
                 }
+                //Untuk generate total
+                $total[0] = "<b>TOTAL</b>";
+                $total[1] = "<b>".$get->sum('jml_formasi')."</b>";
+                $sum_eksis = 0 ;
+                if($get){
+                    foreach ($get as $key => $value) {
+                        $sum_eksis += (int) $value['karyawan_count'];
+                    }
+                    
+                }
+                $total[2] = "<b>".$sum_eksis."</b>";
+                $total[3] = "<b>".$hasil_lowong."</b>";
+                $total[4] = "<b>".round($hasil_kekuatan).'%'."</b>";
+                $total[5] = "<b>".$hasil_pejabat."</b>";
+                $total[6] = "<b>".$hasil_karyawan."</b>";
+                $total[7] = "<b>".$hasil_pkwt."</b>";
+                $total[8] = "<b>".$hasil_kmpg."</b>";
+                $total[9] = "<b>".$hasil_total_eksis_kanan."</b>";
 
                 $values = $isinya; 
                 $tabel = 'laporan_kekuatan_SDM KCU BSH';
-                $pdf = PDF::loadview('pdf.index_formasi',['head'=>$head,'title'=>$title,'value'=>$values,'group'=>$group])->setPaper('a4', 'landscape');
+                $pdf = PDF::loadview('pdf.index_formasi',['head'=>$head,'title'=>$title,'value'=>$values,'group'=>$group,'total'=>$total])->setPaper('a4', 'landscape');
                 // return $pdf->download($tabel.time().'.pdf');
                 return $pdf->stream($tabel.time().'.pdf', array("Attachment" => false));
             break; 

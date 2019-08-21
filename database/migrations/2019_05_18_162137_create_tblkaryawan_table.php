@@ -29,7 +29,7 @@ class CreateTblkaryawanTable extends Migration {
 			$table->integer('id_org')->nullable();
 			$table->integer('id_posisi')->nullable();
 			$table->integer('id_tipe_kar')->nullable();
-			$table->integer('id_fungsi');
+			$table->integer('id_fungsi')->nullable();
 			$table->string('nik');
 			$table->integer('id_klsjabatan')->nullable();
 			$table->integer('id_unit')->nullable();

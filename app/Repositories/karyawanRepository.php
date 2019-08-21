@@ -27,7 +27,7 @@ class karyawanRepository extends BaseRepository
         'id_jabatan',
         'id_status1',
         'id_status2',
-        'id_unitkerja',
+        // 'id_unitkerja',
         'rencana_mpp',
         'rencana_pensiun',
         'pend_diakui',

@@ -49,10 +49,10 @@
 </div> --}}
 
 <!-- id Unitkerja Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('id_unitkerja', 'Unit Kerja:') !!}
     {!! Form::select('id_unitkerja',$unitkerja, null, ['class' => 'form-control', 'id' => 'unitkerja']) !!}
-</div>
+</div> --}}
 
 {{-- <div class="form-group col-sm-6">
     {!! Form::label('id_unit', 'Unit:') !!}
@@ -119,10 +119,10 @@
     {!! Form::label('id_tipe_kar', 'Tipe Karyawan:') !!}
     {!! Form::select('id_tipe_kar', $tipekar, null, ['class' => 'form-control']) !!}
 </div>
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('id_fungsi', 'Fungsi :') !!}
     {!! Form::select('id_fungsi',$fungsi, null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- Entry Date Field -->
 <div class="form-group col-sm-6">

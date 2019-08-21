@@ -2612,7 +2612,6 @@ class ComposerStaticInitc2c0f0aa2cfdb3fa94e9d96d3b4373bd
         'InfyOm\\Generator\\Generators\\Scaffold\\RoutesGenerator' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/Generators/Scaffold/RoutesGenerator.php',
         'InfyOm\\Generator\\Generators\\Scaffold\\ViewGenerator' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/Generators/Scaffold/ViewGenerator.php',
         'InfyOm\\Generator\\Generators\\SwaggerGenerator' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/Generators/SwaggerGenerator.php',
-        'InfyOm\\Generator\\Generators\\TestTraitGenerator' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/Generators/TestTraitGenerator.php',
         'InfyOm\\Generator\\Generators\\VueJs\\APIRequestGenerator' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/Generators/VueJs/APIRequestGenerator.php',
         'InfyOm\\Generator\\Generators\\VueJs\\ControllerGenerator' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/Generators/VueJs/ControllerGenerator.php',
         'InfyOm\\Generator\\Generators\\VueJs\\ModelJsConfigGenerator' => __DIR__ . '/..' . '/infyomlabs/laravel-generator/src/Generators/VueJs/ModelJsConfigGenerator.php',
