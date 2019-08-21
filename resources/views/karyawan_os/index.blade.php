@@ -4,11 +4,20 @@
     <section class="content-header">
         <h1 class="pull-left">Karyawan Outsourcing</h1>
         <h1 class="pull-right">
+            @hasrole('Super Admin')
             <div class="btn-group">
+                <a class="btn btn-default" style="margin-top: -10px;margin-bottom: 5px" data-toggle="modal" data-target="#modalUpload" href="#">Import From CSV</a>
+                <a class="btn btn-warning" style="margin-top: -10px;margin-bottom: 5px" href="/exportpdf/{{Crypt::encrypt('karyawan_os')}}" target="_blank" >Export To PDF</a>
+            </div>
+            @endhasrole
+
+            @hasrole('Admin|Vendor')
+             <div class="btn-group">
                 <a class="btn btn-default" style="margin-top: -10px;margin-bottom: 5px" data-toggle="modal" data-target="#modalUpload" href="#">Import From CSV</a>
                 <a class="btn btn-warning" style="margin-top: -10px;margin-bottom: 5px" href="/exportpdf/{{Crypt::encrypt('karyawan_os')}}" target="_blank" >Export To PDF</a>
                 <a class="btn btn-primary" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('karyawanOs.create') !!}">Add New</a>
             </div>
+            @endhasrole
         </h1>
     </section>
     <div class="content">
