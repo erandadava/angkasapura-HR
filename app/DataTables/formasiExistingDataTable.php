@@ -184,6 +184,9 @@ class formasiExistingDataTable extends DataTable
         ->with('sum_unit', function() use ($query) {
             return $query->count('id');
         })
+        ->with('all_data', function() use ($query) {
+            return $query->get();
+        })
         ->rawColumns(['lowong','kekuatan','action']);
     }
 

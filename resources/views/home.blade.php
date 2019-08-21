@@ -33,7 +33,7 @@ html{
                                 {!! Form::open(['url' => '/home', 'method' => 'GET', 'autocomplete' => 'off']) !!}
                                         <div class="form-group col-sm-4">
                                             <label for="exampleInputEmail1">Unit</label>
-                                            {!! Form::select('value_unit',$data_unit_kerja, null, ['class' => 'form-control', 'placeholder' => '', 'autocomplete' => 'off']) !!}
+                                            {!! Form::select('value_unit',$data_unit_kerja, null, ['class' => 'form-control', 'placeholder' => '', 'autocomplete' => 'off','id'=>'unit_kerja']) !!}
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label for="exampleInputEmail1">Mulai Dari</label>
@@ -373,6 +373,18 @@ html{
         //     pdf.save("CanvasJS Charts.pdf");
         // });
         // });
+        var tanggal_dari = $('#tgl-range').val();
+        var sampai = $('#tgl-range2').val();
+        var unit_terpilih = $('#unit_kerja').select2('data');
+        if(unit_terpilih[0].text == undefined || unit_terpilih[0].text == "" || unit_terpilih[0].text == null) {
+            unit_terpilih = "Semua";
+        }else{
+            unit_terpilih = unit_terpilih[0].text;
+        }
+        console.log(tanggal_dari);
+        console.log(sampai);
+        console.log(unit_terpilih[0].text);
+        
         $('#downloadPdf').click(function(event) {
             // get size of report page
             var reportPageHeight = $('#reportPage').innerHeight();
@@ -422,8 +434,15 @@ html{
 
             // // var pdf = new jsPDF('l', 'pt', [reportPageWidth, reportPageHeight]);
             	
-            pdf.addImage($(pdfCanvas)[0].toDataURL(), 'JPEG', 20, 50);
+            pdf.addImage($(pdfCanvas)[0].toDataURL(), 'JPEG', 20, 70);
             pdf.text(20, 30, 'Grafik Dashboard HR');
+            pdf.text(20, 40, 'Unit : '+unit_terpilih);
+            if((tanggal_dari != undefined || tanggal_dari != "" || tanggal_dari != null)&&(sampai != undefined || sampai != "" || sampai != null)) {
+                pdf.text(20, 50, 'Berdasarkan Tanggal : '+tanggal_dari+' s/d '+sampai);
+            }else{
+                pdf.text(20, 50, 'Berdasarkan Tanggal : -');
+            }
+            
             
             // // download the pdf
             pdf.save('chartHR.pdf');

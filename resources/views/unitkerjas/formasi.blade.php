@@ -7,10 +7,12 @@
             @if (isset($dari) && isset($sampai))
                 <div class="btn-group">
                 <a class="btn btn-warning tombol-pdf" style="margin-top: -10px;margin-bottom: 5px" href="/exportpdf/{{Crypt::encrypt('formasi')}}?dari={{$dari}}&sampai={{$sampai}}&" target="_blank" >Export To PDF</a>
+                <input type="button" style="margin-top: -10px;margin-bottom: 5px" class="check btn btn-default" value="Check All" />
                 </div> 
             @else
                 <div class="btn-group">
                     <a class="btn btn-warning tombol-pdf" style="margin-top: -10px;margin-bottom: 5px" href="/exportpdf/{{Crypt::encrypt('formasi')}}?" target="_blank" >Export To PDF</a>
+                    <input type="button" style="margin-top: -10px;margin-bottom: 5px" class="check btn btn-default" value="Check All" />
                 </div>
             @endif
         </h1>
