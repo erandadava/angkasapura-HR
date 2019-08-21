@@ -7,7 +7,7 @@
 <!-- Syarat Didik Field -->
 <div class="form-group col-sm-12 col-lg-12">
     {!! Form::label('syarat_didik', 'Syarat Didik:') !!}
-    {!! Form::textarea('syarat_didik', null, ['class' => 'form-control']) !!}
+    {!! Form::textarea('syarat_didik', null, ['class' => 'form-control', 'maxlength'=>150, 'placeholder' => '150 Character']) !!}
 </div>
 
 <!-- Syarat Latih Field -->
