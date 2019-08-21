@@ -35,13 +35,13 @@
             <p>{!! $karyawanOs->tgl_lahir !!}</p>
         </div>
     </div>
-    <div class="col-md-3">
+    {{-- <div class="col-md-3">
         <!-- Usia Field -->
         <div class="form-group">
             {!! Form::label('usia', 'Usia:') !!}
             <p>{!! $karyawanOs->usia !!}</p>
         </div>
-    </div>
+    </div> --}}
     <div class="col-md-3">
         <!-- Gender Field -->
         <div class="form-group">

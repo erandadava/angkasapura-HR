@@ -31,10 +31,10 @@
 </div>
 
 <!-- Usia Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('usia', 'Usia:') !!}
     {!! Form::number('usia', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- Gender Field -->
 <div class="form-group col-sm-6">

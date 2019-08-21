@@ -24,7 +24,7 @@ class karyawan_osRepository extends BaseRepository
         'id_fungsi',
         'id_unitkerja',
         'tgl_lahir',
-        'usia',
+        // 'usia',
         'gender',
         'no_bpjs_tk',
         'doc_no_bpjs_tk',
