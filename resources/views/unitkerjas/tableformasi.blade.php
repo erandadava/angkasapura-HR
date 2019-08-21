@@ -152,7 +152,7 @@
                 $('.formcheck').attr('action', val).submit();
             }
 
-            $(document).on("click", "a", function(event) {
+            $(".tombol-pdf").click(function(event) {
             event.preventDefault();
                 var dataUrl = $(this).attr("href");
                 if (dataUrl != "") {
