@@ -52,7 +52,7 @@
     <div class="col-md-3">
         <!-- No Bpjs Tk Field -->
         <div class="form-group">
-            {!! Form::label('no_bpjs_tk', 'No Bpjs Tk:') !!}
+            {!! Form::label('no_bpjs_tk', 'No Bpjs Tenaga Kerja:') !!}
             <p>{!! $karyawanOs->no_bpjs_tk !!}</p>
         </div>
     </div>
@@ -61,7 +61,7 @@
     <div class="col-md-12">
         <!-- Doc No Bpjs Tk Field -->
         <div class="form-group">
-            {!! Form::label('doc_no_bpjs_tk', 'Dokumen No Bpjs Tk:') !!}
+            {!! Form::label('doc_no_bpjs_tk', 'Dokumen No Bpjs Tenaga Kerja:') !!}
             </br>
             <div class="row">
                 @if(isset($karyawanOs['Docbpjstk']))
@@ -178,7 +178,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-12">
+    {{-- <div class="col-md-12">
         <!-- Doc No Lisensi Field -->
         <div class="form-group">
             {!! Form::label('doc_no_lisensi', 'Dokumen No Lisensi:') !!}
@@ -206,10 +206,10 @@
                 @endif
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
-<div class="row">
+{{-- <div class="row">
     <div class="col-md-3">
         <!-- Jangka Waktu Field -->
         <div class="form-group">
@@ -217,7 +217,7 @@
             <p>{!! $karyawanOs->jangka_waktu !!}</p>
         </div>
     </div>
-</div>
+</div> --}}
 <div class="row">
     <div class="col-md-12">
         <!-- Doc Jangka Waktu Field -->
