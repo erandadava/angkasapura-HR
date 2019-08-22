@@ -33,6 +33,7 @@ html{
                                 {!! Form::open(['url' => '/home', 'method' => 'GET', 'autocomplete' => 'off']) !!}
                                         <div class="form-group col-sm-4">
                                             <label for="exampleInputEmail1">Unit</label>
+                                            <input type="hidden" name="kar_os" value="1">
                                             {!! Form::select('value_unit',$data_unit_kerja, null, ['class' => 'form-control', 'placeholder' => '', 'autocomplete' => 'off','id'=>'unit_kerja']) !!}
                                         </div>
                                         <div class="form-group col-sm-4">
@@ -88,7 +89,7 @@ html{
 				<div class="col-md-6 col-sm-12">
                         <div class="box box-info">
                             <div class="box-header with-border">
-                            <h3 class="box-title">Jumlah Karyawan Berdasarkan Umur</h3>
+                            <h3 class="box-title">Jumlah Karyawan Berdasarkan Vendor</h3>
 
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -107,7 +108,7 @@ html{
 					<div class="col-md-12 col-sm-12 col-unit-kerja">
                         <div class="box box-info">
                             <div class="box-header with-border">
-                            <h3 class="box-title">Jumlah Karyawan Berdasarkan Unit Kerja</h3>
+                            <h3 class="box-title">Jumlah Karyawan Berdasarkan Fungsi</h3>
 
                             <div class="box-tools pull-right">
                                 <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
@@ -153,7 +154,7 @@ html{
 
 		var unit_kerja = {!!$unit_kerja!!};
 		var label_unit_kerja = $.map(unit_kerja, function(e) {
-                return e.nama_uk;
+                return e.nama_fungsi;
         });
 		var value_unit_kerja = $.map(unit_kerja, function(e) {
                 if(e.karyawan_os_count!=0){
@@ -161,9 +162,20 @@ html{
                 }
                 return e.karyawan_os_count;
         });
-        if(status_unit_kerja==false){
-            $('.col-unit-kerja').hide();
-        }
+
+        var data_vendor = {!!$data_vendor!!};
+		var label_data_vendor = $.map(data_vendor, function(e) {
+                return e.nama_vendor;
+        });
+		var value_data_vendor = $.map(data_vendor, function(e) {
+                if(e.karyawan_os_count!=0){
+                    status_data_vendor = true;
+                }
+                return e.karyawan_os_count;
+        });
+        // if(status_unit_kerja==false){
+        //     $('.col-unit-kerja').hide();
+        // }
 		var chrtgender = new Chart(document.getElementById('chartGender'), {
                 type: 'pie',
                 data: {
@@ -192,12 +204,12 @@ html{
 		var chrtumur = new Chart(document.getElementById('chartUmur'), {
                 type: 'horizontalBar',
                 data: {
-                labels: ['< 30', '31 - 40', '41 - 50', '51 - 54', '>=55'],
+                labels: label_data_vendor,
                     datasets: [
                         {
                         label : "Jumlah",   
                         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-                        data: [{!!$umur_kurangdari30!!},{!!$umur_31sd40!!},{!!$umur_41sd50!!},{!!$umur_51sd54!!},{!!$umur_lebihdari55!!}]
+                        data: value_data_vendor
                         }
                     ]
                 },
@@ -209,7 +221,7 @@ html{
                     },
                     title: {
                         display: true,
-                        text: 'Jumlah Karyawan Berdasarkan Umur'
+                        text: 'Jumlah Karyawan Berdasarkan Vendor'
                     }
                 }
         });
@@ -234,7 +246,7 @@ html{
                     },
                     title: {
                         display: true,
-                        text: 'Jumlah Karyawan Berdasarkan Unit Kerja'
+                        text: 'Jumlah Karyawan Berdasarkan Fungsi'
                     }
                 }
         });

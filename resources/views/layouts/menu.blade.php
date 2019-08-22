@@ -66,7 +66,6 @@
       </span>
     </a>
     <ul class="treeview-menu">
-        <li><a href="#"><i class="fa fa-circle-o"></i><span>Komposisi Karyawan</span></a></li>
         <li class="{{ Request::is('users*') ? 'active' : '' }}">
                 <a href="{!! route('users.index') !!}"><i class="fa fa-edit"></i><span>Users</span></a>
             </li>
@@ -112,6 +111,15 @@
 
 <li class="{{ Request::is('osperformances*') ? 'active' : '' }}">
     <a href="{!! route('osperformances.index') !!}"><i class="fa fa-edit"></i><span>OS Performance</span></a>
+</li>
+@endhasrole
+
+@hasrole('management')
+<li class="">
+    <a href="/home"><i class="fa fa-edit"></i><span>Dashboard Karyawan BSH</span></a>
+</li>
+<li class="">
+    <a href="/home?kar_os=1"><i class="fa fa-edit"></i><span>Dashboard Karyawan OS</span></a>
 </li>
 @endhasrole
 
