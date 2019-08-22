@@ -49,7 +49,7 @@
 
 <!-- No Bpjs Tk Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('no_bpjs_tk', 'No Bpjs Tk:') !!}
+    {!! Form::label('no_bpjs_tk', 'No Bpjs Tenaga Kerja:') !!}
     {!! Form::number('no_bpjs_tk', null, ['class' => 'form-control']) !!}
     
 </div>
@@ -74,7 +74,7 @@
     @endforeach
     </div>
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('ganti_doc_bpjs_tk', 'Ganti Dokumen Bpjs Tk:') !!}
+        {!! Form::label('ganti_doc_bpjs_tk', 'Ganti Dokumen Bpjs Tenaga Kerja:') !!}
         <input type="checkbox" id="myCheck"   name="ganti_doc_bpjs_tk" onclick="bpjstk()">
     </div>
     <div class="form-group col-sm-12 col-lg-12">
@@ -83,7 +83,7 @@
 @else
     <!-- Doc No Bpjs Tk Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('doc_no_bpjs_tk', 'Dokumen No Bpjs Tk:') !!}
+        {!! Form::label('doc_no_bpjs_tk', 'Dokumen No Bpjs Tenaga Kerja:') !!}
         <input  type="file"  name="doc_no_bpjs_tk[]" multiple="multiple" accept="image/png, image/jpeg, application/pdf">
     </div>
 @endif
@@ -177,7 +177,7 @@
 </div>
 
 
-@if(isset($karyawanOs['Docnolisensi']))
+{{-- @if(isset($karyawanOs['Docnolisensi']))
     <div class="form-group col-sm-12 col-lg-12">
     @foreach($karyawanOs['Docnolisensi'] as $key => $dt)
     @php
@@ -210,13 +210,13 @@
         {!! Form::label('doc_no_lisensi', 'Dokumen No Lisensi:') !!}
         <input  type="file"  name="doc_no_lisensi[]" multiple="multiple" accept="image/png, image/jpeg, application/pdf">
     </div>
-@endif
+@endif --}}
 
 <!-- Jangka Waktu Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('jangka_waktu', 'Jangka Waktu:') !!}
     {!! Form::text('jangka_waktu', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 @if(isset($karyawanOs['Docjangkawaktu']))
     <div class="form-group col-sm-12 col-lg-12">

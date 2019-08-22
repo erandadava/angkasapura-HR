@@ -27,7 +27,7 @@ html{
         <div class="row" style='margin-top:25px;'>
                     <div class="col-xs-10 col-xs-offset-1">
                         <div class="info-box">
-                            <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-pencil"></i></span>
+                            {{-- <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-pencil"></i></span> --}}
 
                             <div class="info-box-content">
                                 {!! Form::open(['url' => '/home', 'method' => 'GET', 'autocomplete' => 'off']) !!}
