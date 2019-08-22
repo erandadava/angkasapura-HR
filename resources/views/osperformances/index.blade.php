@@ -11,8 +11,10 @@
             </div>
             @endhasrole
             @hasrole('Super Admin|Admin')
+            <div class="btn-group">
                 <a class="btn btn-warning" style="margin-top: -10px;margin-bottom: 5px" href="/exportpdf/{{Crypt::encrypt('osperformance')}}" target="_blank" >Export To PDF</a>
                 <a class="btn btn-primary pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('osperformances.create') !!}">Add New</a>
+            </div>
             @endhasrole
         </h1>
     </section>
