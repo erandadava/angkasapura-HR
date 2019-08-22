@@ -95,6 +95,7 @@ class karyawan extends Model
      * @var array
      */
     public static $rules = [
+        'nik' => 'unique:tblkaryawan',
         'nama' => 'required',
         'gender' => 'required',
         'tgl_lahir' => 'required',
