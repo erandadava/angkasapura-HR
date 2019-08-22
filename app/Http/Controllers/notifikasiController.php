@@ -79,7 +79,7 @@ class notifikasiController extends AppBaseController
                     $input['user_id'] = $keluhan->id_vendor;
                     break;
                 case 'R':
-                    $input['pesan'] = "<p><span class='label label-danger'>Karyawan Outsourcing Ditolak</span></br>$keluhan->nama</br> dari Vendor : $name->nama_vendor</p>";
+                    $input['pesan'] = "<p><span class='label label-danger'>Karyawan Outsourcing Ditolak</span></br>$keluhan->nama</br> oleh Admin HR</p>";
                     $input['user_id'] = $keluhan->id_vendor;
                     break;
                 default:
@@ -191,6 +191,9 @@ class notifikasiController extends AppBaseController
             $usernya = Auth::user()->getRoleNames();
             if(($usernya[0] == "Admin")){
                 $this->data['data_notif'] = notifikasi::where([['user_id','=','HR'],['status_baca','=',0]])->latest()->get();
+            }elseif($usernya[0] == "Vendor"){
+                $id_vendornya = vendor_os::where('email',\Auth::user()->email)->first();
+                $this->data['data_notif'] = notifikasi::where([['user_id','=',$id_vendornya->id],['status_baca','=',0]])->latest()->get();
             }
             
             $this->data['count_notif'] = $this->data['data_notif']->count();

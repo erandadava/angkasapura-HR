@@ -56,6 +56,18 @@
             <p>{!! $karyawanOs->no_bpjs_tk !!}</p>
         </div>
     </div>
+    <div class="col-md-3">
+        <!-- No Bpjs Tk Field -->
+        <div class="form-group">
+            {!! Form::label('is_active', 'Status:') !!}
+            <p>
+                    @if ($karyawanOs->is_active == null) <span class='label label-default'>Menunggu Persetujuan</span> @endif
+                    @if ($karyawanOs->is_active == 'A') <span class='label label-success'>Aktif</span> @endif
+                    @if ($karyawanOs->is_active == 'R') <span class='label label-danger'>Ditolak</span> @endif
+                    @if ($karyawanOs->is_active == 'N') <span class='label label-danger'>Non-Aktif</span> @endif
+            </p>
+        </div>
+    </div>
 </div>
 <div class="row">
     <div class="col-md-12">
@@ -294,6 +306,14 @@
 
         <!-- Deleted At Field -->
         <div class="form-group">
+            {!! Form::label('reason_desc', 'Deskripsi Alasan:') !!}
+            <p>{!! $karyawanOs->reason_desc !!}</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+
+        <!-- Deleted At Field -->
+        <div class="form-group">
             {!! Form::label('deleted_at', 'Dihapus Pada:') !!}
             <p>{!! $karyawanOs->deleted_at !!}</p>
         </div>
@@ -319,7 +339,7 @@
         <div class="form-group col-md-2 col-sm-12">
         
             {!! Form::open(['route' => ['karyawanOs.update', $karyawanOs->id], 'method' => 'patch']) !!}
-                {!! Form::hidden('status', 'A', ['class' => 'form-control'])!!}
+                {!! Form::hidden('is_active', 'A', ['class' => 'form-control'])!!}
                 <button class='btn btn-success btn-md' type="submit" onclick="return confirm('Yakin?')">
                 <i class="glyphicon glyphicon-ok"></i> Terima
                 </button>
@@ -349,7 +369,7 @@
             <div class="modal-body">
               <div class="row">
               {!! Form::open(['route' => ['karyawanOs.update', $karyawanOs->id], 'method' => 'patch']) !!}
-                  {!! Form::hidden('status', 'R', ['class' => 'form-control'])!!}
+                  {!! Form::hidden('is_active', 'R', ['class' => 'form-control'])!!}
                   <div class="form-group col-sm-12 col-lg-12">
                       {!! Form::label('reason_desc', 'Deskripsi Alasan:') !!}
                       {!! Form::textarea('reason_desc', null, ['class' => 'form-control', 'id' => 'editor']) !!}

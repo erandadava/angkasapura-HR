@@ -62,7 +62,7 @@ class vendor_os extends Model
      */
     public static $rules = [
         'nama_vendor' => 'required',
-        'email' => 'required',
+        'email' => 'required|unique:tblvendoros',
         'password' => 'required|min:6',
         'telepon' => 'required',
         'alamat' => 'required',
