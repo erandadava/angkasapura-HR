@@ -61,8 +61,8 @@ class Osperformance extends Model
      * @var array
      */
     public static $rules = [
-        'file_penyelesaian.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
-        'file_pelaporan.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
+        'file_penyelesaian.*' => 'mimes:PDF,pdf,jpg,jpeg,png,zip,rar',
+        'file_pelaporan.*' => 'mimes:PDF,pdf,jpg,jpeg,png,zip,rar',
     ];
 
     public function getFilepelaporanAttribute()
