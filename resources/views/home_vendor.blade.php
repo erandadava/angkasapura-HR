@@ -24,38 +24,6 @@ html{
         @include('flash::message')
 
         <div class="clearfix"></div>
-        <div class="row" style='margin-top:25px;'>
-                    <div class="col-xs-10 col-xs-offset-1">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-aqua"><i class="glyphicon glyphicon-pencil"></i></span>
-
-                            <div class="info-box-content">
-                                {!! Form::open(['url' => '/home', 'method' => 'GET', 'autocomplete' => 'off']) !!}
-                                        <div class="form-group col-sm-4">
-                                            <label for="exampleInputEmail1">Unit</label>
-                                            {!! Form::select('value_unit',$data_unit_kerja, null, ['class' => 'form-control', 'placeholder' => '', 'autocomplete' => 'off','id'=>'unit_kerja']) !!}
-                                        </div>
-                                        <div class="form-group col-sm-4">
-                                            <label for="exampleInputEmail1">Mulai Dari</label>
-                                            <input type="text" name="dari" id='tgl-range' class="form-control" value='{{$dari??''}}' autocomplete='off'>
-                                        </div>
-                                        <div class="form-group col-sm-4">
-                                            <label for="exampleInputEmail1">Sampai Dari</label>
-                                            <div class="input-group">
-                                                <input type="text" name="sampai" id='tgl-range2' class="form-control" value='{{$sampai??''}}' autocomplete='off'>
-                                                    <span class="input-group-btn">
-                                                    <button type="submit" class="btn btn-info btn-flat">Cari</button>
-                                                    </span>
-                                            </div>
-                                        </div>
-                                {!! Form::close() !!}
-                            </div>
-                            
-                            <!-- /.info-box-content -->
-                        </div>
-                    <!-- /.info-box -->
-                    </div>
-                </div>
         <div class="box box-primary">
         
         <div id="reportPage" style="background-color:#fff !important;">

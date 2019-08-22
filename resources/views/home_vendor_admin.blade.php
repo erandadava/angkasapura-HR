@@ -32,9 +32,9 @@ html{
                             <div class="info-box-content">
                                 {!! Form::open(['url' => '/home', 'method' => 'GET', 'autocomplete' => 'off']) !!}
                                         <div class="form-group col-sm-4">
-                                            <label for="exampleInputEmail1">Unit</label>
+                                            <label for="exampleInputEmail1">Vendor</label>
                                             <input type="hidden" name="kar_os" value="1">
-                                            {!! Form::select('value_unit',$data_unit_kerja, null, ['class' => 'form-control', 'placeholder' => '', 'autocomplete' => 'off','id'=>'unit_kerja']) !!}
+                                            {!! Form::select('value_unit',$data_vendor_os, null, ['class' => 'form-control', 'placeholder' => '', 'autocomplete' => 'off','id'=>'unit_kerja']) !!}
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label for="exampleInputEmail1">Mulai Dari</label>
@@ -339,7 +339,7 @@ html{
             pdf.addImage(imgData, 'JPEG',300, 10, 80, 30);
             pdf.addImage($(pdfCanvas)[0].toDataURL(), 'JPEG', 20, 70);
             pdf.text(20, 30, 'Grafik Dashboard HR - Karyawan OS');
-            pdf.text(20, 40, 'Unit : '+unit_terpilih);
+            pdf.text(20, 40, 'Vendor : '+unit_terpilih);
             if((tanggal_dari != undefined && tanggal_dari != "" && tanggal_dari != null)&&(sampai != undefined && sampai != "" && sampai != null)) {
                 pdf.text(20, 50, 'Berdasarkan Tanggal : '+tanggal_dari+' s/d '+sampai);
             }else{
