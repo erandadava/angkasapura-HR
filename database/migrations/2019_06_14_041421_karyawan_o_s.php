@@ -35,6 +35,8 @@ class KaryawanOS extends Migration
             $table->longText('doc_jangka_waktu')->nullable();
             $table->string('no_kontrak_kerja')->nullable();
             $table->longText('doc_no_kontrak_kerja')->nullable();
+            $table->longText('reason_desc')->nullable();
+            $table->enum('is_active',['R','A','N'])->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -54,6 +54,21 @@
                 <!-- Navbar Right Menu -->
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
+                            <li class="dropdown notifications-menu">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="count_notif">
+                                    <i class="fa fa-bell-o"></i>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                    <li class="header" id="header_notif"></li>
+                                    <li>
+                                        <!-- inner menu: contains the actual data -->
+                                        <ul class="menu" id="notif">
+            
+                                        </ul>
+                                    </li>
+                                    <li class="footer"><a href="#" onclick="get_notif();">Segarkan</a></li>
+                                    </ul>
+                                </li>
                         <!-- User Account Menu -->
                         <li class="dropdown user user-menu">
                             <!-- Menu Toggle Button -->
@@ -176,6 +191,34 @@
             $.fn.dataTable.ext.errMode = 'none';
 
         });
+        //For notification
+        var previous_notif = 0 ;
+        function get_notif(){
+            $.ajax({
+                dataType: "json",
+                url: "/notif",
+                success: function (data) {
+                    $('#header_notif').html('');
+                    $('#header_notif').html("Anda memiliki "+data.data.data_notif.length+" notifikasi");
+                    if(data.data.data_notif.length != previous_notif){
+                        $("#notif").html('');
+                        $(".number_notif").remove();
+                        previous_notif = data.data.data_notif.length;
+                        $.each(data.data.data_notif, function( key, element ) {
+                            var date = new Date(element.created_at);
+                            var dt = date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear() + " | " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+                            $("#notif").append("<li><a href='"+element.link_id+"'>"+element.pesan+"<p><small>"+dt+"</small></p></a></li>");
+                            $('#count_notif').append("<span class='label label-danger number_notif animated heartBeat'>"+data.data.count_notif+"</span>");
+                        });
+                    }      
+                }
+            });
+        }
+        
+        get_notif();
+        setInterval(function(){
+            get_notif();
+        },60000);
         try {
       $('select').select2();
         } catch (e) {

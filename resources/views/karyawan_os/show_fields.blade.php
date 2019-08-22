@@ -313,3 +313,56 @@
         </div>
     </div>
 </div>
+
+@if ($karyawanOs->is_active == null || $karyawanOs->is_active=="")
+        
+        <div class="form-group col-md-2 col-sm-12">
+        
+            {!! Form::open(['route' => ['karyawanOs.update', $karyawanOs->id], 'method' => 'patch']) !!}
+                {!! Form::hidden('status', 'A', ['class' => 'form-control'])!!}
+                <button class='btn btn-success btn-md' type="submit" onclick="return confirm('Yakin?')">
+                <i class="glyphicon glyphicon-ok"></i> Terima
+                </button>
+            {!! Form::close() !!} 
+
+        </div>
+        <div class="form-group col-md-2 col-sm-12">
+        
+            <div class="form-group col-md-2 col-sm-12">
+    
+                <button class='btn btn-danger btn-md' data-toggle="modal" data-target="#myModal">
+                    <i class="glyphicon glyphicon-remove"></i> Tolak
+                </button>
+        
+        </div>
+        <!-- ---------------------- -->
+      <!-- Modal -->
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+    
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alasan</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+              {!! Form::open(['route' => ['karyawanOs.update', $karyawanOs->id], 'method' => 'patch']) !!}
+                  {!! Form::hidden('status', 'R', ['class' => 'form-control'])!!}
+                  <div class="form-group col-sm-12 col-lg-12">
+                      {!! Form::label('reason_desc', 'Deskripsi Alasan:') !!}
+                      {!! Form::textarea('reason_desc', null, ['class' => 'form-control', 'id' => 'editor']) !!}
+                  </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-default" onclick="return confirm('Yakin?')">Simpan</button>
+            </div>
+          </div>
+          {!! Form::close() !!}
+        </div>
+      </div>
+
+        </div>
+@endif

@@ -122,7 +122,3 @@
     <a href="/home?kar_os=1"><i class="fa fa-edit"></i><span>Dashboard Karyawan OS</span></a>
 </li>
 @endhasrole
-
-
-
-

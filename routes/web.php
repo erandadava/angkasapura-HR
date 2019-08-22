@@ -92,4 +92,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
     \Aschmelyun\Larametrics\Larametrics::routes();
 });
 
+Route::get('/notif', 'notifikasiController@realtime_notification');
+
 

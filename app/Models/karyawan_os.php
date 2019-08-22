@@ -64,7 +64,9 @@ class karyawan_os extends Model
         'doc_jangka_waktu',
         'no_kontrak_kerja',
         'doc_no_kontrak_kerja',
-        'penempatan'
+        'penempatan',
+        'is_active',
+        'reason_desc'
     ];
 
     /**
@@ -92,7 +94,7 @@ class karyawan_os extends Model
         'doc_jangka_waktu' => 'string',
         'no_kontrak_kerja' => 'string',
         'doc_no_kontrak_kerja' => 'string',
-        'penempatan' => 'string'
+        'penempatan' => 'string',
     ];
 
     /**

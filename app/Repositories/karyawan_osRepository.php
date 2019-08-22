@@ -37,7 +37,8 @@ class karyawan_osRepository extends BaseRepository
         'jangka_waktu',
         'doc_jangka_waktu',
         'no_kontrak_kerja',
-        'doc_no_kontrak_kerja'
+        'doc_no_kontrak_kerja',
+        'is_active'
     ];
 
     /**
