@@ -52,6 +52,7 @@ class karyawan extends Model
         'rencana_pensiun',
         'pend_diakui',
         'pend_milik',
+        'pend_akhir',
         'id_org',
         'id_posisi',
         'id_tipe_kar',
@@ -83,6 +84,7 @@ class karyawan extends Model
         'rencana_pensiun' => 'date',
         'pend_diakui' => 'string',
         'pend_milik' => 'string',
+        'pend_akhir' => 'string',
         'id_org' => 'integer',
         'id_posisi' => 'integer',
         'id_tipe_kar' => 'integer',
@@ -107,6 +109,7 @@ class karyawan extends Model
         'rencana_pensiun' => 'required',
         'pend_diakui' => 'required',
         'pend_milik' => 'required',
+        'pend_akhir'=> 'required',
         'id_tipe_kar' => 'required',
         'entry_date' => 'required',
         

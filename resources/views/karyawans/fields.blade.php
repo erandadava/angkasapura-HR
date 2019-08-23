@@ -102,6 +102,11 @@
     ], null, ['class' => 'form-control']) !!}
 </div>
 
+<div class="form-group col-sm-6">
+    {!! Form::label('pend_akhir', 'Pendidikan Akhir:') !!}
+    {!! Form::text('pend_akhir', null, ['class' => 'form-control','id'=>'pend_akhir']) !!}
+</div>
+
 <!-- id Org Field -->
 {{-- <div class="form-group col-sm-6">
     {!! Form::label('id_org', 'id Org:') !!}
