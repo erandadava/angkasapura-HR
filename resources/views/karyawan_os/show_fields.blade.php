@@ -312,19 +312,46 @@
     </div>
     <div class="col-md-3">
 
+            <!-- Deleted At Field -->
+            <div class="form-group">
+                {!! Form::label('tmt_awal_kontrak', 'TMT Awal Kontrak:') !!}
+                <p>{!!  \Carbon\Carbon::parse($karyawanOs->tmt_awal_kontrak)->formatLocalized('%d %B %Y'); !!}</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+                <!-- Deleted At Field -->
+                <div class="form-group">
+                    {!! Form::label('tmt_akhir_kontrak', 'TMT Akhir Kontrak:') !!}
+                    <p>{!!  \Carbon\Carbon::parse($karyawanOs->tmt_akhir_kontrak)->formatLocalized('%d %B %Y'); !!}</p>
+                </div>
+            </div>
+    <div class="col-md-3">
+
         <!-- Deleted At Field -->
         <div class="form-group">
-            {!! Form::label('deleted_at', 'Dihapus Pada:') !!}
-            <p>{!! $karyawanOs->deleted_at !!}</p>
+            {!! Form::label('jangka_waktu_tmt', 'Jangka Waktu Kontrak:') !!}
+            <p>{!! $karyawanOs->jangka_waktu_tmt !!}</p>
         </div>
     </div>
-    <div class="col-md-3">
-        <!-- Created At Field -->
-        <div class="form-group">
-            {!! Form::label('created_at', 'Dibuat Pada:') !!}
-            <p>{!! $karyawanOs->created_at !!}</p>
-        </div>
-    </div>
+    
+</div>
+<div class="row">
+        <div class="col-md-3">
+
+                <!-- Deleted At Field -->
+                <div class="form-group">
+                    {!! Form::label('deleted_at', 'Dihapus Pada:') !!}
+                    <p>{!! $karyawanOs->deleted_at !!}</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <!-- Created At Field -->
+                <div class="form-group">
+                    {!! Form::label('created_at', 'Dibuat Pada:') !!}
+                    <p>{!! $karyawanOs->created_at !!}</p>
+                </div>
+            </div>
     <div class="col-md-3">
         <!-- Updated At Field -->
         <div class="form-group">
@@ -333,7 +360,7 @@
         </div>
     </div>
 </div>
-
+@hasrole('Admin')
 @if ($karyawanOs->is_active == null || $karyawanOs->is_active=="")
         
         <div class="form-group col-md-2 col-sm-12">
@@ -386,3 +413,4 @@
 
         </div>
 @endif
+@endhasrole

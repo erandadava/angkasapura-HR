@@ -66,7 +66,9 @@ class karyawan_os extends Model
         'doc_no_kontrak_kerja',
         'penempatan',
         'is_active',
-        'reason_desc'
+        'reason_desc',
+        'tmt_awal_kontrak',
+        'tmt_akhir_kontrak'
     ];
 
     /**
@@ -109,6 +111,8 @@ class karyawan_os extends Model
         // 'doc_no_lisensi.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
         'doc_jangka_waktu.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
         'doc_no_kontrak_kerja.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
+        'tmt_awal_kontrak' => 'required',
+        'tmt_akhir_kontrak' => 'required',
     ];
 
     public function getDocbpjstkAttribute()

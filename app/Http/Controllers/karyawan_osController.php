@@ -146,6 +146,18 @@ class karyawan_osController extends AppBaseController
         }
 
         $karyawanOs = $this->karyawanOsRepository->with(['fungsi','unitkerja','vendor'])->findWithoutFail($id);
+        $to = \Carbon\Carbon::createFromFormat('Y-m-d', $karyawanOs->tmt_akhir_kontrak);
+        $from = \Carbon\Carbon::createFromFormat('Y-m-d', $karyawanOs->tmt_awal_kontrak);
+        $diff_in_months = $to->diffInMonths($from);
+        $diff_in_year = $to->diffInYears($from);
+        // $dbDate = \Carbon\Carbon::parse($karyawanOs->tmt_awal_date);
+        // $diffYears = \Carbon\Carbon::parse($karyawanOs->tmt_akhir_date)->diffInYears($dbDate);
+        $karyawanOs['jangka_waktu_tmt'] = "";
+        if($diff_in_year != 0){
+            $karyawanOs['jangka_waktu_tmt'] = $diff_in_year.' Tahun '.$diff_in_months.' Bulan';
+        }else{
+            $karyawanOs['jangka_waktu_tmt'] = $diff_in_months.' Bulan';
+        }
 
         if (empty($karyawanOs)) {
             Flash::error('Karyawan Os not found');

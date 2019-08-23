@@ -294,6 +294,16 @@
     </div>
 @endif
 
+<div class="form-group col-sm-6">
+    {!! Form::label('tmt_awal_kontrak', 'TMT Awal Kontrak:') !!}
+    {!! Form::text('tmt_awal_kontrak', null, ['class' => 'form-control','id'=>'tmt_awal_kontrak','required'=>'required']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('tmt_akhir_kontrak', 'TMT Akhir Kontrak:') !!}
+    {!! Form::text('tmt_akhir_kontrak', null, ['class' => 'form-control','id'=>'tmt_akhir_kontrak','required'=>'required']) !!}
+</div>
+
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
@@ -303,6 +313,14 @@
 @section('scripts')
     <script type="text/javascript">
         $('#tgl_lahir').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        })
+        $('#tmt_awal_kontrak').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        })
+        $('#tmt_akhir_kontrak').datetimepicker({
             format: 'Y-MM-DD',
             useCurrent: false
         })
