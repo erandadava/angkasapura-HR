@@ -104,7 +104,7 @@ class karyawanDataTable extends DataTable
             ['data'=>'jabatan.nama_jabatan','title'=>'Jabatan'],
             ['data'=>'unitkerja.nama_uk','title'=>'Unit Kerja'],
             ['data'=>'klsjabatan.nama_kj','title'=>'Kelas Jabatan'],
-            ['data'=>'gender','title'=>'Gender'],
+            ['data'=>'gender','title'=>'Jenis Kelamin'],
             ['data'=>'tgl_lahir','title'=>'Tanggal Lahir'],
         ];
     }
