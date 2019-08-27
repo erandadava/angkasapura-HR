@@ -73,6 +73,7 @@ class karyawan_osDataTable extends DataTable
             ['data'=>'unitkerja.nama_uk','title'=>'Unit Kerja'],
             ['data'=>'tgl_lahir','title'=>'Tanggal Lahir'],
             ['data'=>'gender','title'=>'Jenis Kelamin'],
+            ['data'=>'vendor.nama_vendor','title'=>'Nama Vendor'],
             // ['data'=>'penempatan','title'=>'Penempatan'],
         ];
     }
