@@ -122,3 +122,7 @@
     <a href="/home?kar_os=1"><i class="fa fa-edit"></i><span>Dashboard Karyawan OS</span></a>
 </li>
 @endhasrole
+{{-- <li class="{{ Request::is('logKaryawans*') ? 'active' : '' }}">
+    <a href="{!! route('logKaryawans.index') !!}"><i class="fa fa-edit"></i><span>Log Karyawans</span></a>
+</li> --}}
+

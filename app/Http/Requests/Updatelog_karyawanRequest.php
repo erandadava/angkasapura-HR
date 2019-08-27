@@ -3,9 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use App\Models\karyawan;
+use App\Models\log_karyawan;
 
-class UpdatekaryawanRequest extends FormRequest
+class Updatelog_karyawanRequest extends FormRequest
 {
 
     /**
@@ -25,6 +25,6 @@ class UpdatekaryawanRequest extends FormRequest
      */
     public function rules()
     {
-        return karyawan::$rules_update;
+        return log_karyawan::$rules;
     }
 }

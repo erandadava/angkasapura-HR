@@ -115,6 +115,24 @@ class karyawan extends Model
         
     ];
 
+    public static $rules_update = [
+        'nama' => 'required',
+        'gender' => 'required',
+        'tgl_lahir' => 'required',
+        'id_jabatan' => 'required',
+        'id_status1' => 'required',
+        // 'id_status2' => 'required',
+        'id_unitkerja' => 'required',
+        'rencana_mpp' => 'required',
+        'rencana_pensiun' => 'required',
+        'pend_diakui' => 'required',
+        'pend_milik' => 'required',
+        'pend_akhir'=> 'required',
+        'id_tipe_kar' => 'required',
+        'entry_date' => 'required',
+        
+    ];
+
     public function fungsi(){
         return $this->hasOne('App\Models\fungsi', 'id', 'id_fungsi');
     }

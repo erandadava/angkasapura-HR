@@ -274,11 +274,16 @@ class HomeController extends Controller
 
                 $this->data['jk_laki'] = karyawan::select('gender')->whereBetween('tmt_date', [$dari, $sampai])->where('gender','=','Male')->count();
                 $this->data['jk_perempuan'] = karyawan::select('gender')->whereBetween('tmt_date', [$dari, $sampai])->where('gender','!=','Male')->count();
+
+                //Search unit kerja
+                
                 $this->data['unit_kerja'] = unitkerja::whereHas('karyawan', function($query) use ($dari, $sampai) {
                     $query->whereBetween('tmt_date', [$dari, $sampai]);
                 })->withCount(['karyawan' => function($query) use ($dari, $sampai){
                     $query->whereBetween('tmt_date', [$dari, $sampai]);
                 }])->get()->toJson();
+
+                
                 $this->data['status_pendidikan'] = \DB::table('tblkaryawan')->select('pend_diakui as pendidikan', DB::raw('COUNT(pend_diakui) AS jumlah'))->whereBetween('tmt_date', [$dari, $sampai])->groupBy('pend_diakui')->get()->toJson();
                 $this->data['kelas_jabatan'] = klsjabatan::whereHas('karyawan', function($query) use ($dari, $sampai) {
                     $query->whereBetween('tmt_date', [$dari, $sampai]);
@@ -365,4 +370,13 @@ class HomeController extends Controller
         //return for range tanggal and fungsi is null
         return view('home')->with($this->data);
     }
+
+    public function check_log($id_karyawan){
+        $cek = \App\Models\log_karyawan::where('id_karyawan_fk','=',$id_karyawan)->with(['fungsi','jabatan','unitkerja','tipekar','unit','klsjabatan'])->latest('update_date')->first();
+        if($cek){
+            return $cek;
+        }else{
+            return null;
+        }
+    } 
 }

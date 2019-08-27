@@ -91,3 +91,5 @@ Route::resource('vendor_os', 'vendor_osAPIController');
 Route::resource('jabatan_os', 'jabatan_osAPIController');
 
 Route::resource('kategori_unit_kerjas', 'kategori_unit_kerjaAPIController');
+
+Route::resource('log_karyawans', 'log_karyawanAPIController');

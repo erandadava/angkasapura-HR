@@ -95,3 +95,6 @@ Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {
 Route::get('/notif', 'notifikasiController@realtime_notification');
 
 
+
+
+Route::resource('logKaryawans', 'log_karyawanController');

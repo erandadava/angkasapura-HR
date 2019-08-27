@@ -357,11 +357,11 @@ html{
         });
 
         $('#tgl-range').datetimepicker({
-            format: 'Y-MM-DD',
+            format: 'Y-MM',
             useCurrent: false
         });
         $('#tgl-range2').datetimepicker({
-            format: 'Y-MM-DD',
+            format: 'Y-MM',
             useCurrent: false
         });
 
