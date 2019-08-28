@@ -362,14 +362,31 @@
                 </div>
             </div>
             <div class="col-md-3">
+
+                    <!-- Deleted At Field -->
+                    <div class="form-group">
+                        {!! Form::label('mulai_masa_berlaku_lisensi', 'Mulai Masa Berlaku Lisensi:') !!}
+                        <p>{!!  \Carbon\Carbon::parse($karyawanOs->mulai_masa_berlaku_lisensi)->formatLocalized('%d %B %Y'); !!}</p>
+                    </div>
+                </div>
+            
+</div>
+<div class="row">
+        <div class="col-md-3">
+
+                <!-- Deleted At Field -->
+                <div class="form-group">
+                    {!! Form::label('selesai_masa_berlaku_lisensi', 'Selesai Masa Berlaku Lisensi:') !!}
+                    <p>{!!  \Carbon\Carbon::parse($karyawanOs->selesai_masa_berlaku_lisensi)->formatLocalized('%d %B %Y'); !!}</p>
+                </div>
+            </div>
+        <div class="col-md-3">
                 <!-- Created At Field -->
                 <div class="form-group">
                     {!! Form::label('created_at', 'Dibuat Pada:') !!}
                     <p>{!! $karyawanOs->created_at !!}</p>
                 </div>
             </div>
-</div>
-<div class="row">
     <div class="col-md-3">
         <!-- Updated At Field -->
         <div class="form-group">

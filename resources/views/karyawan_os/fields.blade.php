@@ -321,6 +321,15 @@
     {!! Form::label('tmt_akhir_kontrak', 'TMT Akhir Kontrak:') !!}
     {!! Form::text('tmt_akhir_kontrak', null, ['class' => 'form-control','id'=>'tmt_akhir_kontrak','required'=>'required']) !!}
 </div>
+<div class="form-group col-sm-6">
+    {!! Form::label('mulai_masa_berlaku_lisensi', 'Mulai Masa Berlaku Lisensi:') !!}
+    {!! Form::text('mulai_masa_berlaku_lisensi', null, ['class' => 'form-control','id'=>'mulai_masa_berlaku_lisensi','required'=>'required']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('selesai_masa_berlaku_lisensi', 'Selesai Masa Berlaku Lisensi:') !!}
+    {!! Form::text('selesai_masa_berlaku_lisensi', null, ['class' => 'form-control','id'=>'selesai_masa_berlaku_lisensi','required'=>'required']) !!}
+</div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
@@ -339,6 +348,14 @@
             useCurrent: false
         })
         $('#tmt_akhir_kontrak').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        })
+        $('#mulai_masa_berlaku_lisensi').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        })
+        $('#selesai_masa_berlaku_lisensi').datetimepicker({
             format: 'Y-MM-DD',
             useCurrent: false
         })

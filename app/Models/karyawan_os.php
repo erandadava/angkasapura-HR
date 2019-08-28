@@ -70,7 +70,9 @@ class karyawan_os extends Model
         'tmt_awal_kontrak',
         'tmt_akhir_kontrak',
         'pend_akhir',
-        'jurusan'
+        'jurusan',
+        'mulai_masa_berlaku_lisensi',
+        'selesai_masa_berlaku_lisensi',
     ];
 
     /**

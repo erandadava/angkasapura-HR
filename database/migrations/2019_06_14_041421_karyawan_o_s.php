@@ -41,6 +41,8 @@ class KaryawanOS extends Migration
             $table->date('tmt_akhir_kontrak')->nullable();
             $table->string('pend_akhir')->nullable();
             $table->string('jurusan')->nullable();
+            $table->date('mulai_masa_berlaku_lisensi')->nullable();
+            $table->date('selesai_masa_berlaku_lisensi')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
