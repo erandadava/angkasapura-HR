@@ -293,7 +293,25 @@
         <input  type="file"  name="doc_no_kontrak_kerja[]" multiple="multiple" accept="image/png, image/jpeg, application/pdf">
     </div>
 @endif
-
+<div class="form-group col-sm-6">
+    {!! Form::label('pend_akhir', 'Pendidikan Akhir:') !!}
+    {!! Form::select('pend_akhir', [
+        'SMP' => 'SMP',
+        'SMU' => 'SMU',
+        'SMK' => 'SMK',
+        'DI  - Diploma I' => 'DI  - Diploma I',
+        'DII  - Diploma II' => 'DII  - Diploma II',
+        'DIII  - Diploma III' => 'DIII  - Diploma III',
+        'DIV - Diploma IV' => 'DIV - Diploma IV',
+        'S1 - Strata 1' => 'S1 - Strata 1',
+        'S2 - Strata 2' => 'S2 - Strata 2',
+        'S3 - Strata 3' => 'S3 - Strata 3',
+    ], null, ['class' => 'form-control']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('jurusan', 'Jurusan:') !!}
+    {!! Form::text('jurusan', null, ['class' => 'form-control']) !!}
+</div>
 <div class="form-group col-sm-6">
     {!! Form::label('tmt_awal_kontrak', 'TMT Awal Kontrak:') !!}
     {!! Form::text('tmt_awal_kontrak', null, ['class' => 'form-control','id'=>'tmt_awal_kontrak','required'=>'required']) !!}

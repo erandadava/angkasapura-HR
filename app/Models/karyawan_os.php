@@ -68,7 +68,9 @@ class karyawan_os extends Model
         'is_active',
         'reason_desc',
         'tmt_awal_kontrak',
-        'tmt_akhir_kontrak'
+        'tmt_akhir_kontrak',
+        'pend_akhir',
+        'jurusan'
     ];
 
     /**

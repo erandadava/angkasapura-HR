@@ -71,7 +71,8 @@ class notifikasiController extends AppBaseController
             $link = "/karyawanOs";
             switch ($status) {
                 case null:
-                    $input['pesan'] = "<p><span class='label label-danger'>Karyawan Outsourcing Baru</span></br> dari Vendor : $name->nama_vendor</p>";
+                    $name_vendor = $name->nama_vendor??'';
+                    $input['pesan'] = "<p><span class='label label-danger'>Karyawan Outsourcing Baru</span></br> dari Vendor :  $name_vendor</p>";
                     $input['user_id'] = 'HR';
                     break;
                 case 'A':
@@ -187,16 +188,21 @@ class notifikasiController extends AppBaseController
     }
 
     public function realtime_notification(Request $request){
+        
         if(isset(Auth::user()->id)){
             $usernya = Auth::user()->getRoleNames();
-            if(($usernya[0] == "Admin")){
+            if(($usernya[0] == "Admin" || $usernya[0]== "Super Admin")){
                 $this->data['data_notif'] = notifikasi::where([['user_id','=','HR'],['status_baca','=',0]])->latest()->get();
             }elseif($usernya[0] == "Vendor"){
                 $id_vendornya = vendor_os::where('email',\Auth::user()->email)->first();
                 $this->data['data_notif'] = notifikasi::where([['user_id','=',$id_vendornya->id],['status_baca','=',0]])->latest()->get();
             }
-            
-            $this->data['count_notif'] = $this->data['data_notif']->count();
+
+            if(isset($this->data['data_notif'])){
+                $this->data['count_notif'] = $this->data['data_notif']->count();
+            }else{
+                $this->data['count_notif'] = 0;
+            }
             
             return $this->sendResponse($this->data, 'Notifikasi send successfully');
         } 

@@ -39,6 +39,8 @@ class KaryawanOS extends Migration
             $table->enum('is_active',['R','A','N'])->nullable();
             $table->date('tmt_awal_kontrak')->nullable();
             $table->date('tmt_akhir_kontrak')->nullable();
+            $table->string('pend_akhir')->nullable();
+            $table->string('jurusan')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -346,12 +346,30 @@
                 </div>
             </div>
             <div class="col-md-3">
+
+                <!-- Deleted At Field -->
+                <div class="form-group">
+                    {!! Form::label('pend_akhir', 'Pendidikan Akhir:') !!}
+                    <p>{!! $karyawanOs->pend_akhir !!}</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+                <!-- Deleted At Field -->
+                <div class="form-group">
+                    {!! Form::label('jurusan', 'Jurusan:') !!}
+                    <p>{!! $karyawanOs->jurusan !!}</p>
+                </div>
+            </div>
+            <div class="col-md-3">
                 <!-- Created At Field -->
                 <div class="form-group">
                     {!! Form::label('created_at', 'Dibuat Pada:') !!}
                     <p>{!! $karyawanOs->created_at !!}</p>
                 </div>
             </div>
+</div>
+<div class="row">
     <div class="col-md-3">
         <!-- Updated At Field -->
         <div class="form-group">
