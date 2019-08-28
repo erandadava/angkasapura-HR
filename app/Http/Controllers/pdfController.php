@@ -25,11 +25,11 @@ class pdfController extends Controller
                 $roles = $user->getRoleNames();
                 if($roles[0] == "Vendor"){
                     $id_vendor = \App\Models\vendor_os::where('email','=',$user->email)->first();
-                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja'])->where('id_vendor','=',$id_vendor->id)->get();
+                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja','vendor'])->where('id_vendor','=',$id_vendor->id)->get();
                 }else{
-                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja'])->get();
+                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja','vendor'])->get();
                 }
-                $head = ['Nama', 'Fungsi', 'Unit Kerja', 'Tanggal Lahir', 'Usia', 'Jenis Kelamin', 'Penempatan'];
+                $head = ['Nama', 'Fungsi', 'Unit Kerja', 'Tanggal Lahir',  'Jenis Kelamin', 'Nama Vendor'];
                 $title = 'Karyawan Outsourcing';
                 foreach ($get as $key => $value) {
                     $isinya[$key]=[
@@ -37,9 +37,8 @@ class pdfController extends Controller
                         1 => $value['fungsi']['nama_fungsi'],
                         2 => $value['unitkerja']['nama_uk'],
                         3 => \Carbon\Carbon::parse($value['tgl_lahir'])->formatLocalized('%d %B %Y'),
-                        4 => $value['usia'],
-                        5 => $value['gender'],
-                        6 => $value['penempatan']
+                        4 => $value['gender'],
+                        5 => $value['vendor']['nama_vendor']
                     ];   
                 }
                 break; 

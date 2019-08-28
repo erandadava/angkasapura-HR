@@ -22,7 +22,7 @@
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            {!! Form::label('id_vendor', 'Vendor:') !!}
+            {!! Form::label('id_vendor', 'Nama Vendor:') !!}
             <p>{!! $karyawanOs->vendor->nama_vendor??''!!}</p>
         </div>
     </div>
