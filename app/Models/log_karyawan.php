@@ -51,7 +51,12 @@ class log_karyawan extends Model
         'id_klsjabatan',
         'id_unit',
         'entry_date',
-        'update_date'
+        'update_date',
+        'pend_akhir',
+        'gender',
+        'tgl_lahir',
+        'is_active',
+        'pend_diakui'
     ];
 
     /**

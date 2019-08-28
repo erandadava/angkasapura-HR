@@ -157,13 +157,18 @@ class karyawan extends Model
         return $this->hasOne('App\Models\klsjabatan', 'id', 'id_klsjabatan');
     }
 
+    public function log_karyawan() {
+        return $this->hasOne('App\Models\log_karyawan','id_karyawan_fk','id')->where('is_active',1)->latest();
+    }
+    
+
     public function getAgeAttribute()
     {
         $to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Carbon::now());
-        $m = date('-m-d', strtotime($this->attributes['tgl_lahir']));
+        $m = date('-m-d', strtotime($this->attributes['tgl_lahir']??null));
         $from = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Carbon::now()->year.$m.' 9:30:34');
         $sisa = $to->diffInDays($from);
-        $umur =  \Carbon\Carbon::parse($this->attributes['tgl_lahir'])->age;
+        $umur =  \Carbon\Carbon::parse($this->attributes['tgl_lahir']??null)->age;
         if($umur == 55 && $sisa < 60 && $sisa > 0){
             return 1;
         }elseif($umur < 55 || $sisa > 60){

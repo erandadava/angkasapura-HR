@@ -188,19 +188,47 @@ html{
         }
         getRandomColorHex();
 
-		var status_pendidikan = {!!$status_pendidikan!!};
-		var label_status_pendidikan = $.map(status_pendidikan, function(e) {
+		@if(isset($status_pendidikan_update_date))
+        var status_pendidikan_update_date = {!!$status_pendidikan_update_date!!};
+        @else
+        var status_pendidikan_update_date =[];
+        @endif
+        var status_pendidikan = {!!$status_pendidikan!!};
+        
+
+		
+        status_pendidikan.forEach(function(element,index){
+            status_pendidikan_update_date.forEach(function(elements,indexs){
+                if(element.pendidikan == elements.pendidikan){
+                    status_pendidikan[index]['jumlah'] = status_pendidikan[index]['jumlah']+elements.jumlah;
+                }
+            });
+        });
+		
+        if(status_pendidikan.length > 0){
+            var label_status_pendidikan = $.map(status_pendidikan, function(e) {
                 return e.pendidikan;
         });
-		var value_status_pendidikan = $.map(status_pendidikan, function(e) {
-                return e.jumlah;
-        });
-
+            var value_status_pendidikan = $.map(status_pendidikan, function(e) {
+                    return e.jumlah;
+            });
+        }else{
+            var label_status_pendidikan = $.map(status_pendidikan_update_date, function(e) {
+                return e.pendidikan;
+            });
+                var value_status_pendidikan = $.map(status_pendidikan_update_date , function(e) {
+                    return e.jumlah;
+            });
+        }
+        
 		var unit_kerja = {!!$unit_kerja!!};
 		var label_unit_kerja = $.map(unit_kerja, function(e) {
                 return e.nama_uk;
         });
 		var value_unit_kerja = $.map(unit_kerja, function(e) {
+                if(e.log_karyawan_count != undefined){
+                    return e.karyawan_count+e.log_karyawan_count; 
+                }
                 return e.karyawan_count;
         });
 
@@ -209,6 +237,9 @@ html{
                 return e.nama_kj;
         });
 		var value_kelas_jabatan = $.map(kelas_jabatan, function(e) {
+                if(e.log_karyawan_count != undefined){
+                    return e.karyawan_count+e.log_karyawan_count; 
+                }
                 return e.karyawan_count;
         });
 
@@ -217,6 +248,9 @@ html{
                 return e.nama_kj;
         });
 		var value_kelas_jabatan_alphabet = $.map(kelas_jabatan_alphabet, function(e) {
+                if(e.log_karyawan_count != undefined){
+                    return e.karyawan_count+e.log_karyawan_count; 
+                }
                 return e.karyawan_count;
         });
 

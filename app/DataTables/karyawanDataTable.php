@@ -53,6 +53,24 @@ class karyawanDataTable extends DataTable
                     return $inquiry->klsjabatan->nama_kj ?? "";
                 }
             })
+        ->editColumn('gender', function ($inquiry) 
+            {
+                $cek_log = $this->check_log($inquiry->id);
+                if($cek_log != null){
+                    return $cek_log->gender ?? "";
+                }else{
+                    return $inquiry->gender ?? "";
+                }
+            })
+        ->editColumn('tgl_lahir', function ($inquiry) 
+            {
+                $cek_log = $this->check_log($inquiry->id);
+                if($cek_log != null){
+                    return \Carbon\Carbon::parse($cek_log->tgl_lahir)->formatLocalized('%d %B %Y') ?? "";
+                }else{
+                    return \Carbon\Carbon::parse($inquiry->tgl_lahir)->formatLocalized('%d %B %Y') ?? "";
+                }
+            })
 
         ->rawColumns(['tgl_lahir','status_pensiun','action']);
     }

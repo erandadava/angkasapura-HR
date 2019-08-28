@@ -47,6 +47,15 @@ class pdfController extends Controller
                 $head = ['NIK','Nama', 'Jabatan', 'Unit Kerja', 'Kelas Jabatan', 'Gender', 'Tanggal Lahir'];
                 $title = 'Karyawan';
                 foreach ($get as $key => $value) {
+                    $cek_log = $this->check_log($value['id']);
+                    if($cek_log != null){
+                        $value['jabatan']['nama_jabatan'] = $cek_log['jabatan']['nama_jabatan'];
+                        $value['unitkerja']['nama_uk']= $cek_log['unitkerja']['nama_uk'];
+                        $value['klsjabatan']['nama_kj'] = $cek_log['klsjabatan']['nama_kj'];
+                        $value['pend_akhir']= $cek_log['pend_akhir'];
+                        $value['gender']= $cek_log['gender'];
+                        $value['tgl_lahir']= $cek_log['tgl_lahir'];
+                    }
                     $isinya[$key]=[
                         0 => $value['nik'],
                         1 => $value['nama'],
@@ -329,4 +338,13 @@ class pdfController extends Controller
         return $pdf->stream($tabel.time().'.pdf', array("Attachment" => false));
 
     }
+
+    public function check_log($id_karyawan){
+        $cek = \App\Models\log_karyawan::where('id_karyawan_fk','=',$id_karyawan)->with(['fungsi','jabatan','unitkerja','tipekar','unit','klsjabatan'])->latest('update_date')->first();
+        if($cek){
+            return $cek;
+        }else{
+            return null;
+        }
+    }  
 }

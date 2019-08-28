@@ -77,6 +77,11 @@ class unitkerja extends Model
         return $this->hasMany('App\Models\karyawan', 'id_unitkerja', 'id');
     }
 
+    public function log_karyawan()
+    {
+        return $this->hasMany('App\Models\log_karyawan', 'id_unitkerja', 'id')->where('is_active',1)->latest();
+    }
+
     public function karyawan_os()
     {
         return $this->hasMany('App\Models\karyawan_os', 'id_unitkerja', 'id');

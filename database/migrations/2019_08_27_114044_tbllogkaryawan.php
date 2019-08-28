@@ -28,6 +28,11 @@ class Tbllogkaryawan extends Migration
 			$table->integer('id_unit')->nullable();
             $table->timestamp('entry_date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('update_date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->string('pend_akhir')->nullable();
+            $table->string('pend_diakui')->nullable();
+            $table->string('gender', 10);
+            $table->date('tgl_lahir');
+            $table->boolean('is_active');
 			$table->timestamps();
 			$table->softDeletes();
         });
