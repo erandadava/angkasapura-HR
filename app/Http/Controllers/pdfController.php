@@ -74,17 +74,22 @@ class pdfController extends Controller
                     if($request->key=="asc"){
                         if($request->s){
                             if($request->dari && $request->sampai){
-                                $dari = $request->dari;
-                                $sampai = $request->sampai;
+                                $dari = new Carbon($request->dari);
+                                $sampai = new Carbon($request->sampai);
+                                $sampai = $sampai->endOfMonth();
                                 $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
-                                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                                    $query->doesnthave('log_karyawan')->whereBetween('entry_date', [$dari, $sampai]);
+                                }])->withCount(['log_karyawan' => function($query) use ($dari, $sampai){
+                                    return $query->whereBetween('update_date', [$dari, $sampai]);
                                 }])->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
                                     $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
                                 })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('nama_uk','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get()->sortBy(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }else{
-                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query){
+                                    $query->doesnthave('log_karyawan');
+                                }])->withCount('log_karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
                                     $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
                                 })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('nama_uk','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get()->sortBy(function ($product, $key) use($request){
                                     return $product[$request->f];
@@ -93,15 +98,20 @@ class pdfController extends Controller
                             
                         }else{
                             if($request->dari && $request->sampai){
-                                $dari = $request->dari;
-                                $sampai = $request->sampai;
+                                $dari = new Carbon($request->dari);
+                                $sampai = new Carbon($request->sampai);
+                                $sampai = $sampai->endOfMonth();
                                 $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
-                                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                                    $query->doesnthave('log_karyawan')->whereBetween('entry_date', [$dari, $sampai]);
+                                }])->withCount(['log_karyawan' => function($query) use ($dari, $sampai){
+                                    return $query->whereBetween('update_date', [$dari, $sampai]);
                                 }])->with('kategori_unit_kerja')->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get()->sortBy(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }else{
-                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get()->sortBy(function ($product, $key) use($request){
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query){
+                                    $query->doesnthave('log_karyawan');
+                                }])->withCount('log_karyawan')->with('kategori_unit_kerja')->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get()->sortBy(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }
@@ -110,17 +120,22 @@ class pdfController extends Controller
                     }else{
                         if($request->s){
                             if($request->dari && $request->sampai){
-                                $dari = $request->dari;
-                                $sampai = $request->sampai;
+                                $dari = new Carbon($request->dari);
+                                $sampai = new Carbon($request->sampai);
+                                $sampai = $sampai->endOfMonth();
                                 $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
-                                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                                    $query->doesnthave('log_karyawan')->whereBetween('entry_date', [$dari, $sampai]);
+                                }])->withCount(['log_karyawan' => function($query) use ($dari, $sampai){
+                                    return $query->whereBetween('update_date', [$dari, $sampai]);
                                 }])->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
                                     $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
                                 })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('nama_uk','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orderByDesc('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }else{
-                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query){
+                                    $query->doesnthave('log_karyawan');
+                                }])->withCount('log_karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
                                     $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
                                 })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('nama_uk','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orderByDesc('tblkategoriunitkerja.nama_kategori_uk', 'DESC')->get()->sortBy(function ($product, $key) use($request){
                                     return $product[$request->f];
@@ -129,15 +144,20 @@ class pdfController extends Controller
                             
                         }else{
                             if($request->dari && $request->sampai){
-                                $dari = $request->dari;
-                                $sampai = $request->sampai;
+                                $dari = new Carbon($request->dari);
+                                $sampai = new Carbon($request->sampai);
+                                $sampai = $sampai->endOfMonth();
                                 $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
-                                    $query->whereBetween('tmt_date', [$dari, $sampai]);
+                                    $query->doesnthave('log_karyawan')->whereBetween('entry_date', [$dari, $sampai]);
+                                }])->withCount(['log_karyawan' => function($query) use ($dari, $sampai){
+                                    return $query->whereBetween('update_date', [$dari, $sampai]);
                                 }])->with('kategori_unit_kerja')->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get()->sortByDesc(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }else{
-                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get()->sortByDesc(function ($product, $key) use($request){
+                                $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query){
+                                    $query->doesnthave('log_karyawan');
+                                }])->withCount('log_karyawan')->with('kategori_unit_kerja')->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get()->sortByDesc(function ($product, $key) use($request){
                                     return $product[$request->f];
                                 });
                             }
@@ -145,28 +165,38 @@ class pdfController extends Controller
                     }
                 }elseif($request->s){
                     if($request->dari && $request->sampai){
-                        $dari = $request->dari;
-                        $sampai = $request->sampai;
+                        $dari = new Carbon($request->dari);
+                        $sampai = new Carbon($request->sampai);
+                        $sampai = $sampai->endOfMonth();
                         $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query) use ($dari, $sampai){
-                            $query->whereBetween('tmt_date', [$dari, $sampai]);
+                            $query->doesnthave('log_karyawan')->whereBetween('entry_date', [$dari, $sampai]);
+                        }])->withCount(['log_karyawan' => function($query) use ($dari, $sampai){
+                            return $query->whereBetween('update_date', [$dari, $sampai]);
                         }])->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
                             $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
                        })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('nama_uk','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get();
                     }else{
-                        $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount('karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
+                        $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->withCount(['karyawan' => function($query){
+                            $query->doesnthave('log_karyawan');
+                        }])->withCount('log_karyawan')->with('kategori_unit_kerja')->whereHas('kategori_unit_kerja', function ($query) USE($request) {
                             $query->where('nama_kategori_uk', 'LIKE', '%'.$request->s.'%');
                        })->where('tblunitkerja.id','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('nama_uk','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orWhere('jml_formasi','LIKE','%'.$request->s.'%')->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get();
                     }
                     
                 }else{
                     if($request->dari && $request->sampai){
-                        $dari = $request->dari;
-                        $sampai = $request->sampai;
+                        $dari = new Carbon($request->dari);
+                        $sampai = new Carbon($request->sampai);
+                        $sampai = $sampai->endOfMonth();
                         $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->with('kategori_unit_kerja')->withCount(['karyawan' => function($query) use ($dari, $sampai){
-                            $query->whereBetween('tmt_date', [$dari, $sampai]);
+                            $query->doesnthave('log_karyawan')->whereBetween('entry_date', [$dari, $sampai]);
+                        }])->withCount(['log_karyawan' => function($query) use ($dari, $sampai){
+                            return $query->whereBetween('update_date', [$dari, $sampai]);
                         }])->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get();
                     }else{
-                        $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->with('kategori_unit_kerja')->withCount('karyawan')->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get();
+                        $get = \App\Models\unitkerja::leftjoin('tblkategoriunitkerja', 'tblunitkerja.id_kategori_unit_kerja_fk', '=', 'tblkategoriunitkerja.id')->with('kategori_unit_kerja')->withCount(['karyawan' => function($query){
+                            $query->doesnthave('log_karyawan');
+                        }])->withCount('log_karyawan')->with(['kategori_unit_kerja'])->whereIn('tblunitkerja.id',$arr_export)->orderBy('tblunitkerja.id', 'ASC')->get();
                     }
                     
                 }
@@ -185,80 +215,125 @@ class pdfController extends Controller
                 foreach ($get as $key => $value) {
                     $id_pkwt = \App\Models\tipekar::where('nama_tipekar','LIKE','%PKWT%')->first();
                     if($request->dari && $request->sampai){
-                        $dari = $request->dari;
-                        $sampai = $request->sampai;
-                        $pkwt = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
-                            $q->where('id_tipe_kar', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                        $dari = new Carbon($request->dari);
+                        $sampai = new Carbon($request->sampai);
+                        $sampai = $sampai->endOfMonth();
+                        $pkwt_entry_date = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
+                            $q->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pkwt->id)->whereBetween('entry_date', [$dari, $sampai]);
+                        }])->first();
+                        $pkwt_update_date = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['log_karyawan' => function($q) use($id_pkwt,$dari, $sampai){
+                            $q->where('id_tipe_kar', $id_pkwt->id)->whereBetween('update_date', [$dari, $sampai]);
                         }])->first();
                     }else{
-                        $pkwt = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pkwt){
-                            $q->where('id_tipe_kar', $id_pkwt->id);
+                        $pkwt = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['karyawan' => function($query) use ($id_pkwt){
+                            $query->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pkwt->id);
+                        }])->withCount(['log_karyawan' => function($query) use ($id_pkwt){
+                            return $query->where('id_tipe_kar', $id_pkwt->id);
                         }])->first();
                     }
                     
 
                     $non_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Non Pejabat%')->first();
                     if($request->dari && $request->sampai){
-                        $dari = $request->dari;
-                        $sampai = $request->sampai;
-                        $karyawan = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($non_pejabat,$dari, $sampai){
-                            $q->where('id_tipe_kar', $non_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                        $dari = new Carbon($request->dari);
+                        $sampai = new Carbon($request->sampai);
+                        $sampai = $sampai->endOfMonth();
+                        $karyawan_entry_date = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['karyawan' => function($q) use($non_pejabat,$dari, $sampai){
+                            $q->doesnthave('log_karyawan')->where('id_tipe_kar', $non_pejabat->id)->whereBetween('entry_date', [$dari, $sampai]);
+                        }])->first();
+                        $karyawan_update_date = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['log_karyawan' => function($q) use($non_pejabat,$dari, $sampai){
+                            $q->where('id_tipe_kar', $non_pejabat->id)->whereBetween('update_date', [$dari, $sampai]);
                         }])->first();
                     }else{
-                        $karyawan = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($non_pejabat){
-                            $q->where('id_tipe_kar', $non_pejabat->id);
+                        $karyawan = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['karyawan' => function($query) use ($non_pejabat){
+                            $query->doesnthave('log_karyawan')->where('id_tipe_kar', $non_pejabat->id);
+                        }])->withCount(['log_karyawan' => function($query) use ($non_pejabat){
+                            return $query->where('id_tipe_kar', $non_pejabat->id);
                         }])->first();
                     }
                     
 
                     $id_kmpg = \App\Models\tipekar::where('nama_tipekar','LIKE','%KMPG%')->first();
                     if($request->dari && $request->sampai){
-                        $dari = $request->dari;
-                        $sampai = $request->sampai;
-                        $kmpg = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
-                            $q->where('id_tipe_kar', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                        $dari = new Carbon($request->dari);
+                        $sampai = new Carbon($request->sampai);
+                        $sampai = $sampai->endOfMonth();
+                        $kmpg_entry_date = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
+                            $q->doesnthave('log_karyawan')->where('id_tipe_kar', $id_kmpg->id)->whereBetween('entry_date', [$dari, $sampai]);
+                        }])->first();
+                        $kmpg_update_date = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['log_karyawan' => function($q) use($id_kmpg,$dari, $sampai){
+                            $q->where('id_tipe_kar', $id_kmpg->id)->whereBetween('update_date', [$dari, $sampai]);
                         }])->first();
                     }else{
-                        $kmpg = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_kmpg){
-                            $q->where('id_tipe_kar', $id_kmpg->id);
+                        $kmpg = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['karyawan' => function($query) use ($id_kmpg){
+                            $query->doesnthave('log_karyawan')->where('id_tipe_kar', $id_kmpg->id);
+                        }])->withCount(['log_karyawan' => function($query) use ($id_kmpg){
+                            return $query->where('id_tipe_kar', $id_kmpg->id);
                         }])->first();
                     }
                     
                     $id_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Pejabat%')->first();
                     if($request->dari && $request->sampai){
-                        $dari = $request->dari;
-                        $sampai = $request->sampai;
-                        $pejabat = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pejabat,$dari, $sampai){
-                            $q->where('id_tipe_kar', $id_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                        $dari = new Carbon($request->dari);
+                        $sampai = new Carbon($request->sampai);
+                        $sampai = $sampai->endOfMonth();
+                        $pejabat_entry_date = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['karyawan' => function($q) use($id_pejabat,$dari, $sampai){
+                            $q->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pejabat->id)->whereBetween('entry_date', [$dari, $sampai]);
+                        }])->first();
+                        $pejabat_update_date = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['log_karyawan' => function($q) use($id_pejabat,$dari, $sampai){
+                            $q->where('id_tipe_kar', $id_pejabat->id)->whereBetween('update_date', [$dari, $sampai]);
                         }])->first();
                     }else{
-                        $pejabat = \App\Models\unitkerja::where('id','=',$value->id)->with(['karyawan' => function($q) use($id_pejabat){
-                            $q->where('id_tipe_kar', $id_pejabat->id);
+                        $pejabat = \App\Models\unitkerja::where('id','=',$value->id)->withCount(['karyawan' => function($query) use ($id_pejabat){
+                            $query->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pejabat->id);
+                        }])->withCount(['log_karyawan' => function($query) use ($id_pejabat){
+                            return $query->where('id_tipe_kar', $id_pejabat->id);
                         }])->first();
                     }
                     
-
-                    $lowong = (int) $value->jml_formasi - (int) $value->karyawan_count;
+                    
+                    $lowong = (int) $value->jml_formasi - ((int) $value->karyawan_count + $value->log_karyawan_count);
                     $hasil_lowong += $lowong;
-                    $kekuatan = round(((int) $value->karyawan_count / (int) $value->jml_formasi)*100)."%";
+                    $kekuatan = round((((int) $value->karyawan_count + $value->log_karyawan_count) / (int) $value->jml_formasi)*100)."%";
                     $hasil_kekuatan += (int)$kekuatan;
-                    $hasil_pejabat += count($pejabat->karyawan);
-                    $hasil_karyawan += count($karyawan->karyawan);
-                    $hasil_pkwt += count($pkwt->karyawan);
-                    $hasil_kmpg += count($kmpg->karyawan);
-                    $hasil_total_eksis_kanan += count($pejabat->karyawan)+count($karyawan->karyawan)+count($pkwt->karyawan)+count($kmpg->karyawan);
-                    $isinya[$key]=[
-                        0 => $value['nama_uk'],
-                        1 => $value['jml_formasi'],
-                        2 => $value['karyawan_count'],
-                        3 => $lowong,
-                        4 => $kekuatan,
-                        5 => count($pejabat->karyawan),
-                        6 => count($karyawan->karyawan),
-                        7 => count($pkwt->karyawan),
-                        8 => count($kmpg->karyawan),
-                        9 => count($pejabat->karyawan)+count($karyawan->karyawan)+count($pkwt->karyawan)+count($kmpg->karyawan),
-                    ];  
+                    if($request->dari && $request->sampai){  
+                        $hasil_pejabat += $pejabat_entry_date->karyawan_count + $pejabat_update_date->log_karyawan_count;
+                        $hasil_karyawan += $karyawan_entry_date->karyawan_count + $karyawan_update_date->log_karyawan_count;
+                        $hasil_pkwt += $pkwt_entry_date->karyawan_count + $pkwt_update_date->log_karyawan_count;
+                        $hasil_kmpg += $kmpg_entry_date->karyawan_count + $kmpg_update_date->log_karyawan_count;
+                        $hasil_total_eksis_kanan += $pkwt_entry_date->karyawan_count + $pkwt_update_date->log_karyawan_count + $kmpg_entry_date->karyawan_count + $kmpg_update_date->log_karyawan_count + $karyawan_entry_date->karyawan_count + $karyawan_update_date->log_karyawan_count + $pejabat_entry_date->karyawan_count + $pejabat_update_date->log_karyawan_count;
+                        $isinya[$key]=[
+                            0 => $value['nama_uk'],
+                            1 => $value['jml_formasi'],
+                            2 => (int) $value['karyawan_count'] + (int) $value['log_karyawan_count'],
+                            3 => $lowong,
+                            4 => $kekuatan,
+                            5 => $pejabat_entry_date->karyawan_count + $pejabat_update_date->log_karyawan_count,
+                            6 => $karyawan_entry_date->karyawan_count + $karyawan_update_date->log_karyawan_count,
+                            7 => $pkwt_entry_date->karyawan_count + $pkwt_update_date->log_karyawan_count,
+                            8 => $kmpg_entry_date->karyawan_count + $kmpg_update_date->log_karyawan_count,
+                            9 => $pkwt_entry_date->karyawan_count + $pkwt_update_date->log_karyawan_count + $kmpg_entry_date->karyawan_count + $kmpg_update_date->log_karyawan_count + $karyawan_entry_date->karyawan_count + $karyawan_update_date->log_karyawan_count + $pejabat_entry_date->karyawan_count + $pejabat_update_date->log_karyawan_count,
+                        ];
+                    }else{
+                        $hasil_pejabat += $pejabat->karyawan_count + $pejabat->log_karyawan_count;
+                        $hasil_karyawan += $karyawan->karyawan_count + $karyawan->log_karyawan_count;
+                        $hasil_pkwt += $pkwt->karyawan_count + $pkwt->log_karyawan_count;
+                        $hasil_kmpg += $kmpg->karyawan_count + $kmpg->log_karyawan_count;
+                        $hasil_total_eksis_kanan += $pkwt->karyawan_count + $pkwt->log_karyawan_count + $karyawan->karyawan_count + $karyawan->log_karyawan_count + $kmpg->karyawan_count + $kmpg->log_karyawan_count + $pejabat->karyawan_count + $pejabat->log_karyawan_count;
+                        $isinya[$key]=[
+                            0 => $value['nama_uk'],
+                            1 => $value['jml_formasi'],
+                            2 => (int) $value['karyawan_count'] + (int) $value['log_karyawan_count'],
+                            3 => $lowong,
+                            4 => $kekuatan,
+                            5 => $pejabat->karyawan_count + $pejabat->log_karyawan_count,
+                            6 => $karyawan->karyawan_count + $karyawan->log_karyawan_count,
+                            7 => $pkwt->karyawan_count + $pkwt->log_karyawan_count,
+                            8 => $kmpg->karyawan_count + $kmpg->log_karyawan_count,
+                            9 => $pkwt->karyawan_count + $pkwt->log_karyawan_count + $karyawan->karyawan_count + $karyawan->log_karyawan_count + $kmpg->karyawan_count + $kmpg->log_karyawan_count + $pejabat->karyawan_count + $pejabat->log_karyawan_count,
+                        ];  
+                    }
+                    
                     $group[$key]= [
                         0 => $value['id_kategori_unit_kerja_fk'],
                         1 => $value['kategori_unit_kerja']['nama_kategori_uk']
@@ -272,7 +347,8 @@ class pdfController extends Controller
                 $sum_eksis = 0 ;
                 if($get){
                     foreach ($get as $key => $value) {
-                        $sum_eksis += (int) $value['karyawan_count'];
+                        // dd((int) $value['karyawan_count'] + (int) $value['log_karyawan_count']);
+                        $sum_eksis += (int) $value['karyawan_count'] + (int) $value['log_karyawan_count'];
                     }
                     
                 }
