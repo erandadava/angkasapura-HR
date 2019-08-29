@@ -6,6 +6,7 @@ use App\Models\unitkerja;
 use App\Models\klsjabatan;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
+use Carbon\Carbon;
 
 class formasiExistingDataTable extends DataTable
 {
@@ -19,10 +20,13 @@ class formasiExistingDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
         if($this->dari && $this->sampai){
-            $dari = $this->dari;
-            $sampai = $this->sampai;
+            $dari = new Carbon($this->dari);
+            $sampai = new Carbon($this->sampai);
+            $sampai = $sampai->endOfMonth();
             $unit = \App\Models\unitkerja::withCount(['karyawan' => function($query) use ($dari, $sampai){
-                $query->whereBetween('tmt_date', [$dari, $sampai]);
+                $query->doesnthave('log_karyawan')->whereBetween('entry_date', [$dari, $sampai]);
+            }])->withCount(['log_karyawan' => function($query) use ($dari, $sampai){
+                return $query->whereBetween('update_date', [$dari, $sampai]);
             }])->get();
         }else{
             $unit = \App\Models\unitkerja::withCount('karyawan')->get();
@@ -31,19 +35,23 @@ class formasiExistingDataTable extends DataTable
         $sum_eksis = 0 ;
         if($unit){
             foreach ($unit as $key => $value) {
-                $sum_eksis += (int) $value['karyawan_count'];
+                $sum_eksis += (int) $value['karyawan_count'] + (int) $value['log_karyawan_count']??0;
             }
             
         }
         return $dataTable->addColumn('action', 'unitkerjas.datatables_actionsformasi')
+        ->editColumn('karyawan_count', function ($inquiry) use($query)
+        {
+           return $inquiry->karyawan_count + $inquiry->log_karyawan_count??0;
+        })
         ->editColumn('lowong', function ($inquiry) 
         {
-            return (int) $inquiry->jml_formasi - (int) $inquiry->karyawan_count;
+            return (int) $inquiry->jml_formasi - ((int) $inquiry->karyawan_count+(int) $inquiry->log_karyawan_count??0);
         })
         ->editColumn('kekuatan', function ($inquiry) 
         {
             if((int) $inquiry->jml_formasi>0){
-                return round(((int) $inquiry->karyawan_count / (int) $inquiry->jml_formasi)*100)."%";
+                return round((((int) $inquiry->karyawan_count+(int) $inquiry->log_karyawan_count??0) / (int) $inquiry->jml_formasi)*100)."%";
             }
             return "0%";
             
@@ -52,130 +60,187 @@ class formasiExistingDataTable extends DataTable
         {
             $id_pkwt = \App\Models\tipekar::where('nama_tipekar','LIKE','%PKWT%')->first();
             if($this->dari && $this->sampai){
-                $dari = $this->dari;
-                $sampai = $this->sampai;
-                $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
-                    $q->where('id_tipe_kar', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                $dari = new Carbon($this->dari);
+                $sampai = new Carbon($this->sampai);
+                $sampai = $sampai->endOfMonth();
+                $pkwt_entry_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
+                    $q->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pkwt->id)->whereBetween('entry_date', [$dari, $sampai]);
                 }])->first();
+                $pkwt_update_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['log_karyawan' => function($q) use($id_pkwt,$dari, $sampai){
+                    $q->where('id_tipe_kar', $id_pkwt->id)->whereBetween('update_date', [$dari, $sampai]);
+                }])->first();
+                return count($pkwt_entry_date->karyawan) + count($pkwt_update_date->log_karyawan);
             }else{
-                $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt){
-                    $q->where('id_tipe_kar', $id_pkwt->id);
+                $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->withCount(['karyawan' => function($query) use ($id_pkwt){
+                    $query->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pkwt->id);
+                }])->withCount(['log_karyawan' => function($query) use ($id_pkwt){
+                    return $query->where('id_tipe_kar', $id_pkwt->id);
                 }])->first();
+                return $pkwt->karyawan_count + $pkwt->log_karyawan_count;
             }
-            
-            return count($pkwt->karyawan);
         })
         ->editColumn('jml_kmpg', function ($inquiry) use($query)
         {
             $id_kmpg = \App\Models\tipekar::where('nama_tipekar','LIKE','%KMPG%')->first();
             if($this->dari && $this->sampai){
-                $dari = $this->dari;
-                $sampai = $this->sampai;
-                $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
-                    $q->where('id_tipe_kar', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                $dari = new Carbon($this->dari);
+                $sampai = new Carbon($this->sampai);
+                $sampai = $sampai->endOfMonth();
+                $kmpg_entry_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
+                    $q->doesnthave('log_karyawan')->where('id_tipe_kar', $id_kmpg->id)->whereBetween('entry_date', [$dari, $sampai]);
                 }])->first();
+                $kmpg_update_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['log_karyawan' => function($q) use($id_kmpg,$dari, $sampai){
+                    $q->where('id_tipe_kar', $id_kmpg->id)->whereBetween('update_date', [$dari, $sampai]);
+                }])->first();
+                return count($kmpg_entry_date->karyawan) + count($kmpg_update_date->log_karyawan);
             }else{
-                $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg){
-                    $q->where('id_tipe_kar', $id_kmpg->id);
+                $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->withCount(['karyawan' => function($query) use ($id_kmpg){
+                    $query->doesnthave('log_karyawan')->where('id_tipe_kar', $id_kmpg->id);
+                }])->withCount(['log_karyawan' => function($query) use ($id_kmpg){
+                    return $query->where('id_tipe_kar', $id_kmpg->id);
                 }])->first();
+                return $kmpg->karyawan_count + $kmpg->log_karyawan_count;
             }
             
-            return count($kmpg->karyawan);
         })
         ->editColumn('jml_karyawan', function ($inquiry) use($query)
         {
             $non_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Non Pejabat%')->first();
             if($this->dari && $this->sampai){
-                $dari = $this->dari;
-                $sampai = $this->sampai;
-                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($non_pejabat,$dari, $sampai){
-                    $q->where('id_tipe_kar', $non_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                $dari = new Carbon($this->dari);
+                $sampai = new Carbon($this->sampai);
+                $sampai = $sampai->endOfMonth();
+                $karyawan_entry_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($non_pejabat,$dari, $sampai){
+                    $q->doesnthave('log_karyawan')->where('id_tipe_kar', $non_pejabat->id)->whereBetween('entry_date', [$dari, $sampai]);
                 }])->first();
+                $karyawan_update_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['log_karyawan' => function($q) use($non_pejabat,$dari, $sampai){
+                    $q->where('id_tipe_kar', $non_pejabat->id)->whereBetween('update_date', [$dari, $sampai]);
+                }])->first();
+                return count($karyawan_entry_date->karyawan) + count($karyawan_update_date->log_karyawan);
             }else{
-                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($non_pejabat){
-                    $q->where('id_tipe_kar', $non_pejabat->id);
+
+                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->withCount(['karyawan' => function($query) use ($non_pejabat){
+                    $query->doesnthave('log_karyawan')->where('id_tipe_kar', $non_pejabat->id);
+                }])->withCount(['log_karyawan' => function($query) use ($non_pejabat){
+                    return $query->where('id_tipe_kar', $non_pejabat->id);
                 }])->first();
+                return $karyawan->karyawan_count + $karyawan->log_karyawan_count;
             }
-            
-            return count($karyawan->karyawan);
         })
 
         ->editColumn('jml_pejabat', function ($inquiry) use($query)
         {
             $id_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Pejabat%')->first();
             if($this->dari && $this->sampai){
-                $dari = $this->dari;
-                $sampai = $this->sampai;
-                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pejabat,$dari, $sampai){
-                    $q->where('id_tipe_kar', $id_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                $dari = new Carbon($this->dari);
+                $sampai = new Carbon($this->sampai);
+                $sampai = $sampai->endOfMonth();
+                $pejabat_entry_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pejabat,$dari, $sampai){
+                    $q->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pejabat->id)->whereBetween('entry_date', [$dari, $sampai]);
                 }])->first();
+                $pejabat_update_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['log_karyawan' => function($q) use($id_pejabat,$dari, $sampai){
+                    $q->where('id_tipe_kar', $id_pejabat->id)->whereBetween('update_date', [$dari, $sampai]);
+                }])->first();
+                return count($pejabat_entry_date->karyawan) + count($pejabat_update_date->log_karyawan);
             }else{
-                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pejabat){
-                    $q->where('id_tipe_kar', $id_pejabat->id);
+                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->withCount(['karyawan' => function($query) use ($id_pejabat){
+                    $query->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pejabat->id);
+                }])->withCount(['log_karyawan' => function($query) use ($id_pejabat){
+                    return $query->where('id_tipe_kar', $id_pejabat->id);
                 }])->first();
+                return $pejabat->karyawan_count + $pejabat->log_karyawan_count;
             }
-            
-            return count($pejabat->karyawan);
         })
 
         ->editColumn('total_eksis', function ($inquiry) use($query)
         {
             $id_pkwt = \App\Models\tipekar::where('nama_tipekar','LIKE','%PKWT%')->first();
             if($this->dari && $this->sampai){
-                $dari = $this->dari;
-                $sampai = $this->sampai;
-                $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
-                    $q->where('id_tipe_kar', $id_pkwt->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                $dari = new Carbon($this->dari);
+                $sampai = new Carbon($this->sampai);
+                $sampai = $sampai->endOfMonth();
+                $pkwt_entry_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt,$dari, $sampai){
+                    $q->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pkwt->id)->whereBetween('entry_date', [$dari, $sampai]);
+                }])->first();
+                $pkwt_update_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['log_karyawan' => function($q) use($id_pkwt,$dari, $sampai){
+                    $q->where('id_tipe_kar', $id_pkwt->id)->whereBetween('update_date', [$dari, $sampai]);
                 }])->first();
             }else{
-                $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pkwt){
-                    $q->where('id_tipe_kar', $id_pkwt->id);
-                }])->first();
+                $pkwt = \App\Models\unitkerja::where('id','=',$inquiry->id)->withCount(['karyawan' => function($query) use ($id_pkwt){
+                    $query->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pkwt->id);
+                }])->withCount(['log_karyawan' => function($query) use ($id_pkwt){
+                    return $query->where('id_tipe_kar', $id_pkwt->id);
+                }])->first(); 
             }
             
 
             $non_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Non Pejabat%')->first();
             if($this->dari && $this->sampai){
-                $dari = $this->dari;
-                $sampai = $this->sampai;
-                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($non_pejabat,$dari, $sampai){
-                    $q->where('id_tipe_kar', $non_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                $dari = new Carbon($this->dari);
+                $sampai = new Carbon($this->sampai);
+                $sampai = $sampai->endOfMonth();
+                $karyawan_entry_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($non_pejabat,$dari, $sampai){
+                    $q->doesnthave('log_karyawan')->where('id_tipe_kar', $non_pejabat->id)->whereBetween('entry_date', [$dari, $sampai]);
                 }])->first();
+                $karyawan_update_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['log_karyawan' => function($q) use($non_pejabat,$dari, $sampai){
+                    $q->where('id_tipe_kar', $non_pejabat->id)->whereBetween('update_date', [$dari, $sampai]);
+                }])->first();
+                
             }else{
-                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($non_pejabat){
-                    $q->where('id_tipe_kar', $non_pejabat->id);
+                $karyawan = \App\Models\unitkerja::where('id','=',$inquiry->id)->withCount(['karyawan' => function($query) use ($non_pejabat){
+                    $query->doesnthave('log_karyawan')->where('id_tipe_kar', $non_pejabat->id);
+                }])->withCount(['log_karyawan' => function($query) use ($non_pejabat){
+                    return $query->where('id_tipe_kar', $non_pejabat->id);
                 }])->first();
+                
             }
             
 
             $id_kmpg = \App\Models\tipekar::where('nama_tipekar','LIKE','%KMPG%')->first();
             if($this->dari && $this->sampai){
-                $dari = $this->dari;
-                $sampai = $this->sampai;
-                $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
-                    $q->where('id_tipe_kar', $id_kmpg->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                $dari = new Carbon($this->dari);
+                $sampai = new Carbon($this->sampai);
+                $sampai = $sampai->endOfMonth();
+                $kmpg_entry_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg,$dari, $sampai){
+                    $q->doesnthave('log_karyawan')->where('id_tipe_kar', $id_kmpg->id)->whereBetween('entry_date', [$dari, $sampai]);
+                }])->first();
+                $kmpg_update_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['log_karyawan' => function($q) use($id_kmpg,$dari, $sampai){
+                    $q->where('id_tipe_kar', $id_kmpg->id)->whereBetween('update_date', [$dari, $sampai]);
                 }])->first();
             }else{
-                $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_kmpg){
-                    $q->where('id_tipe_kar', $id_kmpg->id);
+                $kmpg = \App\Models\unitkerja::where('id','=',$inquiry->id)->withCount(['karyawan' => function($query) use ($id_kmpg){
+                    $query->doesnthave('log_karyawan')->where('id_tipe_kar', $id_kmpg->id);
+                }])->withCount(['log_karyawan' => function($query) use ($id_kmpg){
+                    return $query->where('id_tipe_kar', $id_kmpg->id);
                 }])->first();
             }
             
             $id_pejabat = \App\Models\tipekar::where('nama_tipekar','LIKE','%Pejabat%')->first();
             if($this->dari && $this->sampai){
-                $dari = $this->dari;
-                $sampai = $this->sampai;
-                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pejabat,$dari, $sampai){
-                    $q->where('id_tipe_kar', $id_pejabat->id)->whereBetween('tmt_date', [$dari, $sampai]);
+                $dari = new Carbon($this->dari);
+                $sampai = new Carbon($this->sampai);
+                $sampai = $sampai->endOfMonth();
+                $pejabat_entry_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pejabat,$dari, $sampai){
+                    $q->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pejabat->id)->whereBetween('entry_date', [$dari, $sampai]);
+                }])->first();
+                $pejabat_update_date = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['log_karyawan' => function($q) use($id_pejabat,$dari, $sampai){
+                    $q->where('id_tipe_kar', $id_pejabat->id)->whereBetween('update_date', [$dari, $sampai]);
                 }])->first();
             }else{
-                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->with(['karyawan' => function($q) use($id_pejabat){
-                    $q->where('id_tipe_kar', $id_pejabat->id);
+                $pejabat = \App\Models\unitkerja::where('id','=',$inquiry->id)->withCount(['karyawan' => function($query) use ($id_pejabat){
+                    $query->doesnthave('log_karyawan')->where('id_tipe_kar', $id_pejabat->id);
+                }])->withCount(['log_karyawan' => function($query) use ($id_pejabat){
+                    return $query->where('id_tipe_kar', $id_pejabat->id);
                 }])->first();
+                
             }
             
+            if($this->dari && $this->sampai){      
+                return count($pkwt_entry_date->karyawan) + count($pkwt_update_date->log_karyawan) + count($kmpg_entry_date->karyawan) + count($kmpg_update_date->log_karyawan) + count($karyawan_entry_date->karyawan) + count($karyawan_update_date->log_karyawan) + count($pejabat_entry_date->karyawan) + count($pejabat_update_date->log_karyawan);
+            }else{
+                return $pkwt->karyawan_count + $pkwt->log_karyawan_count + $karyawan->karyawan_count + $karyawan->log_karyawan_count + $kmpg->karyawan_count + $kmpg->log_karyawan_count + $pejabat->karyawan_count + $pejabat->log_karyawan_count;
+            }
             
-            return count($pejabat->karyawan) + count($karyawan->karyawan) + count($kmpg->karyawan) + count($pkwt->karyawan);
         })
         ->with('sum_formasi', function() use ($query) {
             return $query->sum('jml_formasi');
@@ -200,14 +265,19 @@ class formasiExistingDataTable extends DataTable
     {
 
         if($this->dari && $this->sampai){
-            $dari = $this->dari;
-            $sampai = $this->sampai;
+            $dari = new Carbon($this->dari);
+            $sampai = new Carbon($this->sampai);
+            $sampai = $sampai->endOfMonth();
             return $model->withCount(['karyawan' => function($query) use ($dari, $sampai){
-                $query->whereBetween('tmt_date', [$dari, $sampai]);
+                $query->doesnthave('log_karyawan')->whereBetween('entry_date', [$dari, $sampai]);
+            }])->withCount(['log_karyawan' => function($query) use ($dari, $sampai){
+                return $query->whereBetween('update_date', [$dari, $sampai]);
             }])->with(['kategori_unit_kerja'])->newQuery();
         }
 
-        return $model->withCount('karyawan')->with('kategori_unit_kerja')->newQuery();
+        return $model->withCount(['karyawan' => function($query){
+            $query->doesnthave('log_karyawan');
+        }])->withCount('log_karyawan')->with(['kategori_unit_kerja'])->newQuery();
     }
 
     /**

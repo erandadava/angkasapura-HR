@@ -185,7 +185,7 @@ class karyawanController extends AppBaseController
             } 
         }
 
-        if($karyawan->id_jabatan != $input['id_jabatan'] || $karyawan->id_unitkerja != $input['id_unitkerja'] || $karyawan->id_klsjabatan != $input['id_klsjabatan'] || $karyawan->id_status1 != $input['id_status1'] || $karyawan->id_tipe_kar != $input['id_tipe_kar']){
+        if($karyawan->id_jabatan != $input['id_jabatan'] || $karyawan->id_unitkerja != $input['id_unitkerja'] || $karyawan->id_klsjabatan != $input['id_klsjabatan'] || $karyawan->id_status1 != $input['id_status1'] || $karyawan->id_tipe_kar != $input['id_tipe_kar'] || $karyawan->pend_akhir != $input['pend_akhir'] || $karyawan->gender != $input['gender'] || $karyawan->tgl_lahir != $input['tgl_lahir'] || $karyawan->pend_diakui != $input['pend_diakui']){
             
             \App\Models\log_karyawan::where('id_karyawan_fk',$karyawan->id)->update(['is_active' => 0]);
             $input['id_karyawan_fk'] = $karyawan->id;
