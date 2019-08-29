@@ -17,7 +17,7 @@
 <!-- Jml Existing Field -->
 <div class="form-group">
     {!! Form::label('jml_existing', 'Jml Existing:') !!}
-    <p>{!! $unitkerja->karyawan_count !!}</p>
+    <p>{!! $unitkerja->karyawan_count + $unitkerja->log_karyawan_count   !!}</p>
 </div>
 
     </div>
