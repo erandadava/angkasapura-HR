@@ -50,7 +50,7 @@ class karyawan_os extends Model
         'id_vendor',
         'id_unitkerja',
         'tgl_lahir',
-        'usia',
+        // 'usia',
         'gender',
         'no_bpjs_tk',
         'doc_no_bpjs_tk',
@@ -59,12 +59,20 @@ class karyawan_os extends Model
         'lisensi',
         'doc_lisensi',
         'no_lisensi',
-        'doc_no_lisensi',
-        'jangka_waktu',
+        // 'doc_no_lisensi',
+        // 'jangka_waktu',
         'doc_jangka_waktu',
         'no_kontrak_kerja',
         'doc_no_kontrak_kerja',
-        'penempatan'
+        'penempatan',
+        'is_active',
+        'reason_desc',
+        'tmt_awal_kontrak',
+        'tmt_akhir_kontrak',
+        'pend_akhir',
+        'jurusan',
+        'mulai_masa_berlaku_lisensi',
+        'selesai_masa_berlaku_lisensi',
     ];
 
     /**
@@ -78,7 +86,7 @@ class karyawan_os extends Model
         'id_fungsi' => 'integer',
         'id_unitkerja' => 'integer',
         'tgl_lahir' => 'date',
-        'usia' => 'integer',
+        // 'usia' => 'integer',
         'gender' => 'string',
         'no_bpjs_tk' => 'string',
         'doc_no_bpjs_tk' => 'string',
@@ -87,12 +95,12 @@ class karyawan_os extends Model
         'lisensi' => 'string',
         'doc_lisensi' => 'string',
         'no_lisensi' => 'string',
-        'doc_no_lisensi' => 'string',
-        'jangka_waktu' => 'string',
+        // 'doc_no_lisensi' => 'string',
+        // 'jangka_waktu' => 'string',
         'doc_jangka_waktu' => 'string',
         'no_kontrak_kerja' => 'string',
         'doc_no_kontrak_kerja' => 'string',
-        'penempatan' => 'string'
+        'penempatan' => 'string',
     ];
 
     /**
@@ -104,9 +112,11 @@ class karyawan_os extends Model
         'doc_no_bpjs_tk.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
         'doc_no_bpjs_kesehatan.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
         'doc_lisensi.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
-        'doc_no_lisensi.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
+        // 'doc_no_lisensi.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
         'doc_jangka_waktu.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
         'doc_no_kontrak_kerja.*' => 'mimes:PDF,pdf,jpg,jpeg,png',
+        'tmt_awal_kontrak' => 'required',
+        'tmt_akhir_kontrak' => 'required',
     ];
 
     public function getDocbpjstkAttribute()

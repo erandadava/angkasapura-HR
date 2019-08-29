@@ -77,6 +77,22 @@
                                 {{$key}}</button>
                         </a>
                     </div>
+                    @elseif($ext == 'rar' || $ext == 'RAR')
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}">
+                            <button type="button" class="btn btn-default btn-lg btn-block"><span
+                                    class="glyphicon glyphicon-file" aria-hidden="true"></span></br>RAR
+                                {{$key}}</button>
+                        </a>
+                    </div>
+                    @elseif($ext == 'zip' || $ext == 'ZIP')
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}">
+                            <button type="button" class="btn btn-default btn-lg btn-block"><span
+                                    class="glyphicon glyphicon-file" aria-hidden="true"></span></br>ZIP
+                                {{$key}}</button>
+                        </a>
+                    </div>
                     @else
                     <div class="col-6 col-md-3">
                         <a href="{{'/storage/'.$dt}}"><img src="{{asset('/storage/'.$dt)}}" width="100%" alt=""
@@ -108,6 +124,22 @@
                         <a href="{{'/storage/'.$dt}}">
                             <button type="button" class="btn btn-default btn-lg btn-block"><span
                                     class="glyphicon glyphicon-file" aria-hidden="true"></span></br>PDF
+                                {{$key}}</button>
+                        </a>
+                    </div>
+                    @elseif($ext == 'rar' || $ext == 'RAR')
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}">
+                            <button type="button" class="btn btn-default btn-lg btn-block"><span
+                                    class="glyphicon glyphicon-file" aria-hidden="true"></span></br>RAR
+                                {{$key}}</button>
+                        </a>
+                    </div>
+                    @elseif($ext == 'zip' || $ext == 'ZIP')
+                    <div class="col-6 col-md-3">
+                        <a href="{{'/storage/'.$dt}}">
+                            <button type="button" class="btn btn-default btn-lg btn-block"><span
+                                    class="glyphicon glyphicon-file" aria-hidden="true"></span></br>ZIP
                                 {{$key}}</button>
                         </a>
                     </div>

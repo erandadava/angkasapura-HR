@@ -52,6 +52,7 @@ class karyawan extends Model
         'rencana_pensiun',
         'pend_diakui',
         'pend_milik',
+        'pend_akhir',
         'id_org',
         'id_posisi',
         'id_tipe_kar',
@@ -83,6 +84,7 @@ class karyawan extends Model
         'rencana_pensiun' => 'date',
         'pend_diakui' => 'string',
         'pend_milik' => 'string',
+        'pend_akhir' => 'string',
         'id_org' => 'integer',
         'id_posisi' => 'integer',
         'id_tipe_kar' => 'integer',
@@ -95,6 +97,7 @@ class karyawan extends Model
      * @var array
      */
     public static $rules = [
+        'nik' => 'unique:tblkaryawan',
         'nama' => 'required',
         'gender' => 'required',
         'tgl_lahir' => 'required',
@@ -106,6 +109,25 @@ class karyawan extends Model
         'rencana_pensiun' => 'required',
         'pend_diakui' => 'required',
         'pend_milik' => 'required',
+        'pend_akhir'=> 'required',
+        'id_tipe_kar' => 'required',
+        'entry_date' => 'required',
+        
+    ];
+
+    public static $rules_update = [
+        'nama' => 'required',
+        'gender' => 'required',
+        'tgl_lahir' => 'required',
+        'id_jabatan' => 'required',
+        'id_status1' => 'required',
+        // 'id_status2' => 'required',
+        'id_unitkerja' => 'required',
+        'rencana_mpp' => 'required',
+        'rencana_pensiun' => 'required',
+        'pend_diakui' => 'required',
+        'pend_milik' => 'required',
+        'pend_akhir'=> 'required',
         'id_tipe_kar' => 'required',
         'entry_date' => 'required',
         
@@ -135,13 +157,18 @@ class karyawan extends Model
         return $this->hasOne('App\Models\klsjabatan', 'id', 'id_klsjabatan');
     }
 
+    public function log_karyawan() {
+        return $this->hasOne('App\Models\log_karyawan','id_karyawan_fk','id')->where('is_active',1)->latest();
+    }
+    
+
     public function getAgeAttribute()
     {
         $to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Carbon::now());
-        $m = date('-m-d', strtotime($this->attributes['tgl_lahir']));
+        $m = date('-m-d', strtotime($this->attributes['tgl_lahir']??null));
         $from = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', Carbon::now()->year.$m.' 9:30:34');
         $sisa = $to->diffInDays($from);
-        $umur =  \Carbon\Carbon::parse($this->attributes['tgl_lahir'])->age;
+        $umur =  \Carbon\Carbon::parse($this->attributes['tgl_lahir']??null)->age;
         if($umur == 55 && $sisa < 60 && $sisa > 0){
             return 1;
         }elseif($umur < 55 || $sisa > 60){

@@ -17,7 +17,7 @@
 <!-- Jml Existing Field -->
 <div class="form-group">
     {!! Form::label('jml_existing', 'Jml Existing:') !!}
-    <p>{!! $unitkerja->karyawan_count !!}</p>
+    <p>{!! $unitkerja->karyawan_count + $unitkerja->log_karyawan_count   !!}</p>
 </div>
 
     </div>
@@ -50,15 +50,15 @@
                             <th style='text-align:center'>
                                 Nama Kelas Jabatan
                             </th>
-                            <th style='text-align:center'>
+                            {{-- <th style='text-align:center'>
                                 Jumlah Formasi
-                            </th>
+                            </th> --}}
                             <th style='text-align:center'>
                                 Jumlah Eksisting
                             </th>
-                            <th style='text-align:center'>
+                            {{-- <th style='text-align:center'>
                                 Jumlah Lowong
-                            </th>
+                            </th> --}}
                         </thead>
                         <tbody>
                             @foreach ($kelasjabatan as $key => $item)
@@ -70,15 +70,15 @@
                                      <td style='text-align:center'>
                                          {{$item['nama_kj']}}
                                      </td>
-                                     <td style='text-align:center'>
+                                     {{-- <td style='text-align:center'>
                                          {{$item['jml_kls_jbt']}}
-                                     </td>
+                                     </td> --}}
                                      <td style='text-align:center'>
                                         {{$item['jml_kls_jbt']}}
                                     </td>
-                                    <td style='text-align:center'>
+                                    {{-- <td style='text-align:center'>
                                         {{$item['jml_butuh']}}
-                                    </td>
+                                    </td> --}}
                                 </tr>
                             @endforeach
                         </tbody>

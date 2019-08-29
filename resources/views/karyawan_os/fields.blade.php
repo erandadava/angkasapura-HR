@@ -16,13 +16,18 @@
     {!! Form::select('id_unitkerja', $unitkerja, null, ['class' => 'form-control']) !!}
 </div>
 @hasrole('Vendor')
-    {!! Form::hidden('id_vendor', $id_vendor->id, ['class' => 'form-control']) !!}
+    {!! Form::hidden('id_vendor', $vendor, ['class' => 'form-control']) !!}
 @else
     <div class="form-group col-sm-6">
         {!! Form::label('id_vendor', 'Vendor:') !!}
         {!! Form::select('id_vendor', $vendor, null, ['class' => 'form-control']) !!}
     </div>
 @endhasrole
+
+{{-- <div class="form-group col-sm-6">
+    {!! Form::label('id_vendor', 'Nama Vendor:') !!}
+    {!! Form::select('id_vendor', $vendor, null, ['class' => 'form-control']) !!}
+</div> --}}
 
 <!-- Tgl Lahir Field -->
 <div class="form-group col-sm-6">
@@ -31,10 +36,10 @@
 </div>
 
 <!-- Usia Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('usia', 'Usia:') !!}
     {!! Form::number('usia', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 <!-- Gender Field -->
 <div class="form-group col-sm-6">
@@ -49,7 +54,7 @@
 
 <!-- No Bpjs Tk Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('no_bpjs_tk', 'No Bpjs Tk:') !!}
+    {!! Form::label('no_bpjs_tk', 'No Bpjs Tenaga Kerja:') !!}
     {!! Form::number('no_bpjs_tk', null, ['class' => 'form-control']) !!}
     
 </div>
@@ -74,7 +79,7 @@
     @endforeach
     </div>
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('ganti_doc_bpjs_tk', 'Ganti Dokumen Bpjs Tk:') !!}
+        {!! Form::label('ganti_doc_bpjs_tk', 'Ganti Dokumen Bpjs Tenaga Kerja:') !!}
         <input type="checkbox" id="myCheck"   name="ganti_doc_bpjs_tk" onclick="bpjstk()">
     </div>
     <div class="form-group col-sm-12 col-lg-12">
@@ -83,7 +88,7 @@
 @else
     <!-- Doc No Bpjs Tk Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        {!! Form::label('doc_no_bpjs_tk', 'Dokumen No Bpjs Tk:') !!}
+        {!! Form::label('doc_no_bpjs_tk', 'Dokumen No Bpjs Tenaga Kerja:') !!}
         <input  type="file"  name="doc_no_bpjs_tk[]" multiple="multiple" accept="image/png, image/jpeg, application/pdf">
     </div>
 @endif
@@ -177,7 +182,7 @@
 </div>
 
 
-@if(isset($karyawanOs['Docnolisensi']))
+{{-- @if(isset($karyawanOs['Docnolisensi']))
     <div class="form-group col-sm-12 col-lg-12">
     @foreach($karyawanOs['Docnolisensi'] as $key => $dt)
     @php
@@ -210,13 +215,13 @@
         {!! Form::label('doc_no_lisensi', 'Dokumen No Lisensi:') !!}
         <input  type="file"  name="doc_no_lisensi[]" multiple="multiple" accept="image/png, image/jpeg, application/pdf">
     </div>
-@endif
+@endif --}}
 
 <!-- Jangka Waktu Field -->
-<div class="form-group col-sm-6">
+{{-- <div class="form-group col-sm-6">
     {!! Form::label('jangka_waktu', 'Jangka Waktu:') !!}
     {!! Form::text('jangka_waktu', null, ['class' => 'form-control']) !!}
-</div>
+</div> --}}
 
 @if(isset($karyawanOs['Docjangkawaktu']))
     <div class="form-group col-sm-12 col-lg-12">
@@ -293,6 +298,43 @@
         <input  type="file"  name="doc_no_kontrak_kerja[]" multiple="multiple" accept="image/png, image/jpeg, application/pdf">
     </div>
 @endif
+<div class="form-group col-sm-6">
+    {!! Form::label('pend_akhir', 'Pendidikan Akhir:') !!}
+    {!! Form::select('pend_akhir', [
+        'SMP' => 'SMP',
+        'SMU' => 'SMU',
+        'SMK' => 'SMK',
+        'DI  - Diploma I' => 'DI  - Diploma I',
+        'DII  - Diploma II' => 'DII  - Diploma II',
+        'DIII  - Diploma III' => 'DIII  - Diploma III',
+        'DIV - Diploma IV' => 'DIV - Diploma IV',
+        'S1 - Strata 1' => 'S1 - Strata 1',
+        'S2 - Strata 2' => 'S2 - Strata 2',
+        'S3 - Strata 3' => 'S3 - Strata 3',
+    ], null, ['class' => 'form-control']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('jurusan', 'Jurusan:') !!}
+    {!! Form::text('jurusan', null, ['class' => 'form-control']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('tmt_awal_kontrak', 'TMT Awal Kontrak:') !!}
+    {!! Form::text('tmt_awal_kontrak', null, ['class' => 'form-control','id'=>'tmt_awal_kontrak','required'=>'required']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('tmt_akhir_kontrak', 'TMT Akhir Kontrak:') !!}
+    {!! Form::text('tmt_akhir_kontrak', null, ['class' => 'form-control','id'=>'tmt_akhir_kontrak','required'=>'required']) !!}
+</div>
+<div class="form-group col-sm-6">
+    {!! Form::label('mulai_masa_berlaku_lisensi', 'Mulai Masa Berlaku Lisensi:') !!}
+    {!! Form::text('mulai_masa_berlaku_lisensi', null, ['class' => 'form-control','id'=>'mulai_masa_berlaku_lisensi','required'=>'required']) !!}
+</div>
+
+<div class="form-group col-sm-6">
+    {!! Form::label('selesai_masa_berlaku_lisensi', 'Selesai Masa Berlaku Lisensi:') !!}
+    {!! Form::text('selesai_masa_berlaku_lisensi', null, ['class' => 'form-control','id'=>'selesai_masa_berlaku_lisensi','required'=>'required']) !!}
+</div>
 
 <!-- Submit Field -->
 <div class="form-group col-sm-12">
@@ -303,6 +345,22 @@
 @section('scripts')
     <script type="text/javascript">
         $('#tgl_lahir').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        })
+        $('#tmt_awal_kontrak').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        })
+        $('#tmt_akhir_kontrak').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        })
+        $('#mulai_masa_berlaku_lisensi').datetimepicker({
+            format: 'Y-MM-DD',
+            useCurrent: false
+        })
+        $('#selesai_masa_berlaku_lisensi').datetimepicker({
             format: 'Y-MM-DD',
             useCurrent: false
         })

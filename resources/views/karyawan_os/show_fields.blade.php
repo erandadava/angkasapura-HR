@@ -22,7 +22,7 @@
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            {!! Form::label('id_vendor', 'Vendor:') !!}
+            {!! Form::label('id_vendor', 'Nama Vendor:') !!}
             <p>{!! $karyawanOs->vendor->nama_vendor??''!!}</p>
         </div>
     </div>
@@ -35,13 +35,13 @@
             <p>{!! $karyawanOs->tgl_lahir !!}</p>
         </div>
     </div>
-    <div class="col-md-3">
+    {{-- <div class="col-md-3">
         <!-- Usia Field -->
         <div class="form-group">
             {!! Form::label('usia', 'Usia:') !!}
             <p>{!! $karyawanOs->usia !!}</p>
         </div>
-    </div>
+    </div> --}}
     <div class="col-md-3">
         <!-- Gender Field -->
         <div class="form-group">
@@ -52,8 +52,20 @@
     <div class="col-md-3">
         <!-- No Bpjs Tk Field -->
         <div class="form-group">
-            {!! Form::label('no_bpjs_tk', 'No Bpjs Tk:') !!}
+            {!! Form::label('no_bpjs_tk', 'No Bpjs Tenaga Kerja:') !!}
             <p>{!! $karyawanOs->no_bpjs_tk !!}</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <!-- No Bpjs Tk Field -->
+        <div class="form-group">
+            {!! Form::label('is_active', 'Status:') !!}
+            <p>
+                    @if ($karyawanOs->is_active == null) <span class='label label-default'>Menunggu Persetujuan</span> @endif
+                    @if ($karyawanOs->is_active == 'A') <span class='label label-success'>Aktif</span> @endif
+                    @if ($karyawanOs->is_active == 'R') <span class='label label-danger'>Ditolak</span> @endif
+                    @if ($karyawanOs->is_active == 'N') <span class='label label-danger'>Non-Aktif</span> @endif
+            </p>
         </div>
     </div>
 </div>
@@ -61,7 +73,7 @@
     <div class="col-md-12">
         <!-- Doc No Bpjs Tk Field -->
         <div class="form-group">
-            {!! Form::label('doc_no_bpjs_tk', 'Dokumen No Bpjs Tk:') !!}
+            {!! Form::label('doc_no_bpjs_tk', 'Dokumen No Bpjs Tenaga Kerja:') !!}
             </br>
             <div class="row">
                 @if(isset($karyawanOs['Docbpjstk']))
@@ -178,7 +190,7 @@
     </div>
 </div>
 <div class="row">
-    <div class="col-md-12">
+    {{-- <div class="col-md-12">
         <!-- Doc No Lisensi Field -->
         <div class="form-group">
             {!! Form::label('doc_no_lisensi', 'Dokumen No Lisensi:') !!}
@@ -206,10 +218,10 @@
                 @endif
             </div>
         </div>
-    </div>
+    </div> --}}
 </div>
 
-<div class="row">
+{{-- <div class="row">
     <div class="col-md-3">
         <!-- Jangka Waktu Field -->
         <div class="form-group">
@@ -217,7 +229,7 @@
             <p>{!! $karyawanOs->jangka_waktu !!}</p>
         </div>
     </div>
-</div>
+</div> --}}
 <div class="row">
     <div class="col-md-12">
         <!-- Doc Jangka Waktu Field -->
@@ -294,17 +306,87 @@
 
         <!-- Deleted At Field -->
         <div class="form-group">
-            {!! Form::label('deleted_at', 'Dihapus Pada:') !!}
-            <p>{!! $karyawanOs->deleted_at !!}</p>
+            {!! Form::label('reason_desc', 'Deskripsi Alasan:') !!}
+            <p>{!! $karyawanOs->reason_desc !!}</p>
         </div>
     </div>
     <div class="col-md-3">
-        <!-- Created At Field -->
+
+            <!-- Deleted At Field -->
+            <div class="form-group">
+                {!! Form::label('tmt_awal_kontrak', 'TMT Awal Kontrak:') !!}
+                <p>{!!  \Carbon\Carbon::parse($karyawanOs->tmt_awal_kontrak)->formatLocalized('%d %B %Y'); !!}</p>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+                <!-- Deleted At Field -->
+                <div class="form-group">
+                    {!! Form::label('tmt_akhir_kontrak', 'TMT Akhir Kontrak:') !!}
+                    <p>{!!  \Carbon\Carbon::parse($karyawanOs->tmt_akhir_kontrak)->formatLocalized('%d %B %Y'); !!}</p>
+                </div>
+            </div>
+    <div class="col-md-3">
+
+        <!-- Deleted At Field -->
         <div class="form-group">
-            {!! Form::label('created_at', 'Dibuat Pada:') !!}
-            <p>{!! $karyawanOs->created_at !!}</p>
+            {!! Form::label('jangka_waktu_tmt', 'Jangka Waktu Kontrak:') !!}
+            <p>{!! $karyawanOs->jangka_waktu_tmt !!}</p>
         </div>
     </div>
+    
+</div>
+<div class="row">
+        <div class="col-md-3">
+
+                <!-- Deleted At Field -->
+                <div class="form-group">
+                    {!! Form::label('deleted_at', 'Dihapus Pada:') !!}
+                    <p>{!! $karyawanOs->deleted_at !!}</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+                <!-- Deleted At Field -->
+                <div class="form-group">
+                    {!! Form::label('pend_akhir', 'Pendidikan Akhir:') !!}
+                    <p>{!! $karyawanOs->pend_akhir !!}</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+                <!-- Deleted At Field -->
+                <div class="form-group">
+                    {!! Form::label('jurusan', 'Jurusan:') !!}
+                    <p>{!! $karyawanOs->jurusan !!}</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+
+                    <!-- Deleted At Field -->
+                    <div class="form-group">
+                        {!! Form::label('mulai_masa_berlaku_lisensi', 'Mulai Masa Berlaku Lisensi:') !!}
+                        <p>{!!  \Carbon\Carbon::parse($karyawanOs->mulai_masa_berlaku_lisensi)->formatLocalized('%d %B %Y'); !!}</p>
+                    </div>
+                </div>
+            
+</div>
+<div class="row">
+        <div class="col-md-3">
+
+                <!-- Deleted At Field -->
+                <div class="form-group">
+                    {!! Form::label('selesai_masa_berlaku_lisensi', 'Selesai Masa Berlaku Lisensi:') !!}
+                    <p>{!!  \Carbon\Carbon::parse($karyawanOs->selesai_masa_berlaku_lisensi)->formatLocalized('%d %B %Y'); !!}</p>
+                </div>
+            </div>
+        <div class="col-md-3">
+                <!-- Created At Field -->
+                <div class="form-group">
+                    {!! Form::label('created_at', 'Dibuat Pada:') !!}
+                    <p>{!! $karyawanOs->created_at !!}</p>
+                </div>
+            </div>
     <div class="col-md-3">
         <!-- Updated At Field -->
         <div class="form-group">
@@ -313,3 +395,57 @@
         </div>
     </div>
 </div>
+@hasrole('Admin')
+@if ($karyawanOs->is_active == null || $karyawanOs->is_active=="")
+        
+        <div class="form-group col-md-2 col-sm-12">
+        
+            {!! Form::open(['route' => ['karyawanOs.update', $karyawanOs->id], 'method' => 'patch']) !!}
+                {!! Form::hidden('is_active', 'A', ['class' => 'form-control'])!!}
+                <button class='btn btn-success btn-md' type="submit" onclick="return confirm('Yakin?')">
+                <i class="glyphicon glyphicon-ok"></i> Terima
+                </button>
+            {!! Form::close() !!} 
+
+        </div>
+        <div class="form-group col-md-2 col-sm-12">
+        
+            <div class="form-group col-md-2 col-sm-12">
+    
+                <button class='btn btn-danger btn-md' data-toggle="modal" data-target="#myModal">
+                    <i class="glyphicon glyphicon-remove"></i> Tolak
+                </button>
+        
+        </div>
+        <!-- ---------------------- -->
+      <!-- Modal -->
+      <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog modal-lg">
+    
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">&times;</button>
+              <h4 class="modal-title">Alasan</h4>
+            </div>
+            <div class="modal-body">
+              <div class="row">
+              {!! Form::open(['route' => ['karyawanOs.update', $karyawanOs->id], 'method' => 'patch']) !!}
+                  {!! Form::hidden('is_active', 'R', ['class' => 'form-control'])!!}
+                  <div class="form-group col-sm-12 col-lg-12">
+                      {!! Form::label('reason_desc', 'Deskripsi Alasan:') !!}
+                      {!! Form::textarea('reason_desc', null, ['class' => 'form-control', 'id' => 'editor']) !!}
+                  </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-default" onclick="return confirm('Yakin?')">Simpan</button>
+            </div>
+          </div>
+          {!! Form::close() !!}
+        </div>
+      </div>
+
+        </div>
+@endif
+@endhasrole

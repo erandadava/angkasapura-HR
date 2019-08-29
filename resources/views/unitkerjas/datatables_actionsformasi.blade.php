@@ -4,4 +4,5 @@
         <i class="glyphicon glyphicon-eye-open"></i>
     </a>
 </div>
+&nbsp;&nbsp;<input type='checkbox' name='exportid[]' id='checkexport{{$id}}' onclick = "tocheck({{$id}})">
 

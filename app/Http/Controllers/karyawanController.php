@@ -23,18 +23,20 @@ use League\Csv\Reader;
 use App\Repositories\jabatanRepository;
 use App\Repositories\fungsiRepository;
 use Validator;
+use App\Repositories\log_karyawanRepository;
 
 class karyawanController extends AppBaseController
 {
     /** @var  karyawanRepository */
     private $karyawanRepository;
 
-    public function __construct(karyawanRepository $karyawanRepo, unitkerjaRepository $unitkerjaRepo, jabatanRepository $jabatanRepo, fungsiRepository $fungsiRepo)
+    public function __construct(karyawanRepository $karyawanRepo, unitkerjaRepository $unitkerjaRepo, jabatanRepository $jabatanRepo, fungsiRepository $fungsiRepo,log_karyawanRepository $logKaryawanRepo)
     {
         $this->karyawanRepository = $karyawanRepo;
         $this->unitkerjaRepository = $unitkerjaRepo;
         $this->jabatanRepository = $jabatanRepo;
         $this->fungsiRepository = $fungsiRepo;
+        $this->logKaryawanRepository = $logKaryawanRepo;
         $this->data['jabatan'] = jabatan::pluck('nama_jabatan','id');
         $this->data['klsjabatan'] = klsjabatan::pluck('nama_kj','id');
         $this->data['statuskar'] = statuskar::pluck('nama_stat','id');
@@ -101,6 +103,18 @@ class karyawanController extends AppBaseController
             return redirect(route('karyawans.index'));
         }
 
+        $cek_log = $this->check_log($id);
+        if($cek_log != null){
+            $karyawan['id_jabatan'] = $cek_log['id_jabatan'];
+            $karyawan['id_unitkerja'] = $cek_log['id_unitkerja'];
+            $karyawan['id_klsjabatan'] = $cek_log['id_klsjabatan'];
+            $karyawan['id_status1'] = $cek_log['id_status1'];
+            $karyawan['id_tipe_kar'] = $cek_log['id_tipe_kar'];
+            $karyawan['pend_akhir']= $cek_log['pend_akhir'];
+            $karyawan['gender']= $cek_log['gender'];
+            $karyawan['tgl_lahir']= $cek_log['tgl_lahir'];
+            $karyawan['pend_diakui']= $cek_log['pend_diakui'];
+        }
         return view('karyawans.show')->with('karyawan', $karyawan);
     }
 
@@ -120,6 +134,18 @@ class karyawanController extends AppBaseController
 
             return redirect(route('karyawans.index'));
         }
+        $cek_log = $this->check_log($id);
+        if($cek_log != null){
+            $this->data['karyawan']['id_jabatan'] = $cek_log['id_jabatan'];
+            $this->data['karyawan']['id_unitkerja'] = $cek_log['id_unitkerja'];
+            $this->data['karyawan']['id_klsjabatan'] = $cek_log['id_klsjabatan'];
+            $this->data['karyawan']['id_status1'] = $cek_log['id_status1'];
+            $this->data['karyawan']['id_tipe_kar'] = $cek_log['id_tipe_kar'];
+            $this->data['karyawan']['pend_akhir']= $cek_log['pend_akhir'];
+            $this->data['karyawan']['gender']= $cek_log['gender'];
+            $this->data['karyawan']['tgl_lahir']= $cek_log['tgl_lahir'];
+            $this->data['karyawan']['pend_diakui']= $cek_log['pend_diakui'];
+        }
 
         return view('karyawans.edit')->with($this->data);
     }
@@ -135,7 +161,7 @@ class karyawanController extends AppBaseController
     public function update($id, UpdatekaryawanRequest $request)
     {
         $karyawan = $this->karyawanRepository->findWithoutFail($id);
-
+        
         if (empty($karyawan)) {
             Flash::error('Karyawan not found');
 
@@ -148,6 +174,35 @@ class karyawanController extends AppBaseController
             $this->update_unitkerja($input['id_unitkerja'],1);
             $this->update_unitkerja($karyawan->id_unitkerja,-1);
         }
+
+        if($karyawan->nik == $input['nik']){
+            unset($input['nik']);
+        }else{
+            $cek_nik = \App\Models\karyawan::where('nik',$input['nik'])->count();
+            if($cek_nik > 0){
+                Flash::error('NIK Already Taken');
+                return redirect(route('karyawans.index'));
+            } 
+        }
+
+        if($karyawan->id_jabatan != $input['id_jabatan'] || $karyawan->id_unitkerja != $input['id_unitkerja'] || $karyawan->id_klsjabatan != $input['id_klsjabatan'] || $karyawan->id_status1 != $input['id_status1'] || $karyawan->id_tipe_kar != $input['id_tipe_kar'] || $karyawan->pend_akhir != $input['pend_akhir'] || $karyawan->gender != $input['gender'] || $karyawan->tgl_lahir != $input['tgl_lahir'] || $karyawan->pend_diakui != $input['pend_diakui']){
+            
+            \App\Models\log_karyawan::where('id_karyawan_fk',$karyawan->id)->update(['is_active' => 0]);
+            $input['id_karyawan_fk'] = $karyawan->id;
+            $input['is_active'] = 1;
+            $this->logKaryawanRepository->create($input);
+
+            unset($input['id_jabatan']);
+            unset($input['id_unitkerja']);
+            unset($input['id_klsjabatan']);
+            unset($input['id_status1']);
+            unset($input['id_tipe_kar']);
+            unset($input['pend_akhir']);
+            unset($input['gender']);
+            unset($input['tgl_lahir']);
+            unset($input['pend_diakui']);
+        }
+
         $karyawan = $this->karyawanRepository->update($input, $id);
         
         Flash::success('Karyawan updated successfully.');
@@ -282,4 +337,13 @@ class karyawanController extends AppBaseController
         }
         return redirect(route('karyawans.index'));
     }
+
+    public function check_log($id_karyawan){
+        $cek = \App\Models\log_karyawan::where('id_karyawan_fk','=',$id_karyawan)->with(['fungsi','jabatan','unitkerja','tipekar','unit','klsjabatan'])->latest('update_date')->first();
+        if($cek){
+            return $cek;
+        }else{
+            return null;
+        }
+    }   
 }

@@ -10,8 +10,12 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="row" style="padding-left: 20px">
-                    @include('karyawan_os.show_fields')
-                    <a href="{!! route('karyawanOs.index') !!}" class="btn btn-default">Back</a>
+                    @include('karyawan_os.show_fields')         
+                </div>
+                <div class="row" style="padding-left: 20px">
+                    <div class="col-md-12">
+                        <a href="{!! route('karyawanOs.index') !!}" class="btn btn-default">Back</a>
+                    </div>
                 </div>
             </div>
         </div>

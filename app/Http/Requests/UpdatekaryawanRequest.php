@@ -25,6 +25,6 @@ class UpdatekaryawanRequest extends FormRequest
      */
     public function rules()
     {
-        return karyawan::$rules;
+        return karyawan::$rules_update;
     }
 }

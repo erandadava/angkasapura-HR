@@ -34,13 +34,13 @@
     </div>
     <!-- Doc No Kontrak Kerja Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        <input  type="file"  name="file_pelaporan[]" class="filepelaporan" multiple="multiple" accept="image/png, image/jpeg, application/pdf" disabled="disabled">
+        <input  type="file"  name="file_pelaporan[]" class="filepelaporan" multiple="multiple" accept="image/png, image/jpeg, application/pdf,.zip,.rar" disabled="disabled">
     </div>
 @else
     <!-- File Pelaporan Field -->
     <div class="form-group col-sm-12 col-lg-12">
         {!! Form::label('file_pelaporan', 'File Pelaporan:') !!}
-        <input  type="file"  name="file_pelaporan[]" multiple="multiple" accept="image/png, image/jpeg, application/pdf">
+        <input  type="file"  name="file_pelaporan[]" multiple="multiple" accept="image/png, image/jpeg, application/pdf,.zip,.rar">
     </div>
 @endif
 
@@ -83,13 +83,13 @@
     </div>
     <!-- Doc No Kontrak Kerja Field -->
     <div class="form-group col-sm-12 col-lg-12">
-        <input  type="file"  name="file_penyelesaian[]" class="filepenyelesaian" multiple="multiple" accept="image/png, image/jpeg, application/pdf" disabled="disabled">
+        <input  type="file"  name="file_penyelesaian[]" class="filepenyelesaian" multiple="multiple" accept="image/png, image/jpeg, application/pdf,.zip,.rar" disabled="disabled">
     </div>
 @else
     <!-- File Penyelesaian Field -->
     <div class="form-group col-sm-12 col-lg-12">
         {!! Form::label('file_penyelesaian', 'File Penyelesaian:') !!}
-        <input  type="file"  name="file_penyelesaian[]" multiple="multiple" accept="image/png, image/jpeg, application/pdf">
+        <input  type="file"  name="file_penyelesaian[]" multiple="multiple" accept="image/png, image/jpeg, application/pdf,.zip,.rar">
     </div>
 @endif
 

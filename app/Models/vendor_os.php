@@ -62,7 +62,7 @@ class vendor_os extends Model
      */
     public static $rules = [
         'nama_vendor' => 'required',
-        'email' => 'required',
+        'email' => 'required|unique:tblvendoros',
         'password' => 'required|min:6',
         'telepon' => 'required',
         'alamat' => 'required',
@@ -70,5 +70,10 @@ class vendor_os extends Model
         'password_confirmation' => 'required_with:password|same:password|min:6'
     ];
 
+
+    public function karyawan_os()
+    {
+        return $this->hasMany('App\Models\karyawan_os', 'id_vendor', 'id');
+    }
     
 }

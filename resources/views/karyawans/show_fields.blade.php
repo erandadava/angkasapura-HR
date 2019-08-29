@@ -58,6 +58,13 @@
             <p>{!! $karyawan->pend_diakui !!}</p>
         </div>
     </div>
+    
+    <div class="col-md-3">
+        <div class="form-group">
+            {!! Form::label('pend_akhir', 'Pendidikan Akhir:') !!}
+            <p>{!! $karyawan->pend_akhir !!}</p>
+        </div>
+    </div>
 
     <div class="col-md-3">
         <div class="form-group">
@@ -106,7 +113,7 @@
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            {!! Form::label('tmt_date', 'Tehirung Mulai Tanggal:') !!}
+            {!! Form::label('tmt_date', 'Tehitung Mulai Tanggal:') !!}
             <p>{!!  \Carbon\Carbon::parse($karyawan->tmt_date)->formatLocalized('%d %B %Y'); !!}</p>
         </div>
     </div>

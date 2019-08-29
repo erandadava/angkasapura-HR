@@ -56,6 +56,11 @@ class klsjabatan extends Model
         return $this->hasMany('App\Models\karyawan', 'id_klsjabatan', 'id');
     }
 
+    public function log_karyawan()
+    {
+        return $this->hasMany('App\Models\log_karyawan', 'id_klsjabatan', 'id')->where('is_active',1)->latest();
+    }
+
     
     
 }

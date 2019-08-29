@@ -26,6 +26,51 @@ class karyawanDataTable extends DataTable
             {
              return \Carbon\Carbon::parse($inquiry->tgl_lahir)->formatLocalized('%d %B %Y');
             })
+        ->editColumn('jabatan.nama_jabatan', function ($inquiry) 
+            {
+                $cek_log = $this->check_log($inquiry->id);
+                if($cek_log != null){
+                    return $cek_log->jabatan->nama_jabatan ?? "";
+                }else{
+                    return $inquiry->jabatan->nama_jabatan ?? "";
+                }
+            })
+        ->editColumn('unitkerja.nama_uk', function ($inquiry) 
+            {
+                $cek_log = $this->check_log($inquiry->id);
+                if($cek_log != null){
+                    return $cek_log->unitkerja->nama_uk ?? "";
+                }else{
+                    return $inquiry->unitkerja->nama_uk ?? "";
+                }
+            })
+        ->editColumn('klsjabatan.nama_kj', function ($inquiry) 
+            {
+                $cek_log = $this->check_log($inquiry->id);
+                if($cek_log != null){
+                    return $cek_log->klsjabatan->nama_kj ?? "";
+                }else{
+                    return $inquiry->klsjabatan->nama_kj ?? "";
+                }
+            })
+        ->editColumn('gender', function ($inquiry) 
+            {
+                $cek_log = $this->check_log($inquiry->id);
+                if($cek_log != null){
+                    return $cek_log->gender ?? "";
+                }else{
+                    return $inquiry->gender ?? "";
+                }
+            })
+        ->editColumn('tgl_lahir', function ($inquiry) 
+            {
+                $cek_log = $this->check_log($inquiry->id);
+                if($cek_log != null){
+                    return \Carbon\Carbon::parse($cek_log->tgl_lahir)->formatLocalized('%d %B %Y') ?? "";
+                }else{
+                    return \Carbon\Carbon::parse($inquiry->tgl_lahir)->formatLocalized('%d %B %Y') ?? "";
+                }
+            })
 
         ->rawColumns(['tgl_lahir','status_pensiun','action']);
     }
@@ -77,7 +122,7 @@ class karyawanDataTable extends DataTable
             ['data'=>'jabatan.nama_jabatan','title'=>'Jabatan'],
             ['data'=>'unitkerja.nama_uk','title'=>'Unit Kerja'],
             ['data'=>'klsjabatan.nama_kj','title'=>'Kelas Jabatan'],
-            ['data'=>'gender','title'=>'Gender'],
+            ['data'=>'gender','title'=>'Jenis Kelamin'],
             ['data'=>'tgl_lahir','title'=>'Tanggal Lahir'],
         ];
     }
@@ -91,4 +136,13 @@ class karyawanDataTable extends DataTable
     {
         return 'karyawansdatatable_' . time();
     }
+
+    public function check_log($id_karyawan){
+        $cek = \App\Models\log_karyawan::where('id_karyawan_fk','=',$id_karyawan)->with(['fungsi','jabatan','unitkerja','tipekar','unit','klsjabatan'])->latest('update_date')->first();
+        if($cek){
+            return $cek;
+        }else{
+            return null;
+        }
+    }    
 }

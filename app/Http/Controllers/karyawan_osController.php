@@ -18,14 +18,17 @@ use Illuminate\Http\Request;
 use Validator;
 use League\Csv\Reader;
 use Auth;
+use App\Http\Controllers\notifikasiController;
 class karyawan_osController extends AppBaseController
 {
     /** @var  karyawan_osRepository */
     private $karyawanOsRepository;
+    private $notifikasiController;
 
-    public function __construct(karyawan_osRepository $karyawanOsRepo)
+    public function __construct(karyawan_osRepository $karyawanOsRepo,notifikasiController $notifikasiControl)
     {
         $this->karyawanOsRepository = $karyawanOsRepo;
+        $this->notifikasiController = $notifikasiControl;
         $this->data['unitkerja'] = unitkerja::pluck('nama_uk','id');
         $this->data['fungsi'] = fungsi_os::pluck('nama_fungsi','id');
         $this->data['jabatan_os'] = jabatan_os::pluck('nama_jabatan','id');
@@ -121,9 +124,9 @@ class karyawan_osController extends AppBaseController
             $input['doc_no_kontrak_kerja'] = serialize($doc_no_kontrak_kerja);
         }
 
-
+        $input['is_active'] = null;
         $karyawanOs = $this->karyawanOsRepository->create($input);
-
+        $this->notifikasiController->create_notifikasi("KARYAWAN_OS", $karyawanOs->is_active,$karyawanOs->id,$karyawanOs->id_vendor);
         Flash::success('Karyawan Os saved successfully.');
 
         return redirect(route('karyawanOs.index'));
@@ -136,9 +139,25 @@ class karyawan_osController extends AppBaseController
      *
      * @return Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
+        if($request->n){
+            $this->notifikasiController->update_baca($request->n);
+        }
+
         $karyawanOs = $this->karyawanOsRepository->with(['fungsi','unitkerja','vendor'])->findWithoutFail($id);
+        $to = \Carbon\Carbon::createFromFormat('Y-m-d', $karyawanOs->tmt_akhir_kontrak);
+        $from = \Carbon\Carbon::createFromFormat('Y-m-d', $karyawanOs->tmt_awal_kontrak);
+        $diff_in_months = $to->diffInMonths($from);
+        $diff_in_year = $to->diffInYears($from);
+        // $dbDate = \Carbon\Carbon::parse($karyawanOs->tmt_awal_date);
+        // $diffYears = \Carbon\Carbon::parse($karyawanOs->tmt_akhir_date)->diffInYears($dbDate);
+        $karyawanOs['jangka_waktu_tmt'] = "";
+        if($diff_in_year != 0){
+            $karyawanOs['jangka_waktu_tmt'] = $diff_in_year.' Tahun '.$diff_in_months.' Bulan';
+        }else{
+            $karyawanOs['jangka_waktu_tmt'] = $diff_in_months.' Bulan';
+        }
 
         if (empty($karyawanOs)) {
             Flash::error('Karyawan Os not found');
@@ -224,7 +243,12 @@ class karyawan_osController extends AppBaseController
         }else{
             unset($input['doc_no_kontrak_kerja']);
         }
+
+        
         $karyawanOs = $this->karyawanOsRepository->update($input, $id);
+        if($input['is_active'] == 'R' || $input['is_active'] == 'A'){
+            $this->notifikasiController->create_notifikasi("KARYAWAN_OS", $karyawanOs->is_active,$karyawanOs->id,$karyawanOs->id_vendor);
+        }
 
         Flash::success('Karyawan Os updated successfully.');
 

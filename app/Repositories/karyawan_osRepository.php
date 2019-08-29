@@ -24,7 +24,7 @@ class karyawan_osRepository extends BaseRepository
         'id_fungsi',
         'id_unitkerja',
         'tgl_lahir',
-        'usia',
+        // 'usia',
         'gender',
         'no_bpjs_tk',
         'doc_no_bpjs_tk',
@@ -33,11 +33,14 @@ class karyawan_osRepository extends BaseRepository
         'lisensi',
         'doc_lisensi',
         'no_lisensi',
-        'doc_no_lisensi',
-        'jangka_waktu',
+        // 'doc_no_lisensi',
+        // 'jangka_waktu',
         'doc_jangka_waktu',
         'no_kontrak_kerja',
-        'doc_no_kontrak_kerja'
+        'doc_no_kontrak_kerja',
+        'is_active',
+        'tmt_awal_kontrak',
+        'tmt_akhir_kontrak'
     ];
 
     /**

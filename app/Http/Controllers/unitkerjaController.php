@@ -12,6 +12,7 @@ use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class unitkerjaController extends AppBaseController
 {
@@ -57,26 +58,152 @@ class unitkerjaController extends AppBaseController
     public function formasiExistingShow($id, Request $request)
     {
         if($request->dari != null && $request->sampai != null){
-                $dari = $request->dari;
-                $sampai = $request->sampai;
+                $dari = new Carbon($request->dari);
+                $sampai = new Carbon($request->sampai);
+                $sampai = $sampai->endOfMonth();
+
                 $this->data['unitkerja'] = $this->unitkerjaRepository->withCount(['karyawan' => function($query) use ($dari, $sampai){
-                    $query->whereBetween('tmt_date', [$dari, $sampai]);
-                }])->findWithoutFail($id);
-                $this->data['kelasjabatan'] = \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tblkaryawan.id) as jml_kls_jbt'))   
+                $query->doesnthave('log_karyawan')->whereBetween('entry_date', [$dari, $sampai]);
+                }])->withCount(['log_karyawan' => function($query) use ($dari, $sampai){
+                    return $query->whereBetween('update_date', [$dari, $sampai]);
+                }])->with(['kategori_unit_kerja'])->findWithoutFail($id);
+
+                $kelas_jabatan_entry_date = \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tblkaryawan.id) as jml_kls_jbt'))  
+                ->whereNotIn('tblkaryawan.id',function($query) {
+
+                    $query->select('id_karyawan_fk')->from('tbllogkaryawan');
+                 
+                 })
                 ->leftJoin('tblkaryawan', 'tblkaryawan.id_klsjabatan', '=', 'tblklsjabatan.id')
                 ->rightJoin('tblunitkerja', 'tblkaryawan.id_unitkerja', '=', 'tblunitkerja.id')
                 ->where('tblunitkerja.id','=',$id)
-                ->whereBetween('tblkaryawan.tmt_date', [$dari, $sampai])
+                ->whereBetween('tblkaryawan.entry_date', [$dari, $sampai])
                 ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
                 ->get();
+                // dd($kelas_jabatan_entry_date);
+                $kelas_jabatan_update_date= \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tbllogkaryawan.id) as jml_kls_jbt'))   
+                ->leftJoin('tbllogkaryawan', 'tbllogkaryawan.id_klsjabatan', '=', 'tblklsjabatan.id')
+                ->rightJoin('tblunitkerja', 'tbllogkaryawan.id_unitkerja', '=', 'tblunitkerja.id')
+                ->where('tblunitkerja.id','=',$id)
+                ->where('tbllogkaryawan.is_active','=',1)
+                ->whereBetween('tbllogkaryawan.update_date', [$dari, $sampai])
+                ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
+                ->get();
+
+                $this->data['kelasjabatan'] = [];
+                // status_pendidikan.forEach(function(element,index){
+                //     status_pendidikan_update_date.forEach(function(elements,indexs){
+                //         if(element.pendidikan == elements.pendidikan){
+                //             status_pendidikan[index]['jumlah'] = status_pendidikan[index]['jumlah']+elements.jumlah;
+                //         }
+                //     });
+                // });
+                if(count($kelas_jabatan_entry_date) > 0){
+                    foreach ($kelas_jabatan_entry_date as $key => $value) {
+                        $this->data['kelasjabatan'][$key]['nama_kj'] = $value['nama_kj'];
+                        $this->data['kelasjabatan'][$key]['jml_kls_jbt'] = $value['jml_kls_jbt'];
+                    }
+
+                    // dd($this->data['kelasjabatan']);
+                    // dd($kelas_jabatan_update_date);
+                    foreach ($kelas_jabatan_update_date as $keys => $values) {
+                        foreach ($this->data['kelasjabatan'] as $keyss => $valuess) {
+                            if($values['nama_kj'] == $valuess['nama_kj']){
+                                $this->data['kelasjabatan'][$keyss]['jml_kls_jbt'] = $this->data['kelasjabatan'][$keyss]['jml_kls_jbt']  + $values['jml_kls_jbt'];
+                            }else{
+                                array_push($this->data['kelasjabatan'],[
+                                    'nama_kj' => $values['nama_kj'],
+                                    'jml_kls_jbt' => $values['jml_kls_jbt']
+                                ]);
+                            }
+                        }
+                    }
+                    $this->data['kelasjabatan']=array_map("unserialize", array_unique(array_map("serialize", $this->data['kelasjabatan'])));
+                    // $this->data['kelasjabatan']=multi_unique($this->data['kelasjabatan']);
+                }else{
+                    foreach ($kelas_jabatan_update_date as $keys => $values) {
+                        $this->data['kelasjabatan'][$keys]['nama_kj'] = $values['nama_kj'];
+                        $this->data['kelasjabatan'][$keys]['jml_kls_jbt'] = $values['jml_kls_jbt'];
+                    }
+                }
+
+
+                $this->data['lowong'] = (int) $this->data['unitkerja']['jml_formasi'] - ((int) $this->data['unitkerja']['karyawan_count'] + (int) $this->data['unitkerja']['log_karyawan_count']);
+     
+                if($this->data['unitkerja']['jml_formasi']>0){
+                    $this->data['kekuatan'] = round((((int) $this->data['unitkerja']['karyawan_count'] + (int) $this->data['unitkerja']['log_karyawan_count'] ) / (int) $this->data['unitkerja']['jml_formasi'])*100)."%";
+                }else{
+                    $this->data['kekuatan'] = "0%";
+                }
         }else{
-            $this->data['unitkerja'] = $this->unitkerjaRepository->withCount('karyawan')->findWithoutFail($id);
-            $this->data['kelasjabatan'] = \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tblkaryawan.id) as jml_kls_jbt'))   
-            ->leftJoin('tblkaryawan', 'tblkaryawan.id_klsjabatan', '=', 'tblklsjabatan.id')
-            ->rightJoin('tblunitkerja', 'tblkaryawan.id_unitkerja', '=', 'tblunitkerja.id')
-            ->where('tblunitkerja.id','=',$id)
-            ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
-            ->get();
+            $this->data['unitkerja'] = $this->unitkerjaRepository->withCount(['karyawan' => function($query){
+                $query->doesnthave('log_karyawan');
+                }])->withCount(['log_karyawan' => function($query){
+                    return $query;
+                }])->with(['kategori_unit_kerja'])->findWithoutFail($id);
+                $kelas_jabatan_entry_date = \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tblkaryawan.id) as jml_kls_jbt'))  
+                ->whereNotIn('tblkaryawan.id',function($query) {
+
+                    $query->select('id_karyawan_fk')->from('tbllogkaryawan');
+                 
+                 })
+                ->leftJoin('tblkaryawan', 'tblkaryawan.id_klsjabatan', '=', 'tblklsjabatan.id')
+                ->rightJoin('tblunitkerja', 'tblkaryawan.id_unitkerja', '=', 'tblunitkerja.id')
+                ->where('tblunitkerja.id','=',$id)
+                ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
+                ->get();
+                // dd($kelas_jabatan_entry_date);
+                $kelas_jabatan_update_date= \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tbllogkaryawan.id) as jml_kls_jbt'))   
+                ->leftJoin('tbllogkaryawan', 'tbllogkaryawan.id_klsjabatan', '=', 'tblklsjabatan.id')
+                ->rightJoin('tblunitkerja', 'tbllogkaryawan.id_unitkerja', '=', 'tblunitkerja.id')
+                ->where('tblunitkerja.id','=',$id)
+                ->where('tbllogkaryawan.is_active','=',1)
+                ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
+                ->get();
+
+                $this->data['kelasjabatan'] = [];
+                // status_pendidikan.forEach(function(element,index){
+                //     status_pendidikan_update_date.forEach(function(elements,indexs){
+                //         if(element.pendidikan == elements.pendidikan){
+                //             status_pendidikan[index]['jumlah'] = status_pendidikan[index]['jumlah']+elements.jumlah;
+                //         }
+                //     });
+                // });
+                if(count($kelas_jabatan_entry_date) > 0){
+                    foreach ($kelas_jabatan_entry_date as $key => $value) {
+                        $this->data['kelasjabatan'][$key]['nama_kj'] = $value['nama_kj'];
+                        $this->data['kelasjabatan'][$key]['jml_kls_jbt'] = $value['jml_kls_jbt'];
+                    }
+
+                    // dd($this->data['kelasjabatan']);
+                    // dd($kelas_jabatan_update_date);
+                    foreach ($kelas_jabatan_update_date as $keys => $values) {
+                        foreach ($this->data['kelasjabatan'] as $keyss => $valuess) {
+                            if($values['nama_kj'] == $valuess['nama_kj']){
+                                $this->data['kelasjabatan'][$keyss]['jml_kls_jbt'] = $this->data['kelasjabatan'][$keyss]['jml_kls_jbt']  + $values['jml_kls_jbt'];
+                            }else{
+                                array_push($this->data['kelasjabatan'],[
+                                    'nama_kj' => $values['nama_kj'],
+                                    'jml_kls_jbt' => $values['jml_kls_jbt']
+                                ]);
+                            }
+                        }
+                    }
+                    $this->data['kelasjabatan']=array_map("unserialize", array_unique(array_map("serialize", $this->data['kelasjabatan'])));
+                    // $this->data['kelasjabatan']=multi_unique($this->data['kelasjabatan']);
+                }else{
+                    foreach ($kelas_jabatan_update_date as $keys => $values) {
+                        $this->data['kelasjabatan'][$keys]['nama_kj'] = $values['nama_kj'];
+                        $this->data['kelasjabatan'][$keys]['jml_kls_jbt'] = $values['jml_kls_jbt'];
+                    }
+                }
+            $this->data['lowong'] = (int) $this->data['unitkerja']['jml_formasi'] - (int) $this->data['unitkerja']['karyawan_count'];
+     
+            if($this->data['unitkerja']['jml_formasi']>0){
+                $this->data['kekuatan'] = round(((int) $this->data['unitkerja']['karyawan_count'] / (int) $this->data['unitkerja']['jml_formasi'])*100)."%";
+            }else{
+                $this->data['kekuatan'] = "0%";
+            }
         }
         
         // echo "<pre>";
@@ -88,15 +215,6 @@ class unitkerjaController extends AppBaseController
             return redirect(route('unitkerjas.index'));
         }
 
-
-        $this->data['lowong'] = (int) $this->data['unitkerja']['jml_formasi'] - (int) $this->data['unitkerja']['karyawan_count'];
-     
-        if($this->data['unitkerja']['jml_formasi']>0){
-            $this->data['kekuatan'] = round(((int) $this->data['unitkerja']['karyawan_count'] / (int) $this->data['unitkerja']['jml_formasi'])*100)."%";
-        }else{
-            $this->data['kekuatan'] = "0%";
-        }
-        
         return view('unitkerjas.showformasi')->with($this->data);
     }
 
