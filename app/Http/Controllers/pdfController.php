@@ -17,6 +17,10 @@ class pdfController extends Controller
         $roles = $user->getRoleNames();
         $tabel = \Crypt::decrypt($tabel);
         $isinya = [];
+        if($request->exportid){
+            $myString = $request->exportid;
+            $arr_export = explode(',', $myString);
+        }
         setlocale(LC_TIME, 'id');
         \Carbon\Carbon::setLocale('id');
         switch ($tabel) {
@@ -25,9 +29,9 @@ class pdfController extends Controller
                 $roles = $user->getRoleNames();
                 if($roles[0] == "Vendor"){
                     $id_vendor = \App\Models\vendor_os::where('email','=',$user->email)->first();
-                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja','vendor'])->where('id_vendor','=',$id_vendor->id)->get();
+                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja','vendor'])->where('id_vendor','=',$id_vendor->id)->whereIn('id',$arr_export)->get();
                 }else{
-                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja','vendor'])->get();
+                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja','vendor'])->whereIn('id',$arr_export)->get();
                 }
                 $head = ['Nama', 'Fungsi', 'Unit Kerja', 'Tanggal Lahir',  'Jenis Kelamin', 'Nama Vendor'];
                 $title = 'Karyawan Outsourcing';
@@ -43,8 +47,8 @@ class pdfController extends Controller
                 }
                 break; 
                 case 'karyawan':
-                $get = \App\Models\karyawan::with(['klsjabatan','jabatan','unitkerja'])->get();
-                $head = ['NIK','Nama', 'Jabatan', 'Unit Kerja', 'Kelas Jabatan', 'Gender', 'Tanggal Lahir'];
+                $get = \App\Models\karyawan::with(['klsjabatan','jabatan','unitkerja'])->whereIn('id',$arr_export)->get();
+                $head = ['NIK','Nama', 'Jabatan', 'Unit Kerja', 'Kelas Jabatan', 'Jenis Kelamin', 'Tanggal Lahir'];
                 $title = 'Karyawan';
                 foreach ($get as $key => $value) {
                     $cek_log = $this->check_log($value['id']);
@@ -294,7 +298,12 @@ class pdfController extends Controller
                     
                     $lowong = (int) $value->jml_formasi - ((int) $value->karyawan_count + $value->log_karyawan_count);
                     $hasil_lowong += $lowong;
-                    $kekuatan = round((((int) $value->karyawan_count + $value->log_karyawan_count) / (int) $value->jml_formasi)*100)."%";
+                    if($value->jml_formasi > 0){
+                        $kekuatan = round((((int) $value->karyawan_count + $value->log_karyawan_count) / (int) $value->jml_formasi)*100)."%";
+                    }
+                    else{
+                        $kekuatan = "0%";
+                    }
                     $hasil_kekuatan += (int)$kekuatan;
                     if($request->dari && $request->sampai){  
                         $hasil_pejabat += $pejabat_entry_date->karyawan_count + $pejabat_update_date->log_karyawan_count;
@@ -368,7 +377,7 @@ class pdfController extends Controller
                 return $pdf->stream($tabel.time().'.pdf', array("Attachment" => false));
             break; 
             case 'mpp':
-                $get = \App\Models\karyawan::with(['jabatan','unit','fungsi','unitkerja','klsjabatan'])->get();
+                $get = \App\Models\karyawan::with(['jabatan','unit','fungsi','unitkerja','klsjabatan'])->whereIn('id',$arr_export)->get();
                 $head = ['NIK','Nama','Jabatan','Unit Kerja','Rencana MPP','Fungsi', 'Status Pensiun', 'Status MPP'];
                 $title = 'MPP';
                 foreach ($get as $key => $value) {

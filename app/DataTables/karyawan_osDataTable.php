@@ -18,7 +18,9 @@ class karyawan_osDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'karyawan_os.datatables_actions');
+        return $dataTable->addColumn('action', 'karyawan_os.datatables_actions')->with('all_data', function() use ($query) {
+            return $query->get();
+        });
     }
 
     /**

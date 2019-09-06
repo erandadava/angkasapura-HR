@@ -49,6 +49,9 @@ class mppDataTable extends DataTable
         ->editColumn('rencana_mpp', function ($inquiry) {
             return \Carbon\Carbon::parse($inquiry->rencana_mpp)->formatLocalized('%d %B %Y');
         })
+        ->with('all_data', function() use ($query) {
+            return $query->get();
+        })
         ->rawColumns(['tgl_lahir','status_pensiun','action']);
     }
 
