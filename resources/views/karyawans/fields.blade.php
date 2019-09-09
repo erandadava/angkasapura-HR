@@ -205,7 +205,7 @@
             var year = birth_date.getFullYear();
             var month = birth_date.getMonth();
             var day = birth_date.getDate() !== 1;
-            var c = new Date(year + 56, month, day);
+            var c = new Date(year + 55, month, day);
             
             // console.log(c);
             $('#rencana_mpp').data("DateTimePicker").date(c);
