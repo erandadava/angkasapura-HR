@@ -204,7 +204,7 @@
             var ageDifMs = Date.now() - birth_date.getTime();
             var year = birth_date.getFullYear();
             var month = birth_date.getMonth();
-            var day = birth_date.getDate();
+            var day = birth_date.getDate() !== 1;
             var c = new Date(year + 56, month, day);
             
             // console.log(c);
