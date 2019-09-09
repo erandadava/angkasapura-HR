@@ -67,7 +67,7 @@
 
 <!-- Rencana Pensiun Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('rencana_pensiun', 'Rencana Pensiun:') !!}
+    {!! Form::label('rencana_pensiun', 'Pensiun:') !!}
     {!! Form::text('rencana_pensiun', null, ['class' => 'form-control','id'=>'rencana_pensiun']) !!}
 </div>
 
@@ -209,6 +209,21 @@
             
             // console.log(c);
             $('#rencana_mpp').data("DateTimePicker").date(c);
+        }
+
+        $('#tgl_lahir').on('dp.change', function(e){ return _calculatePension($('#tgl_lahir').val()); })    
+
+        function _calculatePension(birthday) 
+        { // birthday is a date
+            var birth_date = new Date(birthday);
+            var ageDifMs = Date.now() - birth_date.getTime();
+            var year = birth_date.getFullYear();
+            var month = birth_date.getMonth();
+            var day = birth_date.getDate() !== 1;
+            var c = new Date(year + 56, month + 1, day);
+            
+            // console.log(c);
+            $('#rencana_pensiun').data("DateTimePicker").date(c);
         }
         
     </script>
