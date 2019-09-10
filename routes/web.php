@@ -39,6 +39,8 @@ Route::group(['middleware' => ['role:Admin|Super Admin|Vendor|management']], fun
     
     Route::get('/exportpdf/{table}', 'pdfController@make_pdf');
 
+    Route::post('/exportpdf/{table}', 'pdfController@make_pdf_post');
+
     Route::resource('users', 'usersController',['only' => ['edit','update']]);
 });
 

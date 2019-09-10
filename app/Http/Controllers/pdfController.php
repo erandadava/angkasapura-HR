@@ -424,6 +424,76 @@ class pdfController extends Controller
 
     }
 
+    public function make_pdf_POST($tabel,Request $request){
+        $user = Auth::user();
+        $roles = $user->getRoleNames();
+        $tabel = \Crypt::decrypt($tabel);
+        $isinya = [];
+        if($request->exportid){
+            $myString = $request->exportid;
+            $arr_export = explode(',', $myString);
+        }
+        setlocale(LC_TIME, 'id');
+        \Carbon\Carbon::setLocale('id');
+        switch ($tabel) {
+            case 'karyawan_os':
+                $user = Auth::user();
+                $roles = $user->getRoleNames();
+                if($roles[0] == "Vendor"){
+                    $id_vendor = \App\Models\vendor_os::where('email','=',$user->email)->first();
+                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja','vendor'])->where('id_vendor','=',$id_vendor->id)->whereIn('id',$arr_export)->get();
+                }else{
+                    $get = \App\Models\karyawan_os::with(['fungsi','unitkerja','vendor'])->whereIn('id',$arr_export)->get();
+                }
+                $head = ['Nama', 'Fungsi', 'Unit Kerja', 'Tanggal Lahir',  'Jenis Kelamin', 'Nama Vendor'];
+                $title = 'Karyawan Outsourcing';
+                foreach ($get as $key => $value) {
+                    $isinya[$key]=[
+                        0 => $value['nama'],
+                        1 => $value['fungsi']['nama_fungsi'],
+                        2 => $value['unitkerja']['nama_uk'],
+                        3 => \Carbon\Carbon::parse($value['tgl_lahir'])->formatLocalized('%d %B %Y'),
+                        4 => $value['gender'],
+                        5 => $value['vendor']['nama_vendor']
+                    ];   
+                }
+                break; 
+                case 'karyawan':
+                $get = \App\Models\karyawan::with(['klsjabatan','jabatan','unitkerja'])->whereIn('id',$arr_export)->get();
+                $head = ['NIK','Nama', 'Jabatan', 'Unit Kerja', 'Kelas Jabatan', 'Jenis Kelamin', 'Tanggal Lahir'];
+                $title = 'Karyawan';
+                foreach ($get as $key => $value) {
+                    $cek_log = $this->check_log($value['id']);
+                    if($cek_log != null){
+                        $value['jabatan']['nama_jabatan'] = $cek_log['jabatan']['nama_jabatan'];
+                        $value['unitkerja']['nama_uk']= $cek_log['unitkerja']['nama_uk'];
+                        $value['klsjabatan']['nama_kj'] = $cek_log['klsjabatan']['nama_kj'];
+                        $value['pend_akhir']= $cek_log['pend_akhir'];
+                        $value['gender']= $cek_log['gender'];
+                        $value['tgl_lahir']= $cek_log['tgl_lahir'];
+                    }
+                    $isinya[$key]=[
+                        0 => $value['nik'],
+                        1 => $value['nama'],
+                        2 => $value['jabatan']['nama_jabatan'],
+                        3 => $value['unitkerja']['nama_uk'],
+                        4 => $value['klsjabatan']['nama_kj'],
+                        5 => $value['gender'],
+                        6 => \Carbon\Carbon::parse($value['tgl_lahir'])->formatLocalized('%d %B %Y'),
+                    ];   
+                }
+            break; 
+            default:
+                null;
+                break;
+        }
+        $values = $isinya;
+        $pdf = PDF::loadview('pdf.index',['head'=>$head,'title'=>$title,'value'=>$values]);
+        // return $pdf->download($tabel.time().'.pdf');
+        return $pdf->stream($tabel.time().'.pdf', array("Attachment" => false));
+
+    }
+
     public function check_log($id_karyawan){
         $cek = \App\Models\log_karyawan::where('id_karyawan_fk','=',$id_karyawan)->with(['fungsi','jabatan','unitkerja','tipekar','unit','klsjabatan'])->latest('update_date')->first();
         if($cek){

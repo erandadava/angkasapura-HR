@@ -4,7 +4,7 @@
 <div class="table-responsive">
     {!! $dataTable->table(['width' => '100%', 'class' => 'table table-striped table-bordered']) !!}
 </div>
-{!! Form::open(['url' => 'exportpdflaporanharian', 'method' => 'get', 'class' => 'formcheck', 'target' => '_blank']) !!}
+{!! Form::open(['url' => 'exportpdflaporanharian', 'method' => 'POST', 'class' => 'formcheck', 'target' => '_blank']) !!}
     {!! Form::hidden('exportid', null, ['id' => 'val-export-id']) !!}
 {!! Form::close() !!}
 
