@@ -37,7 +37,7 @@ class karyawan_osDataTable extends DataTable
             $id_vendor = \App\Models\vendor_os::where('email','=',$user->email)->first();
             return $model->with(['unitkerja','jabatan_os','fungsi','vendor'])->where('id_vendor','=',$id_vendor->id)->newQuery();
         }
-        return $model->with(['unitkerja','jabatan_os','vendor'])->newQuery();
+        return $model->with(['unitkerja','jabatan_os','fungsi','vendor'])->newQuery();
     }
 
     /**
