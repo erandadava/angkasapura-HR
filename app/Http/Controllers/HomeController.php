@@ -31,6 +31,7 @@ class HomeController extends Controller
         $this->middleware('auth');
         $karyawan = \DB::table('tblkaryawan')
                   ->where([['tgl_aktif_pensiun', '=' ,\Carbon\Carbon::now()->format('Y-m-d')],['status_pensiun','=','M']])
+                  ->orWhere([['tgl_aktif_pensiun', '>=' ,\Carbon\Carbon::now()->format('Y-m-d')],['status_pensiun','=','M']])
                   ->get();
         foreach($karyawan as $dt){
             \DB::table('tblkaryawan')
