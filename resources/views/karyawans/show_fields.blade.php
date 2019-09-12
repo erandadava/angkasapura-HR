@@ -74,7 +74,7 @@
     </div>
     <div class="col-md-3">
         <div class="form-group">
-            {!! Form::label('rencana_pensiun', 'Rencana Pensiun:') !!}
+            {!! Form::label('rencana_pensiun', 'Pensiun:') !!}
             <p>{!!  \Carbon\Carbon::parse($karyawan->rencana_pensiun)->formatLocalized('%d %B %Y'); !!}</p>
         </div>
     </div>
