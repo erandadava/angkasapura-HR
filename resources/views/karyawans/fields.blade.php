@@ -202,12 +202,9 @@
         { // birthday is a date
             var birth_date = new Date(birthday);
             var ageDifMs = Date.now() - birth_date.getTime();
-            var year = birth_date.getFullYear();
-            var month = birth_date.getMonth();
-            var day = birth_date.getDate() !== 1;
-            var c = new Date(year + 55, month, day);
+            var firstDay = new Date(birth_date.getFullYear() + 55, birth_date.getMonth(), 1);
+            var c = new Date(firstDay);
             
-            // console.log(c);
             $('#rencana_mpp').data("DateTimePicker").date(c);
         }
 
@@ -217,12 +214,9 @@
         { // birthday is a date
             var birth_date = new Date(birthday);
             var ageDifMs = Date.now() - birth_date.getTime();
-            var year = birth_date.getFullYear();
-            var month = birth_date.getMonth();
-            var day = birth_date.getDate() !== 1;
-            var c = new Date(year + 56, month + 1, day);
+            var firstDay = new Date(birth_date.getFullYear() + 56, birth_date.getMonth() + 1, 1); // take firstDay of the month      
+            var c = new Date(firstDay);
             
-            // console.log(c);
             $('#rencana_pensiun').data("DateTimePicker").date(c);
         }
         
