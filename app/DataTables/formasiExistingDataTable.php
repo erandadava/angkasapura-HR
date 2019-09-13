@@ -341,9 +341,10 @@ class formasiExistingDataTable extends DataTable
 
                     }, 0 );
 
+                    var length_kekuatan = this.api().column( 6, { page: 'current'} ).data().length;
                     this.api().columns(6).every(function () {
                         var column = this;
-                        $(column.footer()).html(Math.round(parseInt(totalKekuatan))+'%');
+                        $(column.footer()).html(Math.round(parseInt(totalKekuatan)/length_kekuatan)+'%');
                         
                     });
 

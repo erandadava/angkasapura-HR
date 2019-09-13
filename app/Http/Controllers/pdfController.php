@@ -363,7 +363,7 @@ class pdfController extends Controller
                 }
                 $total[2] = "<b>".$sum_eksis."</b>";
                 $total[3] = "<b>".$hasil_lowong."</b>";
-                $total[4] = "<b>".round($hasil_kekuatan).'%'."</b>";
+                $total[4] = "<b>".round($hasil_kekuatan/count($get)).'%'."</b>";
                 $total[5] = "<b>".$hasil_pejabat."</b>";
                 $total[6] = "<b>".$hasil_karyawan."</b>";
                 $total[7] = "<b>".$hasil_pkwt."</b>";
@@ -482,13 +482,18 @@ class pdfController extends Controller
                         6 => \Carbon\Carbon::parse($value['tgl_lahir'])->formatLocalized('%d %B %Y'),
                     ];   
                 }
+                
+                    // return $pdf->download($tabel.time().'.pdf');
+                    // header('Content-Encoding: gzip');
+                    // dd('test');
+                //  return $pdf->stream($tabel.time().'.pdf', array("Attachment" => false));
             break; 
             default:
                 null;
                 break;
         }
         $values = $isinya;
-        $pdf = PDF::loadview('pdf.index',['head'=>$head,'title'=>$title,'value'=>$values]);
+        $pdf = $pdf = PDF::loadview('pdf.index',['head'=>$head,'title'=>$title,'value'=>$values,'enable_font_subsetting' => true])->setPaper('a4','landscape');
         // return $pdf->download($tabel.time().'.pdf');
         return $pdf->stream($tabel.time().'.pdf', array("Attachment" => false));
 
