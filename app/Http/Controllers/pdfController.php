@@ -13,6 +13,7 @@ use Carbon\Carbon;
 class pdfController extends Controller
 {
     public function make_pdf($tabel,Request $request){
+        $arr_export = [];
         $user = Auth::user();
         $roles = $user->getRoleNames();
         $tabel = \Crypt::decrypt($tabel);
@@ -361,9 +362,15 @@ class pdfController extends Controller
                     }
                     
                 }
+                
+                if(count($get) != 0 ){
+                    $total_hasil_kekuatan = round($hasil_kekuatan/count($get));
+                }else{
+                    $total_hasil_kekuatan = 0;
+                }
                 $total[2] = "<b>".$sum_eksis."</b>";
                 $total[3] = "<b>".$hasil_lowong."</b>";
-                $total[4] = "<b>".round($hasil_kekuatan/count($get)).'%'."</b>";
+                $total[4] = "<b>".$total_hasil_kekuatan.'%'."</b>";
                 $total[5] = "<b>".$hasil_pejabat."</b>";
                 $total[6] = "<b>".$hasil_karyawan."</b>";
                 $total[7] = "<b>".$hasil_pkwt."</b>";
@@ -425,6 +432,7 @@ class pdfController extends Controller
     }
 
     public function make_pdf_POST($tabel,Request $request){
+        $arr_export = [];
         $user = Auth::user();
         $roles = $user->getRoleNames();
         $tabel = \Crypt::decrypt($tabel);
