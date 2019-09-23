@@ -472,23 +472,28 @@ class pdfController extends Controller
                 $title = 'Karyawan';
                 foreach ($get as $key => $value) {
                     $cek_log = $this->check_log($value['id']);
-                    if($cek_log != null){
-                        $value['jabatan']['nama_jabatan'] = $cek_log['jabatan']['nama_jabatan'];
-                        $value['unitkerja']['nama_uk']= $cek_log['unitkerja']['nama_uk'];
-                        $value['klsjabatan']['nama_kj'] = $cek_log['klsjabatan']['nama_kj'];
-                        $value['pend_akhir']= $cek_log['pend_akhir'];
-                        $value['gender']= $cek_log['gender'];
-                        $value['tgl_lahir']= $cek_log['tgl_lahir'];
-                    }
-                    $isinya[$key]=[
-                        0 => $value['nik'],
-                        1 => $value['nama'],
-                        2 => $value['jabatan']['nama_jabatan'],
-                        3 => $value['unitkerja']['nama_uk'],
-                        4 => $value['klsjabatan']['nama_kj'],
-                        5 => $value['gender'],
-                        6 => \Carbon\Carbon::parse($value['tgl_lahir'])->formatLocalized('%d %B %Y'),
-                    ];   
+                    // if($cek_log != null){
+                    //     $isinya[$key]=[
+                    //         0 => $cek_log['nik'],
+                    //         1 => $cek_log['nama'],
+                    //         2 => $cek_log['jabatan']['nama_jabatan'],
+                    //         3 => $cek_log['unitkerja']['nama_uk'],
+                    //         4 => $cek_log['klsjabatan']['nama_kj'],
+                    //         5 => $cek_log['gender'],
+                    //         6 => \Carbon\Carbon::parse($cek_log['tgl_lahir'])->formatLocalized('%d %B %Y'),
+                    //     ];
+                    // }else{
+                        $isinya[$key]=[
+                            0 => $cek_log['nik'] ?? $value['nik'],
+                            1 => $cek_log['nama'] ?? $value['nama'],
+                            2 => $cek_log['jabatan']['nama_jabatan'] ?? $value['jabatan']['nama_jabatan'],
+                            3 => $cek_log['unitkerja']['nama_uk'] ?? $value['unitkerja']['nama_uk'],
+                            4 => $cek_log['klsjabatan']['nama_kj'] ?? $value['klsjabatan']['nama_kj'],
+                            5 => $cek_log['gender'] ?? $value['gender'],
+                            6 => \Carbon\Carbon::parse($cek_log['tgl_lahir'] ?? $value['tgl_lahir'])->formatLocalized('%d %B %Y'),
+                        ];
+                    // }
+                       
                 }
                 
                     // return $pdf->download($tabel.time().'.pdf');
