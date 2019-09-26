@@ -9,7 +9,7 @@
     {!! Form::label('email', 'Email:') !!}
     {!! Form::email('email', null, ['class' => 'form-control']) !!}
 </div>
-
+@if(!isset($vendorOs->email))
 <!-- Password Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('password', 'Password:') !!}
@@ -20,7 +20,7 @@
     {!! Form::label('password', 'Password Confirmation:') !!}
     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
 </div>
-
+@endif
 <!-- Telepon Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('telepon', 'Telepon:') !!}

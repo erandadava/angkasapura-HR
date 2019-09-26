@@ -25,21 +25,25 @@ Route::resource('jabatanOs', 'jabatan_osController');
 Route::get('register/verify', 'Auth\RegisterController@verify')->name('verifyEmailLink');
 Route::get('register/verify/resend', 'Auth\RegisterController@showResendVerificationEmailForm')->name('showResendVerificationEmailForm');
 Route::post('register/verify/resend', 'Auth\RegisterController@resendVerificationEmail')->name('resendVerificationEmail');
-Route::group(['middleware' => ['role:Admin|Super Admin|']], function ()
+
+Route::group(['middleware' => ['role:Admin|Super Admin']], function ()
 {
     Route::resource('users', 'usersController');
 });
 
 Route::group(['middleware' => ['role:Admin|Super Admin|Vendor|management']], function ()
 {
-      
     Route::get('/home', 'HomeController@index');
 
     Route::resource('karyawanOs', 'karyawan_osController');
     
     Route::get('/exportpdf/{table}', 'pdfController@make_pdf');
 
+    Route::post('/exportpdf/{table}', 'pdfController@make_pdf_post');
+
+    Route::resource('users', 'usersController',['only' => ['edit','update']]);
 });
+
 
 Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
 {
@@ -86,6 +90,8 @@ Route::group(['middleware' => ['role:Admin|Super Admin|Vendor']], function ()
 
     Route::resource('kategoriUnitKerjas', 'kategori_unit_kerjaController');
 });
+
+
 
 
 Route::group(['middleware' => 'auth', 'prefix' => 'admin'], function() {

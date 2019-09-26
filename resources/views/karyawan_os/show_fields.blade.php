@@ -366,7 +366,10 @@
                     <!-- Deleted At Field -->
                     <div class="form-group">
                         {!! Form::label('mulai_masa_berlaku_lisensi', 'Mulai Masa Berlaku Lisensi:') !!}
-                        <p>{!!  \Carbon\Carbon::parse($karyawanOs->mulai_masa_berlaku_lisensi)->formatLocalized('%d %B %Y'); !!}</p>
+                        @if ($karyawanOs->mulai_masa_berlaku_lisensi != null)
+                            <p>{!!  \Carbon\Carbon::parse($karyawanOs->mulai_masa_berlaku_lisensi)->formatLocalized('%d %B %Y') !!}</p>
+                        @endif
+                        
                     </div>
                 </div>
             
@@ -377,7 +380,10 @@
                 <!-- Deleted At Field -->
                 <div class="form-group">
                     {!! Form::label('selesai_masa_berlaku_lisensi', 'Selesai Masa Berlaku Lisensi:') !!}
-                    <p>{!!  \Carbon\Carbon::parse($karyawanOs->selesai_masa_berlaku_lisensi)->formatLocalized('%d %B %Y'); !!}</p>
+                    @if ($karyawanOs->selesai_masa_berlaku_lisensi != null)
+                    <p>{!!  \Carbon\Carbon::parse($karyawanOs->selesai_masa_berlaku_lisensi)->formatLocalized('%d %B %Y') !!}</p>
+                        @endif
+                    
                 </div>
             </div>
         <div class="col-md-3">

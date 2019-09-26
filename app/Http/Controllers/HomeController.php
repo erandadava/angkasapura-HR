@@ -31,7 +31,11 @@ class HomeController extends Controller
         $this->middleware('auth');
         $karyawan = \DB::table('tblkaryawan')
                   ->where([['tgl_aktif_pensiun', '=' ,\Carbon\Carbon::now()->format('Y-m-d')],['status_pensiun','=','M']])
+                  ->orWhere([['tgl_aktif_pensiun', '<=' ,\Carbon\Carbon::now()->format('Y-m-d')],['status_pensiun','=','M']])
+                  ->orWhere([['status_pensiun','!=','A']])
+                  ->whereBetween('tgl_lahir', [Carbon::today()->subYears(200), Carbon::today()->subYears(56)->endOfDay()])
                   ->get();
+                  
         foreach($karyawan as $dt){
             \DB::table('tblkaryawan')
                   ->where('id','=',$dt->id)

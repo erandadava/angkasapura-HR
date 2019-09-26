@@ -25,6 +25,6 @@ class Updatevendor_osRequest extends FormRequest
      */
     public function rules()
     {
-        return vendor_os::$rules;
+        return vendor_os::$rulesUpdate;
     }
 }

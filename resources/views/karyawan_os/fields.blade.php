@@ -16,11 +16,11 @@
     {!! Form::select('id_unitkerja', $unitkerja, null, ['class' => 'form-control']) !!}
 </div>
 @hasrole('Vendor')
-    {!! Form::hidden('id_vendor', $vendor, ['class' => 'form-control']) !!}
+    {!! Form::hidden('id_vendor', $id_vendor->id??'', ['class' => 'form-control']) !!}
 @else
     <div class="form-group col-sm-6">
         {!! Form::label('id_vendor', 'Vendor:') !!}
-        {!! Form::select('id_vendor', $vendor, null, ['class' => 'form-control']) !!}
+        {!! Form::select('id_vendor', $vendor->id, null, ['class' => 'form-control']) !!}
     </div>
 @endhasrole
 
@@ -328,12 +328,12 @@
 </div>
 <div class="form-group col-sm-6">
     {!! Form::label('mulai_masa_berlaku_lisensi', 'Mulai Masa Berlaku Lisensi:') !!}
-    {!! Form::text('mulai_masa_berlaku_lisensi', null, ['class' => 'form-control','id'=>'mulai_masa_berlaku_lisensi','required'=>'required']) !!}
+    {!! Form::text('mulai_masa_berlaku_lisensi', null, ['class' => 'form-control','id'=>'mulai_masa_berlaku_lisensi']) !!}
 </div>
 
 <div class="form-group col-sm-6">
     {!! Form::label('selesai_masa_berlaku_lisensi', 'Selesai Masa Berlaku Lisensi:') !!}
-    {!! Form::text('selesai_masa_berlaku_lisensi', null, ['class' => 'form-control','id'=>'selesai_masa_berlaku_lisensi','required'=>'required']) !!}
+    {!! Form::text('selesai_masa_berlaku_lisensi', null, ['class' => 'form-control','id'=>'selesai_masa_berlaku_lisensi']) !!}
 </div>
 
 <!-- Submit Field -->

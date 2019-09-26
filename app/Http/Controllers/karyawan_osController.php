@@ -68,7 +68,6 @@ class karyawan_osController extends AppBaseController
     public function store(Createkaryawan_osRequest $request)
     {
         $input = $request->all();
-
         if ($request->doc_no_bpjs_tk) {
             $doc_no_bpjs_tk=[];
             foreach ($request->doc_no_bpjs_tk as $key => $photo) {

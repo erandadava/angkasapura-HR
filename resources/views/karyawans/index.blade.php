@@ -6,8 +6,9 @@
         <h1 class="pull-right">
             <div class="btn-group">
                 <a class="btn btn-default" style="margin-top: -10px;margin-bottom: 5px" data-toggle="modal" data-target="#modalUpload" href="#">Import From CSV</a>
-                <a class="btn btn-warning" style="margin-top: -10px;margin-bottom: 5px" href="/exportpdf/{{Crypt::encrypt('karyawan')}}" target="_blank" >Export To PDF</a>
+                <a class="btn btn-warning" style="margin-top: -10px;margin-bottom: 5px" onclick="submitcheck('/exportpdf/{{Crypt::encrypt('karyawan')}}')" target="_blank">Export To PDF</a>
                 <a class="btn btn-primary" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('karyawans.create') !!}">Add New</a>
+                <input type="button" style="margin-top: -10px;margin-bottom: 5px" class="check btn btn-success" value="Check All" />
             </div>
         </h1>
     </section>

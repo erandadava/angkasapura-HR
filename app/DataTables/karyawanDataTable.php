@@ -71,7 +71,9 @@ class karyawanDataTable extends DataTable
                     return \Carbon\Carbon::parse($inquiry->tgl_lahir)->formatLocalized('%d %B %Y') ?? "";
                 }
             })
-
+        ->with('all_data', function() use ($query) {
+            return $query->get();
+        })
         ->rawColumns(['tgl_lahir','status_pensiun','action']);
     }
 

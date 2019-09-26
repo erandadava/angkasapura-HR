@@ -70,6 +70,14 @@ class vendor_os extends Model
         'password_confirmation' => 'required_with:password|same:password|min:6'
     ];
 
+    public static $rulesUpdate = [
+        'nama_vendor' => 'required',
+        'email' => 'required',
+        'telepon' => 'required',
+        'alamat' => 'required',
+        'is_active' => 'required',
+    ];
+
 
     public function karyawan_os()
     {

@@ -18,7 +18,9 @@ class karyawan_osDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'karyawan_os.datatables_actions');
+        return $dataTable->addColumn('action', 'karyawan_os.datatables_actions')->with('all_data', function() use ($query) {
+            return $query->get();
+        });
     }
 
     /**
@@ -35,7 +37,7 @@ class karyawan_osDataTable extends DataTable
             $id_vendor = \App\Models\vendor_os::where('email','=',$user->email)->first();
             return $model->with(['unitkerja','jabatan_os','fungsi','vendor'])->where('id_vendor','=',$id_vendor->id)->newQuery();
         }
-        return $model->with(['unitkerja','jabatan_os','vendor'])->newQuery();
+        return $model->with(['unitkerja','jabatan_os','fungsi','vendor'])->newQuery();
     }
 
     /**
