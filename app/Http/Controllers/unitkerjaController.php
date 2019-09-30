@@ -197,10 +197,10 @@ class unitkerjaController extends AppBaseController
                         $this->data['kelasjabatan'][$keys]['jml_kls_jbt'] = $values['jml_kls_jbt'];
                     }
                 }
-            $this->data['lowong'] = (int) $this->data['unitkerja']['jml_formasi'] - (int) $this->data['unitkerja']['karyawan_count'];
-     
+            $this->data['lowong'] =  (int) $this->data['unitkerja']['jml_formasi'] - ((int) $this->data['unitkerja']['karyawan_count'] + (int) $this->data['unitkerja']['log_karyawan_count']);
+
             if($this->data['unitkerja']['jml_formasi']>0){
-                $this->data['kekuatan'] = round(((int) $this->data['unitkerja']['karyawan_count'] / (int) $this->data['unitkerja']['jml_formasi'])*100)."%";
+                $this->data['kekuatan'] = round((((int) $this->data['unitkerja']['karyawan_count'] + (int) $this->data['unitkerja']['log_karyawan_count'] ) / (int) $this->data['unitkerja']['jml_formasi'])*100)."%";
             }else{
                 $this->data['kekuatan'] = "0%";
             }
