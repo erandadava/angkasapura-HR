@@ -197,7 +197,7 @@ html{
                     title: {
                         display: true,
                         text: 'Jumlah Karyawan Berdasarkan Gender'
-                    }
+                    },
                 }
         });
 
@@ -222,7 +222,10 @@ html{
                     title: {
                         display: true,
                         text: 'Jumlah Karyawan Berdasarkan Vendor'
-                    }
+                    },
+                    legend: {
+                        display: false
+                    },
                 }
         });
 
@@ -247,7 +250,10 @@ html{
                     title: {
                         display: true,
                         text: 'Jumlah Karyawan Berdasarkan Fungsi'
-                    }
+                    },
+                    legend: {
+                        display: false
+                    },
                 }
         });
 

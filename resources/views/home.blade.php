@@ -311,8 +311,7 @@ html{
                 data: {
                 labels: ['< 30', '31 - 40', '41 - 50', '51 - 54', '>=55'],
                     datasets: [
-                        {
-                        label : "Jumlah",   
+                        { 
                         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
                         data: [{!!$umur_kurangdari30!!},{!!$umur_31sd40!!},{!!$umur_41sd50!!},{!!$umur_51sd54!!},{!!$umur_lebihdari55!!}]
                         }
@@ -327,7 +326,10 @@ html{
                     title: {
                         display: true,
                         text: 'Jumlah Karyawan Berdasarkan Umur'
-                    }
+                    },
+                    legend: {
+                        display: false
+                    },
                 }
         });
 
@@ -352,7 +354,10 @@ html{
                     title: {
                         display: true,
                         text: 'Jumlah Karyawan Berdasarkan Unit Kerja'
-                    }
+                    },
+                    legend: {
+                        display: false
+                    },
                 }
         });
 
@@ -377,7 +382,10 @@ html{
                     title: {
                         display: true,
                         text: 'Jumlah Karyawan Berdasarkan Kelas Jabatan'
-                    }
+                    },
+                    legend: {
+                        display: false
+                    },
                 }
         });
 

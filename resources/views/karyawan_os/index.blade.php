@@ -4,7 +4,7 @@
     <section class="content-header">
         <h1 class="pull-left">Karyawan Outsourcing</h1>
         <h1 class="pull-right">
-            @hasrole('Admin')
+            @hasrole('Super Admin|Admin')
             <div class="btn-group">
                 <a class="btn btn-default" style="margin-top: -10px;margin-bottom: 5px" data-toggle="modal" data-target="#modalUpload" href="#">Import From CSV</a>
                 <a class="btn btn-warning" style="margin-top: -10px;margin-bottom: 5px" onclick="submitcheck('/exportpdf/{{Crypt::encrypt('karyawan_os')}}')" target="_blank">Export To PDF</a>
@@ -12,7 +12,7 @@
             </div>
             @endhasrole
 
-            @hasrole('Super Admin|Vendor')
+            @hasrole('Vendor')
              <div class="btn-group">
                 <a class="btn btn-default" style="margin-top: -10px;margin-bottom: 5px" data-toggle="modal" data-target="#modalUpload" href="#">Import From CSV</a>
                 <a class="btn btn-warning" style="margin-top: -10px;margin-bottom: 5px" onclick="submitcheck('/exportpdf/{{Crypt::encrypt('karyawan_os')}}')" target="_blank">Export To PDF</a>
