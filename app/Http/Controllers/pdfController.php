@@ -379,13 +379,14 @@ class pdfController extends Controller
 
                 $values = $isinya; 
                 $tabel = 'laporan_kekuatan_SDM KCU BSH';
-                $view = \View::make('pdf.index_formasi',['head'=>$head,'title'=>$title,'value'=>$values,'group'=>$group,'total'=>$total]);
-                $html_content = $view->render();
-                PDF::SetTitle($tabel);
-                PDF::AddPage('L', 'A4');
-                PDF::writeHTML($html_content, true, false, true, false, '');
-        
-                PDF::Output($tabel.time().'.pdf');
+                $pdf = \PDF::loadView('pdf.index_formasi',['head'=>$head,'title'=>$title,'value'=>$values,'group'=>$group,'total'=>$total]);
+                $pdf->setPaper('a4');
+                $pdf->setOrientation('landscape');
+                $pdf->setOption('enable-javascript', true);
+                $pdf->setOption('javascript-delay', 5000);
+                $pdf->setOption('enable-smart-shrinking', true);
+                $pdf->setOption('no-stop-slow-scripts', true);
+                return $pdf->stream($tabel.time().'.pdf');
             break; 
             case 'mpp':
                 $get = \App\Models\karyawan::with(['jabatan','unit','fungsi','unitkerja','klsjabatan'])->whereIn('id',$arr_export)->get();
@@ -429,13 +430,14 @@ class pdfController extends Controller
                 break;
         }
         $values = $isinya;
-        $view = \View::make('pdf.index',['head'=>$head,'title'=>$title,'value'=>$values]);
-                $html_content = $view->render();
-                PDF::SetTitle($title);
-                PDF::AddPage('L', 'A4');
-                PDF::writeHTML($html_content, true, false, true, false, '');
-        
-                PDF::Output($tabel.time().'.pdf');
+        $pdf = \PDF::loadView('pdf.index',['head'=>$head,'title'=>$title,'value'=>$values]);
+        $pdf->setPaper('a4');
+        $pdf->setOrientation('landscape');
+        $pdf->setOption('enable-javascript', true);
+        $pdf->setOption('javascript-delay', 5000);
+        $pdf->setOption('enable-smart-shrinking', true);
+        $pdf->setOption('no-stop-slow-scripts', true);
+        return $pdf->stream($tabel.time().'.pdf');
 
     }
 
@@ -510,13 +512,20 @@ class pdfController extends Controller
         }
 
         $values = $isinya;
-        $view = \View::make('pdf.index',['head'=>$head,'title'=>$title,'value'=>$values]);
-                $html_content = $view->render();
-                PDF::SetTitle($title);
-                PDF::AddPage('L', 'A4');
-                PDF::writeHTML($html_content, true, false, true, false, '');
-        
-                PDF::Output($tabel.time().'.pdf');
+        // $view = \View::make('pdf.index',['head'=>$head,'title'=>$title,'value'=>$values]);
+        //         $html_content = $view->render();
+        //         PDF::SetTitle($title);
+        //         PDF::AddPage('L', 'A4');
+        //         PDF::writeHTML($html_content, true, false, true, false, '');
+        //         PDF::Output($tabel.time().'.pdf');
+        $pdf = \PDF::loadView('pdf.index',['head'=>$head,'title'=>$title,'value'=>$values]);
+        $pdf->setPaper('a4');
+        $pdf->setOrientation('landscape');
+        $pdf->setOption('enable-javascript', true);
+        $pdf->setOption('javascript-delay', 5000);
+        $pdf->setOption('enable-smart-shrinking', true);
+        $pdf->setOption('no-stop-slow-scripts', true);
+        return $pdf->stream($tabel.time().'.pdf');
 
     }
 
