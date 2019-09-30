@@ -20,7 +20,7 @@
 @else
     <div class="form-group col-sm-6">
         {!! Form::label('id_vendor', 'Vendor:') !!}
-        {!! Form::select('id_vendor', $vendor->id, null, ['class' => 'form-control']) !!}
+        {!! Form::select('id_vendor', $vendor, null, ['class' => 'form-control']) !!}
     </div>
 @endhasrole
 

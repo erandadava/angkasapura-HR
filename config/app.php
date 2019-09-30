@@ -187,7 +187,8 @@ return [
         Spatie\Permission\PermissionServiceProvider::class,
         Orangehill\Iseed\IseedServiceProvider::class,
         Aschmelyun\Larametrics\LarametricsServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
+        // Barryvdh\DomPDF\ServiceProvider::class,
+        Elibyy\TCPDF\ServiceProvider::class,
     ],
 
     /*
@@ -239,7 +240,8 @@ return [
         'Form'      => Collective\Html\FormFacade::class,
         'Html'      => Collective\Html\HtmlFacade::class,
         'Flash'     => Laracasts\Flash\Flash::class,
-        'PDF' => Barryvdh\DomPDF\Facade::class,
+        // 'PDF' => Barryvdh\DomPDF\Facade::class,
+        'PDF' => Elibyy\TCPDF\Facades\TCPDF::class
 
     ],
 

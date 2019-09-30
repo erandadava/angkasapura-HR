@@ -178,7 +178,10 @@ html{
                     title: {
                         display: true,
                         text: 'Jumlah Karyawan Berdasarkan Umur'
-                    }
+                    },
+                    legend: {
+                        display: false
+                    },
                 }
         });
 
@@ -203,7 +206,10 @@ html{
                     title: {
                         display: true,
                         text: 'Jumlah Karyawan Berdasarkan Unit Kerja'
-                    }
+                    },
+                    legend: {
+                        display: false
+                    },
                 }
         });
 

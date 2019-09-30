@@ -6,21 +6,21 @@
         "source": {
             "type": "git",
             "url": "https://github.com/appointer/swaggervel.git",
-            "reference": "5f4313dc3efec228e9561e910afec8245891e605"
+            "reference": "1e1569613da3e74d010b4f6d05876130651bbfc4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/appointer/swaggervel/zipball/5f4313dc3efec228e9561e910afec8245891e605",
-            "reference": "5f4313dc3efec228e9561e910afec8245891e605",
+            "url": "https://api.github.com/repos/appointer/swaggervel/zipball/1e1569613da3e74d010b4f6d05876130651bbfc4",
+            "reference": "1e1569613da3e74d010b4f6d05876130651bbfc4",
             "shasum": ""
         },
         "require": {
-            "illuminate/support": "^5.0",
+            "illuminate/support": "^5.0|^6.0",
             "php": ">=5.6.0",
             "swagger-api/swagger-ui": "^3.1",
             "zircote/swagger-php": "^2.0"
         },
-        "time": "2019-04-25T14:50:14+00:00",
+        "time": "2019-09-09T20:08:27+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -59,17 +59,17 @@
     },
     {
         "name": "aschmelyun/larametrics",
-        "version": "1.1.4",
-        "version_normalized": "1.1.4.0",
+        "version": "1.1.5",
+        "version_normalized": "1.1.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/aschmelyun/larametrics.git",
-            "reference": "5ca373ca4539459508a81fbe7e850f3301b0dc6c"
+            "reference": "2b8e435d4d8d4ab9fa3a73b1b41264a3732cb08c"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/aschmelyun/larametrics/zipball/5ca373ca4539459508a81fbe7e850f3301b0dc6c",
-            "reference": "5ca373ca4539459508a81fbe7e850f3301b0dc6c",
+            "url": "https://api.github.com/repos/aschmelyun/larametrics/zipball/2b8e435d4d8d4ab9fa3a73b1b41264a3732cb08c",
+            "reference": "2b8e435d4d8d4ab9fa3a73b1b41264a3732cb08c",
             "shasum": ""
         },
         "require": {
@@ -78,7 +78,7 @@
         "require-dev": {
             "phpunit/phpunit": "^5"
         },
-        "time": "2019-05-30T05:43:28+00:00",
+        "time": "2019-09-15T22:43:38+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -100,9 +100,9 @@
         "authors": [
             {
                 "name": "Andrew Schmelyun",
-                "role": "Developer",
                 "email": "me@aschmelyun.com",
-                "homepage": "https://aschmelyun.com"
+                "homepage": "https://aschmelyun.com",
+                "role": "Developer"
             }
         ],
         "description": "A self-hosted metrics and notifications platform for Laravel apps"
@@ -827,6 +827,60 @@
         ]
     },
     {
+        "name": "elibyy/tcpdf-laravel",
+        "version": "5.5.6",
+        "version_normalized": "5.5.6.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/elibyy/tcpdf-laravel.git",
+            "reference": "ccbd14a0f6301777e8388d71d5d5b4a9c78d458e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/elibyy/tcpdf-laravel/zipball/ccbd14a0f6301777e8388d71d5d5b4a9c78d458e",
+            "reference": "ccbd14a0f6301777e8388d71d5d5b4a9c78d458e",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "5.5.*",
+            "tecnickcom/tcpdf": "6.2.*"
+        },
+        "time": "2018-09-05T07:46:27+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Elibyy\\TCPDF\\ServiceProvider"
+                ],
+                "aliases": {
+                    "PDF": "Elibyy\\TCPDF\\Facades\\TCPDF"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Elibyy\\TCPDF\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "eli y",
+                "email": "elibyy@gmail.com"
+            }
+        ],
+        "description": "tcpdf support for laravel 5",
+        "keywords": [
+            "TCPDF",
+            "laravel",
+            "pdf"
+        ]
+    },
+    {
         "name": "erusev/parsedown",
         "version": "1.7.3",
         "version_normalized": "1.7.3.0",
@@ -1105,19 +1159,19 @@
         "source": {
             "type": "git",
             "url": "https://github.com/InfyOmLabs/adminlte-templates.git",
-            "reference": "bc81707296f169e6780360effd0834c23dfed464"
+            "reference": "7664ffef6788872dd573c7f2d5848abaebbcb1e9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/InfyOmLabs/adminlte-templates/zipball/bc81707296f169e6780360effd0834c23dfed464",
-            "reference": "bc81707296f169e6780360effd0834c23dfed464",
+            "url": "https://api.github.com/repos/InfyOmLabs/adminlte-templates/zipball/7664ffef6788872dd573c7f2d5848abaebbcb1e9",
+            "reference": "7664ffef6788872dd573c7f2d5848abaebbcb1e9",
             "shasum": ""
         },
         "require": {
             "illuminate/support": "~5.0",
             "php": ">=5.5.9"
         },
-        "time": "2019-05-16T03:24:12+00:00",
+        "time": "2019-09-27T12:49:47+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -1159,12 +1213,12 @@
         "source": {
             "type": "git",
             "url": "https://github.com/InfyOmLabs/laravel-generator.git",
-            "reference": "fe3bbeaf4491d839e40b2c200d52f668242b662c"
+            "reference": "2190e880c10ce2f1d4c50ba8ae8d5ba433ea70bb"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/InfyOmLabs/laravel-generator/zipball/fe3bbeaf4491d839e40b2c200d52f668242b662c",
-            "reference": "fe3bbeaf4491d839e40b2c200d52f668242b662c",
+            "url": "https://api.github.com/repos/InfyOmLabs/laravel-generator/zipball/2190e880c10ce2f1d4c50ba8ae8d5ba433ea70bb",
+            "reference": "2190e880c10ce2f1d4c50ba8ae8d5ba433ea70bb",
             "shasum": ""
         },
         "require": {
@@ -1177,7 +1231,7 @@
             "mockery/mockery": "~0.9",
             "phpunit/phpunit": "~5.0"
         },
-        "time": "2019-08-17T08:04:07+00:00",
+        "time": "2019-09-27T12:54:45+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -1515,28 +1569,28 @@
     },
     {
         "name": "laracasts/flash",
-        "version": "3.0.2",
-        "version_normalized": "3.0.2.0",
+        "version": "3.0.3",
+        "version_normalized": "3.0.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/laracasts/flash.git",
-            "reference": "10cd420ab63fd0796bf5e1e5b99f87636d2f4333"
+            "reference": "77fe3a0f0ebf32c66d9c891782e3fa4b305df249"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/laracasts/flash/zipball/10cd420ab63fd0796bf5e1e5b99f87636d2f4333",
-            "reference": "10cd420ab63fd0796bf5e1e5b99f87636d2f4333",
+            "url": "https://api.github.com/repos/laracasts/flash/zipball/77fe3a0f0ebf32c66d9c891782e3fa4b305df249",
+            "reference": "77fe3a0f0ebf32c66d9c891782e3fa4b305df249",
             "shasum": ""
         },
         "require": {
-            "illuminate/support": "~5.0",
+            "illuminate/support": "~5.0|^6.0",
             "php": ">=5.4.0"
         },
         "require-dev": {
             "mockery/mockery": "dev-master",
             "phpunit/phpunit": "^6.1"
         },
-        "time": "2017-06-22T19:01:19+00:00",
+        "time": "2019-09-03T18:59:42+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -2207,17 +2261,17 @@
     },
     {
         "name": "monolog/monolog",
-        "version": "1.24.0",
-        "version_normalized": "1.24.0.0",
+        "version": "1.25.1",
+        "version_normalized": "1.25.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/Seldaek/monolog.git",
-            "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266"
+            "reference": "70e65a5470a42cfec1a7da00d30edb6e617e8dcf"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
-            "reference": "bfc9ebb28f97e7a24c45bdc3f0ff482e47bb0266",
+            "url": "https://api.github.com/repos/Seldaek/monolog/zipball/70e65a5470a42cfec1a7da00d30edb6e617e8dcf",
+            "reference": "70e65a5470a42cfec1a7da00d30edb6e617e8dcf",
             "shasum": ""
         },
         "require": {
@@ -2253,7 +2307,7 @@
             "ruflin/elastica": "Allow sending log messages to an Elastic Search server",
             "sentry/sentry": "Allow sending log messages to a Sentry server"
         },
-        "time": "2018-11-05T09:00:11+00:00",
+        "time": "2019-09-06T13:49:17+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2446,17 +2500,17 @@
     },
     {
         "name": "nikic/php-parser",
-        "version": "v4.2.3",
-        "version_normalized": "4.2.3.0",
+        "version": "v4.2.4",
+        "version_normalized": "4.2.4.0",
         "source": {
             "type": "git",
             "url": "https://github.com/nikic/PHP-Parser.git",
-            "reference": "e612609022e935f3d0337c1295176505b41188c8"
+            "reference": "97e59c7a16464196a8b9c77c47df68e4a39a45c4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/e612609022e935f3d0337c1295176505b41188c8",
-            "reference": "e612609022e935f3d0337c1295176505b41188c8",
+            "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/97e59c7a16464196a8b9c77c47df68e4a39a45c4",
+            "reference": "97e59c7a16464196a8b9c77c47df68e4a39a45c4",
             "shasum": ""
         },
         "require": {
@@ -2466,7 +2520,7 @@
         "require-dev": {
             "phpunit/phpunit": "^6.5 || ^7.0 || ^8.0"
         },
-        "time": "2019-08-12T20:17:41+00:00",
+        "time": "2019-09-01T07:51:21+00:00",
         "bin": [
             "bin/php-parse"
         ],
@@ -2499,30 +2553,30 @@
     },
     {
         "name": "orangehill/iseed",
-        "version": "v2.6.1",
-        "version_normalized": "2.6.1.0",
+        "version": "v2.6.2",
+        "version_normalized": "2.6.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/orangehill/iseed.git",
-            "reference": "360ba1314e1dc950438bbb8006fc220de47dca00"
+            "reference": "fe8fbf51ab57bcc28282c6b1109e610c4a44fad9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/orangehill/iseed/zipball/360ba1314e1dc950438bbb8006fc220de47dca00",
-            "reference": "360ba1314e1dc950438bbb8006fc220de47dca00",
+            "url": "https://api.github.com/repos/orangehill/iseed/zipball/fe8fbf51ab57bcc28282c6b1109e610c4a44fad9",
+            "reference": "fe8fbf51ab57bcc28282c6b1109e610c4a44fad9",
             "shasum": ""
         },
         "require": {
-            "illuminate/support": "^5.3.8",
-            "php": ">=5.4.0"
+            "illuminate/support": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0",
+            "php": "^7.2"
         },
         "require-dev": {
-            "illuminate/filesystem": "5.x",
-            "laravel/framework": "^5.3.8",
-            "mockery/mockery": "dev-master",
-            "phpunit/phpunit": "^5.7"
+            "illuminate/filesystem": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0",
+            "laravel/framework": "~5.5.0|~5.6.0|~5.7.0|~5.8.0|^6.0",
+            "mockery/mockery": "^1.0.0",
+            "phpunit/phpunit": "^8.0"
         },
-        "time": "2018-12-07T08:06:29+00:00",
+        "time": "2019-09-09T13:18:41+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -2752,31 +2806,31 @@
     },
     {
         "name": "phenx/php-svg-lib",
-        "version": "v0.3.2",
-        "version_normalized": "0.3.2.0",
+        "version": "v0.3.3",
+        "version_normalized": "0.3.3.0",
         "source": {
             "type": "git",
             "url": "https://github.com/PhenX/php-svg-lib.git",
-            "reference": "ccc46ef6340d4b8a4a68047e68d8501ea961442c"
+            "reference": "5fa61b65e612ce1ae15f69b3d223cb14ecc60e32"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/PhenX/php-svg-lib/zipball/ccc46ef6340d4b8a4a68047e68d8501ea961442c",
-            "reference": "ccc46ef6340d4b8a4a68047e68d8501ea961442c",
+            "url": "https://api.github.com/repos/PhenX/php-svg-lib/zipball/5fa61b65e612ce1ae15f69b3d223cb14ecc60e32",
+            "reference": "5fa61b65e612ce1ae15f69b3d223cb14ecc60e32",
             "shasum": ""
         },
         "require": {
-            "sabberworm/php-css-parser": "8.1.*"
+            "sabberworm/php-css-parser": "^8.3"
         },
         "require-dev": {
-            "phpunit/phpunit": "~5.0"
+            "phpunit/phpunit": "^5.5|^6.5"
         },
-        "time": "2018-06-03T10:10:03+00:00",
+        "time": "2019-09-11T20:02:13+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
-            "psr-0": {
-                "Svg\\": "src/"
+            "psr-4": {
+                "Svg\\": "src/Svg"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -2794,38 +2848,36 @@
     },
     {
         "name": "phpdocumentor/reflection-common",
-        "version": "1.0.1",
-        "version_normalized": "1.0.1.0",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/phpDocumentor/ReflectionCommon.git",
-            "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6"
+            "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
-            "reference": "21bdeb5f65d7ebf9f43b1b25d404f87deab5bfb6",
+            "url": "https://api.github.com/repos/phpDocumentor/ReflectionCommon/zipball/63a995caa1ca9e5590304cd845c15ad6d482a62a",
+            "reference": "63a995caa1ca9e5590304cd845c15ad6d482a62a",
             "shasum": ""
         },
         "require": {
-            "php": ">=5.5"
+            "php": ">=7.1"
         },
         "require-dev": {
-            "phpunit/phpunit": "^4.6"
+            "phpunit/phpunit": "~6"
         },
-        "time": "2017-09-11T18:02:19+00:00",
+        "time": "2018-08-07T13:53:10+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.0.x-dev"
+                "dev-master": "2.x-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "phpDocumentor\\Reflection\\": [
-                    "src"
-                ]
+                "phpDocumentor\\Reflection\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -2850,31 +2902,31 @@
     },
     {
         "name": "phpdocumentor/reflection-docblock",
-        "version": "4.3.1",
-        "version_normalized": "4.3.1.0",
+        "version": "4.3.2",
+        "version_normalized": "4.3.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/phpDocumentor/ReflectionDocBlock.git",
-            "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c"
+            "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
-            "reference": "bdd9f737ebc2a01c06ea7ff4308ec6697db9b53c",
+            "url": "https://api.github.com/repos/phpDocumentor/ReflectionDocBlock/zipball/b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
+            "reference": "b83ff7cfcfee7827e1e78b637a5904fe6a96698e",
             "shasum": ""
         },
         "require": {
             "php": "^7.0",
-            "phpdocumentor/reflection-common": "^1.0.0",
-            "phpdocumentor/type-resolver": "^0.4.0",
+            "phpdocumentor/reflection-common": "^1.0.0 || ^2.0.0",
+            "phpdocumentor/type-resolver": "~0.4 || ^1.0.0",
             "webmozart/assert": "^1.0"
         },
         "require-dev": {
-            "doctrine/instantiator": "~1.0.5",
+            "doctrine/instantiator": "^1.0.5",
             "mockery/mockery": "^1.0",
             "phpunit/phpunit": "^6.4"
         },
-        "time": "2019-04-30T17:48:53+00:00",
+        "time": "2019-09-12T14:27:41+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -2903,40 +2955,39 @@
     },
     {
         "name": "phpdocumentor/type-resolver",
-        "version": "0.4.0",
-        "version_normalized": "0.4.0.0",
+        "version": "1.0.1",
+        "version_normalized": "1.0.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/phpDocumentor/TypeResolver.git",
-            "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7"
+            "reference": "2e32a6d48972b2c1976ed5d8967145b6cec4a4a9"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/9c977708995954784726e25d0cd1dddf4e65b0f7",
-            "reference": "9c977708995954784726e25d0cd1dddf4e65b0f7",
+            "url": "https://api.github.com/repos/phpDocumentor/TypeResolver/zipball/2e32a6d48972b2c1976ed5d8967145b6cec4a4a9",
+            "reference": "2e32a6d48972b2c1976ed5d8967145b6cec4a4a9",
             "shasum": ""
         },
         "require": {
-            "php": "^5.5 || ^7.0",
-            "phpdocumentor/reflection-common": "^1.0"
+            "php": "^7.1",
+            "phpdocumentor/reflection-common": "^2.0"
         },
         "require-dev": {
-            "mockery/mockery": "^0.9.4",
-            "phpunit/phpunit": "^5.2||^4.8.24"
+            "ext-tokenizer": "^7.1",
+            "mockery/mockery": "~1",
+            "phpunit/phpunit": "^7.0"
         },
-        "time": "2017-07-14T14:27:02+00:00",
+        "time": "2019-08-22T18:11:29+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.0.x-dev"
+                "dev-master": "1.x-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
             "psr-4": {
-                "phpDocumentor\\Reflection\\": [
-                    "src/"
-                ]
+                "phpDocumentor\\Reflection\\": "src"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -2948,7 +2999,8 @@
                 "name": "Mike van Riel",
                 "email": "me@mikevanriel.com"
             }
-        ]
+        ],
+        "description": "A PSR-5 based resolver of Class names, Types and Structural Element Names"
     },
     {
         "name": "phpoffice/phpexcel",
@@ -3489,35 +3541,35 @@
     },
     {
         "name": "prettus/l5-repository",
-        "version": "2.6.32",
-        "version_normalized": "2.6.32.0",
+        "version": "2.6.36",
+        "version_normalized": "2.6.36.0",
         "source": {
             "type": "git",
             "url": "https://github.com/andersao/l5-repository.git",
-            "reference": "f6ebfffee80a38e1d2dcf479e70b1a9ead397c24"
+            "reference": "c4f56cffbd23d61e16d2a8a9df0c651037313b54"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/andersao/l5-repository/zipball/f6ebfffee80a38e1d2dcf479e70b1a9ead397c24",
-            "reference": "f6ebfffee80a38e1d2dcf479e70b1a9ead397c24",
+            "url": "https://api.github.com/repos/andersao/l5-repository/zipball/c4f56cffbd23d61e16d2a8a9df0c651037313b54",
+            "reference": "c4f56cffbd23d61e16d2a8a9df0c651037313b54",
             "shasum": ""
         },
         "require": {
-            "illuminate/config": "~5.0",
-            "illuminate/console": "~5.0",
-            "illuminate/database": "~5.0",
-            "illuminate/filesystem": "~5.0",
-            "illuminate/http": "~5.0",
-            "illuminate/pagination": "~5.0",
-            "illuminate/support": "~5.0",
-            "prettus/laravel-validation": "1.1.*"
+            "illuminate/config": "~5.0|~6.0",
+            "illuminate/console": "~5.0|~6.0",
+            "illuminate/database": "~5.0|~6.0",
+            "illuminate/filesystem": "~5.0|~6.0",
+            "illuminate/http": "~5.0|~6.0",
+            "illuminate/pagination": "~5.0|~6.0",
+            "illuminate/support": "~5.0|~6.0",
+            "prettus/laravel-validation": "~1.1|~1.2"
         },
         "suggest": {
             "league/fractal": "Required to use the Fractal Presenter (0.12.*).",
             "prettus/laravel-validation": "Required to provide easy validation with the repository (1.1.*)",
             "robclancy/presenter": "Required to use the Presenter Model (1.3.*)"
         },
-        "time": "2018-01-27T15:53:20+00:00",
+        "time": "2019-09-11T14:09:40+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -3539,11 +3591,13 @@
         "authors": [
             {
                 "name": "Anderson Andrade",
-                "role": "Developer",
-                "email": "contato@andersonandra.de"
+                "email": "contato@andersonandra.de",
+                "homepage": "http://andersonandra.de",
+                "role": "Developer"
             }
         ],
         "description": "Laravel 5 - Repositories to  the database layer",
+        "homepage": "http://andersao.github.io/l5-repository",
         "keywords": [
             "cache",
             "eloquent",
@@ -3554,25 +3608,25 @@
     },
     {
         "name": "prettus/laravel-validation",
-        "version": "1.1.5",
-        "version_normalized": "1.1.5.0",
+        "version": "1.2.0",
+        "version_normalized": "1.2.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/andersao/laravel-validator.git",
-            "reference": "d9eb401fb3518a890b117e83bd25a4109fcdb704"
+            "reference": "5ffa053baae31d11fa34da013b940d85c99ba253"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/andersao/laravel-validator/zipball/d9eb401fb3518a890b117e83bd25a4109fcdb704",
-            "reference": "d9eb401fb3518a890b117e83bd25a4109fcdb704",
+            "url": "https://api.github.com/repos/andersao/laravel-validator/zipball/5ffa053baae31d11fa34da013b940d85c99ba253",
+            "reference": "5ffa053baae31d11fa34da013b940d85c99ba253",
             "shasum": ""
         },
         "require": {
-            "illuminate/support": "~5.4",
-            "illuminate/validation": "~5.4",
+            "illuminate/support": "~5.4|^6.0",
+            "illuminate/validation": "~5.4|^6.0",
             "php": ">=5.4.0"
         },
-        "time": "2017-08-28T23:28:32+00:00",
+        "time": "2019-09-11T12:19:42+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -3584,10 +3638,13 @@
         "authors": [
             {
                 "name": "Anderson Andrade",
-                "email": "contato@andersonandra.de"
+                "email": "contato@andersonandra.de",
+                "homepage": "http://andersonandra.de",
+                "role": "Developer"
             }
         ],
         "description": "Laravel Validation Service",
+        "homepage": "http://andersao.github.io/laravel-validation",
         "keywords": [
             "laravel",
             "service",
@@ -3906,26 +3963,27 @@
     },
     {
         "name": "sabberworm/php-css-parser",
-        "version": "8.1.0",
-        "version_normalized": "8.1.0.0",
+        "version": "8.3.0",
+        "version_normalized": "8.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/sabberworm/PHP-CSS-Parser.git",
-            "reference": "850cbbcbe7fbb155387a151ea562897a67e242ef"
+            "reference": "91bcc3e3fdb7386c9a2e0e0aa09ca75cc43f121f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/850cbbcbe7fbb155387a151ea562897a67e242ef",
-            "reference": "850cbbcbe7fbb155387a151ea562897a67e242ef",
+            "url": "https://api.github.com/repos/sabberworm/PHP-CSS-Parser/zipball/91bcc3e3fdb7386c9a2e0e0aa09ca75cc43f121f",
+            "reference": "91bcc3e3fdb7386c9a2e0e0aa09ca75cc43f121f",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.2"
         },
         "require-dev": {
-            "phpunit/phpunit": "*"
+            "codacy/coverage": "^1.4",
+            "phpunit/phpunit": "~4.8"
         },
-        "time": "2016-07-19T19:14:21+00:00",
+        "time": "2019-02-22T07:42:52+00:00",
         "type": "library",
         "installation-source": "dist",
         "autoload": {
@@ -4171,17 +4229,17 @@
     },
     {
         "name": "sebastian/exporter",
-        "version": "3.1.1",
-        "version_normalized": "3.1.1.0",
+        "version": "3.1.2",
+        "version_normalized": "3.1.2.0",
         "source": {
             "type": "git",
             "url": "https://github.com/sebastianbergmann/exporter.git",
-            "reference": "06a9a5947f47b3029d76118eb5c22802e5869687"
+            "reference": "68609e1261d215ea5b21b7987539cbfbe156ec3e"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/06a9a5947f47b3029d76118eb5c22802e5869687",
-            "reference": "06a9a5947f47b3029d76118eb5c22802e5869687",
+            "url": "https://api.github.com/repos/sebastianbergmann/exporter/zipball/68609e1261d215ea5b21b7987539cbfbe156ec3e",
+            "reference": "68609e1261d215ea5b21b7987539cbfbe156ec3e",
             "shasum": ""
         },
         "require": {
@@ -4192,7 +4250,7 @@
             "ext-mbstring": "*",
             "phpunit/phpunit": "^6.0"
         },
-        "time": "2019-08-11T12:43:14+00:00",
+        "time": "2019-09-14T09:02:43+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -4533,17 +4591,17 @@
     },
     {
         "name": "spatie/laravel-permission",
-        "version": "2.37.0",
-        "version_normalized": "2.37.0.0",
+        "version": "2.38.0",
+        "version_normalized": "2.38.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/spatie/laravel-permission.git",
-            "reference": "81dbe9d372d70c255b66a2727a235076509f8d45"
+            "reference": "674ad54a0ba95d8ad26990aa250b5c9d9b165e15"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/81dbe9d372d70c255b66a2727a235076509f8d45",
-            "reference": "81dbe9d372d70c255b66a2727a235076509f8d45",
+            "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/674ad54a0ba95d8ad26990aa250b5c9d9b165e15",
+            "reference": "674ad54a0ba95d8ad26990aa250b5c9d9b165e15",
             "shasum": ""
         },
         "require": {
@@ -4558,7 +4616,7 @@
             "phpunit/phpunit": "^5.7|6.2|^7.0",
             "predis/predis": "^1.1"
         },
-        "time": "2019-04-09T12:45:17+00:00",
+        "time": "2019-09-02T17:12:21+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -4583,37 +4641,40 @@
         "authors": [
             {
                 "name": "Freek Van der Herten",
-                "role": "Developer",
                 "email": "freek@spatie.be",
-                "homepage": "https://spatie.be"
+                "homepage": "https://spatie.be",
+                "role": "Developer"
             }
         ],
-        "description": "Permission handling for Laravel 5.4 and up",
+        "description": "Permission handling for Laravel 5.4 to 5.8",
         "homepage": "https://github.com/spatie/laravel-permission",
         "keywords": [
             "acl",
             "laravel",
             "permission",
+            "permissions",
+            "rbac",
+            "roles",
             "security",
             "spatie"
         ]
     },
     {
         "name": "swagger-api/swagger-ui",
-        "version": "v3.23.6",
-        "version_normalized": "3.23.6.0",
+        "version": "v3.23.11",
+        "version_normalized": "3.23.11.0",
         "source": {
             "type": "git",
             "url": "https://github.com/swagger-api/swagger-ui.git",
-            "reference": "5e454feb332edeac712f69c7ecb5937512acc2fc"
+            "reference": "77f4651cbf5b3767f0d79c91fd337de82b6ddee6"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/5e454feb332edeac712f69c7ecb5937512acc2fc",
-            "reference": "5e454feb332edeac712f69c7ecb5937512acc2fc",
+            "url": "https://api.github.com/repos/swagger-api/swagger-ui/zipball/77f4651cbf5b3767f0d79c91fd337de82b6ddee6",
+            "reference": "77f4651cbf5b3767f0d79c91fd337de82b6ddee6",
             "shasum": ""
         },
-        "time": "2019-08-24T02:30:24+00:00",
+        "time": "2019-09-20T20:34:23+00:00",
         "type": "library",
         "installation-source": "dist",
         "notification-url": "https://packagist.org/downloads/",
@@ -6094,6 +6155,70 @@
         "keywords": [
             "debug",
             "dump"
+        ]
+    },
+    {
+        "name": "tecnickcom/tcpdf",
+        "version": "6.2.26",
+        "version_normalized": "6.2.26.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/tecnickcom/TCPDF.git",
+            "reference": "367241059ca166e3a76490f4448c284e0a161f15"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/tecnickcom/TCPDF/zipball/367241059ca166e3a76490f4448c284e0a161f15",
+            "reference": "367241059ca166e3a76490f4448c284e0a161f15",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2018-10-16T17:24:05+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "config",
+                "include",
+                "tcpdf.php",
+                "tcpdf_parser.php",
+                "tcpdf_import.php",
+                "tcpdf_barcodes_1d.php",
+                "tcpdf_barcodes_2d.php",
+                "include/tcpdf_colors.php",
+                "include/tcpdf_filters.php",
+                "include/tcpdf_font_data.php",
+                "include/tcpdf_fonts.php",
+                "include/tcpdf_images.php",
+                "include/tcpdf_static.php",
+                "include/barcodes/datamatrix.php",
+                "include/barcodes/pdf417.php",
+                "include/barcodes/qrcode.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL-3.0"
+        ],
+        "authors": [
+            {
+                "name": "Nicola Asuni",
+                "email": "info@tecnick.com",
+                "role": "lead"
+            }
+        ],
+        "description": "TCPDF is a PHP class for generating PDF documents and barcodes.",
+        "homepage": "http://www.tcpdf.org/",
+        "keywords": [
+            "PDFD32000-2008",
+            "TCPDF",
+            "barcodes",
+            "datamatrix",
+            "pdf",
+            "pdf417",
+            "qrcode"
         ]
     },
     {
