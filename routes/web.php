@@ -36,6 +36,8 @@ Route::group(['middleware' => ['role:Admin|Super Admin|Vendor|management']], fun
     Route::get('/home', 'HomeController@index');
 
     Route::resource('karyawanOs', 'karyawan_osController');
+
+    Route::post('updatestatus/{id}', 'karyawan_osController@updatestatus');
     
     Route::get('/exportpdf/{table}', 'pdfController@make_pdf');
 

@@ -245,8 +245,10 @@ class karyawan_osController extends AppBaseController
 
         
         $karyawanOs = $this->karyawanOsRepository->update($input, $id);
-        if($input['is_active'] == 'R' || $input['is_active'] == 'A'){
-            $this->notifikasiController->create_notifikasi("KARYAWAN_OS", $karyawanOs->is_active,$karyawanOs->id,$karyawanOs->id_vendor);
+        if (isset($input['is_active'])) {
+            if($input['is_active'] == 'R' || $input['is_active'] == 'A'){
+                $this->notifikasiController->create_notifikasi("KARYAWAN_OS", $karyawanOs->is_active,$karyawanOs->id,$karyawanOs->id_vendor);
+            }
         }
 
         Flash::success('Karyawan Os updated successfully.');
@@ -380,6 +382,29 @@ class karyawan_osController extends AppBaseController
         } catch (\Throwable $th) {
             Flash::error('Terjadi Kesalahan ! </br> Pastikan File CSV Anda Sudah Benar </br> <small>Tips Jika File Sudah Benar: Pastikan Pada Header CSV Tidak Ada Yang Kosong</small>');
         }
+        return redirect(route('karyawanOs.index'));
+    }
+
+
+    public function updatestatus($id, Request $request)
+    {
+        $karyawanOs = $this->karyawanOsRepository->findWithoutFail($id);
+
+        if (empty($karyawanOs)) {
+            Flash::error('Karyawan Os not found');
+
+            return redirect(route('karyawanOs.index'));
+        }
+        $input = $request->all();
+        $karyawanOs = $this->karyawanOsRepository->update($input, $id);
+        if (isset($input['is_active'])) {
+            if($input['is_active'] == 'R' || $input['is_active'] == 'A'){
+                $this->notifikasiController->create_notifikasi("KARYAWAN_OS", $karyawanOs->is_active,$karyawanOs->id,$karyawanOs->id_vendor);
+            }
+        }
+
+        Flash::success('Karyawan Os updated successfully.');
+
         return redirect(route('karyawanOs.index'));
     }
 }

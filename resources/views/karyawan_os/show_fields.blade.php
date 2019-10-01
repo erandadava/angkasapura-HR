@@ -401,12 +401,13 @@
         </div>
     </div>
 </div>
-@hasrole('Admin')
+
+@hasrole('Admin|Super Admin')
 @if ($karyawanOs->is_active == null || $karyawanOs->is_active=="")
         
         <div class="form-group col-md-2 col-sm-12">
         
-            {!! Form::open(['route' => ['karyawanOs.update', $karyawanOs->id], 'method' => 'patch']) !!}
+            {!! Form::open(['url' => 'updatestatus/'.$karyawanOs->id, 'method' => 'post']) !!}
                 {!! Form::hidden('is_active', 'A', ['class' => 'form-control'])!!}
                 <button class='btn btn-success btn-md' type="submit" onclick="return confirm('Yakin?')">
                 <i class="glyphicon glyphicon-ok"></i> Terima
@@ -436,7 +437,7 @@
             </div>
             <div class="modal-body">
               <div class="row">
-              {!! Form::open(['route' => ['karyawanOs.update', $karyawanOs->id], 'method' => 'patch']) !!}
+                {!! Form::open(['url' => 'updatestatus/'.$karyawanOs->id, 'method' => 'post']) !!}
                   {!! Form::hidden('is_active', 'R', ['class' => 'form-control'])!!}
                   <div class="form-group col-sm-12 col-lg-12">
                       {!! Form::label('reason_desc', 'Deskripsi Alasan:') !!}
