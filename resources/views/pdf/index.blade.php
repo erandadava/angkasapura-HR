@@ -72,9 +72,13 @@ table.paleBlueRows tfoot td {
 .logo{
     right: 0;
     float: right;
+    position: absolute;
 }
 .logo img{
-    width : 300px;
+    width : 250px;
+}
+.row-title{
+    padding-top: 5px;
 }
 </style>
 <head>
@@ -90,7 +94,7 @@ table.paleBlueRows tfoot td {
             </div>
         <div class="container">
     <div class="row">
-        <div class='col-sm-12'>
+        <div class='col-sm-12 row-title'>
             <h1 style="font-size:24pt">{{$title}}</h1>
             <small style="font-size:14pt">{!! \Carbon\Carbon::parse(\Carbon\Carbon::now())->formatLocalized('%d %B %Y'); !!}</small>
         </div>

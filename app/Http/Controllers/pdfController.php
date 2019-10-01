@@ -383,6 +383,7 @@ class pdfController extends Controller
                 $pdf->setPaper('a4');
                 $pdf->setOrientation('landscape');
                 $pdf->setOption('disable-javascript', true);
+                return $pdf->stream($tabel.time().'.pdf');
             break; 
             case 'mpp':
                 $get = \App\Models\karyawan::with(['jabatan','unit','fungsi','unitkerja','klsjabatan'])->whereIn('id',$arr_export)->get();
