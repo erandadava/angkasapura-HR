@@ -112,21 +112,21 @@
         },
         {
             "name": "barryvdh/laravel-snappy",
-            "version": "v0.4.5",
+            "version": "v0.4.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/barryvdh/laravel-snappy.git",
-                "reference": "9be767fc7a082665a84945f36c70b0cbead91ce9"
+                "reference": "94d53c88fa58baa4573c5854663ebc9955f21265"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/barryvdh/laravel-snappy/zipball/9be767fc7a082665a84945f36c70b0cbead91ce9",
-                "reference": "9be767fc7a082665a84945f36c70b0cbead91ce9",
+                "url": "https://api.github.com/repos/barryvdh/laravel-snappy/zipball/94d53c88fa58baa4573c5854663ebc9955f21265",
+                "reference": "94d53c88fa58baa4573c5854663ebc9955f21265",
                 "shasum": ""
             },
             "require": {
-                "illuminate/filesystem": "5.5.x|5.6.x|5.7.x|5.8.x|6.0.*",
-                "illuminate/support": "5.5.x|5.6.x|5.7.x|5.8.x|6.0.*",
+                "illuminate/filesystem": "5.5.x|5.6.x|5.7.x|5.8.x|6.*",
+                "illuminate/support": "5.5.x|5.6.x|5.7.x|5.8.x|6.*",
                 "knplabs/knp-snappy": "^1",
                 "php": ">=7"
             },
@@ -169,7 +169,7 @@
                 "wkhtmltoimage",
                 "wkhtmltopdf"
             ],
-            "time": "2019-08-30T16:12:23+00:00"
+            "time": "2019-10-02T23:27:09+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -206,16 +206,16 @@
         },
         {
             "name": "doctrine/annotations",
-            "version": "v1.7.0",
+            "version": "v1.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/annotations.git",
-                "reference": "fa4c4e861e809d6a1103bd620cce63ed91aedfeb"
+                "reference": "904dca4eb10715b92569fbcd79e201d5c349b6bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/annotations/zipball/fa4c4e861e809d6a1103bd620cce63ed91aedfeb",
-                "reference": "fa4c4e861e809d6a1103bd620cce63ed91aedfeb",
+                "url": "https://api.github.com/repos/doctrine/annotations/zipball/904dca4eb10715b92569fbcd79e201d5c349b6bc",
+                "reference": "904dca4eb10715b92569fbcd79e201d5c349b6bc",
                 "shasum": ""
             },
             "require": {
@@ -224,7 +224,7 @@
             },
             "require-dev": {
                 "doctrine/cache": "1.*",
-                "phpunit/phpunit": "^7.5@dev"
+                "phpunit/phpunit": "^7.5"
             },
             "type": "library",
             "extra": {
@@ -270,7 +270,7 @@
                 "docblock",
                 "parser"
             ],
-            "time": "2019-08-08T18:11:40+00:00"
+            "time": "2019-10-01T18:55:10+00:00"
         },
         {
             "name": "doctrine/cache",
@@ -936,12 +936,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/InfyOmLabs/laravel-generator.git",
-                "reference": "2190e880c10ce2f1d4c50ba8ae8d5ba433ea70bb"
+                "reference": "24386941a27a6d32fb30b5380d620479b53221a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/InfyOmLabs/laravel-generator/zipball/2190e880c10ce2f1d4c50ba8ae8d5ba433ea70bb",
-                "reference": "2190e880c10ce2f1d4c50ba8ae8d5ba433ea70bb",
+                "url": "https://api.github.com/repos/InfyOmLabs/laravel-generator/zipball/24386941a27a6d32fb30b5380d620479b53221a3",
+                "reference": "24386941a27a6d32fb30b5380d620479b53221a3",
                 "shasum": ""
             },
             "require": {
@@ -994,7 +994,7 @@
                 "test",
                 "view"
             ],
-            "time": "2019-09-27T12:54:45+00:00"
+            "time": "2019-09-30T11:10:56+00:00"
         },
         {
             "name": "infyomlabs/swagger-generator",
@@ -1122,7 +1122,7 @@
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
-            "name": "jeremeamia/SuperClosure",
+            "name": "jeremeamia/superclosure",
             "version": "2.4.0",
             "source": {
                 "type": "git",
@@ -1709,9 +1709,9 @@
             "authors": [
                 {
                     "name": "Ignace Nyamagana Butera",
-                    "role": "Developer",
                     "email": "nyamsprod@gmail.com",
-                    "homepage": "https://github.com/nyamsprod/"
+                    "homepage": "https://github.com/nyamsprod/",
+                    "role": "Developer"
                 }
             ],
             "description": "Csv data manipulation made easy in PHP",
@@ -4846,8 +4846,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "role": "Developer",
-                    "homepage": "https://github.com/filp"
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
                 }
             ],
             "description": "php error handling for cool kids",
@@ -4962,16 +4962,16 @@
         },
         {
             "name": "mockery/mockery",
-            "version": "1.2.3",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mockery/mockery.git",
-                "reference": "4eff936d83eb809bde2c57a3cea0ee9643769031"
+                "reference": "b3453f75fd23d9fd41685f2148f4abeacabc6405"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mockery/mockery/zipball/4eff936d83eb809bde2c57a3cea0ee9643769031",
-                "reference": "4eff936d83eb809bde2c57a3cea0ee9643769031",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/b3453f75fd23d9fd41685f2148f4abeacabc6405",
+                "reference": "b3453f75fd23d9fd41685f2148f4abeacabc6405",
                 "shasum": ""
             },
             "require": {
@@ -4985,7 +4985,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.2.x-dev"
                 }
             },
             "autoload": {
@@ -5023,7 +5023,7 @@
                 "test double",
                 "testing"
             ],
-            "time": "2019-08-07T15:01:07+00:00"
+            "time": "2019-09-30T08:30:27+00:00"
         },
         {
             "name": "myclabs/deep-copy",
@@ -5327,22 +5327,22 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "1.8.1",
+            "version": "1.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76"
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
-                "reference": "1927e75f4ed19131ec9bcc3b002e07fb1173ee76",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/f6811d96d97bdf400077a0cc100ae56aa32b9203",
+                "reference": "f6811d96d97bdf400077a0cc100ae56aa32b9203",
                 "shasum": ""
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
                 "php": "^5.3|^7.0",
-                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0",
+                "phpdocumentor/reflection-docblock": "^2.0|^3.0.2|^4.0|^5.0",
                 "sebastian/comparator": "^1.1|^2.0|^3.0",
                 "sebastian/recursion-context": "^1.0|^2.0|^3.0"
             },
@@ -5386,7 +5386,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2019-06-13T12:50:23+00:00"
+            "time": "2019-10-03T11:07:50+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
