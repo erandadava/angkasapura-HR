@@ -53,6 +53,7 @@ class formasiExistingDataTable extends DataTable
             if((int) $inquiry->jml_formasi>0){
                 return round((((int) $inquiry->karyawan_count+(int) $inquiry->log_karyawan_count??0) / (int) $inquiry->jml_formasi)*100)."%";
             }
+            // return $inquiry->jml_formasi  $inquiry->log_karyawan_count??0;
             return "0%";
             
         })
@@ -344,7 +345,7 @@ class formasiExistingDataTable extends DataTable
                     var length_kekuatan = this.api().column( 6, { page: 'current'} ).data().length;
                     this.api().columns(6).every(function () {
                         var column = this;
-                        $(column.footer()).html(Math.round(parseInt(totalKekuatan)/length_kekuatan)+'%');
+                        $(column.footer()).html(((LaravelDataTables['dataTableBuilder'].ajax.json().sum_eksis/LaravelDataTables['dataTableBuilder'].ajax.json().sum_formasi)*100).toFixed(2)+'%');
                         
                     });
 

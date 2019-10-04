@@ -364,7 +364,7 @@ class pdfController extends Controller
                 }
                 
                 if(count($get) != 0 ){
-                    $total_hasil_kekuatan = round($hasil_kekuatan/count($get));
+                    $total_hasil_kekuatan = round($sum_eksis/$get->sum('jml_formasi')*100, 2);
                 }else{
                     $total_hasil_kekuatan = 0;
                 }
