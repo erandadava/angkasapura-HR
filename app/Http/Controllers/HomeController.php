@@ -69,7 +69,7 @@ class HomeController extends Controller
                 $this->data['umur_lebihdari55'] = karyawan_os::where([['id_vendor','=',$id_vendor->id],['is_active','=','A']])->whereBetween('tgl_lahir', [Carbon::today()->subYears(200), Carbon::today()->subYears(55)->endOfDay()])->count();
 
                 //if range tanggal not null and fungsi null
-                if($request->dari != null && $request->value_unit == null){
+                if($request->sampai != null && $request->value_unit == null){
                     $dari = $request->dari;
                     $sampai = $request->sampai;
                     $this->data['dari'] = $request->dari;
@@ -94,7 +94,7 @@ class HomeController extends Controller
                     return view('home_vendor')->with($this->data);
 
                 //if range tanggal and fungsi not null
-                }elseif($request->dari != null && $request->value_unit != null){
+                }elseif($request->sampai != null && $request->value_unit != null){
                     $dari = $request->dari;
                     $sampai = $request->sampai;
                     $value_unit = $request->value_unit;
@@ -169,16 +169,16 @@ class HomeController extends Controller
                 // $this->data['umur_lebihdari55'] = karyawan_os::whereBetween('tgl_lahir', [Carbon::today()->subYears(200), Carbon::today()->subYears(55)->endOfDay()])->count();
 
                 //if range tanggal not null and fungsi null
-                if($request->dari != null && $request->value_unit == null){
-                    $dari = $request->dari;
-                    $sampai = $request->sampai;
+                if($request->sampai != null && $request->value_unit == null){
+                    $dari = new Carbon('0000-00-00');
+                    $sampai = new Carbon($request->sampai);
+                    $sampai->endOfMonth();
                     $this->data['dari'] = $request->dari;
                     $this->data['sampai'] = $request->sampai;
-                    if($request->dari == null || $request->sampai == null){
-                        Flash::error('Mulai dari dan Sampai dari tidak boleh kosong');
-                        return view('home_vendor')->with($this->data);
-                    }
-
+                    // if($request->dari == null || $request->sampai == null){
+                    //     Flash::error('Mulai dari dan Sampai dari tidak boleh kosong');
+                    //     return view('home_vendor')->with($this->data);
+                    // }
                     $this->data['jk_laki'] = karyawan_os::select('gender')->whereBetween('created_at', [$dari, $sampai])->where([['gender','=','Laki-laki'],['is_active','=','A']])->count();
                     $this->data['jk_perempuan'] = karyawan_os::select('gender')->whereBetween('created_at', [$dari, $sampai])->where([['gender','!=','Laki-laki'],['is_active','=','A']])->count();
                     $this->data['unit_kerja'] = fungsi_os::whereHas('karyawan_os', function($query) use ($dari, $sampai) {
@@ -199,17 +199,18 @@ class HomeController extends Controller
                     return view('home_vendor_admin')->with($this->data);
 
                 //if range tanggal and fungsi not null
-                }elseif($request->dari != null && $request->value_unit != null){
-                    $dari = $request->dari;
-                    $sampai = $request->sampai;
+                }elseif($request->sampai != null && $request->value_unit != null){
+                    $dari = new Carbon('0000-00-00');
+                    $sampai = new Carbon($request->sampai);
+                    $sampai->endOfMonth();
                     $value_unit = $request->value_unit;
                     $this->data['value_unit'] = $request->value_unit;
                     $this->data['dari'] = $request->dari;
                     $this->data['sampai'] = $request->sampai;
-                    if($request->dari == null || $request->sampai == null){
-                        Flash::error('Mulai dari dan Sampai dari tidak boleh kosong');
-                        return view('home_vendor_admin')->with($this->data);
-                    }
+                    // if($request->dari == null || $request->sampai == null){
+                    //     Flash::error('Mulai dari dan Sampai dari tidak boleh kosong');
+                    //     return view('home_vendor_admin')->with($this->data);
+                    // }
                     $this->data['jk_laki'] = karyawan_os::select('gender')->whereBetween('created_at', [$dari, $sampai])->where([['gender','=','Laki-laki'],['id_vendor','=',$value_unit],['is_active','=','A']])->count();
                     $this->data['jk_perempuan'] = karyawan_os::select('gender')->whereBetween('created_at', [$dari, $sampai])->where([['gender','!=','Laki-laki'],['id_vendor','=',$value_unit],['is_active','=','A']])->count();
                     $this->data['unit_kerja'] = fungsi_os::whereHas('karyawan_os', function($query) use ($dari, $sampai, $value_unit) {
@@ -315,17 +316,17 @@ class HomeController extends Controller
             
 
             //if range tanggal not null and fungsi null
-            if($request->dari != null && $request->value_unit == null){
-                $dari = new Carbon($request->dari);
+            if($request->sampai != null && $request->value_unit == null){
+                $dari = new Carbon('0000-00-00');
                 $sampai = new Carbon($request->sampai);
                 $sampai = $sampai->endOfMonth();
 
                 $this->data['dari'] = $request->dari;
                 $this->data['sampai'] = $request->sampai;
-                if($request->dari == null || $request->sampai == null){
-                    Flash::error('Mulai dari dan Sampai dari tidak boleh kosong');
-                    return view('home')->with($this->data);
-                }
+                // if($request->dari == null || $request->sampai == null){
+                //     Flash::error('Mulai dari dan Sampai dari tidak boleh kosong');
+                //     return view('home')->with($this->data);
+                // }
 
                 $this->data['jk_laki_entry_date'] = karyawan::select('gender')->doesnthave('log_karyawan')->whereBetween('entry_date', [$dari, $sampai])->where('gender','=','Male')->count();
                 $this->data['jk_laki_update_date'] = karyawan::select('gender')->whereHas('log_karyawan' , function($query) use ($dari, $sampai){
@@ -408,8 +409,8 @@ class HomeController extends Controller
             return view('home')->with($this->data);
 
             //if range tanggal and fungsi not null
-            }elseif($request->dari != null && $request->value_unit != null){
-                $dari = new Carbon($request->dari);
+            }elseif($request->sampai != null && $request->value_unit != null){
+                $dari = new Carbon('0000-00-00');
                 $sampai = new Carbon($request->sampai);
                 $sampai = $sampai->endOfMonth();
                 $value_unit = $request->value_unit;
@@ -417,10 +418,10 @@ class HomeController extends Controller
                 $this->data['value_unit'] = $request->value_unit;
                 $this->data['dari'] = $request->dari;
                 $this->data['sampai'] = $request->sampai;
-                if($request->dari == null || $request->sampai == null){
-                    Flash::error('Mulai dari dan Sampai dari tidak boleh kosong');
-                    return view('home')->with($this->data);
-                }
+                // if($request->dari == null || $request->sampai == null){
+                //     Flash::error('Mulai dari dan Sampai dari tidak boleh kosong');
+                //     return view('home')->with($this->data);
+                // }
 
                 $this->data['jk_laki_entry_date'] = karyawan::select('gender')->doesnthave('log_karyawan')->whereBetween('entry_date', [$dari, $sampai])->where([['gender','=','Male'],['id_unitkerja','=',$value_unit]])->count();
                 $this->data['jk_laki_update_date'] = karyawan::select('gender')->whereHas('log_karyawan' , function($query) use ($dari, $sampai){
