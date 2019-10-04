@@ -31,17 +31,13 @@ html{
 
                             <div class="info-box-content">
                                 {!! Form::open(['url' => '/home', 'method' => 'GET', 'autocomplete' => 'off']) !!}
-                                        <div class="form-group col-sm-4">
+                                        <div class="form-group col-sm-6">
                                             <label for="exampleInputEmail1">Vendor</label>
                                             <input type="hidden" name="kar_os" value="1">
                                             {!! Form::select('value_unit',$data_vendor_os, null, ['class' => 'form-control', 'placeholder' => '', 'autocomplete' => 'off','id'=>'unit_kerja']) !!}
                                         </div>
-                                        <div class="form-group col-sm-4">
-                                            <label for="exampleInputEmail1">Mulai Dari</label>
-                                            <input type="text" name="dari" id='tgl-range' class="form-control" value='{{$dari??''}}' autocomplete='off'>
-                                        </div>
-                                        <div class="form-group col-sm-4">
-                                            <label for="exampleInputEmail1">Sampai Dari</label>
+                                        <div class="form-group col-sm-6">
+                                            <label for="exampleInputEmail1">Periode</label>
                                             <div class="input-group">
                                                 <input type="text" name="sampai" id='tgl-range2' class="form-control" value='{{$sampai??''}}' autocomplete='off'>
                                                     <span class="input-group-btn">
@@ -269,12 +265,14 @@ html{
         });
 
         $('#tgl-range').datetimepicker({
-            format: 'Y-MM-DD',
-            useCurrent: false
+            format: 'Y-MM',
+            useCurrent: false,
+            viewMode: 'years'
         });
         $('#tgl-range2').datetimepicker({
-            format: 'Y-MM-DD',
-            useCurrent: false
+            format: 'Y-MM',
+            useCurrent: false,
+            viewMode: 'years'
         });
 
         // $("#downloadPdf").click(function(){
@@ -346,10 +344,10 @@ html{
             pdf.addImage($(pdfCanvas)[0].toDataURL(), 'JPEG', 20, 70);
             pdf.text(20, 30, 'Grafik Dashboard HR - Karyawan OS');
             pdf.text(20, 40, 'Vendor : '+unit_terpilih);
-            if((tanggal_dari != undefined && tanggal_dari != "" && tanggal_dari != null)&&(sampai != undefined && sampai != "" && sampai != null)) {
-                pdf.text(20, 50, 'Berdasarkan Tanggal : '+tanggal_dari+' s/d '+sampai);
+            if(sampai != undefined && sampai != null && sampai != "") {
+                pdf.text(20, 50, 'Periode : '+sampai);
             }else{
-                pdf.text(20, 50, 'Berdasarkan Tanggal : -');
+                pdf.text(20, 50, 'Periode : -');
             }
             
             

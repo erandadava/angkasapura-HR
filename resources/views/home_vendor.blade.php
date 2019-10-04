@@ -130,7 +130,7 @@ html{
                 return e.karyawan_os_count;
         });
         if(status_unit_kerja==false){
-            $('.col-unit-kerja').hide();
+            $('.col-unit-kerja').remove();
         }
 		var chrtgender = new Chart(document.getElementById('chartGender'), {
                 type: 'pie',
@@ -185,6 +185,7 @@ html{
                 }
         });
 
+        if(status_unit_kerja!=false){
 		var chrtunit_kerja = new Chart(document.getElementById('chartUnitKerja'), {
                 type: 'horizontalBar',
                 data: {
@@ -212,7 +213,7 @@ html{
                     },
                 }
         });
-
+        }
 
 
         Chart.plugins.register({
@@ -241,14 +242,6 @@ html{
         //     pdf.save("CanvasJS Charts.pdf");
         // });
         // });
-        var tanggal_dari = $('#tgl-range').val();
-        var sampai = $('#tgl-range2').val();
-        var unit_terpilih = $('#unit_kerja').select2('data');
-        if(unit_terpilih[0].text == undefined || unit_terpilih[0].text == "" || unit_terpilih[0].text == null) {
-            unit_terpilih = "Semua";
-        }else{
-            unit_terpilih = unit_terpilih[0].text;
-        }
         $('#downloadPdf').click(function(event) {
             // get size of report page
             var reportPageHeight = $('#reportPage').innerHeight();
@@ -301,12 +294,6 @@ html{
             pdf.addImage(imgData, 'JPEG',300, 10, 80, 30);
             pdf.addImage($(pdfCanvas)[0].toDataURL(), 'JPEG', 20, 70);
             pdf.text(20, 30, 'Grafik Dashboard HR - Karyawan OS');
-            pdf.text(20, 40, 'Unit : '+unit_terpilih);
-            if((tanggal_dari != undefined && tanggal_dari != "" && tanggal_dari != null)&&(sampai != undefined && sampai != "" && sampai != null)) {
-                pdf.text(20, 50, 'Berdasarkan Tanggal : '+tanggal_dari+' s/d '+sampai);
-            }else{
-                pdf.text(20, 50, 'Berdasarkan Tanggal : -');
-            }
             
             
             // // download the pdf
