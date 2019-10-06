@@ -44,16 +44,16 @@
                 <div class="col-md-12 col-sm-12">
                     <table class="table table-striped table-bordered">
                         <thead>
-                            <th style='text-align:center'>
+                            {{-- <th style='text-align:center'>
                                 No
-                            </th>
-                            <th style='text-align:center'>
+                            </th> --}}
+                            <th style='text-align:center; width: 10em'>
                                 Nama Kelas Jabatan
                             </th>
                             {{-- <th style='text-align:center'>
                                 Jumlah Formasi
                             </th> --}}
-                            <th style='text-align:center'>
+                            <th style='text-align:center;'>
                                 Jumlah Eksisting
                             </th>
                             {{-- <th style='text-align:center'>
@@ -64,9 +64,9 @@
                             @foreach ($kelasjabatan as $key => $item)
                             @php $key++; @endphp
                                 <tr>
-                                    <td style='text-align:center'>
+                                    {{-- <td style='text-align:center'>
                                         {{$key}} 
-                                     </td>
+                                     </td> --}}
                                      <td style='text-align:center'>
                                          {{$item['nama_kj']}}
                                      </td>
