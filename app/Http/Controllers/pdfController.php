@@ -512,7 +512,7 @@ class pdfController extends Controller
         //         PDF::AddPage('L', 'A4');
         //         PDF::writeHTML($html_content, true, false, true, false, '');
         //         PDF::Output($tabel.time().'.pdf');
-        $pdf = \PDF::loadView('pdf.index',['head'=>$head,'title'=>$title,'value'=>$values]);
+        $pdf = \PDF::loadView('pdf.index_kar',['head'=>$head,'title'=>$title,'value'=>$values]);
         $pdf->setPaper('a4');
         $pdf->setOrientation('landscape');
         $pdf->setOption('disable-javascript', true);
