@@ -155,8 +155,8 @@ class unitkerjaController extends AppBaseController
                 ->rightJoin('tblunitkerja', 'tblkaryawan.id_unitkerja', '=', 'tblunitkerja.id')
                 ->where('tblunitkerja.id','=',$id)
                 ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
-                ->orderByRaw( 'length(tblklsjabatan.nama_kj)', 'DESC')          
-                ->orderBy('tblklsjabatan.nama_kj', 'ASC')
+                // ->orderByRaw( 'length(tblklsjabatan.nama_kj)', 'DESC')          
+                // ->orderBy('tblklsjabatan.nama_kj', 'ASC')
                 ->get();
                 // dd($kelas_jabatan_entry_date);
                 $kelas_jabatan_update_date= \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tbllogkaryawan.id) as jml_kls_jbt'))   
@@ -165,8 +165,8 @@ class unitkerjaController extends AppBaseController
                 ->where('tblunitkerja.id','=',$id)
                 ->where('tbllogkaryawan.is_active','=',1)
                 ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
-                ->orderBy('tblklsjabatan.nama_kj', 'ASC')
-                ->orderByRaw( 'length(tblklsjabatan.nama_kj)', 'DESC')
+                // ->orderBy('tblklsjabatan.nama_kj', 'ASC')
+                // ->orderByRaw( 'length(tblklsjabatan.nama_kj)', 'DESC')
                 ->get();
 
                 $this->data['kelasjabatan'] = [];
@@ -221,6 +221,41 @@ class unitkerjaController extends AppBaseController
             Flash::error('Formasi vs Eksisting not found');
 
             return redirect(route('unitkerjas.index'));
+        }
+
+        $kls_number = [];
+        $kls_alphabet = [];
+        // dd($this->data['kelasjabatan']);
+        foreach ($this->data['kelasjabatan'] as $key => $value) {
+            if (!((int)$value['nama_kj'])) {
+                array_push($kls_alphabet, $value);
+            } else {
+                array_push($kls_number, $value);
+            }  
+        }
+
+        //Sort Number dan Alphabet
+        $kls_number = collect($kls_number)->sortBy('nama_kj')->reverse()->toArray();
+        $kls_alphabet = collect($kls_alphabet)->sortBy('nama_kj')->toArray();
+
+        $this->data['kelasjabatan'] = [];
+
+        foreach ($kls_number as $key => $value) {
+            array_push($this->data['kelasjabatan'], $value);
+        }
+        
+        foreach ($kls_alphabet as $key => $value) {
+            array_push($this->data['kelasjabatan'], $value);
+        }
+
+        //Filter Double Field
+        foreach ($this->data['kelasjabatan'] as $key => $value) {
+            if($key>0){
+                if($this->data['kelasjabatan'][$key]['nama_kj'] == $this->data['kelasjabatan'][$key-1]['nama_kj']){
+                    $this->data['kelasjabatan'][$key-1]['jml_kls_jbt'] = (int) $this->data['kelasjabatan'][$key-1]['jml_kls_jbt'];
+                    unset($this->data['kelasjabatan'][$key-1]);
+                }
+            }
         }
 
         return view('unitkerjas.showformasi')->with($this->data);
