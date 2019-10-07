@@ -18,6 +18,7 @@ table{
 }
 td{
     border : 1px solid black;
+    height: 55px;
 }
 th{
     text-align:center;
@@ -80,6 +81,9 @@ table.paleBlueRows tfoot td {
 .row-title{
     padding-top: 5px;
 }
+.page-break {
+    page-break-after: always;
+}
 </style>
 <head>
 	<title>PDF</title>
@@ -98,32 +102,68 @@ table.paleBlueRows tfoot td {
             <h1 style="font-size:24pt">{{$title}}</h1>
             <small style="font-size:14pt">{!! \Carbon\Carbon::parse(\Carbon\Carbon::now())->formatLocalized('%d %B %Y'); !!}</small>
         </div>
-        <div class="col-sm-12">
-            <div class="table">
-                <table class="paleBlueRows" style="width:100%">
-                    <tr>
-                        <th>No</th>
-                        @foreach($head as $dt)
-                            <th>
-                                {{$dt}}
-                            </th>
-                        @endforeach
-                    </tr>
-                    <tbody>
-                        @foreach($value as $key => $dt)
-                            <tr>
-                            <td><center>{{$key+1}}</center></td>
-                                @foreach($dt as $key2 => $dt2)
-                                    <td>
-                                        {!! $dt2 !!}
-                                    </td>
-                                @endforeach
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+        @php
+            $breaknya = count($value)/10;
+            $data_break = 0;
+        @endphp
+        @for ($i = 0; $i < $breaknya; $i++)
+            <div class="col-sm-12">
+                <div class="table">
+                    <table class="paleBlueRows" style="width:100%">
+                        <tr>
+                            <th>No</th>
+                            @foreach($head as $dt)
+                                <th>
+                                    {{$dt}}
+                                </th>
+                            @endforeach
+                        </tr>
+                        <tbody>
+                            @foreach($value as $key => $dt)
+                                @if ($i == 0)
+                                    @if ($data_break == 0 && $key < 10)
+                                        <tr>
+                                        <td><center>{{$key+1}}</center></td>
+                                            @foreach($dt as $key2 => $dt2)
+                                                <td>
+                                                    {!! $dt2 !!}
+                                                </td>
+                                            @endforeach
+                                        </tr>
+                                    @else
+                                        @php
+                                            if($key == count($value) - 1){
+                                                $data_break = $data_break + 10;
+                                            }
+                                        @endphp
+                                    @endif
+                                @else 
+                                    @if ($data_break != 0 && $i > 0)
+                                        @if (($key == $data_break || $key > $data_break) && $key < $data_break+10)
+                                            <tr>
+                                            <td><center>{{$key+1}}</center></td>
+                                                @foreach($dt as $key2 => $dt2)
+                                                    <td>
+                                                        {!! $dt2 !!}
+                                                    </td>
+                                                @endforeach
+                                            </tr>
+                                        @else
+                                            @php
+                                                if($key == count($value) - 1){
+                                                    $data_break = $data_break + 10;
+                                                }
+                                            @endphp
+                                        @endif
+                                    @endif
+                                @endif
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
-        </div>
+            <div class="page-break"></div>
+        @endfor
     </div>
 </div>
     </div>
