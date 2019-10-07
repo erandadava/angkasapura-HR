@@ -79,8 +79,8 @@ class unitkerjaController extends AppBaseController
                 ->where('tblunitkerja.id','=',$id)
                 ->whereBetween('tblkaryawan.entry_date', [$dari, $sampai])
                 ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
-                ->orderBy('tblklsjabatan.nama_kj', 'ASC')
-                ->orderByRaw( 'length(tblklsjabatan.nama_kj)', 'DESC')
+                // ->orderBy('tblklsjabatan.nama_kj', 'ASC')
+                // ->orderByRaw( 'length(tblklsjabatan.nama_kj)', 'DESC')
                 ->get();
                 // dd($kelas_jabatan_entry_date);
                 $kelas_jabatan_update_date= \App\Models\klsjabatan::select('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh',\DB::raw('COUNT(tbllogkaryawan.id) as jml_kls_jbt'))   
@@ -90,8 +90,8 @@ class unitkerjaController extends AppBaseController
                 ->where('tbllogkaryawan.is_active','=',1)
                 ->whereBetween('tbllogkaryawan.update_date', [$dari, $sampai])
                 ->groupBy('tblklsjabatan.nama_kj','tblklsjabatan.jml_butuh')
-                ->orderByRaw( 'length(tblklsjabatan.nama_kj)', 'DESC')                
-                ->orderBy('tblklsjabatan.nama_kj', 'ASC')
+                // ->orderByRaw( 'length(tblklsjabatan.nama_kj)', 'DESC')                
+                // ->orderBy('tblklsjabatan.nama_kj', 'ASC')
                 ->get();
 
                 $this->data['kelasjabatan'] = [];
