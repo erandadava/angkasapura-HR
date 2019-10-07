@@ -57,6 +57,15 @@
     {!! Form::text('hasil', null, ['class' => 'form-control']) !!}
 </div>
 
+@hasrole('Vendor')
+    {!! Form::hidden('id_vendor_fk', $id_vendor_fk->id??'', ['class' => 'form-control']) !!}
+@else
+    <div class="form-group col-sm-6">
+        {!! Form::label('id_vendor_fk', 'Vendor:') !!}
+        {!! Form::select('id_vendor_fk', $vendor_os, null, ['class' => 'form-control']) !!}
+    </div>
+@endhasrole
+
 
 @if(isset($osperformance['filepenyelesaian']))
     <div class="form-group col-sm-12 col-lg-12">

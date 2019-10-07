@@ -29,6 +29,13 @@
             <p>{!! $osperformance->hasil !!}</p>
         </div>
     </div>
+
+    <div class="col-md-3">
+        <div class="form-group">
+            {!! Form::label('id_vendor', 'Nama Vendor:') !!}
+            <p>{!! $osperformance->vendor_os->nama_vendor??''!!}</p>
+        </div>
+    </div>
 </div>
 
 <div class="row">

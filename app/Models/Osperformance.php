@@ -37,7 +37,8 @@ class Osperformance extends Model
         'file_pelaporan',
         'tanggal_penyelesaian',
         'hasil',
-        'file_penyelesaian'
+        'id_vendor_fk',
+        'file_penyelesaian' 
     ];
 
     /**
@@ -47,6 +48,7 @@ class Osperformance extends Model
      */
     protected $casts = [
         'id' => 'integer',
+        'id_vendor_fk' => 'integer',
         'tanggal_pelaporan' => 'date',
         'keluhan' => 'string',
         'file_pelaporan' => 'string',
@@ -78,5 +80,10 @@ class Osperformance extends Model
             return unserialize($this->attributes['file_penyelesaian']);
         }
         return null;
+    }
+
+    public function vendor_os()
+    {
+        return $this->hasOne('App\Models\vendor_os', 'id', 'id_vendor_fk');
     }
 }

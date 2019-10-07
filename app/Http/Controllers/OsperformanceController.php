@@ -10,6 +10,9 @@ use App\Repositories\OsperformanceRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use Auth;
+use App\Models\vendor_os;
+
 
 class OsperformanceController extends AppBaseController
 {
@@ -19,6 +22,7 @@ class OsperformanceController extends AppBaseController
     public function __construct(OsperformanceRepository $osperformanceRepo)
     {
         $this->osperformanceRepository = $osperformanceRepo;
+        $this->data['vendor_os'] = vendor_os::where('is_active','=',1)->pluck('nama_vendor','id');
     }
 
     /**
@@ -39,7 +43,8 @@ class OsperformanceController extends AppBaseController
      */
     public function create()
     {
-        return view('osperformances.create');
+        $this->data['id_vendor_fk'] = \App\Models\vendor_os::where('email','=',Auth::user()->email)->first();
+        return view('osperformances.create')->with($this->data);
     }
 
     /**
@@ -105,6 +110,7 @@ class OsperformanceController extends AppBaseController
     public function edit($id)
     {
         $osperformance = $this->osperformanceRepository->findWithoutFail($id);
+        $this->data['id_vendor_fk'] = \App\Models\vendor_os::where('email','=',Auth::user()->email)->first();
 
         if (empty($osperformance)) {
             Flash::error('Osperformance not found');
@@ -112,7 +118,7 @@ class OsperformanceController extends AppBaseController
             return redirect(route('osperformances.index'));
         }
 
-        return view('osperformances.edit')->with('osperformance', $osperformance);
+        return view('osperformances.edit')->with('osperformance', $osperformance)->with($this->data);
     }
 
     /**
