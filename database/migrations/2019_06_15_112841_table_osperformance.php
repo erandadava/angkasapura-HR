@@ -15,6 +15,7 @@ class TableOsperformance extends Migration
     {
         Schema::create('tblosperformance', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('id_vendor_fk')->nullable();
             $table->date('tanggal_pelaporan')->nullable();
             $table->string('keluhan')->nullable();
             $table->longText('file_pelaporan')->nullable();

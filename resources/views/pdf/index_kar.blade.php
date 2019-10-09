@@ -99,8 +99,9 @@ table.paleBlueRows tfoot td {
         <div class="container">
     <div class="row">
         <div class='col-sm-12 row-title'>
-            <h1 style="font-size:24pt">{{$title}}</h1>
-            <small style="font-size:14pt">{!! \Carbon\Carbon::parse(\Carbon\Carbon::now())->formatLocalized('%d %B %Y'); !!}</small>
+            <h1 style="font-size:24pt;margin-bottom:-5px;">Daftar Nama {{$title}}</h1>
+            <h1 style="font-size:18pt">Kantor Cabang Utama Bandara Internasional Soekarno Hatta</h1>
+            <small style="font-size:14pt">{!! \Carbon\Carbon::parse(\Carbon\Carbon::now())->formatLocalized('%B %Y'); !!}</small>
         </div>
         @php
             $breaknya = count($value)/10;

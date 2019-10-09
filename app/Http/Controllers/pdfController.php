@@ -364,7 +364,7 @@ class pdfController extends Controller
                 }
                 
                 if(count($get) != 0 ){
-                    $total_hasil_kekuatan = round($hasil_kekuatan/count($get));
+                    $total_hasil_kekuatan = round($sum_eksis/$get->sum('jml_formasi')*100, 2);
                 }else{
                     $total_hasil_kekuatan = 0;
                 }
@@ -512,7 +512,7 @@ class pdfController extends Controller
         //         PDF::AddPage('L', 'A4');
         //         PDF::writeHTML($html_content, true, false, true, false, '');
         //         PDF::Output($tabel.time().'.pdf');
-        $pdf = \PDF::loadView('pdf.index',['head'=>$head,'title'=>$title,'value'=>$values]);
+        $pdf = \PDF::loadView('pdf.index_kar',['head'=>$head,'title'=>$title,'value'=>$values]);
         $pdf->setPaper('a4');
         $pdf->setOrientation('landscape');
         $pdf->setOption('disable-javascript', true);

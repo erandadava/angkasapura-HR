@@ -6,6 +6,8 @@ use App\Models\Osperformance;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
+use Auth;
+
 class OsperformanceDataTable extends DataTable
 {
     /**
@@ -29,7 +31,13 @@ class OsperformanceDataTable extends DataTable
      */
     public function query(Osperformance $model)
     {
-        return $model->newQuery();
+        $user = Auth::user();
+        $roles = $user->getRoleNames();
+        if($roles[0] == "Vendor"){
+            $id_vendor = \App\Models\vendor_os::where('email','=',$user->email)->first();
+            return $model->with(['vendor_os'])->where('id_vendor_fk','=',$id_vendor->id)->newQuery();
+        }
+        return $model->with(['vendor_os'])->newQuery();
     }
 
     /**
@@ -66,6 +74,7 @@ class OsperformanceDataTable extends DataTable
             'keluhan',
             'tanggal_penyelesaian',
             'hasil',
+            ['data'=>'vendor_os.nama_vendor','title'=>'Nama Vendor'],
         ];
     }
 

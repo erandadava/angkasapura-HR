@@ -255,86 +255,90 @@ class karyawanController extends AppBaseController
         $arruk = [];
         $arrberhasil = [];
         foreach ($csv as $row) {
-            $cek_jabatan = \App\Models\jabatan::where('nama_jabatan','=',$row['JABATAN'])->first();
-            if(empty($cek_jabatan)){
-                // $cek_jabatan = $this->jabatanRepository->create([
-                //     'nama_jabatan' => $row['JABATAN']
-                // ]);
-                array_push($arrjabatan, $row['JABATAN']);
-            }
+        //     $cek_jabatan = \App\Models\jabatan::where('nama_jabatan','=',$row['JABATAN'])->first();
+        //     if(empty($cek_jabatan)){
+        //         // $cek_jabatan = $this->jabatanRepository->create([
+        //         //     'nama_jabatan' => $row['JABATAN']
+        //         // ]);
+        //         array_push($arrjabatan, $row['JABATAN']);
+        //     }
 
-            $cek_uk = \App\Models\unitkerja::where('nama_uk','=',$row['UNIT KERJA'])->first();
-            if(empty($cek_uk)){
-                // $cek_uk = $this->unitkerjaRepository->create([
-                //     'nama_uk' => $row['UNIT KERJA']
-                // ]);
-                array_push($arruk, $row['UNIT KERJA']);
-            }
+        //     $cek_uk = \App\Models\unitkerja::where('nama_uk','=',$row['UNIT KERJA'])->first();
+        //     if(empty($cek_uk)){
+        //         // $cek_uk = $this->unitkerjaRepository->create([
+        //         //     'nama_uk' => $row['UNIT KERJA']
+        //         // ]);
+        //         array_push($arruk, $row['UNIT KERJA']);
+        //     }
 
-            $cek_fungsi = \App\Models\fungsi::where('nama_fungsi','=',$row['FUNGSI'])->first();
-            if(empty($cek_fungsi)){
-                // $cek_fungsi = $this->fungsiRepository->create([
-                //     'nama_fungsi' => $row['FUNGSI']
-                // ]);
-                array_push($arrfungsi, $row['FUNGSI']);
-            }
+        //     $cek_fungsi = \App\Models\fungsi::where('nama_fungsi','=',$row['FUNGSI'])->first();
+        //     if(empty($cek_fungsi)){
+        //         // $cek_fungsi = $this->fungsiRepository->create([
+        //         //     'nama_fungsi' => $row['FUNGSI']
+        //         // ]);
+        //         array_push($arrfungsi, $row['FUNGSI']);
+        //     }
 
-            $cek_klsjabatan = \App\Models\klsjabatan::where('nama_kj','=',$row['PG'])->first();
-            if(empty($cek_klsjabatan)){
-                // $cek_fungsi = $this->fungsiRepository->create([
-                //     'nama_fungsi' => $row['FUNGSI']
-                // ]);
-                array_push($arrklsjabatan, $row['PG']);
-            }
+        //     $cek_klsjabatan = \App\Models\klsjabatan::where('nama_kj','=',$row['PG'])->first();
+        //     if(empty($cek_klsjabatan)){
+        //         // $cek_fungsi = $this->fungsiRepository->create([
+        //         //     'nama_fungsi' => $row['FUNGSI']
+        //         // ]);
+        //         array_push($arrklsjabatan, $row['PG']);
+        //     }
 
-            if(!empty($cek_fungsi) && !empty($cek_uk) && !empty($cek_jabatan) && !empty($cek_klsjabatan)){
-                $input['nik'] = $row['NIK'];
-                $input['nama'] = $row['NAMA'];
-                $input['tgl_lahir'] = \Carbon\Carbon::parse($row['TGL LAHIR'])->format('Y-m-d H:i:s');
-                $input['rencana_mpp'] = \Carbon\Carbon::parse($row['RENCANA MPP'])->format('Y-m-d H:i:s');
-                $input['rencana_pensiun'] = \Carbon\Carbon::parse($row['RENCANA PENSIUN'])->format('Y-m-d H:i:s');
-                $input['gender'] = $row['JENIS KELAMIN'];
-                $input['pend_diakui'] = $row['PENDIDIKAN DIAKUI'];
-                $input['id_jabatan'] = $cek_jabatan['id'];
-                $input['id_unitkerja'] = $cek_uk['id'];
-                $input['id_fungsi'] = $cek_fungsi['id'];
-                $input['id_klsjabatan'] = $cek_klsjabatan['id'];
+        //     if(!empty($cek_fungsi) && !empty($cek_uk) && !empty($cek_jabatan) && !empty($cek_klsjabatan)){
+                $input['nik'] = $row['nik'];
+                $input['nama'] = $row['nama'];
+                $input['tgl_lahir'] = \Carbon\Carbon::parse($row['tgl_lahir'])->format('Y-m-d H:i:s');
+                $input['rencana_mpp'] = \Carbon\Carbon::parse($row['rencana_mpp'])->format('Y-m-d H:i:s');
+                $input['rencana_pensiun'] = \Carbon\Carbon::parse($row['rencana_pensiun'])->format('Y-m-d H:i:s');
+                $input['gender'] = $row['gender'];
+                $input['pend_diakui'] = $row['pend_diakui'];
+                $input['pend_milik'] = $row['pend_milik'];
+                $input['id_jabatan'] = $row['id_jabatan'];
+                $input['id_unitkerja'] = $row['id_unitkerja'];
+                $input['id_fungsi'] = $row['id_fungsi'];
+                $input['id_klsjabatan'] = $row['id_klsjabatan'];
+                $input['pend_akhir'] = $row['pend_diakui'];
 
                 $this->karyawanRepository->create($input);
 
                 array_push($arrberhasil, 'a');
-            }
+            // }
             
         }
 
-        if(empty($arrfungsi || $arrjabatan || $arruk || $arrklsjabatan)){
-            Flash::success('Import from CSV successfully.');
-        }else{
-            $gagal = count($arrfungsi) + count($arrjabatan) + count($arruk) + count($arrklsjabatan);
-            $teks = '<b>'.(String) count($arrberhasil)." Karyawan Created Successfully</b> </br> <b>".(String)$gagal." Karyawan Not Created Because : </b> </br> Jabatan Not Found: </br>";
-            foreach((array) array_unique($arrjabatan) as $dt){
-                $teks = $teks.', '.$dt;
-            }
+        // if(empty($arrfungsi || $arrjabatan || $arruk || $arrklsjabatan)){
+            
+        // }else{
+        //     $gagal = count($arrfungsi) + count($arrjabatan) + count($arruk) + count($arrklsjabatan);
+        //     $teks = '<b>'.(String) count($arrberhasil)." Karyawan Created Successfully</b> </br> <b>".(String)$gagal." Karyawan Not Created Because : </b> </br> Jabatan Not Found: </br>";
+        //     foreach((array) array_unique($arrjabatan) as $dt){
+        //         $teks = $teks.', '.$dt;
+        //     }
 
-            $teks = $teks.'</br> Fungsi Not Found: </br>';
-            foreach((array) array_unique($arrfungsi) as $dt){
-                $teks = $teks.', '.$dt;
-            }
+        //     $teks = $teks.'</br> Fungsi Not Found: </br>';
+        //     foreach((array) array_unique($arrfungsi) as $dt){
+        //         $teks = $teks.', '.$dt;
+        //     }
 
-            $teks = $teks.'</br> Unit Kerja Not Found : </br>';
-            foreach((array) array_unique($arruk) as $dt){
-                $teks = $teks.', '.$dt;
-            }
+        //     $teks = $teks.'</br> Unit Kerja Not Found : </br>';
+        //     foreach((array) array_unique($arruk) as $dt){
+        //         $teks = $teks.', '.$dt;
+        //     }
 
-            $teks = $teks.'</br> Kelas Jabatan Not Found : </br>';
-            foreach((array) array_unique($arrklsjabatan) as $dt){
-                $teks = $teks.', '.$dt;
-            }
-            Flash::info($teks);
-        }
+        //     $teks = $teks.'</br> Kelas Jabatan Not Found : </br>';
+        //     foreach((array) array_unique($arrklsjabatan) as $dt){
+        //         $teks = $teks.', '.$dt;
+        //     }
+        //     Flash::info($teks);
+        // }
         } catch (\Throwable $th) {
-            Flash::error('Terjadi Kesalahan ! </br> Pastikan File CSV Anda Sudah Benar </br> <small>Tips Jika File Sudah Benar: Pastikan Pada Header CSV Tidak Ada Yang Kosong</small>');
+            Flash::error('Terjadi Kesalahan ! </br> Pastikan File dan Data CSV Anda Sudah Benar </br> <small>Tips Jika File Sudah Benar: Pastikan Pada Header CSV Tidak Ada Yang Kosong</small>');
+            return redirect(route('karyawans.index'));
         }
+        Flash::success('Import from CSV successfully.');
         return redirect(route('karyawans.index'));
     }
 

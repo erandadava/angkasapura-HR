@@ -78,6 +78,10 @@ class vendor_os extends Model
         'is_active' => 'required',
     ];
 
+    public function osperformance()
+    {
+        return $this->hasMany('App\Models\Osperformance', 'id_vendor_fk', 'id');
+    }
 
     public function karyawan_os()
     {
