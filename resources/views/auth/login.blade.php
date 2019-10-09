@@ -47,16 +47,41 @@
 
 .sidenav {
     height: 100%;
-    background-color: #f7f7f7;
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(169,178,182,1) 100%);
     overflow-x: hidden;
     padding-top: 20px;
 }
 
 
 .main {
-    padding: 0px 10px;
+    padding: 0px 0px;
 }
 
+.logo-hr{
+    width: 35%;
+}
+input{
+    margin-top: 1%;
+}
+.form-control {
+    border-radius: 10px;
+}
+.div-teks{
+    color: white;
+    font-weight: bold;
+    margin-top: 5%;
+}
+.login-main-text img{
+        height: auto;
+        width: auto;
+}
+#main1{
+        display: none;
+}
+#main2{
+        display: block;
+}
 @media screen and (max-height: 450px) {
     .sidenav {padding-top: 15px;}
 }
@@ -69,6 +94,7 @@
     .register-form{
         margin-top: 10%;
     }
+
 }
 
 @media screen and (min-width: 768px){
@@ -85,18 +111,26 @@
     }
 
     .login-form{
-        margin-top: 80%;
+        margin-top: 50%;
     }
 
     .register-form{
         margin-top: 20%;
     }
+    .login-main-text img{
+    height: 100vh;
+}
+    #main2{
+        display: none;
+    }
+    #main1{
+        display: block;
+    }
 }
 
 
 .login-main-text{
-    margin-top: 20%;
-    padding: 60px;
+    padding-left: 60px;
     color: #005593;
 }
 
@@ -104,55 +138,73 @@
     font-weight: 300;
 }
 
+
 .btn-black{
-    background-color: #01558f !important;
+    background-color: #005399 !important;
     color: #fff;
     font-size: medium;
+    font-weight: bold;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 </style>
 
 </head>
 <body>
-
-<div class="sidenav">
-    <div class="login-main-text">
-        <img src="{{asset('img/logo-ap2.jpeg')}}" style="width: 100%;">
-        <h1>HR Management </h1>
-        <h3>Login Here</h3>
-    </div>
+<div class="main" id="main2">
+        <div class="login-main-text">
+                <img src="{{asset('img/right-background.png')}}" style="width: 100%;">
+            </div>
 </div>
-<div class="main">
-    <div class="col-md-6 col-sm-12">
-        <div class="login-form">
-            <form method="post" action="{{ url('/login') }}">
-                {!! csrf_field() !!}
-
-                <div class="form-group has-feedback {{ $errors->has('username') ? ' has-error' : '' }} ">
-                    <label style="color: #fff;">username</label>
-                    <input style="font-size:medium;" type="username" class="form-control" name="username" value="{{ old('username') }}" placeholder="username">
-                    @if ($errors->has('username'))
-                        <span class="help-block">
-                        <strong>{{ $errors->first('username') }}</strong>
-                        </span>
-                    @endif
+<div class="sidenav">
+        <div class="col-md-offset-2 col-md-8 col-sm-12">
+                <div class="login-form">
+                    <form method="post" action="{{ url('/login') }}">
+                        {!! csrf_field() !!}
+                        <div class="form-group">
+                            <center>
+                                    <img src="{{asset('img/logo_hr.png')}}" alt="logo" class="logo-hr" srcset="">
+                            </center>
+                        </div>
+                        <div class="form-group has-feedback {{ $errors->has('username') ? ' has-error' : '' }} ">
+                            {{-- <label style="color: #fff;">username</label> --}}
+                            <input style="font-size:medium;" type="username" class="form-control" name="username" value="{{ old('username') }}" placeholder="Username">
+                            <i class="glyphicon glyphicon-user form-control-feedback"></i>
+                            @if ($errors->has('username'))
+                                <span class="help-block">
+                                <strong>{{ $errors->first('username') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+        
+                        <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
+                            {{-- <label style="color: #fff;">Password</label> --}}
+                            <input style="font-size:medium;" type="password" class="form-control" placeholder="Password" name="password">
+                            <i class="glyphicon glyphicon-lock form-control-feedback"></i>
+                            @if ($errors->has('password'))
+                                <span class="help-block">
+                                <strong>{{ $errors->first('password') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        
+                        <button type="submit" class="btn btn-black">Log In</button>
+                       <!--  <button type="submit" class="btn btn-secondary">Register</button> -->
+                    
+                    </form>
                 </div>
-
-                <div class="form-group has-feedback{{ $errors->has('password') ? ' has-error' : '' }}">
-                    <label style="color: #fff;">Password</label>
-                    <input style="font-size:medium;" type="password" class="form-control" placeholder="Password" name="password">
-                    @if ($errors->has('password'))
-                        <span class="help-block">
-                        <strong>{{ $errors->first('password') }}</strong>
-                        </span>
-                    @endif
-                </div>
-                
-                <button type="submit" class="btn btn-black">Login</button>
-               <!--  <button type="submit" class="btn btn-secondary">Register</button> -->
-            
-            </form>
-        </div>
-    </div>
+            </div>
+            <div class="col-md-offset-2 col-md-8 col-sm-12 div-teks">
+                <center>
+                        <p>Soekarno-Hatta Internasional Airport</br>HRMS&copy;V.1 2019</p>
+                </center>
+            </div>
+    
+</div>
+<div class="main" id="main1">
+        <div class="login-main-text">
+                <img src="{{asset('img/right-background.png')}}" style="width: 100%;">
+            </div>
 </div>
 <!-- /.login-box -->
 
