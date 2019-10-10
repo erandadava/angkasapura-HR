@@ -29,7 +29,9 @@ class formasiExistingDataTable extends DataTable
                 return $query->whereBetween('update_date', [$dari, $sampai]);
             }])->get();
         }else{
-            $unit = \App\Models\unitkerja::withCount('karyawan')->get();
+            $unit = \App\Models\unitkerja::withCount(['karyawan' => function($query){
+                $query->doesnthave('log_karyawan');
+            }])->withCount('log_karyawan')->get();
         }
         
         $sum_eksis = 0 ;
