@@ -334,51 +334,54 @@ class karyawan_osController extends AppBaseController
             //     array_push($arruk, $row['UNIT KERJA']);
             // }
 
-            $cek_fungsi = \App\Models\fungsi::where('nama_fungsi','=',$row['FUNGSI'])->first();
-            if(empty($cek_fungsi)){
-                // $cek_fungsi = $this->fungsiRepository->create([
-                //     'nama_fungsi' => $row['FUNGSI']
-                // ]);
-                array_push($arrfungsi, $row['FUNGSI']);
-            }
-            if(!empty($cek_fungsi)){
-                $input['nama'] = $row['NAMA'];
-                $input['tgl_lahir'] = \Carbon\Carbon::parse($row['TTL'])->format('Y-m-d H:i:s');
-                if($row['JENIS KELAMIN']=="P"){
-                    $row['JENIS KELAMIN'] = 'Perempuan';
+            // $cek_fungsi = \App\Models\fungsi::where('nama_fungsi','=',$row['FUNGSI'])->first();
+            // if(empty($cek_fungsi)){
+            //     // $cek_fungsi = $this->fungsiRepository->create([
+            //     //     'nama_fungsi' => $row['FUNGSI']
+            //     // ]);
+            //     array_push($arrfungsi, $row['FUNGSI']);
+            // }
+            // if(!empty($cek_fungsi)){
+                $input['nama'] = $row['nama'];
+                $input['tgl_lahir'] = \Carbon\Carbon::parse($row['tgl_lahir'])->format('Y-m-d H:i:s');
+                if($row['gender']=="P"){
+                    $input['gender'] = 'Perempuan';
                 }else{
-                    $row['JENIS KELAMIN'] = 'Laki-laki';
+                    $input['gender'] = 'Laki-laki';
                 }
-                $input['gender'] = $row['JENIS KELAMIN'];
-                $input['id_fungsi'] = $cek_fungsi['id'];
+                $input['id_fungsi'] = $row['id_fungsi'];
+                $input['id_vendor'] = $row['id_vendor'];
+                $input['penempatan'] = $row['penempatan'];
+                // $input['gender'] = $row['gender'];
+                // $input['id_fungsi'] = $cek_fungsi['id'];
 
                 $this->karyawanOsRepository->create($input);
 
-                array_push($arrberhasil, 'a');
-            }
+                // array_push($arrberhasil, 'a');
+            // }
             
         }
 
-        if(empty($arrfungsi)){
+        // if(empty($arrfungsi)){
             Flash::success('Import from CSV successfully.');
-        }else{
-            $gagal = count($arrfungsi);
-            $teks = '<b>'.(String) count($arrberhasil)." Karyawan Ousourcing Created Successfully</b> </br> <b>".(String)$gagal." Karyawan Outsourcing Not Created Because : </b> </br> Fungsi Not Found: </br>";
-            // foreach((array) array_unique($arrjabatan) as $dt){
-            //     $teks = $teks.', '.$dt;
-            // }
+        // }else{
+        //     $gagal = count($arrfungsi);
+        //     $teks = '<b>'.(String) count($arrberhasil)." Karyawan Ousourcing Created Successfully</b> </br> <b>".(String)$gagal." Karyawan Outsourcing Not Created Because : </b> </br> Fungsi Not Found: </br>";
+        //     // foreach((array) array_unique($arrjabatan) as $dt){
+        //     //     $teks = $teks.', '.$dt;
+        //     // }
 
-            $teks = $teks.'</br> Fungsi Not Found: </br>';
-            foreach((array) array_unique($arrfungsi) as $dt){
-                $teks = $teks.', '.$dt;
-            }
+        //     $teks = $teks.'</br> Fungsi Not Found: </br>';
+        //     foreach((array) array_unique($arrfungsi) as $dt){
+        //         $teks = $teks.', '.$dt;
+        //     }
 
-            // $teks = $teks.'</br> Unit Kerja Not Found : </br>';
-            // foreach((array) array_unique($arruk) as $dt){
-            //     $teks = $teks.', '.$dt;
-            // }
-            Flash::info($teks);
-        }
+        //     // $teks = $teks.'</br> Unit Kerja Not Found : </br>';
+        //     // foreach((array) array_unique($arruk) as $dt){
+        //     //     $teks = $teks.', '.$dt;
+        //     // }
+        //     Flash::info($teks);
+        // }
         } catch (\Throwable $th) {
             Flash::error('Terjadi Kesalahan ! </br> Pastikan File CSV Anda Sudah Benar </br> <small>Tips Jika File Sudah Benar: Pastikan Pada Header CSV Tidak Ada Yang Kosong</small>');
         }
