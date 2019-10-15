@@ -352,6 +352,9 @@ class karyawan_osController extends AppBaseController
                 $input['id_fungsi'] = $row['id_fungsi'];
                 $input['id_vendor'] = $row['id_vendor'];
                 $input['penempatan'] = $row['penempatan'];
+                $input['is_active'] = $row['is_active'];
+                $input['tmt_awal_kontrak'] = $row['tmt_awal_kontrak'];
+                $input['tmt_akhir_kontrak'] = $row['tmt_akhir_kontrak'];
                 // $input['gender'] = $row['gender'];
                 // $input['id_fungsi'] = $cek_fungsi['id'];
 
