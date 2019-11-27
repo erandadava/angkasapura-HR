@@ -145,19 +145,21 @@ class karyawan_osController extends AppBaseController
         }
 
         $karyawanOs = $this->karyawanOsRepository->with(['fungsi','unitkerja','vendor'])->findWithoutFail($id);
-        $to = \Carbon\Carbon::createFromFormat('Y-m-d', $karyawanOs->tmt_akhir_kontrak);
-        $from = \Carbon\Carbon::createFromFormat('Y-m-d', $karyawanOs->tmt_awal_kontrak);
-        $diff_in_months = $to->diffInMonths($from);
-        $diff_in_year = $to->diffInYears($from);
-        // $dbDate = \Carbon\Carbon::parse($karyawanOs->tmt_awal_date);
-        // $diffYears = \Carbon\Carbon::parse($karyawanOs->tmt_akhir_date)->diffInYears($dbDate);
-        $karyawanOs['jangka_waktu_tmt'] = "";
-        if($diff_in_year != 0){
-            $karyawanOs['jangka_waktu_tmt'] = $diff_in_year.' Tahun '.$diff_in_months.' Bulan';
-        }else{
-            $karyawanOs['jangka_waktu_tmt'] = $diff_in_months.' Bulan';
+        if ($karyawanOs->tmt_akhir_kontrak != null && $karyawanOs->tmt_awal_kontrak != null) {
+            $to = \Carbon\Carbon::createFromFormat('Y-m-d', $karyawanOs->tmt_akhir_kontrak);
+            $from = \Carbon\Carbon::createFromFormat('Y-m-d', $karyawanOs->tmt_awal_kontrak);
+            $diff_in_months = $to->diffInMonths($from);
+            $diff_in_year = $to->diffInYears($from);
+            // $dbDate = \Carbon\Carbon::parse($karyawanOs->tmt_awal_date);
+            // $diffYears = \Carbon\Carbon::parse($karyawanOs->tmt_akhir_date)->diffInYears($dbDate);
+            $karyawanOs['jangka_waktu_tmt'] = "";
+            if($diff_in_year != 0){
+                $karyawanOs['jangka_waktu_tmt'] = $diff_in_year.' Tahun '.$diff_in_months.' Bulan';
+            }else{
+                $karyawanOs['jangka_waktu_tmt'] = $diff_in_months.' Bulan';
+            }
         }
-
+        
         if (empty($karyawanOs)) {
             Flash::error('Karyawan Os not found');
 
@@ -349,12 +351,12 @@ class karyawan_osController extends AppBaseController
                 }else{
                     $input['gender'] = 'Laki-laki';
                 }
-                $input['id_fungsi'] = $row['id_fungsi'];
-                $input['id_vendor'] = $row['id_vendor'];
-                $input['penempatan'] = $row['penempatan'];
-                $input['is_active'] = $row['is_active'];
-                $input['tmt_awal_kontrak'] = $row['tmt_awal_kontrak'];
-                $input['tmt_akhir_kontrak'] = $row['tmt_akhir_kontrak'];
+                $input['id_fungsi'] = $row['id_fungsi']??null;
+                $input['id_vendor'] = $row['id_vendor']??null;
+                $input['penempatan'] = $row['penempatan']??null;
+                $input['is_active'] = $row['is_active']??null;
+                $input['tmt_awal_kontrak'] = $row['tmt_awal_kontrak']??null;
+                $input['tmt_akhir_kontrak'] = $row['tmt_akhir_kontrak']??null;
                 // $input['gender'] = $row['gender'];
                 // $input['id_fungsi'] = $cek_fungsi['id'];
 

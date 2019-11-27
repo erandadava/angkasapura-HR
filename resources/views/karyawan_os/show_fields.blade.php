@@ -315,7 +315,9 @@
             <!-- Deleted At Field -->
             <div class="form-group">
                 {!! Form::label('tmt_awal_kontrak', 'TMT Awal Kontrak:') !!}
-                <p>{!!  \Carbon\Carbon::parse($karyawanOs->tmt_awal_kontrak)->formatLocalized('%d %B %Y'); !!}</p>
+                @if ($karyawanOs->tmt_awal_kontrak != null)
+                    <p>{!!  \Carbon\Carbon::parse($karyawanOs->tmt_awal_kontrak)->formatLocalized('%d %B %Y'); !!}</p>
+                @endif
             </div>
         </div>
         <div class="col-md-3">
@@ -323,7 +325,9 @@
                 <!-- Deleted At Field -->
                 <div class="form-group">
                     {!! Form::label('tmt_akhir_kontrak', 'TMT Akhir Kontrak:') !!}
-                    <p>{!!  \Carbon\Carbon::parse($karyawanOs->tmt_akhir_kontrak)->formatLocalized('%d %B %Y'); !!}</p>
+                    @if ($karyawanOs->tmt_akhir_kontrak != null)
+                        <p>{!!  \Carbon\Carbon::parse($karyawanOs->tmt_akhir_kontrak)->formatLocalized('%d %B %Y'); !!}</p>
+                    @endif
                 </div>
             </div>
     <div class="col-md-3">
