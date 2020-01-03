@@ -300,6 +300,7 @@ class karyawanController extends AppBaseController
                 $input['id_unitkerja'] = $row['id_unitkerja'];
                 $input['id_fungsi'] = $row['id_fungsi'];
                 $input['id_klsjabatan'] = $row['id_klsjabatan'];
+                $input['id_tipe_kar'] = $row['id_tipe_kar'];
                 $input['pend_akhir'] = $row['pend_diakui'];
 
                 $this->karyawanRepository->create($input);
