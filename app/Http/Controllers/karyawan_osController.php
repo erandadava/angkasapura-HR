@@ -351,6 +351,7 @@ class karyawan_osController extends AppBaseController
                 }else{
                     $input['gender'] = 'Laki-laki';
                 }
+                $input['nik'] = $row['nik']??null;
                 $input['id_fungsi'] = $row['id_fungsi']??null;
                 $input['id_vendor'] = $row['id_vendor']??null;
                 $input['penempatan'] = $row['penempatan']??null;

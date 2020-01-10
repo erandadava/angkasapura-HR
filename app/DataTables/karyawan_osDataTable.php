@@ -71,6 +71,7 @@ class karyawan_osDataTable extends DataTable
     {
         return [
             ['data'=>'id','title'=>'id','visible'=>false],
+            ['data'=>'nik','title'=>'NIK'],
             ['data'=>'nama','title'=>'Nama'],
             ['data'=>'fungsi.nama_fungsi','title'=>'Fungsi'],
             ['data'=>'unitkerja.nama_uk','title'=>'Unit Kerja'],

@@ -45,6 +45,7 @@ class karyawan_os extends Model
 
 
     public $fillable = [
+        'nik',
         'nama',
         'id_fungsi',
         'id_vendor',
