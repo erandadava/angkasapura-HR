@@ -345,7 +345,7 @@ class karyawan_osController extends AppBaseController
             // }
             // if(!empty($cek_fungsi)){
                 $input['nama'] = $row['nama'];
-                $input['tgl_lahir'] = \Carbon\Carbon::parse($row['tgl_lahir'])->format('Y-m-d H:i:s');
+                $input['tgl_lahir'] = $row['tgl_lahir'] ? \Carbon\Carbon::parse($row['tgl_lahir'])->format('Y-m-d H:i:s'):null;
                 if($row['gender']=="P"){
                     $input['gender'] = 'Perempuan';
                 }else{
@@ -353,11 +353,24 @@ class karyawan_osController extends AppBaseController
                 }
                 $input['nik'] = $row['nik']??null;
                 $input['id_fungsi'] = $row['id_fungsi']??null;
+                $input['id_unitkerja'] = $row['id_unitkerja']??null;
                 $input['id_vendor'] = $row['id_vendor']??null;
                 $input['penempatan'] = $row['penempatan']??null;
+                $input['pend_akhir'] = $row['pend_akhir']??null;
+                $input['no_bpjs_tk'] = $row['no_bpjs_tk']??null;
+                $input['no_bpjs_kesehatan'] = $row['no_bpjs_kesehatan']??null;
+                $input['lisensi'] = $row['lisensi']??null;
+                $input['no_lisensi'] = $row['no_lisensi']??null;
+                $input['jangka_waktu'] = $row['jangka_waktu']??null;
+                $input['no_kontrak_kerja'] = $row['no_kontrak_kerja']??null;
+                $input['jurusan'] = $row['jurusan']??null;
+                $input['mulai_masa_berlaku_lisensi'] = $row['mulai_masa_berlaku_lisensi'] ? \Carbon\Carbon::parse($row['mulai_masa_berlaku_lisensi']??null)->format('Y-m-d H:i:s'):null;
+                $input['selesai_masa_berlaku_lisensi'] = $row['selesai_masa_berlaku_lisensi'] ? \Carbon\Carbon::parse($row['selesai_masa_berlaku_lisensi']??null)->format('Y-m-d H:i:s'):null;
+
+
                 $input['is_active'] = $row['is_active']??null;
-                $input['tmt_awal_kontrak'] = $row['tmt_awal_kontrak']??null;
-                $input['tmt_akhir_kontrak'] = $row['tmt_akhir_kontrak']??null;
+                $input['tmt_awal_kontrak'] = $row['tmt_awal_kontrak'] ? \Carbon\Carbon::parse($row['tmt_awal_kontrak']??null)->format('Y-m-d H:i:s'):null;
+                $input['tmt_akhir_kontrak'] = $row['tmt_akhir_kontrak'] ? \Carbon\Carbon::parse($row['tmt_akhir_kontrak']??null)->format('Y-m-d H:i:s'):null;
                 // $input['gender'] = $row['gender'];
                 // $input['id_fungsi'] = $cek_fungsi['id'];
 
