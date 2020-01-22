@@ -319,6 +319,7 @@ class karyawan_osController extends AppBaseController
         $arrjabatan = [];
         $arruk = [];
         $arrberhasil = [];
+        $nikdouble=[];
         foreach ($csv as $row) {
             // $cek_jabatan = \App\Models\jabatan::where('nama_jabatan','=',$row['JABATAN'])->first();
             // if(empty($cek_jabatan)){
@@ -343,7 +344,9 @@ class karyawan_osController extends AppBaseController
             //     // ]);
             //     array_push($arrfungsi, $row['FUNGSI']);
             // }
-            // if(!empty($cek_fungsi)){
+
+            $cek_nik = \App\Models\karyawan_os::where('nik','=',$row['nik'])->first();
+            if(!$cek_nik){
                 $input['nama'] = $row['nama'];
                 $input['tgl_lahir'] = $row['tgl_lahir'] ? \Carbon\Carbon::parse($row['tgl_lahir'])->format('Y-m-d H:i:s'):null;
                 if($row['gender']=="P"){
@@ -377,12 +380,21 @@ class karyawan_osController extends AppBaseController
                 $this->karyawanOsRepository->create($input);
 
                 // array_push($arrberhasil, 'a');
-            // }
+            }else{
+                array_push($nikdouble, $row['nik']);
+            }
             
         }
 
-        // if(empty($arrfungsi)){
+        if(empty($cek_nik)){
             Flash::success('Import from CSV successfully.');
+        }else{
+            $text_warning_nik = "";
+            foreach ($nikdouble as $key => $value) {
+                $text_warning_nik = $text_warning_nik.$value.", ";
+            }
+            Flash::warning('Import from CSV successfully.</br></br><b>Warning</b></br>NIK '.$text_warning_nik." Not Created Because NIK Already Exists");
+        }
         // }else{
         //     $gagal = count($arrfungsi);
         //     $teks = '<b>'.(String) count($arrberhasil)." Karyawan Ousourcing Created Successfully</b> </br> <b>".(String)$gagal." Karyawan Outsourcing Not Created Because : </b> </br> Fungsi Not Found: </br>";
