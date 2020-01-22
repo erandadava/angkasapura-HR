@@ -68,6 +68,15 @@ class karyawan_osController extends AppBaseController
     public function store(Createkaryawan_osRequest $request)
     {
         $input = $request->all();
+
+        $cek_nik = \App\Models\karyawan_os::where('nik','=',$request->nik)->first();
+        if($cek_nik){
+            // Flash::error('NIK Sudah Ada');
+
+            // return redirect(route('karyawanOs.index')); 
+            return \Redirect::back()->withInput($request->all())->withErrors(['Error', 'NIK Sudah Ada']);
+        }
+
         if ($request->doc_no_bpjs_tk) {
             $doc_no_bpjs_tk=[];
             foreach ($request->doc_no_bpjs_tk as $key => $photo) {
@@ -203,12 +212,23 @@ class karyawan_osController extends AppBaseController
     {
         $karyawanOs = $this->karyawanOsRepository->findWithoutFail($id);
 
+        
         if (empty($karyawanOs)) {
             Flash::error('Karyawan Os not found');
 
             return redirect(route('karyawanOs.index'));
         }
+
         $input = $request->all();
+
+        $cek_nik = \App\Models\karyawan_os::where('nik','=',$karyawanOs->nik)->first();
+        if($cek_nik && $input['nik'] != $karyawanOs->nik){
+            // Flash::error('NIK Sudah Ada');
+
+            // return redirect(route('karyawanOs.index')); 
+            return \Redirect::back()->withInput($request->all())->withErrors(['Error', 'NIK Sudah Ada']);
+        }
+
         if(isset($input['ganti_doc_bpjs_tk'])){
             $input['doc_no_bpjs_tk'] = serialize($this->update_dokumen($id,'doc_no_bpjs_tk',$input['doc_no_bpjs_tk'],$karyawanOs->doc_no_bpjs_tk));
         }else{
