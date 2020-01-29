@@ -394,6 +394,7 @@ class karyawan_osController extends AppBaseController
                 $input['is_active'] = $row['is_active']??null;
                 $input['tmt_awal_kontrak'] = $row['tmt_awal_kontrak'] ? \Carbon\Carbon::parse($row['tmt_awal_kontrak']??null)->format('Y-m-d H:i:s'):null;
                 $input['tmt_akhir_kontrak'] = $row['tmt_akhir_kontrak'] ? \Carbon\Carbon::parse($row['tmt_akhir_kontrak']??null)->format('Y-m-d H:i:s'):null;
+                $input['is_active'] = "A";
                 // $input['gender'] = $row['gender'];
                 // $input['id_fungsi'] = $cek_fungsi['id'];
 

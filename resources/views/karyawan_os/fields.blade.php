@@ -6,7 +6,7 @@
 
 <div class="form-group col-sm-6">
     {!! Form::label('nik', 'NIK:') !!}
-    {!! Form::number('nik', null, ['class' => 'form-control']) !!}
+    {!! Form::text('nik', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Id Fungsi Field -->
