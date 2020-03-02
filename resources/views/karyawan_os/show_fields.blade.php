@@ -2,6 +2,13 @@
     <div class="col-md-3">
         <!-- Nama Field -->
         <div class="form-group">
+            {!! Form::label('nik', 'NIK:') !!}
+            <p>{!! $karyawanOs->nik !!}</p>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <!-- Nama Field -->
+        <div class="form-group">
             {!! Form::label('nama', 'Nama:') !!}
             <p>{!! $karyawanOs->nama !!}</p>
         </div>
@@ -20,14 +27,14 @@
             <p>{!! $karyawanOs->unitkerja->nama_uk??''!!}</p>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-md-3">
         <div class="form-group">
             {!! Form::label('id_vendor', 'Nama Vendor:') !!}
             <p>{!! $karyawanOs->vendor->nama_vendor??''!!}</p>
         </div>
     </div>
-</div>
-<div class="row">
     <div class="col-md-3">
         <!-- Tgl Lahir Field -->
         <div class="form-group">
@@ -56,6 +63,8 @@
             <p>{!! $karyawanOs->no_bpjs_tk !!}</p>
         </div>
     </div>
+</div>
+<div class="row">
     <div class="col-md-3">
         <!-- No Bpjs Tk Field -->
         <div class="form-group">

@@ -18,9 +18,17 @@ class karyawan_osDataTable extends DataTable
     {
         $dataTable = new EloquentDataTable($query);
 
-        return $dataTable->addColumn('action', 'karyawan_os.datatables_actions')->with('all_data', function() use ($query) {
+        return $dataTable->addColumn('action', 'karyawan_os.datatables_actions')
+        ->editColumn('is_active', function ($inquiry) {
+            if ($inquiry->is_active == 'A') return "<span class='label label-success'>Aktif</span>";
+            if ($inquiry->is_active == 'R') return "<span class='label label-danger'>Ditolak</span>";
+            if ($inquiry->is_active == 'N') return "<span class='label label-warning'>Non-Aktif</span>";
+            if ($inquiry->status_pensiun == null) return "<span class='label label-default'>Menunggu Persetujuan</span>";
+        })
+        ->with('all_data', function() use ($query) {
             return $query->get();
-        });
+        })
+        ->rawColumns(['is_active','action']);
     }
 
     /**
@@ -71,12 +79,14 @@ class karyawan_osDataTable extends DataTable
     {
         return [
             ['data'=>'id','title'=>'id','visible'=>false],
+            ['data'=>'nik','title'=>'NIK'],
             ['data'=>'nama','title'=>'Nama'],
             ['data'=>'fungsi.nama_fungsi','title'=>'Fungsi'],
             ['data'=>'unitkerja.nama_uk','title'=>'Unit Kerja'],
             ['data'=>'tgl_lahir','title'=>'Tanggal Lahir'],
             ['data'=>'gender','title'=>'Jenis Kelamin'],
             ['data'=>'vendor.nama_vendor','title'=>'Nama Vendor'],
+            ['data'=>'is_active','title'=>'Status'],
             // ['data'=>'penempatan','title'=>'Penempatan'],
         ];
     }

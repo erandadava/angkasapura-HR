@@ -158,7 +158,6 @@ html{
                 }
                 return e.karyawan_os_count;
         });
-
         var data_vendor = {!!$data_vendor!!};
 		var label_data_vendor = $.map(data_vendor, function(e) {
                 return e.nama_vendor;

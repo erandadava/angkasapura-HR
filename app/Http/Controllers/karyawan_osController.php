@@ -68,6 +68,15 @@ class karyawan_osController extends AppBaseController
     public function store(Createkaryawan_osRequest $request)
     {
         $input = $request->all();
+
+        $cek_nik = \App\Models\karyawan_os::where('nik','=',$request->nik)->first();
+        if($cek_nik){
+            // Flash::error('NIK Sudah Ada');
+
+            // return redirect(route('karyawanOs.index')); 
+            return \Redirect::back()->withInput($request->all())->withErrors(['Error', 'NIK Sudah Ada']);
+        }
+
         if ($request->doc_no_bpjs_tk) {
             $doc_no_bpjs_tk=[];
             foreach ($request->doc_no_bpjs_tk as $key => $photo) {
@@ -203,12 +212,23 @@ class karyawan_osController extends AppBaseController
     {
         $karyawanOs = $this->karyawanOsRepository->findWithoutFail($id);
 
+        
         if (empty($karyawanOs)) {
             Flash::error('Karyawan Os not found');
 
             return redirect(route('karyawanOs.index'));
         }
+
         $input = $request->all();
+
+        $cek_nik = \App\Models\karyawan_os::where('nik','=',$karyawanOs->nik)->first();
+        if($cek_nik && $input['nik'] != $karyawanOs->nik){
+            // Flash::error('NIK Sudah Ada');
+
+            // return redirect(route('karyawanOs.index')); 
+            return \Redirect::back()->withInput($request->all())->withErrors(['Error', 'NIK Sudah Ada']);
+        }
+
         if(isset($input['ganti_doc_bpjs_tk'])){
             $input['doc_no_bpjs_tk'] = serialize($this->update_dokumen($id,'doc_no_bpjs_tk',$input['doc_no_bpjs_tk'],$karyawanOs->doc_no_bpjs_tk));
         }else{
@@ -319,6 +339,7 @@ class karyawan_osController extends AppBaseController
         $arrjabatan = [];
         $arruk = [];
         $arrberhasil = [];
+        $nikdouble=[];
         foreach ($csv as $row) {
             // $cek_jabatan = \App\Models\jabatan::where('nama_jabatan','=',$row['JABATAN'])->first();
             // if(empty($cek_jabatan)){
@@ -343,32 +364,58 @@ class karyawan_osController extends AppBaseController
             //     // ]);
             //     array_push($arrfungsi, $row['FUNGSI']);
             // }
-            // if(!empty($cek_fungsi)){
+
+            $cek_nik = \App\Models\karyawan_os::where('nik','=',$row['nik'])->first();
+            if(!$cek_nik){
                 $input['nama'] = $row['nama'];
-                $input['tgl_lahir'] = \Carbon\Carbon::parse($row['tgl_lahir'])->format('Y-m-d H:i:s');
+                $input['tgl_lahir'] = $row['tgl_lahir'] ? \Carbon\Carbon::parse($row['tgl_lahir'])->format('Y-m-d H:i:s'):null;
                 if($row['gender']=="P"){
                     $input['gender'] = 'Perempuan';
                 }else{
                     $input['gender'] = 'Laki-laki';
                 }
+                $input['nik'] = $row['nik']??null;
                 $input['id_fungsi'] = $row['id_fungsi']??null;
+                $input['id_unitkerja'] = $row['id_unitkerja']??null;
                 $input['id_vendor'] = $row['id_vendor']??null;
                 $input['penempatan'] = $row['penempatan']??null;
+                $input['pend_akhir'] = $row['pend_akhir']??null;
+                $input['no_bpjs_tk'] = $row['no_bpjs_tk']??null;
+                $input['no_bpjs_kesehatan'] = $row['no_bpjs_kesehatan']??null;
+                $input['lisensi'] = $row['lisensi']??null;
+                $input['no_lisensi'] = $row['no_lisensi']??null;
+                $input['jangka_waktu'] = $row['jangka_waktu']??null;
+                $input['no_kontrak_kerja'] = $row['no_kontrak_kerja']??null;
+                $input['jurusan'] = $row['jurusan']??null;
+                $input['mulai_masa_berlaku_lisensi'] = $row['mulai_masa_berlaku_lisensi'] ? \Carbon\Carbon::parse($row['mulai_masa_berlaku_lisensi']??null)->format('Y-m-d H:i:s'):null;
+                $input['selesai_masa_berlaku_lisensi'] = $row['selesai_masa_berlaku_lisensi'] ? \Carbon\Carbon::parse($row['selesai_masa_berlaku_lisensi']??null)->format('Y-m-d H:i:s'):null;
+
+
                 $input['is_active'] = $row['is_active']??null;
-                $input['tmt_awal_kontrak'] = $row['tmt_awal_kontrak']??null;
-                $input['tmt_akhir_kontrak'] = $row['tmt_akhir_kontrak']??null;
+                $input['tmt_awal_kontrak'] = $row['tmt_awal_kontrak'] ? \Carbon\Carbon::parse($row['tmt_awal_kontrak']??null)->format('Y-m-d H:i:s'):null;
+                $input['tmt_akhir_kontrak'] = $row['tmt_akhir_kontrak'] ? \Carbon\Carbon::parse($row['tmt_akhir_kontrak']??null)->format('Y-m-d H:i:s'):null;
+                $input['is_active'] = "A";
                 // $input['gender'] = $row['gender'];
                 // $input['id_fungsi'] = $cek_fungsi['id'];
 
                 $this->karyawanOsRepository->create($input);
 
                 // array_push($arrberhasil, 'a');
-            // }
+            }else{
+                array_push($nikdouble, $row['nik']);
+            }
             
         }
 
-        // if(empty($arrfungsi)){
+        if(empty($cek_nik)){
             Flash::success('Import from CSV successfully.');
+        }else{
+            $text_warning_nik = "";
+            foreach ($nikdouble as $key => $value) {
+                $text_warning_nik = $text_warning_nik.$value.", ";
+            }
+            Flash::warning('Import from CSV successfully.</br></br><b>Warning</b></br>NIK '.$text_warning_nik." Not Created Because NIK Already Exists");
+        }
         // }else{
         //     $gagal = count($arrfungsi);
         //     $teks = '<b>'.(String) count($arrberhasil)." Karyawan Ousourcing Created Successfully</b> </br> <b>".(String)$gagal." Karyawan Outsourcing Not Created Because : </b> </br> Fungsi Not Found: </br>";
