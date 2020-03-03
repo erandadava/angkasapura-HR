@@ -394,11 +394,15 @@ class karyawan_osController extends AppBaseController
                 $input['is_active'] = $row['is_active']??null;
                 $input['tmt_awal_kontrak'] = $row['tmt_awal_kontrak'] ? \Carbon\Carbon::parse($row['tmt_awal_kontrak']??null)->format('Y-m-d H:i:s'):null;
                 $input['tmt_akhir_kontrak'] = $row['tmt_akhir_kontrak'] ? \Carbon\Carbon::parse($row['tmt_akhir_kontrak']??null)->format('Y-m-d H:i:s'):null;
-                $input['is_active'] = "A";
+                $input['is_active'] = $row['is_active']??null;
                 // $input['gender'] = $row['gender'];
                 // $input['id_fungsi'] = $cek_fungsi['id'];
 
-                $this->karyawanOsRepository->create($input);
+                $karyawanOs= $this->karyawanOsRepository->create($input);
+
+                if($karyawanOs->is_active == null){
+                    $this->notifikasiController->create_notifikasi("KARYAWAN_OS", $karyawanOs->is_active,$karyawanOs->id,$karyawanOs->id_vendor);
+                }
 
                 // array_push($arrberhasil, 'a');
             }else{
@@ -437,6 +441,13 @@ class karyawan_osController extends AppBaseController
         } catch (\Throwable $th) {
             Flash::error('Terjadi Kesalahan ! </br> Pastikan File CSV Anda Sudah Benar </br> <small>Tips Jika File Sudah Benar: Pastikan Pada Header CSV Tidak Ada Yang Kosong</small>');
         }
+
+        // //Check karyawan os null
+        // $nullkaryawan = \App\Models\karyawan_os::where('is_active','=',null)->get();
+        // foreach($nullkaryawan as $karyawanOs){
+        //     $this->notifikasiController->create_notifikasi("KARYAWAN_OS", $karyawanOs->is_active,$karyawanOs->id,$karyawanOs->id_vendor);
+        // }
+
         return redirect(route('karyawanOs.index'));
     }
 

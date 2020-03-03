@@ -15,6 +15,7 @@ use Auth;
 use App\Models\karyawan_os;
 use App\Models\vendor_os;
 use App\Models\log_karyawan;
+use App\Http\Controllers\notifikasiController;
 
 class HomeController extends Controller
 {
@@ -23,12 +24,14 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    private $notifikasiController;
+    public function __construct(notifikasiController $notifikasiControl)
     {
         $this->data['data_fungsi'] = fungsi::pluck('nama_fungsi','id');
         $this->data['data_unit_kerja'] = unitkerja::pluck('nama_uk','id');
         $this->data['data_vendor_os'] = vendor_os::where('is_active','=',1)->pluck('nama_vendor','id');
         $this->middleware('auth');
+        $this->notifikasiController = $notifikasiControl;
         $karyawan = \DB::table('tblkaryawan')
                   ->where([['tgl_aktif_pensiun', '=' ,\Carbon\Carbon::now()->format('Y-m-d')],['status_pensiun','=','M']])
                   ->orWhere([['tgl_aktif_pensiun', '<=' ,\Carbon\Carbon::now()->format('Y-m-d')],['status_pensiun','=','M']])
@@ -41,6 +44,13 @@ class HomeController extends Controller
                   ->where('id','=',$dt->id)
                   ->update(['status_pensiun' => 'A']);
         }
+
+        //Check karyawan os null
+        // $nullkaryawan = \App\Models\karyawan_os::where('is_active','=',null)->get();
+        // foreach($nullkaryawan as $karyawanOs){
+        //     $this->notifikasiController->create_notifikasi("KARYAWAN_OS", $karyawanOs->is_active,$karyawanOs->id,$karyawanOs->id_vendor);
+        // }
+        
     }
 
     /**
