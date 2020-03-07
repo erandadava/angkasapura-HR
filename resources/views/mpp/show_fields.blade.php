@@ -103,7 +103,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     {!! Form::label('tgl_aktif_pensiun', 'Tanggal Aktif Pensiun:') !!}
-                    <p>{!!  \Carbon\Carbon::parse($karyawan->tgl_aktif_pensiun)->formatLocalized('%d %B %Y'); !!}</p>
+                    <p>{!!  \Carbon\Carbon::parse($karyawan->rencana_pensiun)->formatLocalized('%d %B %Y'); !!}</p>
 
                 </div>
             </div>
